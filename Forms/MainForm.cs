@@ -20,9 +20,20 @@ namespace Taller_2_Gestor.Forms
         {
             InitializeComponent();
             _session = session;
+            Text = "Taller 2 Gestor — Menú";
         }
 
         private void MainForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ContentHost_Paint(object sender, PaintEventArgs e)
         {
 
         }
