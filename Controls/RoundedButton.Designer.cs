@@ -1,6 +1,6 @@
-﻿namespace Taller_2_Gestor.Views
+﻿namespace Taller_2_Gestor.Controls
 {
-    partial class ClientesView
+    partial class RoundedButton
     {
         /// <summary> 
         /// Variable del diseñador necesaria.
@@ -30,12 +30,12 @@
         {
             SuspendLayout();
             // 
-            // ClientesView
+            // RoundedButton
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            Name = "ClientesView";
-            Load += ClientesView_Load;
+            Name = "RoundedButton";
+            Load += RoundedButton_Load;
             ResumeLayout(false);
         }
 
