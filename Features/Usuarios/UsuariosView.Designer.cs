@@ -53,8 +53,13 @@ namespace Taller_2_Gestor.Views
             pEditarUsuario = new Panel();
             bEditar = new RoundedButton();
             bGuardarExistente = new RoundedButton();
+            panel9 = new Panel();
+            bCambiarContrasena = new RoundedButton();
+            bGuardarContrasena = new RoundedButton();
             pEliminarUsuario = new Panel();
             bEliminar = new RoundedButton();
+            panel10 = new Panel();
+            bCancelar = new RoundedButton();
             flowLayoutPanel2 = new FlowLayoutPanel();
             panel1 = new Panel();
             lId = new Label();
@@ -76,9 +81,17 @@ namespace Taller_2_Gestor.Views
             roundedPanel6 = new RoundedPanel();
             cbRol = new ComboBox();
             lRol = new Label();
-            chbActivo = new CheckBox();
             panel6 = new Panel();
             lActivo = new Label();
+            chbActivo = new CheckBox();
+            panel7 = new Panel();
+            pContrasena = new RoundedPanel();
+            tbContrasena = new TextBox();
+            lContrasena = new Label();
+            panel8 = new Panel();
+            pCContrasena = new RoundedPanel();
+            tbCContrasena = new TextBox();
+            lCContrasena = new Label();
             tlpViews.SuspendLayout();
             rpFiltro.SuspendLayout();
             rpBarraBusqueda.SuspendLayout();
@@ -87,7 +100,9 @@ namespace Taller_2_Gestor.Views
             flowLayoutPanel1.SuspendLayout();
             pNuevoUsuario.SuspendLayout();
             pEditarUsuario.SuspendLayout();
+            panel9.SuspendLayout();
             pEliminarUsuario.SuspendLayout();
+            panel10.SuspendLayout();
             flowLayoutPanel2.SuspendLayout();
             panel1.SuspendLayout();
             roundedPanel2.SuspendLayout();
@@ -100,6 +115,10 @@ namespace Taller_2_Gestor.Views
             panel5.SuspendLayout();
             roundedPanel6.SuspendLayout();
             panel6.SuspendLayout();
+            panel7.SuspendLayout();
+            pContrasena.SuspendLayout();
+            panel8.SuspendLayout();
+            pCContrasena.SuspendLayout();
             SuspendLayout();
             // 
             // tlpViews
@@ -275,7 +294,9 @@ namespace Taller_2_Gestor.Views
             // 
             flowLayoutPanel1.Controls.Add(pNuevoUsuario);
             flowLayoutPanel1.Controls.Add(pEditarUsuario);
+            flowLayoutPanel1.Controls.Add(panel9);
             flowLayoutPanel1.Controls.Add(pEliminarUsuario);
+            flowLayoutPanel1.Controls.Add(panel10);
             flowLayoutPanel1.Dock = DockStyle.Fill;
             flowLayoutPanel1.Location = new Point(3, 380);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
@@ -295,30 +316,35 @@ namespace Taller_2_Gestor.Views
             // bGuardarNuevo
             // 
             bGuardarNuevo.BackColor = Color.FromArgb(40, 40, 40);
+            bGuardarNuevo.Dock = DockStyle.Fill;
             bGuardarNuevo.FlatAppearance.BorderSize = 0;
             bGuardarNuevo.FlatStyle = FlatStyle.Flat;
             bGuardarNuevo.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             bGuardarNuevo.ForeColor = Color.Gainsboro;
-            bGuardarNuevo.Location = new Point(3, -1);
+            bGuardarNuevo.Location = new Point(0, 0);
             bGuardarNuevo.Name = "bGuardarNuevo";
-            bGuardarNuevo.Size = new Size(176, 34);
+            bGuardarNuevo.Size = new Size(182, 32);
             bGuardarNuevo.TabIndex = 1;
             bGuardarNuevo.Text = "Guardar";
             bGuardarNuevo.UseVisualStyleBackColor = false;
+            bGuardarNuevo.Visible = false;
+            bGuardarNuevo.Click += bGuardarNuevo_Click;
             // 
             // bNuevoUsuario
             // 
             bNuevoUsuario.BackColor = Color.FromArgb(40, 40, 40);
+            bNuevoUsuario.Dock = DockStyle.Fill;
             bNuevoUsuario.FlatAppearance.BorderSize = 0;
             bNuevoUsuario.FlatStyle = FlatStyle.Flat;
             bNuevoUsuario.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             bNuevoUsuario.ForeColor = Color.Gainsboro;
-            bNuevoUsuario.Location = new Point(3, 0);
+            bNuevoUsuario.Location = new Point(0, 0);
             bNuevoUsuario.Name = "bNuevoUsuario";
-            bNuevoUsuario.Size = new Size(176, 34);
+            bNuevoUsuario.Size = new Size(182, 32);
             bNuevoUsuario.TabIndex = 0;
             bNuevoUsuario.Text = "Nuevo Usuario";
             bNuevoUsuario.UseVisualStyleBackColor = false;
+            bNuevoUsuario.Click += bNuevoUsuario_Click;
             // 
             // pEditarUsuario
             // 
@@ -332,35 +358,80 @@ namespace Taller_2_Gestor.Views
             // bEditar
             // 
             bEditar.BackColor = Color.FromArgb(40, 40, 40);
+            bEditar.Dock = DockStyle.Fill;
             bEditar.FlatAppearance.BorderSize = 0;
             bEditar.FlatStyle = FlatStyle.Flat;
             bEditar.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             bEditar.ForeColor = Color.Gainsboro;
-            bEditar.Location = new Point(3, -1);
+            bEditar.Location = new Point(0, 0);
             bEditar.Name = "bEditar";
-            bEditar.Size = new Size(176, 34);
+            bEditar.Size = new Size(182, 32);
             bEditar.TabIndex = 3;
             bEditar.Text = "Editar Usuario";
             bEditar.UseVisualStyleBackColor = false;
+            bEditar.Click += bEditar_Click;
             // 
             // bGuardarExistente
             // 
             bGuardarExistente.BackColor = Color.FromArgb(40, 40, 40);
+            bGuardarExistente.Dock = DockStyle.Fill;
             bGuardarExistente.FlatAppearance.BorderSize = 0;
             bGuardarExistente.FlatStyle = FlatStyle.Flat;
             bGuardarExistente.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             bGuardarExistente.ForeColor = Color.Gainsboro;
-            bGuardarExistente.Location = new Point(3, 0);
+            bGuardarExistente.Location = new Point(0, 0);
             bGuardarExistente.Name = "bGuardarExistente";
-            bGuardarExistente.Size = new Size(176, 34);
+            bGuardarExistente.Size = new Size(182, 32);
             bGuardarExistente.TabIndex = 2;
             bGuardarExistente.Text = "Guardar";
             bGuardarExistente.UseVisualStyleBackColor = false;
+            bGuardarExistente.Visible = false;
+            bGuardarExistente.Click += bGuardarExistente_Click;
+            // 
+            // panel9
+            // 
+            panel9.Controls.Add(bCambiarContrasena);
+            panel9.Controls.Add(bGuardarContrasena);
+            panel9.Location = new Point(411, 3);
+            panel9.Name = "panel9";
+            panel9.Size = new Size(189, 31);
+            panel9.TabIndex = 3;
+            // 
+            // bCambiarContrasena
+            // 
+            bCambiarContrasena.BackColor = Color.FromArgb(40, 40, 40);
+            bCambiarContrasena.Dock = DockStyle.Fill;
+            bCambiarContrasena.FlatAppearance.BorderSize = 0;
+            bCambiarContrasena.FlatStyle = FlatStyle.Flat;
+            bCambiarContrasena.ForeColor = Color.Gainsboro;
+            bCambiarContrasena.Location = new Point(0, 0);
+            bCambiarContrasena.Name = "bCambiarContrasena";
+            bCambiarContrasena.Size = new Size(189, 31);
+            bCambiarContrasena.TabIndex = 0;
+            bCambiarContrasena.Text = "Cambiar Contraseña";
+            bCambiarContrasena.UseVisualStyleBackColor = false;
+            bCambiarContrasena.Click += bCambiarContrasena_Click;
+            // 
+            // bGuardarContrasena
+            // 
+            bGuardarContrasena.BackColor = Color.FromArgb(40, 40, 40);
+            bGuardarContrasena.Dock = DockStyle.Fill;
+            bGuardarContrasena.FlatAppearance.BorderSize = 0;
+            bGuardarContrasena.FlatStyle = FlatStyle.Flat;
+            bGuardarContrasena.ForeColor = Color.Gainsboro;
+            bGuardarContrasena.Location = new Point(0, 0);
+            bGuardarContrasena.Name = "bGuardarContrasena";
+            bGuardarContrasena.Size = new Size(189, 31);
+            bGuardarContrasena.TabIndex = 4;
+            bGuardarContrasena.Text = "Guardar";
+            bGuardarContrasena.UseVisualStyleBackColor = false;
+            bGuardarContrasena.Visible = false;
+            bGuardarContrasena.Click += bGuardarContrasena_Click;
             // 
             // pEliminarUsuario
             // 
             pEliminarUsuario.Controls.Add(bEliminar);
-            pEliminarUsuario.Location = new Point(411, 3);
+            pEliminarUsuario.Location = new Point(606, 3);
             pEliminarUsuario.Name = "pEliminarUsuario";
             pEliminarUsuario.Size = new Size(182, 32);
             pEliminarUsuario.TabIndex = 2;
@@ -369,16 +440,41 @@ namespace Taller_2_Gestor.Views
             // 
             bEliminar.BackColor = Color.White;
             bEliminar.BackNormal = Color.FromArgb(162, 46, 46);
+            bEliminar.Dock = DockStyle.Fill;
             bEliminar.FlatAppearance.BorderSize = 0;
             bEliminar.FlatStyle = FlatStyle.Flat;
             bEliminar.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             bEliminar.ForeColor = Color.Gainsboro;
-            bEliminar.Location = new Point(3, -2);
+            bEliminar.Location = new Point(0, 0);
             bEliminar.Name = "bEliminar";
-            bEliminar.Size = new Size(176, 34);
+            bEliminar.Size = new Size(182, 32);
             bEliminar.TabIndex = 4;
             bEliminar.Text = "Eliminar Usuario";
             bEliminar.UseVisualStyleBackColor = false;
+            // 
+            // panel10
+            // 
+            panel10.Controls.Add(bCancelar);
+            panel10.Location = new Point(794, 3);
+            panel10.Name = "panel10";
+            panel10.Size = new Size(159, 32);
+            panel10.TabIndex = 4;
+            // 
+            // bCancelar
+            // 
+            bCancelar.BackColor = Color.FromArgb(40, 40, 40);
+            bCancelar.Dock = DockStyle.Fill;
+            bCancelar.FlatAppearance.BorderSize = 0;
+            bCancelar.FlatStyle = FlatStyle.Flat;
+            bCancelar.ForeColor = Color.Gainsboro;
+            bCancelar.Location = new Point(0, 0);
+            bCancelar.Name = "bCancelar";
+            bCancelar.Size = new Size(159, 32);
+            bCancelar.TabIndex = 0;
+            bCancelar.Text = "Cancelar";
+            bCancelar.UseVisualStyleBackColor = false;
+            bCancelar.Visible = false;
+            bCancelar.Click += bCancelar_Click;
             // 
             // flowLayoutPanel2
             // 
@@ -388,6 +484,8 @@ namespace Taller_2_Gestor.Views
             flowLayoutPanel2.Controls.Add(panel4);
             flowLayoutPanel2.Controls.Add(panel5);
             flowLayoutPanel2.Controls.Add(panel6);
+            flowLayoutPanel2.Controls.Add(panel7);
+            flowLayoutPanel2.Controls.Add(panel8);
             flowLayoutPanel2.Dock = DockStyle.Fill;
             flowLayoutPanel2.Location = new Point(35, 433);
             flowLayoutPanel2.Margin = new Padding(35, 15, 3, 3);
@@ -440,7 +538,7 @@ namespace Taller_2_Gestor.Views
             panel2.Controls.Add(lMail);
             panel2.Location = new Point(113, 3);
             panel2.Name = "panel2";
-            panel2.Size = new Size(243, 67);
+            panel2.Size = new Size(297, 67);
             panel2.TabIndex = 2;
             // 
             // roundedPanel3
@@ -450,7 +548,7 @@ namespace Taller_2_Gestor.Views
             roundedPanel3.Controls.Add(tbMail);
             roundedPanel3.Location = new Point(3, 25);
             roundedPanel3.Name = "roundedPanel3";
-            roundedPanel3.Size = new Size(234, 39);
+            roundedPanel3.Size = new Size(291, 39);
             roundedPanel3.TabIndex = 1;
             // 
             // tbMail
@@ -459,9 +557,9 @@ namespace Taller_2_Gestor.Views
             tbMail.BorderStyle = BorderStyle.None;
             tbMail.Location = new Point(5, 7);
             tbMail.Name = "tbMail";
-            tbMail.Size = new Size(189, 24);
+            tbMail.ReadOnly = true;
+            tbMail.Size = new Size(283, 24);
             tbMail.TabIndex = 0;
-            tbMail.Text = "Mail@mail.com";
             // 
             // lMail
             // 
@@ -477,7 +575,7 @@ namespace Taller_2_Gestor.Views
             // 
             panel3.Controls.Add(roundedPanel4);
             panel3.Controls.Add(lNombre);
-            panel3.Location = new Point(362, 3);
+            panel3.Location = new Point(416, 3);
             panel3.Name = "panel3";
             panel3.Size = new Size(171, 67);
             panel3.TabIndex = 3;
@@ -498,9 +596,9 @@ namespace Taller_2_Gestor.Views
             tbNombre.BorderStyle = BorderStyle.None;
             tbNombre.Location = new Point(5, 7);
             tbNombre.Name = "tbNombre";
+            tbNombre.ReadOnly = true;
             tbNombre.Size = new Size(132, 24);
             tbNombre.TabIndex = 0;
-            tbNombre.Text = "Valentin Ignacio";
             // 
             // lNombre
             // 
@@ -516,7 +614,7 @@ namespace Taller_2_Gestor.Views
             // 
             panel4.Controls.Add(roundedPanel5);
             panel4.Controls.Add(lApellido);
-            panel4.Location = new Point(539, 3);
+            panel4.Location = new Point(593, 3);
             panel4.Name = "panel4";
             panel4.Size = new Size(201, 67);
             panel4.TabIndex = 4;
@@ -537,9 +635,9 @@ namespace Taller_2_Gestor.Views
             tbApellido.BorderStyle = BorderStyle.None;
             tbApellido.Location = new Point(5, 7);
             tbApellido.Name = "tbApellido";
+            tbApellido.ReadOnly = true;
             tbApellido.Size = new Size(180, 24);
             tbApellido.TabIndex = 0;
-            tbApellido.Text = "Alegre Perez Konrazki";
             // 
             // lApellido
             // 
@@ -555,7 +653,7 @@ namespace Taller_2_Gestor.Views
             // 
             panel5.Controls.Add(roundedPanel6);
             panel5.Controls.Add(lRol);
-            panel5.Location = new Point(746, 3);
+            panel5.Location = new Point(3, 76);
             panel5.Name = "panel5";
             panel5.Size = new Size(201, 67);
             panel5.TabIndex = 5;
@@ -567,17 +665,18 @@ namespace Taller_2_Gestor.Views
             roundedPanel6.Controls.Add(cbRol);
             roundedPanel6.Location = new Point(3, 25);
             roundedPanel6.Name = "roundedPanel6";
-            roundedPanel6.Size = new Size(153, 39);
+            roundedPanel6.Size = new Size(191, 39);
             roundedPanel6.TabIndex = 1;
             // 
             // cbRol
             // 
             cbRol.BackColor = Color.FromArgb(51, 77, 53);
+            cbRol.Enabled = false;
             cbRol.FlatStyle = FlatStyle.Flat;
             cbRol.FormattingEnabled = true;
             cbRol.Location = new Point(6, 3);
             cbRol.Name = "cbRol";
-            cbRol.Size = new Size(147, 33);
+            cbRol.Size = new Size(182, 33);
             cbRol.TabIndex = 0;
             // 
             // lRol
@@ -590,21 +689,11 @@ namespace Taller_2_Gestor.Views
             lRol.TabIndex = 0;
             lRol.Text = "Rol";
             // 
-            // chbActivo
-            // 
-            chbActivo.AutoSize = true;
-            chbActivo.Location = new Point(23, 28);
-            chbActivo.Name = "chbActivo";
-            chbActivo.Size = new Size(22, 21);
-            chbActivo.TabIndex = 6;
-            chbActivo.UseVisualStyleBackColor = true;
-            chbActivo.CheckedChanged += checkBox1_CheckedChanged;
-            // 
             // panel6
             // 
             panel6.Controls.Add(lActivo);
             panel6.Controls.Add(chbActivo);
-            panel6.Location = new Point(3, 76);
+            panel6.Location = new Point(210, 76);
             panel6.Name = "panel6";
             panel6.Size = new Size(77, 67);
             panel6.TabIndex = 6;
@@ -618,6 +707,100 @@ namespace Taller_2_Gestor.Views
             lActivo.Size = new Size(71, 25);
             lActivo.TabIndex = 0;
             lActivo.Text = "Activo";
+            // 
+            // chbActivo
+            // 
+            chbActivo.AutoSize = true;
+            chbActivo.Enabled = false;
+            chbActivo.Location = new Point(23, 28);
+            chbActivo.Name = "chbActivo";
+            chbActivo.Size = new Size(22, 21);
+            chbActivo.TabIndex = 6;
+            chbActivo.UseVisualStyleBackColor = true;
+            chbActivo.CheckedChanged += checkBox1_CheckedChanged;
+            // 
+            // panel7
+            // 
+            panel7.Controls.Add(pContrasena);
+            panel7.Controls.Add(lContrasena);
+            panel7.Location = new Point(293, 76);
+            panel7.Name = "panel7";
+            panel7.Size = new Size(243, 67);
+            panel7.TabIndex = 3;
+            // 
+            // pContrasena
+            // 
+            pContrasena.BackColor = Color.FromArgb(51, 77, 53);
+            pContrasena.BorderSize = 4F;
+            pContrasena.Controls.Add(tbContrasena);
+            pContrasena.Location = new Point(3, 25);
+            pContrasena.Name = "pContrasena";
+            pContrasena.Size = new Size(234, 39);
+            pContrasena.TabIndex = 1;
+            pContrasena.Visible = false;
+            // 
+            // tbContrasena
+            // 
+            tbContrasena.BackColor = Color.FromArgb(51, 77, 53);
+            tbContrasena.BorderStyle = BorderStyle.None;
+            tbContrasena.Location = new Point(5, 7);
+            tbContrasena.Name = "tbContrasena";
+            tbContrasena.Size = new Size(189, 24);
+            tbContrasena.TabIndex = 0;
+            tbContrasena.Visible = false;
+            // 
+            // lContrasena
+            // 
+            lContrasena.AutoSize = true;
+            lContrasena.Font = new Font("Segoe UI Black", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lContrasena.Location = new Point(3, 0);
+            lContrasena.Name = "lContrasena";
+            lContrasena.Size = new Size(111, 25);
+            lContrasena.TabIndex = 0;
+            lContrasena.Text = "Contraseña";
+            lContrasena.Visible = false;
+            lContrasena.Click += label2_Click_3;
+            // 
+            // panel8
+            // 
+            panel8.Controls.Add(pCContrasena);
+            panel8.Controls.Add(lCContrasena);
+            panel8.Location = new Point(542, 76);
+            panel8.Name = "panel8";
+            panel8.Size = new Size(243, 67);
+            panel8.TabIndex = 3;
+            // 
+            // pCContrasena
+            // 
+            pCContrasena.BackColor = Color.FromArgb(51, 77, 53);
+            pCContrasena.BorderSize = 4F;
+            pCContrasena.Controls.Add(tbCContrasena);
+            pCContrasena.Location = new Point(3, 25);
+            pCContrasena.Name = "pCContrasena";
+            pCContrasena.Size = new Size(234, 39);
+            pCContrasena.TabIndex = 1;
+            pCContrasena.Visible = false;
+            // 
+            // tbCContrasena
+            // 
+            tbCContrasena.BackColor = Color.FromArgb(51, 77, 53);
+            tbCContrasena.BorderStyle = BorderStyle.None;
+            tbCContrasena.Location = new Point(5, 7);
+            tbCContrasena.Name = "tbCContrasena";
+            tbCContrasena.Size = new Size(189, 24);
+            tbCContrasena.TabIndex = 0;
+            tbCContrasena.Visible = false;
+            // 
+            // lCContrasena
+            // 
+            lCContrasena.AutoSize = true;
+            lCContrasena.Font = new Font("Segoe UI Black", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lCContrasena.Location = new Point(3, 0);
+            lCContrasena.Name = "lCContrasena";
+            lCContrasena.Size = new Size(206, 25);
+            lCContrasena.TabIndex = 0;
+            lCContrasena.Text = "Confirmar Contraseña";
+            lCContrasena.Visible = false;
             // 
             // UsuariosView
             // 
@@ -639,7 +822,9 @@ namespace Taller_2_Gestor.Views
             flowLayoutPanel1.ResumeLayout(false);
             pNuevoUsuario.ResumeLayout(false);
             pEditarUsuario.ResumeLayout(false);
+            panel9.ResumeLayout(false);
             pEliminarUsuario.ResumeLayout(false);
+            panel10.ResumeLayout(false);
             flowLayoutPanel2.ResumeLayout(false);
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
@@ -662,8 +847,18 @@ namespace Taller_2_Gestor.Views
             roundedPanel6.ResumeLayout(false);
             panel6.ResumeLayout(false);
             panel6.PerformLayout();
+            panel7.ResumeLayout(false);
+            panel7.PerformLayout();
+            pContrasena.ResumeLayout(false);
+            pContrasena.PerformLayout();
+            panel8.ResumeLayout(false);
+            panel8.PerformLayout();
+            pCContrasena.ResumeLayout(false);
+            pCContrasena.PerformLayout();
             ResumeLayout(false);
         }
+
+
 
         #endregion
 
@@ -716,5 +911,18 @@ namespace Taller_2_Gestor.Views
         private CheckBox chbActivo;
         private Panel panel6;
         private Label lActivo;
+        private Panel panel7;
+        private RoundedPanel pContrasena;
+        private TextBox tbContrasena;
+        private Label lContrasena;
+        private Panel panel8;
+        private RoundedPanel pCContrasena;
+        private TextBox tbCContrasena;
+        private Label lCContrasena;
+        private Panel panel9;
+        private RoundedButton bCambiarContrasena;
+        private RoundedButton bGuardarContrasena;
+        private Panel panel10;
+        private RoundedButton bCancelar;
     }
 }

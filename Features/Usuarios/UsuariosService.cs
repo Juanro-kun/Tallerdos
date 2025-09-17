@@ -24,5 +24,13 @@ namespace Taller_2_Gestor.Features.Usuarios
                       .Include(u => u.RolNavigation) // trae también el Rol
                       .ToList();
         }
+
+        public List<Rol> ListarRoles()
+        {
+            return _db.Rols               
+                     .AsNoTracking()
+                     .OrderBy(r => r.Nombre)
+                     .ToList();
+        }
     }
 }
