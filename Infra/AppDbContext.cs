@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
+using Taller_2_Gestor.Domain.Entities;
 
-namespace Taller_2_Gestor.Data.EF;
+namespace Taller_2_Gestor.Infra;
 
 public partial class AppDbContext : DbContext
 {

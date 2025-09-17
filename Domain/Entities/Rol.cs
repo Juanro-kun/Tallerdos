@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Taller_2_Gestor.Data.EF;
+namespace Taller_2_Gestor.Domain.Entities;
 
 public partial class Rol
 {

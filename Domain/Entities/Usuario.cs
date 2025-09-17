@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Taller_2_Gestor.Data.EF;
+namespace Taller_2_Gestor.Domain.Entities;
 
 public partial class Usuario
 {
@@ -20,4 +20,6 @@ public partial class Usuario
     public bool Active { get; set; }
 
     public virtual Rol RolNavigation { get; set; } = null!;
+
+    public string RolNombre => RolNavigation != null ? RolNavigation.Nombre : string.Empty;
 }

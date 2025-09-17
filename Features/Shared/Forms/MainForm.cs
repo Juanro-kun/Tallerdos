@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Taller_2_Gestor.Domain;
+using Taller_2_Gestor.Views;
 using static System.Collections.Specialized.BitVector32;
 
 namespace Taller_2_Gestor.Forms
@@ -23,6 +24,15 @@ namespace Taller_2_Gestor.Forms
             Text = "Taller 2 Gestor — Menú";
         }
 
+        private void CargarUsuariosView()
+        {
+            ContentHost.Controls.Clear();              // limpiás lo que había
+            var view = new UsuariosView();              // creás la vista
+            view.Dock = DockStyle.Fill;                 // que llene el panel
+            ContentHost.Controls.Add(view);            // la metés al panel
+            view.BringToFront();
+        }
+
         private void MainForm_Load(object sender, EventArgs e)
         {
 
@@ -30,7 +40,7 @@ namespace Taller_2_Gestor.Forms
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            CargarUsuariosView();
         }
 
         private void ContentHost_Paint(object sender, PaintEventArgs e)
