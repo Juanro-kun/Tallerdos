@@ -158,6 +158,7 @@
             bPresupuestos.Text = "Presupuestos";
             bPresupuestos.TextAlign = ContentAlignment.MiddleLeft;
             bPresupuestos.UseVisualStyleBackColor = false;
+            bPresupuestos.Click += bPresupuestos_Click;
             // 
             // bOrdenes
             // 

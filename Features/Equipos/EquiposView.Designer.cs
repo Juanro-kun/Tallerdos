@@ -31,6 +31,31 @@
             tableLayoutPanel1 = new TableLayoutPanel();
             roundedPanel7 = new Taller_2_Gestor.Features.Shared.Controls.RoundedPanel();
             dataGridView1 = new DataGridView();
+            dataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn2 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn3 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn4 = new DataGridViewTextBoxColumn();
+            flowLayoutPanel2 = new FlowLayoutPanel();
+            panel1 = new Panel();
+            lId = new Label();
+            roundedPanel2 = new Taller_2_Gestor.Features.Shared.Controls.RoundedPanel();
+            lIdContenido = new Label();
+            panel2 = new Panel();
+            label2 = new Label();
+            roundedPanel3 = new Taller_2_Gestor.Features.Shared.Controls.RoundedPanel();
+            label3 = new Label();
+            panel5 = new Panel();
+            roundedPanel6 = new Taller_2_Gestor.Features.Shared.Controls.RoundedPanel();
+            cbRol = new ComboBox();
+            lRol = new Label();
+            panel3 = new Panel();
+            roundedPanel4 = new Taller_2_Gestor.Features.Shared.Controls.RoundedPanel();
+            comboBox2 = new ComboBox();
+            label4 = new Label();
+            panel4 = new Panel();
+            roundedPanel5 = new Taller_2_Gestor.Features.Shared.Controls.RoundedPanel();
+            comboBox3 = new ComboBox();
+            label5 = new Label();
             flowLayoutPanel1 = new FlowLayoutPanel();
             pNuevoUsuario = new Panel();
             bGuardarNuevo = new Taller_2_Gestor.Features.Shared.Controls.RoundedButton();
@@ -51,45 +76,12 @@
             comboBox1 = new ComboBox();
             lFiltro = new Label();
             label1 = new Label();
-            dataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn2 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn3 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn4 = new DataGridViewTextBoxColumn();
-            panel1 = new Panel();
-            roundedPanel2 = new Taller_2_Gestor.Features.Shared.Controls.RoundedPanel();
-            lIdContenido = new Label();
-            lId = new Label();
-            flowLayoutPanel2 = new FlowLayoutPanel();
-            panel2 = new Panel();
-            label2 = new Label();
-            roundedPanel3 = new Taller_2_Gestor.Features.Shared.Controls.RoundedPanel();
-            label3 = new Label();
-            panel5 = new Panel();
-            roundedPanel6 = new Taller_2_Gestor.Features.Shared.Controls.RoundedPanel();
-            cbRol = new ComboBox();
-            lRol = new Label();
-            panel3 = new Panel();
-            roundedPanel4 = new Taller_2_Gestor.Features.Shared.Controls.RoundedPanel();
-            comboBox2 = new ComboBox();
-            label4 = new Label();
-            panel4 = new Panel();
-            roundedPanel5 = new Taller_2_Gestor.Features.Shared.Controls.RoundedPanel();
-            comboBox3 = new ComboBox();
-            label5 = new Label();
             tableLayoutPanel1.SuspendLayout();
             roundedPanel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
-            flowLayoutPanel1.SuspendLayout();
-            pNuevoUsuario.SuspendLayout();
-            pEliminarEquipo.SuspendLayout();
-            panel10.SuspendLayout();
-            roundedPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvUsuarios).BeginInit();
-            rpBarraBusqueda.SuspendLayout();
-            rpFiltro.SuspendLayout();
+            flowLayoutPanel2.SuspendLayout();
             panel1.SuspendLayout();
             roundedPanel2.SuspendLayout();
-            flowLayoutPanel2.SuspendLayout();
             panel2.SuspendLayout();
             roundedPanel3.SuspendLayout();
             panel5.SuspendLayout();
@@ -98,6 +90,14 @@
             roundedPanel4.SuspendLayout();
             panel4.SuspendLayout();
             roundedPanel5.SuspendLayout();
+            flowLayoutPanel1.SuspendLayout();
+            pNuevoUsuario.SuspendLayout();
+            pEliminarEquipo.SuspendLayout();
+            panel10.SuspendLayout();
+            roundedPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvUsuarios).BeginInit();
+            rpBarraBusqueda.SuspendLayout();
+            rpFiltro.SuspendLayout();
             SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -154,6 +154,268 @@
             dataGridView1.Size = new Size(665, 142);
             dataGridView1.TabIndex = 0;
             // 
+            // dataGridViewTextBoxColumn1
+            // 
+            dataGridViewTextBoxColumn1.DataPropertyName = "idUsuario";
+            dataGridViewTextBoxColumn1.HeaderText = "IDPresupuesto";
+            dataGridViewTextBoxColumn1.MinimumWidth = 8;
+            dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            dataGridViewTextBoxColumn2.DataPropertyName = "Mail";
+            dataGridViewTextBoxColumn2.HeaderText = "Precio";
+            dataGridViewTextBoxColumn2.MinimumWidth = 8;
+            dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            dataGridViewTextBoxColumn3.DataPropertyName = "Nombre";
+            dataGridViewTextBoxColumn3.HeaderText = "Servicio";
+            dataGridViewTextBoxColumn3.MinimumWidth = 8;
+            dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            dataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            dataGridViewTextBoxColumn4.DataPropertyName = "Apellido";
+            dataGridViewTextBoxColumn4.HeaderText = "IDOrden";
+            dataGridViewTextBoxColumn4.MinimumWidth = 8;
+            dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            dataGridViewTextBoxColumn4.ReadOnly = true;
+            // 
+            // flowLayoutPanel2
+            // 
+            flowLayoutPanel2.Controls.Add(panel1);
+            flowLayoutPanel2.Controls.Add(panel2);
+            flowLayoutPanel2.Controls.Add(panel5);
+            flowLayoutPanel2.Controls.Add(panel3);
+            flowLayoutPanel2.Controls.Add(panel4);
+            flowLayoutPanel2.Dock = DockStyle.Fill;
+            flowLayoutPanel2.Location = new Point(24, 274);
+            flowLayoutPanel2.Margin = new Padding(24, 9, 2, 2);
+            flowLayoutPanel2.Name = "flowLayoutPanel2";
+            flowLayoutPanel2.Size = new Size(681, 47);
+            flowLayoutPanel2.TabIndex = 7;
+            // 
+            // panel1
+            // 
+            panel1.Controls.Add(lId);
+            panel1.Controls.Add(roundedPanel2);
+            panel1.Location = new Point(2, 2);
+            panel1.Margin = new Padding(2);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(73, 40);
+            panel1.TabIndex = 0;
+            // 
+            // lId
+            // 
+            lId.AutoSize = true;
+            lId.Font = new Font("Segoe UI Black", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lId.Location = new Point(2, 0);
+            lId.Margin = new Padding(2, 0, 2, 0);
+            lId.Name = "lId";
+            lId.Size = new Size(62, 15);
+            lId.TabIndex = 0;
+            lId.Text = "IdEquipo";
+            // 
+            // roundedPanel2
+            // 
+            roundedPanel2.BackColor = Color.FromArgb(51, 77, 53);
+            roundedPanel2.BorderSize = 4F;
+            roundedPanel2.Controls.Add(lIdContenido);
+            roundedPanel2.Location = new Point(2, 15);
+            roundedPanel2.Margin = new Padding(2);
+            roundedPanel2.Name = "roundedPanel2";
+            roundedPanel2.Size = new Size(52, 23);
+            roundedPanel2.TabIndex = 1;
+            // 
+            // lIdContenido
+            // 
+            lIdContenido.AutoSize = true;
+            lIdContenido.Location = new Point(6, 4);
+            lIdContenido.Margin = new Padding(2, 0, 2, 0);
+            lIdContenido.Name = "lIdContenido";
+            lIdContenido.Size = new Size(37, 15);
+            lIdContenido.TabIndex = 0;
+            lIdContenido.Text = "12345";
+            // 
+            // panel2
+            // 
+            panel2.Controls.Add(label2);
+            panel2.Controls.Add(roundedPanel3);
+            panel2.Location = new Point(79, 2);
+            panel2.Margin = new Padding(2);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(73, 40);
+            panel2.TabIndex = 1;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI Black", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.Location = new Point(2, 0);
+            label2.Margin = new Padding(2, 0, 2, 0);
+            label2.Name = "label2";
+            label2.Size = new Size(66, 15);
+            label2.TabIndex = 0;
+            label2.Text = "IdUsuario";
+            // 
+            // roundedPanel3
+            // 
+            roundedPanel3.BackColor = Color.FromArgb(51, 77, 53);
+            roundedPanel3.BorderSize = 4F;
+            roundedPanel3.Controls.Add(label3);
+            roundedPanel3.Location = new Point(2, 15);
+            roundedPanel3.Margin = new Padding(2);
+            roundedPanel3.Name = "roundedPanel3";
+            roundedPanel3.Size = new Size(52, 23);
+            roundedPanel3.TabIndex = 1;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(6, 4);
+            label3.Margin = new Padding(2, 0, 2, 0);
+            label3.Name = "label3";
+            label3.Size = new Size(37, 15);
+            label3.TabIndex = 0;
+            label3.Text = "12345";
+            // 
+            // panel5
+            // 
+            panel5.Controls.Add(roundedPanel6);
+            panel5.Controls.Add(lRol);
+            panel5.Location = new Point(156, 2);
+            panel5.Margin = new Padding(2);
+            panel5.Name = "panel5";
+            panel5.Size = new Size(141, 40);
+            panel5.TabIndex = 6;
+            // 
+            // roundedPanel6
+            // 
+            roundedPanel6.BackColor = Color.FromArgb(51, 77, 53);
+            roundedPanel6.BorderSize = 4F;
+            roundedPanel6.Controls.Add(cbRol);
+            roundedPanel6.Location = new Point(2, 15);
+            roundedPanel6.Margin = new Padding(2);
+            roundedPanel6.Name = "roundedPanel6";
+            roundedPanel6.Size = new Size(134, 23);
+            roundedPanel6.TabIndex = 1;
+            // 
+            // cbRol
+            // 
+            cbRol.BackColor = Color.FromArgb(51, 77, 53);
+            cbRol.Enabled = false;
+            cbRol.FlatStyle = FlatStyle.Flat;
+            cbRol.FormattingEnabled = true;
+            cbRol.Location = new Point(4, 2);
+            cbRol.Margin = new Padding(2);
+            cbRol.Name = "cbRol";
+            cbRol.Size = new Size(129, 23);
+            cbRol.TabIndex = 0;
+            // 
+            // lRol
+            // 
+            lRol.AutoSize = true;
+            lRol.Font = new Font("Segoe UI Black", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lRol.Location = new Point(2, 0);
+            lRol.Margin = new Padding(2, 0, 2, 0);
+            lRol.Name = "lRol";
+            lRol.Size = new Size(44, 15);
+            lRol.TabIndex = 0;
+            lRol.Text = "Marca";
+            // 
+            // panel3
+            // 
+            panel3.Controls.Add(roundedPanel4);
+            panel3.Controls.Add(label4);
+            panel3.Location = new Point(301, 2);
+            panel3.Margin = new Padding(2);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(141, 40);
+            panel3.TabIndex = 7;
+            // 
+            // roundedPanel4
+            // 
+            roundedPanel4.BackColor = Color.FromArgb(51, 77, 53);
+            roundedPanel4.BorderSize = 4F;
+            roundedPanel4.Controls.Add(comboBox2);
+            roundedPanel4.Location = new Point(2, 15);
+            roundedPanel4.Margin = new Padding(2);
+            roundedPanel4.Name = "roundedPanel4";
+            roundedPanel4.Size = new Size(134, 23);
+            roundedPanel4.TabIndex = 1;
+            // 
+            // comboBox2
+            // 
+            comboBox2.BackColor = Color.FromArgb(51, 77, 53);
+            comboBox2.Enabled = false;
+            comboBox2.FlatStyle = FlatStyle.Flat;
+            comboBox2.FormattingEnabled = true;
+            comboBox2.Location = new Point(4, 2);
+            comboBox2.Margin = new Padding(2);
+            comboBox2.Name = "comboBox2";
+            comboBox2.Size = new Size(129, 23);
+            comboBox2.TabIndex = 0;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI Black", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label4.Location = new Point(2, 0);
+            label4.Margin = new Padding(2, 0, 2, 0);
+            label4.Name = "label4";
+            label4.Size = new Size(35, 15);
+            label4.TabIndex = 0;
+            label4.Text = "Tipo";
+            // 
+            // panel4
+            // 
+            panel4.Controls.Add(roundedPanel5);
+            panel4.Controls.Add(label5);
+            panel4.Location = new Point(446, 2);
+            panel4.Margin = new Padding(2);
+            panel4.Name = "panel4";
+            panel4.Size = new Size(141, 40);
+            panel4.TabIndex = 8;
+            // 
+            // roundedPanel5
+            // 
+            roundedPanel5.BackColor = Color.FromArgb(51, 77, 53);
+            roundedPanel5.BorderSize = 4F;
+            roundedPanel5.Controls.Add(comboBox3);
+            roundedPanel5.Location = new Point(2, 15);
+            roundedPanel5.Margin = new Padding(2);
+            roundedPanel5.Name = "roundedPanel5";
+            roundedPanel5.Size = new Size(134, 23);
+            roundedPanel5.TabIndex = 1;
+            // 
+            // comboBox3
+            // 
+            comboBox3.BackColor = Color.FromArgb(51, 77, 53);
+            comboBox3.Enabled = false;
+            comboBox3.FlatStyle = FlatStyle.Flat;
+            comboBox3.FormattingEnabled = true;
+            comboBox3.Location = new Point(4, 2);
+            comboBox3.Margin = new Padding(2);
+            comboBox3.Name = "comboBox3";
+            comboBox3.Size = new Size(129, 23);
+            comboBox3.TabIndex = 0;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Segoe UI Black", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label5.Location = new Point(2, 0);
+            label5.Margin = new Padding(2, 0, 2, 0);
+            label5.Name = "label5";
+            label5.Size = new Size(48, 15);
+            label5.TabIndex = 0;
+            label5.Text = "Estado";
+            // 
             // flowLayoutPanel1
             // 
             flowLayoutPanel1.Controls.Add(pNuevoUsuario);
@@ -168,8 +430,8 @@
             // 
             // pNuevoUsuario
             // 
-            pNuevoUsuario.Controls.Add(bGuardarNuevo);
             pNuevoUsuario.Controls.Add(bNuevoEquipo);
+            pNuevoUsuario.Controls.Add(bGuardarNuevo);
             pNuevoUsuario.Location = new Point(24, 2);
             pNuevoUsuario.Margin = new Padding(24, 2, 2, 2);
             pNuevoUsuario.Name = "pNuevoUsuario";
@@ -391,268 +653,6 @@
             label1.Text = "Equipos";
             label1.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // dataGridViewTextBoxColumn1
-            // 
-            dataGridViewTextBoxColumn1.DataPropertyName = "idUsuario";
-            dataGridViewTextBoxColumn1.HeaderText = "IDPresupuesto";
-            dataGridViewTextBoxColumn1.MinimumWidth = 8;
-            dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            dataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            dataGridViewTextBoxColumn2.DataPropertyName = "Mail";
-            dataGridViewTextBoxColumn2.HeaderText = "Precio";
-            dataGridViewTextBoxColumn2.MinimumWidth = 8;
-            dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            dataGridViewTextBoxColumn2.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            dataGridViewTextBoxColumn3.DataPropertyName = "Nombre";
-            dataGridViewTextBoxColumn3.HeaderText = "Servicio";
-            dataGridViewTextBoxColumn3.MinimumWidth = 8;
-            dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            dataGridViewTextBoxColumn3.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            dataGridViewTextBoxColumn4.DataPropertyName = "Apellido";
-            dataGridViewTextBoxColumn4.HeaderText = "IDOrden";
-            dataGridViewTextBoxColumn4.MinimumWidth = 8;
-            dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            dataGridViewTextBoxColumn4.ReadOnly = true;
-            // 
-            // panel1
-            // 
-            panel1.Controls.Add(lId);
-            panel1.Controls.Add(roundedPanel2);
-            panel1.Location = new Point(2, 2);
-            panel1.Margin = new Padding(2);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(73, 40);
-            panel1.TabIndex = 0;
-            // 
-            // roundedPanel2
-            // 
-            roundedPanel2.BackColor = Color.FromArgb(51, 77, 53);
-            roundedPanel2.BorderSize = 4F;
-            roundedPanel2.Controls.Add(lIdContenido);
-            roundedPanel2.Location = new Point(2, 15);
-            roundedPanel2.Margin = new Padding(2);
-            roundedPanel2.Name = "roundedPanel2";
-            roundedPanel2.Size = new Size(52, 23);
-            roundedPanel2.TabIndex = 1;
-            // 
-            // lIdContenido
-            // 
-            lIdContenido.AutoSize = true;
-            lIdContenido.Location = new Point(6, 4);
-            lIdContenido.Margin = new Padding(2, 0, 2, 0);
-            lIdContenido.Name = "lIdContenido";
-            lIdContenido.Size = new Size(37, 15);
-            lIdContenido.TabIndex = 0;
-            lIdContenido.Text = "12345";
-            // 
-            // lId
-            // 
-            lId.AutoSize = true;
-            lId.Font = new Font("Segoe UI Black", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lId.Location = new Point(2, 0);
-            lId.Margin = new Padding(2, 0, 2, 0);
-            lId.Name = "lId";
-            lId.Size = new Size(62, 15);
-            lId.TabIndex = 0;
-            lId.Text = "IdEquipo";
-            // 
-            // flowLayoutPanel2
-            // 
-            flowLayoutPanel2.Controls.Add(panel1);
-            flowLayoutPanel2.Controls.Add(panel2);
-            flowLayoutPanel2.Controls.Add(panel5);
-            flowLayoutPanel2.Controls.Add(panel3);
-            flowLayoutPanel2.Controls.Add(panel4);
-            flowLayoutPanel2.Dock = DockStyle.Fill;
-            flowLayoutPanel2.Location = new Point(24, 274);
-            flowLayoutPanel2.Margin = new Padding(24, 9, 2, 2);
-            flowLayoutPanel2.Name = "flowLayoutPanel2";
-            flowLayoutPanel2.Size = new Size(681, 47);
-            flowLayoutPanel2.TabIndex = 7;
-            // 
-            // panel2
-            // 
-            panel2.Controls.Add(label2);
-            panel2.Controls.Add(roundedPanel3);
-            panel2.Location = new Point(79, 2);
-            panel2.Margin = new Padding(2);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(73, 40);
-            panel2.TabIndex = 1;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI Black", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(2, 0);
-            label2.Margin = new Padding(2, 0, 2, 0);
-            label2.Name = "label2";
-            label2.Size = new Size(66, 15);
-            label2.TabIndex = 0;
-            label2.Text = "IdUsuario";
-            // 
-            // roundedPanel3
-            // 
-            roundedPanel3.BackColor = Color.FromArgb(51, 77, 53);
-            roundedPanel3.BorderSize = 4F;
-            roundedPanel3.Controls.Add(label3);
-            roundedPanel3.Location = new Point(2, 15);
-            roundedPanel3.Margin = new Padding(2);
-            roundedPanel3.Name = "roundedPanel3";
-            roundedPanel3.Size = new Size(52, 23);
-            roundedPanel3.TabIndex = 1;
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(6, 4);
-            label3.Margin = new Padding(2, 0, 2, 0);
-            label3.Name = "label3";
-            label3.Size = new Size(37, 15);
-            label3.TabIndex = 0;
-            label3.Text = "12345";
-            // 
-            // panel5
-            // 
-            panel5.Controls.Add(roundedPanel6);
-            panel5.Controls.Add(lRol);
-            panel5.Location = new Point(156, 2);
-            panel5.Margin = new Padding(2);
-            panel5.Name = "panel5";
-            panel5.Size = new Size(141, 40);
-            panel5.TabIndex = 6;
-            // 
-            // roundedPanel6
-            // 
-            roundedPanel6.BackColor = Color.FromArgb(51, 77, 53);
-            roundedPanel6.BorderSize = 4F;
-            roundedPanel6.Controls.Add(cbRol);
-            roundedPanel6.Location = new Point(2, 15);
-            roundedPanel6.Margin = new Padding(2);
-            roundedPanel6.Name = "roundedPanel6";
-            roundedPanel6.Size = new Size(134, 23);
-            roundedPanel6.TabIndex = 1;
-            // 
-            // cbRol
-            // 
-            cbRol.BackColor = Color.FromArgb(51, 77, 53);
-            cbRol.Enabled = false;
-            cbRol.FlatStyle = FlatStyle.Flat;
-            cbRol.FormattingEnabled = true;
-            cbRol.Location = new Point(4, 2);
-            cbRol.Margin = new Padding(2);
-            cbRol.Name = "cbRol";
-            cbRol.Size = new Size(129, 23);
-            cbRol.TabIndex = 0;
-            // 
-            // lRol
-            // 
-            lRol.AutoSize = true;
-            lRol.Font = new Font("Segoe UI Black", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lRol.Location = new Point(2, 0);
-            lRol.Margin = new Padding(2, 0, 2, 0);
-            lRol.Name = "lRol";
-            lRol.Size = new Size(44, 15);
-            lRol.TabIndex = 0;
-            lRol.Text = "Marca";
-            // 
-            // panel3
-            // 
-            panel3.Controls.Add(roundedPanel4);
-            panel3.Controls.Add(label4);
-            panel3.Location = new Point(301, 2);
-            panel3.Margin = new Padding(2);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(141, 40);
-            panel3.TabIndex = 7;
-            // 
-            // roundedPanel4
-            // 
-            roundedPanel4.BackColor = Color.FromArgb(51, 77, 53);
-            roundedPanel4.BorderSize = 4F;
-            roundedPanel4.Controls.Add(comboBox2);
-            roundedPanel4.Location = new Point(2, 15);
-            roundedPanel4.Margin = new Padding(2);
-            roundedPanel4.Name = "roundedPanel4";
-            roundedPanel4.Size = new Size(134, 23);
-            roundedPanel4.TabIndex = 1;
-            // 
-            // comboBox2
-            // 
-            comboBox2.BackColor = Color.FromArgb(51, 77, 53);
-            comboBox2.Enabled = false;
-            comboBox2.FlatStyle = FlatStyle.Flat;
-            comboBox2.FormattingEnabled = true;
-            comboBox2.Location = new Point(4, 2);
-            comboBox2.Margin = new Padding(2);
-            comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(129, 23);
-            comboBox2.TabIndex = 0;
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Segoe UI Black", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.Location = new Point(2, 0);
-            label4.Margin = new Padding(2, 0, 2, 0);
-            label4.Name = "label4";
-            label4.Size = new Size(35, 15);
-            label4.TabIndex = 0;
-            label4.Text = "Tipo";
-            // 
-            // panel4
-            // 
-            panel4.Controls.Add(roundedPanel5);
-            panel4.Controls.Add(label5);
-            panel4.Location = new Point(446, 2);
-            panel4.Margin = new Padding(2);
-            panel4.Name = "panel4";
-            panel4.Size = new Size(141, 40);
-            panel4.TabIndex = 8;
-            // 
-            // roundedPanel5
-            // 
-            roundedPanel5.BackColor = Color.FromArgb(51, 77, 53);
-            roundedPanel5.BorderSize = 4F;
-            roundedPanel5.Controls.Add(comboBox3);
-            roundedPanel5.Location = new Point(2, 15);
-            roundedPanel5.Margin = new Padding(2);
-            roundedPanel5.Name = "roundedPanel5";
-            roundedPanel5.Size = new Size(134, 23);
-            roundedPanel5.TabIndex = 1;
-            // 
-            // comboBox3
-            // 
-            comboBox3.BackColor = Color.FromArgb(51, 77, 53);
-            comboBox3.Enabled = false;
-            comboBox3.FlatStyle = FlatStyle.Flat;
-            comboBox3.FormattingEnabled = true;
-            comboBox3.Location = new Point(4, 2);
-            comboBox3.Margin = new Padding(2);
-            comboBox3.Name = "comboBox3";
-            comboBox3.Size = new Size(129, 23);
-            comboBox3.TabIndex = 0;
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Segoe UI Black", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label5.Location = new Point(2, 0);
-            label5.Margin = new Padding(2, 0, 2, 0);
-            label5.Name = "label5";
-            label5.Size = new Size(48, 15);
-            label5.TabIndex = 0;
-            label5.Text = "Estado";
-            // 
             // EquiposView
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -665,21 +665,11 @@
             tableLayoutPanel1.PerformLayout();
             roundedPanel7.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
-            flowLayoutPanel1.ResumeLayout(false);
-            pNuevoUsuario.ResumeLayout(false);
-            pEliminarEquipo.ResumeLayout(false);
-            panel10.ResumeLayout(false);
-            roundedPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dgvUsuarios).EndInit();
-            rpBarraBusqueda.ResumeLayout(false);
-            rpBarraBusqueda.PerformLayout();
-            rpFiltro.ResumeLayout(false);
-            rpFiltro.PerformLayout();
+            flowLayoutPanel2.ResumeLayout(false);
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             roundedPanel2.ResumeLayout(false);
             roundedPanel2.PerformLayout();
-            flowLayoutPanel2.ResumeLayout(false);
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             roundedPanel3.ResumeLayout(false);
@@ -693,6 +683,16 @@
             panel4.ResumeLayout(false);
             panel4.PerformLayout();
             roundedPanel5.ResumeLayout(false);
+            flowLayoutPanel1.ResumeLayout(false);
+            pNuevoUsuario.ResumeLayout(false);
+            pEliminarEquipo.ResumeLayout(false);
+            panel10.ResumeLayout(false);
+            roundedPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dgvUsuarios).EndInit();
+            rpBarraBusqueda.ResumeLayout(false);
+            rpBarraBusqueda.PerformLayout();
+            rpFiltro.ResumeLayout(false);
+            rpFiltro.PerformLayout();
             ResumeLayout(false);
         }
 

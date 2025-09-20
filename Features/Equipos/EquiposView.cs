@@ -26,12 +26,7 @@ namespace Taller_2_Gestor.Features.Equipos
             // Cambiar visibilidad botones
             bNuevoEquipo.Visible = false;
             bGuardarNuevo.Visible = true;
-            bCancelar.Visible = true;
-
-            //limpiar los textboxes
-            tbMarca.Text = "";
-            tbTipo.Text = "";
-            tbEstado.Text = "";
+            bCancelar.Visible = true;           
         }
 
         private void bGuardarNuevo_Click(object sender, EventArgs e)
