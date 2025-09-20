@@ -26,6 +26,7 @@ namespace Taller_2_Gestor.Features.Equipos
             // Cambiar visibilidad botones
             bNuevoEquipo.Visible = false;
             bGuardarNuevo.Visible = true;
+            bCancelar.Visible = true;
 
             //limpiar los textboxes
             tbMarca.Text = "";
@@ -38,6 +39,13 @@ namespace Taller_2_Gestor.Features.Equipos
             // Cambiar visibilidad botones
             bNuevoEquipo.Visible = true;
             bGuardarNuevo.Visible = false;
+        }
+
+        private void bCancelar_Click(object sender, EventArgs e)
+        {
+            bNuevoEquipo.Visible = true;
+            bGuardarNuevo.Visible = false;
+            bCancelar.Visible = false;
         }
     }
 }
