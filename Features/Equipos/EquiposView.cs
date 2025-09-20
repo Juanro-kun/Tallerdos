@@ -15,6 +15,29 @@ namespace Taller_2_Gestor.Features.Equipos
         public EquiposView()
         {
             InitializeComponent();
+
+            // Estado inicial
+            bNuevoEquipo.Visible = true;
+            bGuardarNuevo.Visible = false;
+        }
+
+        private void bNuevoEquipo_Click(object sender, EventArgs e)
+        {
+            // Cambiar visibilidad botones
+            bNuevoEquipo.Visible = false;
+            bGuardarNuevo.Visible = true;
+
+            //limpiar los textboxes
+            tbMarca.Text = "";
+            tbTipo.Text = "";
+            tbEstado.Text = "";
+        }
+
+        private void bGuardarNuevo_Click(object sender, EventArgs e)
+        {
+            // Cambiar visibilidad botones
+            bNuevoEquipo.Visible = true;
+            bGuardarNuevo.Visible = false;
         }
     }
 }
