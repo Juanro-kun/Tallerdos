@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Taller_2_Gestor.Domain;
 using Taller_2_Gestor.Views;
+using Taller_2_Gestor.Features.Equipos;
+using Taller_2_Gestor.Features.Presupuestos;
+using Taller_2_Gestor.Features.Ordenes;
 using static System.Collections.Specialized.BitVector32;
 using Taller_2_Gestor.Features.Clientes;
 
@@ -30,6 +33,33 @@ namespace Taller_2_Gestor.Forms
         {
             ContentHost.Controls.Clear();              // limpiás lo que había
             var view = new UsuariosView();              // creás la vista
+            view.Dock = DockStyle.Fill;                 // que llene el panel
+            ContentHost.Controls.Add(view);            // la metés al panel
+            view.BringToFront();
+        }
+
+        private void CargarEquiposView()
+        {
+            ContentHost.Controls.Clear();              // limpiás lo que había
+            var view = new EquiposView();              // creás la vista
+            view.Dock = DockStyle.Fill;                 // que llene el panel
+            ContentHost.Controls.Add(view);            // la metés al panel
+            view.BringToFront();
+        }
+
+        private void CargarPresupuestosView()
+        {
+            ContentHost.Controls.Clear();              // limpiás lo que había
+            var view = new PresupuestosView();              // creás la vista
+            view.Dock = DockStyle.Fill;                 // que llene el panel
+            ContentHost.Controls.Add(view);            // la metés al panel
+            view.BringToFront();
+        }
+
+        private void CargarOrdenesView()
+        {
+            ContentHost.Controls.Clear();              // limpiás lo que había
+            var view = new OrdenesView();              // creás la vista
             view.Dock = DockStyle.Fill;                 // que llene el panel
             ContentHost.Controls.Add(view);            // la metés al panel
             view.BringToFront();
@@ -57,6 +87,21 @@ namespace Taller_2_Gestor.Forms
         private void ContentHost_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void bEquipos_Click(object sender, EventArgs e)
+        {
+            CargarEquiposView();
+        }
+
+        private void bPresupuestos_Click(object sender, EventArgs e)
+        {
+            CargarPresupuestosView();
+        }
+
+        private void bOrdenes_Click(object sender, EventArgs e)
+        {
+            CargarOrdenesView();
         }
 
         private void bUsuarios_Click(object sender, EventArgs e)
