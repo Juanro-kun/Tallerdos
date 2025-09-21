@@ -7,9 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Taller_2_Gestor.Domain.Entities;  
 using Taller_2_Gestor.Features.Usuarios;
 using Taller_2_Gestor.Infra;
-using Taller_2_Gestor.Domain.Entities;  
 
 namespace Taller_2_Gestor.Views
 {
@@ -24,13 +24,42 @@ namespace Taller_2_Gestor.Views
             var db = new AppDbContext();           // usa OnConfiguring con tu connection string
             _svc = new UsuariosService(db);
 
+            dgvUsuarios.AutoGenerateColumns = false;
             dgvUsuarios.SelectionChanged += dgvUsuarios_SelectionChanged;
             CargarRoles();
+
+            cbFiltro.DropDownStyle = ComboBoxStyle.DropDownList;
+
+            cbFiltro.DisplayMember = "Text";
+            cbFiltro.ValueMember = "Value";
+            cbFiltro.DataSource = new[]
+            {
+                new { Text = "Activo",   Value = true  },
+                new { Text = "Inactivo", Value = false }
+            };
+
+            // por defecto: Activo
+            cbFiltro.SelectedValue = true;
+
+            cbFiltro.SelectedIndexChanged += cbFiltro_SelectedIndexChanged;
+        }
+
+        private void cbFiltro_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            bool value = (bool)cbFiltro.SelectedValue;
+            var lista = _svc.ListarUsuarios(value);
+            dgvUsuarios.DataSource = lista;
+            LimpiarCampos();
+            if (dgvUsuarios.CurrentRow == null) return;
+            var u = dgvUsuarios.CurrentRow.DataBoundItem as Usuario;
+            
+
+            CargarDetalles(u);
         }
 
         private void UsuariosView_Load(object sender, EventArgs e)
         {
-            var lista = _svc.ListarUsuarios();
+            var lista = _svc.ListarUsuarios(true);
             dgvUsuarios.DataSource = lista;
         }
 
@@ -47,7 +76,7 @@ namespace Taller_2_Gestor.Views
         private void CargarDetalles(Usuario u)
         {
             lIdContenido.Text = u.idUsuario.ToString();
-            tbMail.Text = u.mail;
+            tbMail.Text = u.Mail;
             tbNombre.Text = u.Nombre;
             tbApellido.Text = u.Apellido;
 
@@ -118,8 +147,42 @@ namespace Taller_2_Gestor.Views
 
         private void bGuardarNuevo_Click(object sender, EventArgs e)
         {
-            // Aquí iría la lógica para guardar el nuevo usuario
-            // Por ahora, solo restablecemos la vista
+            if (string.IsNullOrWhiteSpace(tbNombre.Text))
+            { MessageBox.Show("El nombre es obligatorio."); tbNombre.Focus(); return; }
+
+            if (string.IsNullOrWhiteSpace(tbApellido.Text))
+            { MessageBox.Show("El apellido es obligatorio."); tbApellido.Focus(); return; }
+
+            if (string.IsNullOrWhiteSpace(tbMail.Text) || !tbMail.Text.Contains("@"))
+            { MessageBox.Show("Mail inválido."); tbMail.Focus(); return; }
+
+            if (cbRol.SelectedItem == null && cbRol.SelectedValue == null)
+            { MessageBox.Show("Seleccioná un rol."); cbRol.DroppedDown = true; return; }
+
+            if (string.IsNullOrWhiteSpace(tbContrasena.Text))
+            { MessageBox.Show("La contraseña es obligatoria."); tbContrasena.Focus(); return; }
+
+            if (tbContrasena.Text != tbCContrasena.Text)
+            { MessageBox.Show("Las contraseñas no coinciden."); tbCContrasena.Focus(); return; }
+
+            var idRol = Convert.ToByte(cbRol.SelectedValue ?? 0);
+
+            var (ok, error, usuario) = _svc.Crear(
+            tbNombre.Text, tbApellido.Text, tbMail.Text,
+            tbContrasena.Text, idRol, chbActivo.Checked);
+
+            if (!ok)
+            {
+                MessageBox.Show(error);
+                return;
+            }
+
+            var lista = _svc.ListarUsuarios((bool)cbFiltro.SelectedValue);
+            dgvUsuarios.DataSource = lista;
+            dgvUsuarios.ClearSelection();
+            dgvUsuarios.CurrentCell = null;
+
+
             bNuevoUsuario.Visible = true;
             bGuardarNuevo.Visible = false;
             bEditar.Enabled = true;
@@ -133,10 +196,12 @@ namespace Taller_2_Gestor.Views
             LimpiarCampos();
 
             dgvUsuarios.CurrentCell = null; // deselecciona la fila actual
+            MessageBox.Show($"Usuario #{usuario!.idUsuario} creado.");
         }
 
         private void bEditar_Click(object sender, EventArgs e)
         {
+            if (dgvUsuarios.CurrentCell == null) return;
             bNuevoUsuario.Enabled = false;
             bEliminar.Enabled = false;
             bEditar.Visible = false;
@@ -150,6 +215,24 @@ namespace Taller_2_Gestor.Views
 
         private void bGuardarExistente_Click(object sender, EventArgs e)
         {
+            var id = int.Parse(lIdContenido.Text);
+            var nombre = tbNombre.Text.Trim();
+            var apellido = tbApellido.Text.Trim();
+            var mail = tbMail.Text.Trim();
+            var rol = (byte)(cbRol.SelectedValue ?? 0);
+            var activo = chbActivo.Checked;
+
+            if (string.IsNullOrWhiteSpace(nombre)) { MessageBox.Show("Nombre vacío."); return; }
+            if (string.IsNullOrWhiteSpace(apellido)) { MessageBox.Show("Apellido vacío."); return; }
+            if (string.IsNullOrWhiteSpace(mail)) { MessageBox.Show("Mail vacío."); return; }
+            if (rol == 0) { MessageBox.Show("Seleccioná un rol."); return; }
+
+            var res = _svc.Actualizar(id, nombre, apellido, mail, rol, activo);
+            if (!res.ok) { MessageBox.Show(res.error ?? "Error al actualizar."); return; }
+
+            var lista = _svc.ListarUsuarios((bool)cbFiltro.SelectedValue);
+            dgvUsuarios.DataSource = lista;
+
             bNuevoUsuario.Enabled = true;
             bEliminar.Enabled = true;
             bEditar.Visible = true;
@@ -251,7 +334,30 @@ namespace Taller_2_Gestor.Views
             bCambiarContrasena.Enabled = true;
             bGuardarContrasena.Visible = false;
             bCancelar.Visible = false;
+            ToggleCamposContrasena(false);
+            ToggleCampos(false);
+            var u = dgvUsuarios.CurrentRow.DataBoundItem as Usuario;
+            if (u == null) return;
+            tbCContrasena.Text = "";
+            tbContrasena.Text = "";
+
+            CargarDetalles(u);
         }
 
+        private void bEliminar_Click(object sender, EventArgs e)
+        {
+            if (dgvUsuarios.CurrentRow == null) return;
+            var u = dgvUsuarios.CurrentRow.DataBoundItem as Usuario;
+            var (ok, error) = _svc.SetActivo(u.idUsuario, false);
+            if (!ok)
+            {
+                MessageBox.Show(error ?? "Error desconocido al desactivar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            var lista = _svc.ListarUsuarios((bool)cbFiltro.SelectedValue);
+            dgvUsuarios.DataSource = lista;   
+            dgvUsuarios.ClearSelection();
+            LimpiarCampos();
+        }
     }
 }

@@ -184,6 +184,7 @@
             bUsuarios.Text = "Usuarios";
             bUsuarios.TextAlign = ContentAlignment.MiddleLeft;
             bUsuarios.UseVisualStyleBackColor = false;
+            bUsuarios.Click += bUsuarios_Click;
             // 
             // panel1
             // 

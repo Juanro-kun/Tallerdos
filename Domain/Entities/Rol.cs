@@ -5,7 +5,7 @@ namespace Taller_2_Gestor.Domain.Entities;
 
 public partial class Rol
 {
-    public short idRol { get; set; }
+    public byte idRol { get; set; }
 
     public string Nombre { get; set; } = null!;
 

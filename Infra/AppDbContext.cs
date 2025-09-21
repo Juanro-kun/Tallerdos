@@ -42,11 +42,11 @@ public partial class AppDbContext : DbContext
 
             entity.ToTable("Usuario");
 
-            entity.Property(e => e.idUsuario).ValueGeneratedNever();
+            entity.Property(e => e.idUsuario).UseIdentityColumn();
             entity.Property(e => e.Apellido).HasMaxLength(50);
             entity.Property(e => e.Nombre).HasMaxLength(50);
-            entity.Property(e => e.contraseña).HasMaxLength(50);
-            entity.Property(e => e.mail).HasMaxLength(50);
+            entity.Property(e => e.Contrasena).HasMaxLength(50);
+            entity.Property(e => e.Mail).HasMaxLength(50);
 
             entity.HasOne(d => d.RolNavigation).WithMany(p => p.Usuarios)
                 .HasForeignKey(d => d.Rol)

@@ -1,21 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Taller_2_Gestor.Domain.Entities;
 
 public partial class Usuario
 {
+    [Key]
+    [Column("idUsuario")]
+    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int idUsuario { get; set; }
 
-    public string mail { get; set; } = null!;
+    public string Mail { get; set; } = null!;
 
-    public string contraseña { get; set; } = null!;
+    public string Contrasena { get; set; } = null!;
 
     public string Nombre { get; set; } = null!;
 
     public string Apellido { get; set; } = null!;
 
-    public short Rol { get; set; }
+    public byte Rol { get; set; }
 
     public bool Active { get; set; }
 
