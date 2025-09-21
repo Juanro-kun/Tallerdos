@@ -177,6 +177,7 @@
             bOrdenes.Text = "Ordenes";
             bOrdenes.TextAlign = ContentAlignment.MiddleLeft;
             bOrdenes.UseVisualStyleBackColor = false;
+            bOrdenes.Click += bOrdenes_Click;
             // 
             // bUsuarios
             // 

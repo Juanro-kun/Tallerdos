@@ -11,6 +11,7 @@ using Taller_2_Gestor.Domain;
 using Taller_2_Gestor.Views;
 using Taller_2_Gestor.Features.Equipos;
 using Taller_2_Gestor.Features.Presupuestos;
+using Taller_2_Gestor.Features.Ordenes;
 using static System.Collections.Specialized.BitVector32;
 
 namespace Taller_2_Gestor.Forms
@@ -53,6 +54,15 @@ namespace Taller_2_Gestor.Forms
             view.BringToFront();
         }
 
+        private void CargarOrdenesView()
+        {
+            ContentHost.Controls.Clear();              // limpiás lo que había
+            var view = new OrdenesView();              // creás la vista
+            view.Dock = DockStyle.Fill;                 // que llene el panel
+            ContentHost.Controls.Add(view);            // la metés al panel
+            view.BringToFront();
+        }
+
         private void MainForm_Load(object sender, EventArgs e)
         {
 
@@ -76,6 +86,11 @@ namespace Taller_2_Gestor.Forms
         private void bPresupuestos_Click(object sender, EventArgs e)
         {
             CargarPresupuestosView();
+        }
+
+        private void bOrdenes_Click(object sender, EventArgs e)
+        {
+            CargarOrdenesView();
         }
     }
 }
