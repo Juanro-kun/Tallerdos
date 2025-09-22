@@ -21,12 +21,15 @@ namespace Taller_2_Gestor.Forms
     {
         private readonly UserSession _session;//variable de solo lectura que guarda la sesion del usuario
 
-        public MainForm(UserSession session)
+        public MainForm()
         {
             InitializeComponent();
-            _session = session;
             this.WindowState = FormWindowState.Maximized;
             Text = "Taller 2 Gestor — Menú";
+            if (UserSession.Current?.Rol != 1)
+            {
+                bUsuarios.Visible = false;
+            }
         }
 
         private void CargarUsuariosView()

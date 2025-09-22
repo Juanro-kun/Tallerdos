@@ -118,7 +118,7 @@ namespace Taller_2_Gestor.Features.Usuarios
             }
         }
 
-        public List<Usuario> ListarUsuarios(bool activo)
+        public List<Usuario> ListarUsuarios(bool? activo)
         {
             return _db.Usuarios
                .Where(u => u.Active == activo)
@@ -126,6 +126,14 @@ namespace Taller_2_Gestor.Features.Usuarios
                .AsNoTracking()
                .ToList();
 
+        }
+
+        public Usuario? BuscarPorId(int idUsuario)
+        {
+            return _db.Usuarios
+                      .AsNoTracking()
+                      .Include(u => u.RolNavigation)
+                      .FirstOrDefault(u => u.idUsuario == idUsuario);
         }
     }
 }

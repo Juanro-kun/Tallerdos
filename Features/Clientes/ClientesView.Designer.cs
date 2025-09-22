@@ -36,17 +36,20 @@
             rpBarraBusqueda = new Taller_2_Gestor.Features.Shared.Controls.RoundedPanel();
             lBusqueda = new Label();
             roundedPanel1 = new Taller_2_Gestor.Features.Shared.Controls.RoundedPanel();
-            dgvUsuarios = new DataGridView();
+            dgvClientes = new DataGridView();
+            colId = new DataGridViewTextBoxColumn();
+            colEmail = new DataGridViewTextBoxColumn();
+            colNombre = new DataGridViewTextBoxColumn();
+            colApellido = new DataGridViewTextBoxColumn();
+            colRol = new DataGridViewTextBoxColumn();
+            colActivo = new DataGridViewTextBoxColumn();
             flowLayoutPanel1 = new FlowLayoutPanel();
             pNuevoUsuario = new Panel();
             bGuardarNuevo = new Taller_2_Gestor.Features.Shared.Controls.RoundedButton();
-            bNuevoUsuario = new Taller_2_Gestor.Features.Shared.Controls.RoundedButton();
+            bNuevoCliente = new Taller_2_Gestor.Features.Shared.Controls.RoundedButton();
             pEditarUsuario = new Panel();
             bEditar = new Taller_2_Gestor.Features.Shared.Controls.RoundedButton();
             bGuardarExistente = new Taller_2_Gestor.Features.Shared.Controls.RoundedButton();
-            panel9 = new Panel();
-            bCambiarContrasena = new Taller_2_Gestor.Features.Shared.Controls.RoundedButton();
-            bGuardarContrasena = new Taller_2_Gestor.Features.Shared.Controls.RoundedButton();
             pEliminarUsuario = new Panel();
             bEliminar = new Taller_2_Gestor.Features.Shared.Controls.RoundedButton();
             panel10 = new Panel();
@@ -72,18 +75,12 @@
             pContrasena = new Taller_2_Gestor.Features.Shared.Controls.RoundedPanel();
             tbContrasena = new TextBox();
             lContrasena = new Label();
-            colId = new DataGridViewTextBoxColumn();
-            colEmail = new DataGridViewTextBoxColumn();
-            colNombre = new DataGridViewTextBoxColumn();
-            colApellido = new DataGridViewTextBoxColumn();
-            colRol = new DataGridViewTextBoxColumn();
-            colActivo = new DataGridViewTextBoxColumn();
-            roundedPanel7 = new Taller_2_Gestor.Features.Shared.Controls.RoundedPanel();
-            dataGridView1 = new DataGridView();
             panel5 = new Panel();
             roundedPanel6 = new Taller_2_Gestor.Features.Shared.Controls.RoundedPanel();
             textBox1 = new TextBox();
             label2 = new Label();
+            roundedPanel7 = new Taller_2_Gestor.Features.Shared.Controls.RoundedPanel();
+            dgvEquipos = new DataGridView();
             dataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn2 = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn3 = new DataGridViewTextBoxColumn();
@@ -92,16 +89,14 @@
             rpFiltro.SuspendLayout();
             rpBarraBusqueda.SuspendLayout();
             roundedPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvUsuarios).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvClientes).BeginInit();
             flowLayoutPanel1.SuspendLayout();
             pNuevoUsuario.SuspendLayout();
             pEditarUsuario.SuspendLayout();
-            panel9.SuspendLayout();
             pEliminarUsuario.SuspendLayout();
             panel10.SuspendLayout();
             flowLayoutPanel2.SuspendLayout();
             panel1.SuspendLayout();
-            roundedPanel2.SuspendLayout();
             panel2.SuspendLayout();
             roundedPanel3.SuspendLayout();
             panel3.SuspendLayout();
@@ -110,10 +105,10 @@
             roundedPanel5.SuspendLayout();
             panel7.SuspendLayout();
             pContrasena.SuspendLayout();
-            roundedPanel7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             panel5.SuspendLayout();
             roundedPanel6.SuspendLayout();
+            roundedPanel7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvEquipos).BeginInit();
             SuspendLayout();
             // 
             // tlpViews
@@ -210,35 +205,83 @@
             // 
             roundedPanel1.BackColor = Color.White;
             roundedPanel1.BorderSize = 3F;
-            roundedPanel1.Controls.Add(dgvUsuarios);
+            roundedPanel1.Controls.Add(dgvClientes);
             roundedPanel1.Location = new Point(25, 147);
             roundedPanel1.Margin = new Padding(25, 7, 3, 3);
             roundedPanel1.Name = "roundedPanel1";
             roundedPanel1.Size = new Size(950, 290);
             roundedPanel1.TabIndex = 4;
             // 
-            // dgvUsuarios
+            // dgvClientes
             // 
-            dgvUsuarios.AllowUserToAddRows = false;
-            dgvUsuarios.AllowUserToDeleteRows = false;
-            dgvUsuarios.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvUsuarios.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvUsuarios.Columns.AddRange(new DataGridViewColumn[] { colId, colEmail, colNombre, colApellido, colRol, colActivo });
-            dgvUsuarios.Dock = DockStyle.Fill;
-            dgvUsuarios.Location = new Point(0, 0);
-            dgvUsuarios.MultiSelect = false;
-            dgvUsuarios.Name = "dgvUsuarios";
-            dgvUsuarios.ReadOnly = true;
-            dgvUsuarios.RowHeadersWidth = 62;
-            dgvUsuarios.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvUsuarios.Size = new Size(950, 290);
-            dgvUsuarios.TabIndex = 0;
+            dgvClientes.AllowUserToAddRows = false;
+            dgvClientes.AllowUserToDeleteRows = false;
+            dgvClientes.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvClientes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvClientes.Columns.AddRange(new DataGridViewColumn[] { colId, colEmail, colNombre, colApellido, colRol, colActivo });
+            dgvClientes.Dock = DockStyle.Fill;
+            dgvClientes.Location = new Point(0, 0);
+            dgvClientes.MultiSelect = false;
+            dgvClientes.Name = "dgvClientes";
+            dgvClientes.ReadOnly = true;
+            dgvClientes.RowHeadersWidth = 62;
+            dgvClientes.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvClientes.Size = new Size(950, 290);
+            dgvClientes.TabIndex = 0;
+            // 
+            // colId
+            // 
+            colId.DataPropertyName = "ID";
+            colId.HeaderText = "ID";
+            colId.MinimumWidth = 8;
+            colId.Name = "colId";
+            colId.ReadOnly = true;
+            // 
+            // colEmail
+            // 
+            colEmail.DataPropertyName = "Correo";
+            colEmail.HeaderText = "Correo";
+            colEmail.MinimumWidth = 8;
+            colEmail.Name = "colEmail";
+            colEmail.ReadOnly = true;
+            // 
+            // colNombre
+            // 
+            colNombre.DataPropertyName = "Nombre";
+            colNombre.HeaderText = "Nombre";
+            colNombre.MinimumWidth = 8;
+            colNombre.Name = "colNombre";
+            colNombre.ReadOnly = true;
+            // 
+            // colApellido
+            // 
+            colApellido.DataPropertyName = "Apellido";
+            colApellido.HeaderText = "Apellido";
+            colApellido.MinimumWidth = 8;
+            colApellido.Name = "colApellido";
+            colApellido.ReadOnly = true;
+            // 
+            // colRol
+            // 
+            colRol.DataPropertyName = "Telefono";
+            colRol.HeaderText = "Telefono";
+            colRol.MinimumWidth = 8;
+            colRol.Name = "colRol";
+            colRol.ReadOnly = true;
+            // 
+            // colActivo
+            // 
+            colActivo.DataPropertyName = "Dni";
+            colActivo.HeaderText = "DNI";
+            colActivo.MinimumWidth = 8;
+            colActivo.Name = "colActivo";
+            colActivo.ReadOnly = true;
+            colActivo.Resizable = DataGridViewTriState.True;
             // 
             // flowLayoutPanel1
             // 
             flowLayoutPanel1.Controls.Add(pNuevoUsuario);
             flowLayoutPanel1.Controls.Add(pEditarUsuario);
-            flowLayoutPanel1.Controls.Add(panel9);
             flowLayoutPanel1.Controls.Add(pEliminarUsuario);
             flowLayoutPanel1.Controls.Add(panel10);
             flowLayoutPanel1.Dock = DockStyle.Fill;
@@ -250,7 +293,7 @@
             // pNuevoUsuario
             // 
             pNuevoUsuario.Controls.Add(bGuardarNuevo);
-            pNuevoUsuario.Controls.Add(bNuevoUsuario);
+            pNuevoUsuario.Controls.Add(bNuevoCliente);
             pNuevoUsuario.Location = new Point(35, 3);
             pNuevoUsuario.Margin = new Padding(35, 3, 3, 3);
             pNuevoUsuario.Name = "pNuevoUsuario";
@@ -268,25 +311,26 @@
             bGuardarNuevo.Location = new Point(0, 0);
             bGuardarNuevo.Name = "bGuardarNuevo";
             bGuardarNuevo.Size = new Size(182, 32);
-            bGuardarNuevo.TabIndex = 1;
+            bGuardarNuevo.TabIndex = 3;
             bGuardarNuevo.Text = "Guardar";
             bGuardarNuevo.UseVisualStyleBackColor = false;
             bGuardarNuevo.Visible = false;
+            bGuardarNuevo.Click += bGuardarNuevo_Click_1;
             // 
-            // bNuevoUsuario
+            // bNuevoCliente
             // 
-            bNuevoUsuario.BackColor = Color.FromArgb(40, 40, 40);
-            bNuevoUsuario.Dock = DockStyle.Fill;
-            bNuevoUsuario.FlatAppearance.BorderSize = 0;
-            bNuevoUsuario.FlatStyle = FlatStyle.Flat;
-            bNuevoUsuario.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            bNuevoUsuario.ForeColor = Color.Gainsboro;
-            bNuevoUsuario.Location = new Point(0, 0);
-            bNuevoUsuario.Name = "bNuevoUsuario";
-            bNuevoUsuario.Size = new Size(182, 32);
-            bNuevoUsuario.TabIndex = 0;
-            bNuevoUsuario.Text = "Nuevo Usuario";
-            bNuevoUsuario.UseVisualStyleBackColor = false;
+            bNuevoCliente.BackColor = Color.FromArgb(40, 40, 40);
+            bNuevoCliente.Dock = DockStyle.Fill;
+            bNuevoCliente.FlatAppearance.BorderSize = 0;
+            bNuevoCliente.FlatStyle = FlatStyle.Flat;
+            bNuevoCliente.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            bNuevoCliente.ForeColor = Color.Gainsboro;
+            bNuevoCliente.Location = new Point(0, 0);
+            bNuevoCliente.Name = "bNuevoCliente";
+            bNuevoCliente.Size = new Size(182, 32);
+            bNuevoCliente.TabIndex = 0;
+            bNuevoCliente.Text = "Nuevo Cliente";
+            bNuevoCliente.UseVisualStyleBackColor = false;
             // 
             // pEditarUsuario
             // 
@@ -309,7 +353,7 @@
             bEditar.Name = "bEditar";
             bEditar.Size = new Size(182, 32);
             bEditar.TabIndex = 3;
-            bEditar.Text = "Editar Usuario";
+            bEditar.Text = "Editar Cliente";
             bEditar.UseVisualStyleBackColor = false;
             // 
             // bGuardarExistente
@@ -328,48 +372,10 @@
             bGuardarExistente.UseVisualStyleBackColor = false;
             bGuardarExistente.Visible = false;
             // 
-            // panel9
-            // 
-            panel9.Controls.Add(bCambiarContrasena);
-            panel9.Controls.Add(bGuardarContrasena);
-            panel9.Location = new Point(411, 3);
-            panel9.Name = "panel9";
-            panel9.Size = new Size(189, 31);
-            panel9.TabIndex = 3;
-            // 
-            // bCambiarContrasena
-            // 
-            bCambiarContrasena.BackColor = Color.FromArgb(40, 40, 40);
-            bCambiarContrasena.Dock = DockStyle.Fill;
-            bCambiarContrasena.FlatAppearance.BorderSize = 0;
-            bCambiarContrasena.FlatStyle = FlatStyle.Flat;
-            bCambiarContrasena.ForeColor = Color.Gainsboro;
-            bCambiarContrasena.Location = new Point(0, 0);
-            bCambiarContrasena.Name = "bCambiarContrasena";
-            bCambiarContrasena.Size = new Size(189, 31);
-            bCambiarContrasena.TabIndex = 0;
-            bCambiarContrasena.Text = "Cambiar Contraseña";
-            bCambiarContrasena.UseVisualStyleBackColor = false;
-            // 
-            // bGuardarContrasena
-            // 
-            bGuardarContrasena.BackColor = Color.FromArgb(40, 40, 40);
-            bGuardarContrasena.Dock = DockStyle.Fill;
-            bGuardarContrasena.FlatAppearance.BorderSize = 0;
-            bGuardarContrasena.FlatStyle = FlatStyle.Flat;
-            bGuardarContrasena.ForeColor = Color.Gainsboro;
-            bGuardarContrasena.Location = new Point(0, 0);
-            bGuardarContrasena.Name = "bGuardarContrasena";
-            bGuardarContrasena.Size = new Size(189, 31);
-            bGuardarContrasena.TabIndex = 4;
-            bGuardarContrasena.Text = "Guardar";
-            bGuardarContrasena.UseVisualStyleBackColor = false;
-            bGuardarContrasena.Visible = false;
-            // 
             // pEliminarUsuario
             // 
             pEliminarUsuario.Controls.Add(bEliminar);
-            pEliminarUsuario.Location = new Point(606, 3);
+            pEliminarUsuario.Location = new Point(411, 3);
             pEliminarUsuario.Name = "pEliminarUsuario";
             pEliminarUsuario.Size = new Size(182, 32);
             pEliminarUsuario.TabIndex = 2;
@@ -387,13 +393,13 @@
             bEliminar.Name = "bEliminar";
             bEliminar.Size = new Size(182, 32);
             bEliminar.TabIndex = 4;
-            bEliminar.Text = "Eliminar Usuario";
+            bEliminar.Text = "Eliminar Cliente";
             bEliminar.UseVisualStyleBackColor = false;
             // 
             // panel10
             // 
             panel10.Controls.Add(bCancelar);
-            panel10.Location = new Point(794, 3);
+            panel10.Location = new Point(599, 3);
             panel10.Name = "panel10";
             panel10.Size = new Size(159, 32);
             panel10.TabIndex = 4;
@@ -430,6 +436,7 @@
             // 
             // panel1
             // 
+            panel1.Controls.Add(lIdContenido);
             panel1.Controls.Add(lId);
             panel1.Controls.Add(roundedPanel2);
             panel1.Location = new Point(3, 3);
@@ -451,7 +458,6 @@
             // 
             roundedPanel2.BackColor = Color.FromArgb(51, 77, 53);
             roundedPanel2.BorderSize = 4F;
-            roundedPanel2.Controls.Add(lIdContenido);
             roundedPanel2.Location = new Point(3, 25);
             roundedPanel2.Name = "roundedPanel2";
             roundedPanel2.Size = new Size(74, 39);
@@ -460,7 +466,7 @@
             // lIdContenido
             // 
             lIdContenido.AutoSize = true;
-            lIdContenido.Location = new Point(8, 7);
+            lIdContenido.Location = new Point(20, 25);
             lIdContenido.Name = "lIdContenido";
             lIdContenido.Size = new Size(0, 25);
             lIdContenido.TabIndex = 0;
@@ -600,7 +606,6 @@
             pContrasena.Name = "pContrasena";
             pContrasena.Size = new Size(234, 39);
             pContrasena.TabIndex = 1;
-            pContrasena.Visible = false;
             // 
             // tbContrasena
             // 
@@ -621,85 +626,7 @@
             lContrasena.Size = new Size(90, 25);
             lContrasena.TabIndex = 0;
             lContrasena.Text = "Telefono";
-            lContrasena.Visible = false;
             lContrasena.Click += lContrasena_Click;
-            // 
-            // colId
-            // 
-            colId.DataPropertyName = "idUsuario";
-            colId.HeaderText = "ID";
-            colId.MinimumWidth = 8;
-            colId.Name = "colId";
-            colId.ReadOnly = true;
-            // 
-            // colEmail
-            // 
-            colEmail.DataPropertyName = "Mail";
-            colEmail.HeaderText = "Correo";
-            colEmail.MinimumWidth = 8;
-            colEmail.Name = "colEmail";
-            colEmail.ReadOnly = true;
-            // 
-            // colNombre
-            // 
-            colNombre.DataPropertyName = "Nombre";
-            colNombre.HeaderText = "Nombre";
-            colNombre.MinimumWidth = 8;
-            colNombre.Name = "colNombre";
-            colNombre.ReadOnly = true;
-            // 
-            // colApellido
-            // 
-            colApellido.DataPropertyName = "Apellido";
-            colApellido.HeaderText = "Apellido";
-            colApellido.MinimumWidth = 8;
-            colApellido.Name = "colApellido";
-            colApellido.ReadOnly = true;
-            // 
-            // colRol
-            // 
-            colRol.DataPropertyName = "RolNombre";
-            colRol.HeaderText = "Telefono";
-            colRol.MinimumWidth = 8;
-            colRol.Name = "colRol";
-            colRol.ReadOnly = true;
-            // 
-            // colActivo
-            // 
-            colActivo.DataPropertyName = "Active";
-            colActivo.HeaderText = "DNI";
-            colActivo.MinimumWidth = 8;
-            colActivo.Name = "colActivo";
-            colActivo.ReadOnly = true;
-            colActivo.Resizable = DataGridViewTriState.True;
-            // 
-            // roundedPanel7
-            // 
-            roundedPanel7.BackColor = Color.White;
-            roundedPanel7.BorderSize = 3F;
-            roundedPanel7.Controls.Add(dataGridView1);
-            roundedPanel7.Location = new Point(25, 629);
-            roundedPanel7.Margin = new Padding(25, 7, 3, 3);
-            roundedPanel7.Name = "roundedPanel7";
-            roundedPanel7.Size = new Size(950, 268);
-            roundedPanel7.TabIndex = 7;
-            // 
-            // dataGridView1
-            // 
-            dataGridView1.AllowUserToAddRows = false;
-            dataGridView1.AllowUserToDeleteRows = false;
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn1, dataGridViewTextBoxColumn2, dataGridViewTextBoxColumn3, dataGridViewTextBoxColumn4 });
-            dataGridView1.Dock = DockStyle.Fill;
-            dataGridView1.Location = new Point(0, 0);
-            dataGridView1.MultiSelect = false;
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.ReadOnly = true;
-            dataGridView1.RowHeadersWidth = 62;
-            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView1.Size = new Size(950, 268);
-            dataGridView1.TabIndex = 0;
             // 
             // panel5
             // 
@@ -729,7 +656,6 @@
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(189, 24);
             textBox1.TabIndex = 0;
-            textBox1.Visible = false;
             // 
             // label2
             // 
@@ -737,14 +663,44 @@
             label2.Font = new Font("Segoe UI Black", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.Location = new Point(3, 0);
             label2.Name = "label2";
-            label2.Size = new Size(47, 25);
+            label2.Size = new Size(42, 30);
             label2.TabIndex = 0;
             label2.Text = "DNI";
+            label2.UseCompatibleTextRendering = true;
             label2.Visible = false;
+            // 
+            // roundedPanel7
+            // 
+            roundedPanel7.BackColor = Color.White;
+            roundedPanel7.BorderSize = 3F;
+            roundedPanel7.Controls.Add(dgvEquipos);
+            roundedPanel7.Location = new Point(25, 629);
+            roundedPanel7.Margin = new Padding(25, 7, 3, 3);
+            roundedPanel7.Name = "roundedPanel7";
+            roundedPanel7.Size = new Size(950, 268);
+            roundedPanel7.TabIndex = 7;
+            // 
+            // dgvEquipos
+            // 
+            dgvEquipos.AllowUserToAddRows = false;
+            dgvEquipos.AllowUserToDeleteRows = false;
+            dgvEquipos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvEquipos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvEquipos.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn1, dataGridViewTextBoxColumn2, dataGridViewTextBoxColumn3, dataGridViewTextBoxColumn4 });
+            dgvEquipos.Dock = DockStyle.Fill;
+            dgvEquipos.Location = new Point(0, 0);
+            dgvEquipos.MultiSelect = false;
+            dgvEquipos.Name = "dgvEquipos";
+            dgvEquipos.ReadOnly = true;
+            dgvEquipos.RowHeadersWidth = 62;
+            dgvEquipos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvEquipos.Size = new Size(950, 268);
+            dgvEquipos.TabIndex = 0;
+            dgvEquipos.CellContentClick += dataGridView1_CellContentClick;
             // 
             // dataGridViewTextBoxColumn1
             // 
-            dataGridViewTextBoxColumn1.DataPropertyName = "idUsuario";
+            dataGridViewTextBoxColumn1.DataPropertyName = "ID";
             dataGridViewTextBoxColumn1.HeaderText = "ID";
             dataGridViewTextBoxColumn1.MinimumWidth = 8;
             dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
@@ -768,7 +724,7 @@
             // 
             // dataGridViewTextBoxColumn4
             // 
-            dataGridViewTextBoxColumn4.DataPropertyName = "Apellido";
+            dataGridViewTextBoxColumn4.DataPropertyName = "Estado";
             dataGridViewTextBoxColumn4.HeaderText = "Estado";
             dataGridViewTextBoxColumn4.MinimumWidth = 8;
             dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
@@ -789,18 +745,15 @@
             rpBarraBusqueda.ResumeLayout(false);
             rpBarraBusqueda.PerformLayout();
             roundedPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dgvUsuarios).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvClientes).EndInit();
             flowLayoutPanel1.ResumeLayout(false);
             pNuevoUsuario.ResumeLayout(false);
             pEditarUsuario.ResumeLayout(false);
-            panel9.ResumeLayout(false);
             pEliminarUsuario.ResumeLayout(false);
             panel10.ResumeLayout(false);
             flowLayoutPanel2.ResumeLayout(false);
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
-            roundedPanel2.ResumeLayout(false);
-            roundedPanel2.PerformLayout();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             roundedPanel3.ResumeLayout(false);
@@ -817,12 +770,12 @@
             panel7.PerformLayout();
             pContrasena.ResumeLayout(false);
             pContrasena.PerformLayout();
-            roundedPanel7.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             panel5.ResumeLayout(false);
             panel5.PerformLayout();
             roundedPanel6.ResumeLayout(false);
             roundedPanel6.PerformLayout();
+            roundedPanel7.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dgvEquipos).EndInit();
             ResumeLayout(false);
         }
 
@@ -836,17 +789,13 @@
         private Shared.Controls.RoundedPanel rpBarraBusqueda;
         private Label lBusqueda;
         private Shared.Controls.RoundedPanel roundedPanel1;
-        private DataGridView dgvUsuarios;
+        private DataGridView dgvClientes;
         private FlowLayoutPanel flowLayoutPanel1;
         private Panel pNuevoUsuario;
-        private Shared.Controls.RoundedButton bGuardarNuevo;
-        private Shared.Controls.RoundedButton bNuevoUsuario;
+        private Shared.Controls.RoundedButton bNuevoCliente;
         private Panel pEditarUsuario;
         private Shared.Controls.RoundedButton bEditar;
         private Shared.Controls.RoundedButton bGuardarExistente;
-        private Panel panel9;
-        private Shared.Controls.RoundedButton bCambiarContrasena;
-        private Shared.Controls.RoundedButton bGuardarContrasena;
         private Panel pEliminarUsuario;
         private Shared.Controls.RoundedButton bEliminar;
         private Panel panel10;
@@ -872,21 +821,22 @@
         private Shared.Controls.RoundedPanel pContrasena;
         private TextBox tbContrasena;
         private Label lContrasena;
+        private Panel panel5;
+        private Shared.Controls.RoundedPanel roundedPanel6;
+        private TextBox textBox1;
+        private Label label2;
+        private Shared.Controls.RoundedPanel roundedPanel7;
+        private DataGridView dgvEquipos;
         private DataGridViewTextBoxColumn colId;
         private DataGridViewTextBoxColumn colEmail;
         private DataGridViewTextBoxColumn colNombre;
         private DataGridViewTextBoxColumn colApellido;
         private DataGridViewTextBoxColumn colRol;
         private DataGridViewTextBoxColumn colActivo;
-        private Panel panel5;
-        private Shared.Controls.RoundedPanel roundedPanel6;
-        private TextBox textBox1;
-        private Label label2;
-        private Shared.Controls.RoundedPanel roundedPanel7;
-        private DataGridView dataGridView1;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private Shared.Controls.RoundedButton bGuardarNuevo;
     }
 }

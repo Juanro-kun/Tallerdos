@@ -1,3 +1,5 @@
+using System;
+using System.Windows.Forms;
 using Taller_2_Gestor.Domain;
 using Taller_2_Gestor.Forms;
 
@@ -15,13 +17,18 @@ namespace Taller_2_Gestor
                 var result = login.ShowDialog();
                 if (result != DialogResult.OK) return;
 
-                var session = new UserSession
-                {
-                    UserName = "Demo", // más adelante lo sacamos del login real
-                    Rol = login.SelectedRole
-                };
+                // En este punto, LoginForm ya debió hacer:
+                // UserSession.Start(id, nombre, apellido, mail, rol);
 
-                Application.Run(new MainForm(session));
+                if (UserSession.Current is null)
+                {
+                    // Por seguridad: si no hay sesión, salimos (o mostrás un error)
+                    MessageBox.Show("No se pudo iniciar la sesión.", "Error",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                Application.Run(new MainForm()); // ya no pasa la sesión por ctor
             }
         }
     }

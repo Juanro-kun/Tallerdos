@@ -49,26 +49,24 @@
             // tlpRoot
             // 
             tlpRoot.ColumnCount = 2;
-            tlpRoot.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 140F));
+            tlpRoot.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 200F));
             tlpRoot.ColumnStyles.Add(new ColumnStyle());
             tlpRoot.Controls.Add(ContentHost, 1, 0);
             tlpRoot.Controls.Add(panelMenu, 0, 0);
             tlpRoot.Dock = DockStyle.Fill;
             tlpRoot.Location = new Point(0, 0);
-            tlpRoot.Margin = new Padding(2);
             tlpRoot.Name = "tlpRoot";
             tlpRoot.RowCount = 1;
             tlpRoot.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tlpRoot.Size = new Size(560, 270);
+            tlpRoot.Size = new Size(800, 450);
             tlpRoot.TabIndex = 0;
             // 
             // ContentHost
             // 
             ContentHost.Dock = DockStyle.Fill;
-            ContentHost.Location = new Point(142, 2);
-            ContentHost.Margin = new Padding(2);
+            ContentHost.Location = new Point(203, 3);
             ContentHost.Name = "ContentHost";
-            ContentHost.Size = new Size(416, 266);
+            ContentHost.Size = new Size(594, 444);
             ContentHost.TabIndex = 1;
             ContentHost.Paint += ContentHost_Paint;
             // 
@@ -78,10 +76,9 @@
             panelMenu.Controls.Add(flpMenu);
             panelMenu.Controls.Add(panel1);
             panelMenu.Dock = DockStyle.Fill;
-            panelMenu.Location = new Point(2, 2);
-            panelMenu.Margin = new Padding(2);
+            panelMenu.Location = new Point(3, 3);
             panelMenu.Name = "panelMenu";
-            panelMenu.Size = new Size(136, 266);
+            panelMenu.Size = new Size(194, 444);
             panelMenu.TabIndex = 0;
             // 
             // flpMenu
@@ -95,11 +92,10 @@
             flpMenu.Controls.Add(bUsuarios);
             flpMenu.Dock = DockStyle.Top;
             flpMenu.FlowDirection = FlowDirection.TopDown;
-            flpMenu.Location = new Point(0, 35);
-            flpMenu.Margin = new Padding(2);
+            flpMenu.Location = new Point(0, 58);
             flpMenu.Name = "flpMenu";
-            flpMenu.Padding = new Padding(6, 5, 6, 5);
-            flpMenu.Size = new Size(136, 150);
+            flpMenu.Padding = new Padding(9, 8, 9, 8);
+            flpMenu.Size = new Size(194, 246);
             flpMenu.TabIndex = 0;
             flpMenu.WrapContents = false;
             // 
@@ -111,11 +107,10 @@
             bClientes.FlatAppearance.MouseOverBackColor = Color.FromArgb(42, 42, 42);
             bClientes.FlatStyle = FlatStyle.Flat;
             bClientes.ForeColor = Color.Gainsboro;
-            bClientes.Location = new Point(8, 7);
-            bClientes.Margin = new Padding(2);
+            bClientes.Location = new Point(12, 11);
             bClientes.Name = "bClientes";
-            bClientes.Padding = new Padding(8, 0, 0, 0);
-            bClientes.Size = new Size(126, 24);
+            bClientes.Padding = new Padding(11, 0, 0, 0);
+            bClientes.Size = new Size(180, 40);
             bClientes.TabIndex = 0;
             bClientes.Text = "Clientes";
             bClientes.TextAlign = ContentAlignment.MiddleLeft;
@@ -130,11 +125,10 @@
             bEquipos.FlatAppearance.MouseOverBackColor = Color.FromArgb(42, 42, 42);
             bEquipos.FlatStyle = FlatStyle.Flat;
             bEquipos.ForeColor = Color.Gainsboro;
-            bEquipos.Location = new Point(8, 35);
-            bEquipos.Margin = new Padding(2);
+            bEquipos.Location = new Point(12, 57);
             bEquipos.Name = "bEquipos";
-            bEquipos.Padding = new Padding(8, 0, 0, 0);
-            bEquipos.Size = new Size(126, 24);
+            bEquipos.Padding = new Padding(11, 0, 0, 0);
+            bEquipos.Size = new Size(180, 40);
             bEquipos.TabIndex = 1;
             bEquipos.Text = "Equipos";
             bEquipos.TextAlign = ContentAlignment.MiddleLeft;
@@ -149,11 +143,10 @@
             bPresupuestos.FlatAppearance.MouseOverBackColor = Color.FromArgb(42, 42, 42);
             bPresupuestos.FlatStyle = FlatStyle.Flat;
             bPresupuestos.ForeColor = Color.Gainsboro;
-            bPresupuestos.Location = new Point(8, 63);
-            bPresupuestos.Margin = new Padding(2);
+            bPresupuestos.Location = new Point(12, 103);
             bPresupuestos.Name = "bPresupuestos";
-            bPresupuestos.Padding = new Padding(8, 0, 0, 0);
-            bPresupuestos.Size = new Size(126, 24);
+            bPresupuestos.Padding = new Padding(11, 0, 0, 0);
+            bPresupuestos.Size = new Size(180, 40);
             bPresupuestos.TabIndex = 2;
             bPresupuestos.Text = "Presupuestos";
             bPresupuestos.TextAlign = ContentAlignment.MiddleLeft;
@@ -168,11 +161,10 @@
             bOrdenes.FlatAppearance.MouseOverBackColor = Color.FromArgb(42, 42, 42);
             bOrdenes.FlatStyle = FlatStyle.Flat;
             bOrdenes.ForeColor = Color.Gainsboro;
-            bOrdenes.Location = new Point(8, 91);
-            bOrdenes.Margin = new Padding(2);
+            bOrdenes.Location = new Point(12, 149);
             bOrdenes.Name = "bOrdenes";
-            bOrdenes.Padding = new Padding(8, 0, 0, 0);
-            bOrdenes.Size = new Size(126, 24);
+            bOrdenes.Padding = new Padding(11, 0, 0, 0);
+            bOrdenes.Size = new Size(180, 40);
             bOrdenes.TabIndex = 3;
             bOrdenes.Text = "Ordenes";
             bOrdenes.TextAlign = ContentAlignment.MiddleLeft;
@@ -187,11 +179,10 @@
             bUsuarios.FlatAppearance.MouseOverBackColor = Color.FromArgb(42, 42, 42);
             bUsuarios.FlatStyle = FlatStyle.Flat;
             bUsuarios.ForeColor = Color.Gainsboro;
-            bUsuarios.Location = new Point(8, 119);
-            bUsuarios.Margin = new Padding(2);
+            bUsuarios.Location = new Point(12, 195);
             bUsuarios.Name = "bUsuarios";
-            bUsuarios.Padding = new Padding(8, 0, 0, 0);
-            bUsuarios.Size = new Size(126, 24);
+            bUsuarios.Padding = new Padding(11, 0, 0, 0);
+            bUsuarios.Size = new Size(180, 40);
             bUsuarios.TabIndex = 4;
             bUsuarios.Text = "Usuarios";
             bUsuarios.TextAlign = ContentAlignment.MiddleLeft;
@@ -203,9 +194,8 @@
             panel1.Controls.Add(lBrand);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
-            panel1.Margin = new Padding(2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(136, 35);
+            panel1.Size = new Size(194, 58);
             panel1.TabIndex = 1;
             // 
             // lBrand
@@ -215,20 +205,19 @@
             lBrand.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
             lBrand.ForeColor = Color.Gainsboro;
             lBrand.Location = new Point(0, 0);
-            lBrand.Margin = new Padding(2, 0, 2, 0);
-            lBrand.MaximumSize = new Size(140, 0);
+            lBrand.MaximumSize = new Size(200, 0);
             lBrand.Name = "lBrand";
-            lBrand.Size = new Size(140, 38);
+            lBrand.Size = new Size(196, 56);
             lBrand.TabIndex = 0;
             lBrand.Text = "Gestor de Taller de Reparaciones";
             // 
             // MainForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(560, 270);
+            ClientSize = new Size(800, 450);
             Controls.Add(tlpRoot);
-            Margin = new Padding(1);
+            Margin = new Padding(1, 2, 1, 2);
             Name = "MainForm";
             Text = "MainForm";
             Load += MainForm_Load;

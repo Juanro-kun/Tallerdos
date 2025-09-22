@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Taller_2_Gestor.Features.Shared;
 
 namespace Taller_2_Gestor.Features.Equipos
 {
@@ -15,6 +16,14 @@ namespace Taller_2_Gestor.Features.Equipos
         public EquiposView()
         {
             InitializeComponent();
+
+            dgvEquipos.AutoGenerateColumns = false;
+            dgvEquipos.DataSource = MockData.GetEquipos();
+            dgvEquipos.ClearSelection();
+
+            dgvItems.AutoGenerateColumns = false;
+            dgvItems.DataSource = MockData.GetItems();
+            dgvItems.ClearSelection();
 
             // Estado inicial
             bNuevoEquipo.Visible = true;
@@ -26,7 +35,7 @@ namespace Taller_2_Gestor.Features.Equipos
             // Cambiar visibilidad botones
             bNuevoEquipo.Visible = false;
             bGuardarNuevo.Visible = true;
-            bCancelar.Visible = true;           
+            bCancelar.Visible = true;
         }
 
         private void bGuardarNuevo_Click(object sender, EventArgs e)
@@ -41,6 +50,16 @@ namespace Taller_2_Gestor.Features.Equipos
             bNuevoEquipo.Visible = true;
             bGuardarNuevo.Visible = false;
             bCancelar.Visible = false;
+        }
+
+        private void roundedPanel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void dgvEquipos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

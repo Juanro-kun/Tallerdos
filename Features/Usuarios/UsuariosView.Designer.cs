@@ -37,7 +37,9 @@ namespace Taller_2_Gestor.Views
             cbFiltro = new ComboBox();
             lFiltro = new Label();
             rpBarraBusqueda = new RoundedPanel();
-            lBusqueda = new Label();
+            bSearch = new Button();
+            bClearSearch = new Button();
+            tbBuscar = new TextBox();
             roundedPanel1 = new RoundedPanel();
             dgvUsuarios = new DataGridView();
             colId = new DataGridViewTextBoxColumn();
@@ -194,23 +196,59 @@ namespace Taller_2_Gestor.Views
             // 
             rpBarraBusqueda.BackColor = Color.DarkGray;
             rpBarraBusqueda.BorderColor = Color.DarkGray;
-            rpBarraBusqueda.Controls.Add(lBusqueda);
+            rpBarraBusqueda.Controls.Add(bSearch);
+            rpBarraBusqueda.Controls.Add(bClearSearch);
+            rpBarraBusqueda.Controls.Add(tbBuscar);
             rpBarraBusqueda.Location = new Point(25, 103);
             rpBarraBusqueda.Margin = new Padding(25, 3, 3, 3);
             rpBarraBusqueda.Name = "rpBarraBusqueda";
             rpBarraBusqueda.Size = new Size(950, 34);
             rpBarraBusqueda.TabIndex = 3;
             // 
-            // lBusqueda
+            // bSearch
             // 
-            lBusqueda.AutoSize = true;
-            lBusqueda.ForeColor = SystemColors.ControlDarkDark;
-            lBusqueda.Location = new Point(24, 5);
-            lBusqueda.Name = "lBusqueda";
-            lBusqueda.Size = new Size(326, 25);
-            lBusqueda.TabIndex = 0;
-            lBusqueda.Text = "Ingrese un dato del usuario para buscar";
-            lBusqueda.Click += label2_Click_1;
+            bSearch.AllowDrop = true;
+            bSearch.BackColor = Color.DarkGray;
+            bSearch.FlatAppearance.BorderSize = 0;
+            bSearch.FlatStyle = FlatStyle.Flat;
+            bSearch.Location = new Point(877, 0);
+            bSearch.Name = "bSearch";
+            bSearch.Size = new Size(36, 38);
+            bSearch.TabIndex = 2;
+            bSearch.Text = "🔍";
+            bSearch.UseVisualStyleBackColor = false;
+            bSearch.Visible = false;
+            bSearch.Click += bSearch_Click;
+            // 
+            // bClearSearch
+            // 
+            bClearSearch.AllowDrop = true;
+            bClearSearch.BackColor = Color.DarkGray;
+            bClearSearch.FlatAppearance.BorderSize = 0;
+            bClearSearch.FlatStyle = FlatStyle.Flat;
+            bClearSearch.Location = new Point(919, 0);
+            bClearSearch.Name = "bClearSearch";
+            bClearSearch.Size = new Size(23, 28);
+            bClearSearch.TabIndex = 1;
+            bClearSearch.Text = "✕";
+            bClearSearch.UseVisualStyleBackColor = false;
+            bClearSearch.Visible = false;
+            bClearSearch.Click += bClearSearch_Click;
+            // 
+            // tbBuscar
+            // 
+            tbBuscar.BackColor = Color.DarkGray;
+            tbBuscar.BorderStyle = BorderStyle.None;
+            tbBuscar.ForeColor = SystemColors.InactiveBorder;
+            tbBuscar.Location = new Point(22, 3);
+            tbBuscar.Name = "tbBuscar";
+            tbBuscar.Size = new Size(854, 24);
+            tbBuscar.TabIndex = 0;
+            tbBuscar.Text = "Ingrese un dato del usuario para buscar";
+            tbBuscar.TextChanged += TbBuscar_TextChanged;
+            tbBuscar.Enter += TbBuscar_Enter;
+            tbBuscar.KeyPress += tbBuscarSoloEnteros_KeyPress;
+            tbBuscar.Leave += TbBuscar_Leave;
             // 
             // roundedPanel1
             // 
@@ -869,7 +907,6 @@ namespace Taller_2_Gestor.Views
         private Label lFiltro;
         private ComboBox cbFiltro;
         private RoundedPanel rpBarraBusqueda;
-        private Label lBusqueda;
         private RoundedPanel roundedPanel1;
         private DataGridView dgvUsuarios;
         private FlowLayoutPanel flowLayoutPanel1;
@@ -925,5 +962,8 @@ namespace Taller_2_Gestor.Views
         private RoundedButton bGuardarContrasena;
         private Panel panel10;
         private RoundedButton bCancelar;
+        private Button bClearSearch;
+        private TextBox tbBuscar;
+        private Button bSearch;
     }
 }

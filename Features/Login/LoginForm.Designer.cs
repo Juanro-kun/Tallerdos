@@ -31,6 +31,12 @@
             bDueno = new Button();
             bAdmin = new Button();
             bTecnico = new Button();
+            tbMail = new TextBox();
+            tbContrasena = new TextBox();
+            label1 = new Label();
+            label2 = new Label();
+            label3 = new Label();
+            bSesion = new Button();
             SuspendLayout();
             // 
             // bDueno
@@ -39,7 +45,7 @@
             bDueno.FlatAppearance.BorderSize = 0;
             bDueno.FlatStyle = FlatStyle.Flat;
             bDueno.ForeColor = SystemColors.ScrollBar;
-            bDueno.Location = new Point(194, 229);
+            bDueno.Location = new Point(3, 230);
             bDueno.Name = "bDueno";
             bDueno.Size = new Size(126, 59);
             bDueno.TabIndex = 0;
@@ -53,7 +59,7 @@
             bAdmin.FlatAppearance.BorderSize = 0;
             bAdmin.FlatStyle = FlatStyle.Flat;
             bAdmin.ForeColor = SystemColors.ScrollBar;
-            bAdmin.Location = new Point(348, 229);
+            bAdmin.Location = new Point(3, 296);
             bAdmin.Name = "bAdmin";
             bAdmin.Size = new Size(126, 59);
             bAdmin.TabIndex = 1;
@@ -67,7 +73,7 @@
             bTecnico.FlatAppearance.BorderSize = 0;
             bTecnico.FlatStyle = FlatStyle.Flat;
             bTecnico.ForeColor = SystemColors.ScrollBar;
-            bTecnico.Location = new Point(494, 229);
+            bTecnico.Location = new Point(3, 361);
             bTecnico.Name = "bTecnico";
             bTecnico.Size = new Size(126, 59);
             bTecnico.TabIndex = 2;
@@ -75,11 +81,74 @@
             bTecnico.UseVisualStyleBackColor = false;
             bTecnico.Click += bTecnico_Click;
             // 
+            // tbMail
+            // 
+            tbMail.BackColor = Color.FromArgb(51, 77, 53);
+            tbMail.BorderStyle = BorderStyle.FixedSingle;
+            tbMail.Location = new Point(317, 159);
+            tbMail.Name = "tbMail";
+            tbMail.Size = new Size(170, 34);
+            tbMail.TabIndex = 3;
+            // 
+            // tbContrasena
+            // 
+            tbContrasena.BackColor = Color.FromArgb(51, 77, 53);
+            tbContrasena.BorderStyle = BorderStyle.FixedSingle;
+            tbContrasena.Location = new Point(317, 227);
+            tbContrasena.Name = "tbContrasena";
+            tbContrasena.Size = new Size(170, 34);
+            tbContrasena.TabIndex = 4;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 16F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(263, 63);
+            label1.Name = "label1";
+            label1.Size = new Size(290, 45);
+            label1.TabIndex = 5;
+            label1.Text = "INICIO DE SESION";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(261, 159);
+            label2.Name = "label2";
+            label2.Size = new Size(50, 28);
+            label2.TabIndex = 6;
+            label2.Text = "Mail";
+            label2.Click += label2_Click;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(201, 230);
+            label3.Name = "label3";
+            label3.Size = new Size(110, 28);
+            label3.TabIndex = 7;
+            label3.Text = "Contraseña";
+            // 
+            // bSesion
+            // 
+            bSesion.Location = new Point(333, 307);
+            bSesion.Name = "bSesion";
+            bSesion.Size = new Size(134, 36);
+            bSesion.TabIndex = 8;
+            bSesion.Text = "Iniciar Sesion";
+            bSesion.UseVisualStyleBackColor = true;
+            bSesion.Click += bSesion_Click;
+            // 
             // LoginForm
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(bSesion);
+            Controls.Add(label3);
+            Controls.Add(label2);
+            Controls.Add(label1);
+            Controls.Add(tbContrasena);
+            Controls.Add(tbMail);
             Controls.Add(bTecnico);
             Controls.Add(bAdmin);
             Controls.Add(bDueno);
@@ -87,6 +156,7 @@
             Text = "LoginForm";
             Load += LoginForm_Load;
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -94,5 +164,11 @@
         private Button bDueno;
         private Button bAdmin;
         private Button bTecnico;
+        private TextBox tbMail;
+        private TextBox tbContrasena;
+        private Label label1;
+        private Label label2;
+        private Label label3;
+        private Button bSesion;
     }
 }

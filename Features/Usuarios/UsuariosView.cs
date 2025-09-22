@@ -16,6 +16,9 @@ namespace Taller_2_Gestor.Views
     public partial class UsuariosView : UserControl
     {
         private readonly UsuariosService _svc;
+        private const string Placeholder = "Ingrese un dato del usuario para buscar";
+        private readonly Color PlaceholderColor = Color.Gray;
+        private readonly Color TextColor = Color.White;
 
         public UsuariosView()
         {
@@ -34,8 +37,9 @@ namespace Taller_2_Gestor.Views
             cbFiltro.ValueMember = "Value";
             cbFiltro.DataSource = new[]
             {
-                new { Text = "Activo",   Value = true  },
-                new { Text = "Inactivo", Value = false }
+                new { Text = "Todos", Value = (bool?)null},
+                new { Text = "Activo",   Value = (bool?)true  },
+                new { Text = "Inactivo", Value = (bool?)false }
             };
 
             // por defecto: Activo
@@ -46,15 +50,21 @@ namespace Taller_2_Gestor.Views
 
         private void cbFiltro_SelectedIndexChanged(object sender, EventArgs e)
         {
-            bool value = (bool)cbFiltro.SelectedValue;
-            var lista = _svc.ListarUsuarios(value);
-            dgvUsuarios.DataSource = lista;
+            RecargarGridPorFiltroDeActivos();
             LimpiarCampos();
             if (dgvUsuarios.CurrentRow == null) return;
             var u = dgvUsuarios.CurrentRow.DataBoundItem as Usuario;
-            
+
 
             CargarDetalles(u);
+        }
+
+        private void RecargarGridPorFiltroDeActivos()
+        {
+            bool? filtro = cbFiltro.SelectedValue as bool?;
+            var lista = filtro.HasValue ? _svc.ListarUsuarios(filtro.Value)
+                                        : _svc.ListarUsuarios(); // todos
+            dgvUsuarios.DataSource = lista;
         }
 
         private void UsuariosView_Load(object sender, EventArgs e)
@@ -177,8 +187,7 @@ namespace Taller_2_Gestor.Views
                 return;
             }
 
-            var lista = _svc.ListarUsuarios((bool)cbFiltro.SelectedValue);
-            dgvUsuarios.DataSource = lista;
+            RecargarGridPorFiltroDeActivos();
             dgvUsuarios.ClearSelection();
             dgvUsuarios.CurrentCell = null;
 
@@ -230,8 +239,7 @@ namespace Taller_2_Gestor.Views
             var res = _svc.Actualizar(id, nombre, apellido, mail, rol, activo);
             if (!res.ok) { MessageBox.Show(res.error ?? "Error al actualizar."); return; }
 
-            var lista = _svc.ListarUsuarios((bool)cbFiltro.SelectedValue);
-            dgvUsuarios.DataSource = lista;
+            RecargarGridPorFiltroDeActivos();
 
             bNuevoUsuario.Enabled = true;
             bEliminar.Enabled = true;
@@ -354,10 +362,66 @@ namespace Taller_2_Gestor.Views
                 MessageBox.Show(error ?? "Error desconocido al desactivar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            var lista = _svc.ListarUsuarios((bool)cbFiltro.SelectedValue);
-            dgvUsuarios.DataSource = lista;   
+            RecargarGridPorFiltroDeActivos();
             dgvUsuarios.ClearSelection();
             LimpiarCampos();
+        }
+
+        private void SetPlaceholder()
+        {
+            tbBuscar.Text = Placeholder;
+            tbBuscar.ForeColor = PlaceholderColor;
+            bClearSearch.Visible = false;
+            bSearch.Visible = false;
+        }
+
+        private void TbBuscar_TextChanged(object? sender, EventArgs e)
+        {
+            // mostrar X solo si hay texto real (no placeholder)
+            bClearSearch.Visible = !string.IsNullOrWhiteSpace(tbBuscar.Text) && tbBuscar.Text != Placeholder;
+            bSearch.Visible = !string.IsNullOrWhiteSpace(tbBuscar.Text) && tbBuscar.Text != Placeholder;
+        }
+
+        private void bClearSearch_Click(object sender, EventArgs e)
+        {
+            tbBuscar.Text = "";
+            // restaurar placeholder explícitamente
+            if (!tbBuscar.Focused) SetPlaceholder();
+            tbBuscar.Focus();
+            RecargarGridPorFiltroDeActivos();
+        }
+
+        private void TbBuscar_Enter(object? sender, EventArgs e)
+        {
+            if (tbBuscar.Text == Placeholder)
+            {
+                tbBuscar.Text = "";
+                tbBuscar.ForeColor = TextColor;
+            }
+        }
+        private void TbBuscar_Leave(object? sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(tbBuscar.Text))
+                SetPlaceholder();
+        }
+
+        private void bSearch_Click(object sender, EventArgs e)
+        {
+            var u = _svc.BuscarPorId(int.Parse(tbBuscar.Text));  // <-- devuelve Usuario? con Include del Rol
+            var lista = (u != null) ? new List<Usuario> { u } : new List<Usuario>();
+            dgvUsuarios.DataSource = lista;
+        }
+
+        private void tbBuscarSoloEnteros_KeyPress(object? sender, KeyPressEventArgs e)
+        {
+            // permitir control keys (backspace, etc.)
+            if (char.IsControl(e.KeyChar)) return;
+
+            // permitir dígitos
+            if (char.IsDigit(e.KeyChar)) return;
+
+            // bloquear todo lo demás
+            e.Handled = true;
         }
     }
 }
