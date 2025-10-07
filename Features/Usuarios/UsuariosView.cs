@@ -85,13 +85,13 @@ namespace Taller_2_Gestor.Views
 
         private void CargarDetalles(Usuario u)
         {
-            lIdContenido.Text = u.idUsuario.ToString();
+            lIdContenido.Text = u.IdUsuario.ToString();
             tbMail.Text = u.Mail;
             tbNombre.Text = u.Nombre;
             tbApellido.Text = u.Apellido;
 
-            cbRol.SelectedValue = u.Rol;     // rol id
-            cbRol.Text = u.RolNombre;        // Nombre del rol traido desde ListarUsuarios()
+            cbRol.SelectedValue = u.IdRol;     // rol id
+            cbRol.Text = u.IdRolNavigation.NombreRol;        // Nombre del rol traido desde ListarUsuarios()
 
             chbActivo.Checked = u.Active;
         }
@@ -100,8 +100,8 @@ namespace Taller_2_Gestor.Views
         {
             var roles = _svc.ListarRoles();
             cbRol.DataSource = roles;
-            cbRol.DisplayMember = nameof(Rol.Nombre);
-            cbRol.ValueMember = nameof(Rol.idRol);
+            cbRol.DisplayMember = nameof(Rol.NombreRol);
+            cbRol.ValueMember = nameof(Rol.IdRol);
 
             cbRol.DropDownStyle = ComboBoxStyle.DropDownList;
             cbRol.SelectedIndex = -1;
@@ -205,7 +205,7 @@ namespace Taller_2_Gestor.Views
             LimpiarCampos();
 
             dgvUsuarios.CurrentCell = null; // deselecciona la fila actual
-            MessageBox.Show($"Usuario #{usuario!.idUsuario} creado.");
+            MessageBox.Show($"Usuario #{usuario!.IdUsuario} creado.");
         }
 
         private void bEditar_Click(object sender, EventArgs e)
@@ -356,7 +356,7 @@ namespace Taller_2_Gestor.Views
         {
             if (dgvUsuarios.CurrentRow == null) return;
             var u = dgvUsuarios.CurrentRow.DataBoundItem as Usuario;
-            var (ok, error) = _svc.SetActivo(u.idUsuario, false);
+            var (ok, error) = _svc.SetActivo(u.IdUsuario, false);
             if (!ok)
             {
                 MessageBox.Show(error ?? "Error desconocido al desactivar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);

@@ -6,15 +6,6 @@ using System.Threading.Tasks;
 
 namespace Taller_2_Gestor.Features.Shared
 {
-    public class Cliente
-    {
-        public int ID { get; set; }
-        public string Correo { get; set; } = "";
-        public string Nombre { get; set; } = "";
-        public string Apellido { get; set; } = "";
-        public string Telefono { get; set; } = "";
-        public string Dni { get; set; } = ""; // string para no perder ceros
-    }
 
     public class Equipo
     {
@@ -64,22 +55,7 @@ namespace Taller_2_Gestor.Features.Shared
             new Orden { IDorden = 5010, IDequipo = 10 },
         };
         }
-        public static List<Cliente> GetClientes()
-        {
-            return new List<Cliente>
-        {
-            new Cliente { ID = 1,  Correo = "ana.lopez@example.com",     Nombre = "Ana",       Apellido = "López",     Telefono = "(379) 412-3456", Dni = "24567890" },
-            new Cliente { ID = 2,  Correo = "juan.perez@correo.com",      Nombre = "Juan",      Apellido = "Pérez",     Telefono = "(379) 431-2299", Dni = "30511222" },
-            new Cliente { ID = 3,  Correo = "carla.gomez@mail.com",       Nombre = "Carla",     Apellido = "Gómez",     Telefono = "(379) 420-7788", Dni = "31890543" },
-            new Cliente { ID = 4,  Correo = "martin.fernandez@dom.com",   Nombre = "Martín",    Apellido = "Fernández", Telefono = "(379) 448-9012", Dni = "27900456" },
-            new Cliente { ID = 5,  Correo = "lucia.rodri@gmail.com",      Nombre = "Lucía",     Apellido = "Rodríguez", Telefono = "(379) 455-6677", Dni = "33221456" },
-            new Cliente { ID = 6,  Correo = "diego.sosa@ejemplo.com",     Nombre = "Diego",     Apellido = "Sosa",      Telefono = "(379) 426-0044", Dni = "28765012" },
-            new Cliente { ID = 7,  Correo = "flor.martinez@correo.com",   Nombre = "Florencia", Apellido = "Martínez",  Telefono = "(379) 415-8899", Dni = "36123456" },
-            new Cliente { ID = 8,  Correo = "nicolas.romero@mail.com",    Nombre = "Nicolás",   Apellido = "Romero",    Telefono = "(379) 440-1212", Dni = "29987654" },
-            new Cliente { ID = 9,  Correo = "valen.alvarez@example.com",  Nombre = "Valentina", Apellido = "Álvarez",   Telefono = "(379) 490-7788", Dni = "35220987" },
-            new Cliente { ID = 10, Correo = "tomas.herrera@dom.com",      Nombre = "Tomás",     Apellido = "Herrera",   Telefono = "(379) 422-3344", Dni = "31456789" },
-        };
-        }
+        
         public static List<Equipo> GetEquipos()
         {
             return new List<Equipo>

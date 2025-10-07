@@ -21,7 +21,7 @@ namespace Taller_2_Gestor.Features.Usuarios
         public List<Usuario> ListarUsuarios()
         {
             return _db.Usuarios
-                      .Include(u => u.RolNavigation) // trae también el Rol
+                      .Include(u => u.IdRolNavigation) // trae también el Rol
                       .ToList();
         }
 
@@ -29,7 +29,7 @@ namespace Taller_2_Gestor.Features.Usuarios
         {
             return _db.Rols
                      .AsNoTracking()
-                     .OrderBy(r => r.Nombre)
+                     .OrderBy(r => r.NombreRol)
                      .ToList();
         }
 
@@ -39,16 +39,16 @@ namespace Taller_2_Gestor.Features.Usuarios
         {
             try
             {
-                var u = _db.Usuarios.FirstOrDefault(x => x.idUsuario == idUsuario);
+                var u = _db.Usuarios.FirstOrDefault(x => x.IdUsuario == idUsuario);
                 if (u == null) return (false, "Usuario no encontrado.");
 
-                bool mailEnUso = _db.Usuarios.Any(x => x.Mail == mail && x.idUsuario != idUsuario);
+                bool mailEnUso = _db.Usuarios.Any(x => x.Mail == mail && x.IdUsuario != idUsuario);
                 if (mailEnUso) return (false, "Ese mail ya está en uso por otro usuario.");
 
                 u.Nombre = nombre;
                 u.Apellido = apellido;
                 u.Mail = mail;
-                u.Rol = rol;
+                u.IdRol = rol;
                 u.Active = activo;
 
                 _db.SaveChanges();
@@ -84,7 +84,7 @@ namespace Taller_2_Gestor.Features.Usuarios
                     Mail = mail.Trim(),
                     // TODO: reemplazar por hash (BCrypt/Argon2) cuando quieras
                     Contrasena = contraseniaPlano,
-                    Rol = idRol,
+                    IdRol = idRol,
                     Active = activo
                 };
 
@@ -104,7 +104,7 @@ namespace Taller_2_Gestor.Features.Usuarios
         {
             try
             {
-                var u = _db.Usuarios.FirstOrDefault(x => x.idUsuario == idUsuario);
+                var u = _db.Usuarios.FirstOrDefault(x => x.IdUsuario == idUsuario);
                 if (u == null) return (false, "Usuario no encontrado.");
 
                 if (u.Active == activo) return (true, null); // nada que hacer
@@ -122,7 +122,7 @@ namespace Taller_2_Gestor.Features.Usuarios
         {
             return _db.Usuarios
                .Where(u => u.Active == activo)
-               .Include(u => u.RolNavigation)
+               .Include(u => u.IdRolNavigation)
                .AsNoTracking()
                .ToList();
 
@@ -132,8 +132,8 @@ namespace Taller_2_Gestor.Features.Usuarios
         {
             return _db.Usuarios
                       .AsNoTracking()
-                      .Include(u => u.RolNavigation)
-                      .FirstOrDefault(u => u.idUsuario == idUsuario);
+                      .Include(u => u.IdRolNavigation)
+                      .FirstOrDefault(u => u.IdUsuario == idUsuario);
         }
     }
 }

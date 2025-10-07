@@ -32,7 +32,7 @@ namespace Taller_2_Gestor.Features.Login
                 return (false, ERROR);
 
             // Éxito: guardar sesión
-            UserSession.Start(u.idUsuario, u.Nombre, u.Apellido, u.Mail, u.Rol);
+            UserSession.Start(u.IdUsuario, u.Nombre, u.Apellido, u.Mail, u.IdRol);
 
             return (true, null);
         }

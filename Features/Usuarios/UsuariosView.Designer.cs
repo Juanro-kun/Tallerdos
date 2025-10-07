@@ -42,12 +42,6 @@ namespace Taller_2_Gestor.Views
             tbBuscar = new TextBox();
             roundedPanel1 = new RoundedPanel();
             dgvUsuarios = new DataGridView();
-            colId = new DataGridViewTextBoxColumn();
-            colEmail = new DataGridViewTextBoxColumn();
-            colNombre = new DataGridViewTextBoxColumn();
-            colApellido = new DataGridViewTextBoxColumn();
-            colRol = new DataGridViewTextBoxColumn();
-            colActivo = new DataGridViewCheckBoxColumn();
             flowLayoutPanel1 = new FlowLayoutPanel();
             pNuevoUsuario = new Panel();
             bGuardarNuevo = new RoundedButton();
@@ -94,6 +88,12 @@ namespace Taller_2_Gestor.Views
             pCContrasena = new RoundedPanel();
             tbCContrasena = new TextBox();
             lCContrasena = new Label();
+            colId = new DataGridViewTextBoxColumn();
+            colEmail = new DataGridViewTextBoxColumn();
+            colNombre = new DataGridViewTextBoxColumn();
+            colApellido = new DataGridViewTextBoxColumn();
+            colRol = new DataGridViewTextBoxColumn();
+            colActivo = new DataGridViewCheckBoxColumn();
             tlpViews.SuspendLayout();
             rpFiltro.SuspendLayout();
             rpBarraBusqueda.SuspendLayout();
@@ -278,56 +278,6 @@ namespace Taller_2_Gestor.Views
             dgvUsuarios.Size = new Size(950, 290);
             dgvUsuarios.TabIndex = 0;
             dgvUsuarios.CellContentClick += dataGridView1_CellContentClick_1;
-            // 
-            // colId
-            // 
-            colId.DataPropertyName = "idUsuario";
-            colId.HeaderText = "ID";
-            colId.MinimumWidth = 8;
-            colId.Name = "colId";
-            colId.ReadOnly = true;
-            // 
-            // colEmail
-            // 
-            colEmail.DataPropertyName = "Mail";
-            colEmail.HeaderText = "Correo";
-            colEmail.MinimumWidth = 8;
-            colEmail.Name = "colEmail";
-            colEmail.ReadOnly = true;
-            // 
-            // colNombre
-            // 
-            colNombre.DataPropertyName = "Nombre";
-            colNombre.HeaderText = "Nombre";
-            colNombre.MinimumWidth = 8;
-            colNombre.Name = "colNombre";
-            colNombre.ReadOnly = true;
-            // 
-            // colApellido
-            // 
-            colApellido.DataPropertyName = "Apellido";
-            colApellido.HeaderText = "Apellido";
-            colApellido.MinimumWidth = 8;
-            colApellido.Name = "colApellido";
-            colApellido.ReadOnly = true;
-            // 
-            // colRol
-            // 
-            colRol.DataPropertyName = "RolNombre";
-            colRol.HeaderText = "Rol";
-            colRol.MinimumWidth = 8;
-            colRol.Name = "colRol";
-            colRol.ReadOnly = true;
-            // 
-            // colActivo
-            // 
-            colActivo.DataPropertyName = "Active";
-            colActivo.HeaderText = "Activo";
-            colActivo.MinimumWidth = 8;
-            colActivo.Name = "colActivo";
-            colActivo.ReadOnly = true;
-            colActivo.Resizable = DataGridViewTriState.True;
-            colActivo.SortMode = DataGridViewColumnSortMode.Automatic;
             // 
             // flowLayoutPanel1
             // 
@@ -841,6 +791,56 @@ namespace Taller_2_Gestor.Views
             lCContrasena.Text = "Confirmar Contraseña";
             lCContrasena.Visible = false;
             // 
+            // colId
+            // 
+            colId.DataPropertyName = "idUsuario";
+            colId.HeaderText = "ID";
+            colId.MinimumWidth = 8;
+            colId.Name = "colId";
+            colId.ReadOnly = true;
+            // 
+            // colEmail
+            // 
+            colEmail.DataPropertyName = "Mail";
+            colEmail.HeaderText = "Correo";
+            colEmail.MinimumWidth = 8;
+            colEmail.Name = "colEmail";
+            colEmail.ReadOnly = true;
+            // 
+            // colNombre
+            // 
+            colNombre.DataPropertyName = "Nombre";
+            colNombre.HeaderText = "Nombre";
+            colNombre.MinimumWidth = 8;
+            colNombre.Name = "colNombre";
+            colNombre.ReadOnly = true;
+            // 
+            // colApellido
+            // 
+            colApellido.DataPropertyName = "Apellido";
+            colApellido.HeaderText = "Apellido";
+            colApellido.MinimumWidth = 8;
+            colApellido.Name = "colApellido";
+            colApellido.ReadOnly = true;
+            // 
+            // colRol
+            // 
+            colRol.DataPropertyName = "RolNombre";
+            colRol.HeaderText = "Rol";
+            colRol.MinimumWidth = 8;
+            colRol.Name = "colRol";
+            colRol.ReadOnly = true;
+            // 
+            // colActivo
+            // 
+            colActivo.DataPropertyName = "Active";
+            colActivo.HeaderText = "Activo";
+            colActivo.MinimumWidth = 8;
+            colActivo.Name = "colActivo";
+            colActivo.ReadOnly = true;
+            colActivo.Resizable = DataGridViewTriState.True;
+            colActivo.SortMode = DataGridViewColumnSortMode.Automatic;
+            // 
             // UsuariosView
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
@@ -940,12 +940,6 @@ namespace Taller_2_Gestor.Views
         private ComboBox cbRol;
         private Label lRol;
         private DataGridViewTextBoxColumn rolDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn colId;
-        private DataGridViewTextBoxColumn colEmail;
-        private DataGridViewTextBoxColumn colNombre;
-        private DataGridViewTextBoxColumn colApellido;
-        private DataGridViewTextBoxColumn colRol;
-        private DataGridViewCheckBoxColumn colActivo;
         private CheckBox chbActivo;
         private Panel panel6;
         private Label lActivo;
@@ -965,5 +959,11 @@ namespace Taller_2_Gestor.Views
         private Button bClearSearch;
         private TextBox tbBuscar;
         private Button bSearch;
+        private DataGridViewTextBoxColumn colId;
+        private DataGridViewTextBoxColumn colEmail;
+        private DataGridViewTextBoxColumn colNombre;
+        private DataGridViewTextBoxColumn colApellido;
+        private DataGridViewTextBoxColumn colRol;
+        private DataGridViewCheckBoxColumn colActivo;
     }
 }

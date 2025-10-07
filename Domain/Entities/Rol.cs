@@ -5,9 +5,9 @@ namespace Taller_2_Gestor.Domain.Entities;
 
 public partial class Rol
 {
-    public byte idRol { get; set; }
+    public byte IdRol { get; set; }
 
-    public string Nombre { get; set; } = null!;
+    public string NombreRol { get; set; } = null!;
 
     public virtual ICollection<Usuario> Usuarios { get; set; } = new List<Usuario>();
 }
