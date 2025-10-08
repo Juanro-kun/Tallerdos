@@ -7,13 +7,7 @@ using System.Threading.Tasks;
 namespace Taller_2_Gestor.Features.Shared
 {
 
-    public class Equipo
-    {
-        public int ID { get; set; }
-        public string Marca { get; set; } = "";
-        public string Tipo { get; set; } = "";
-        public string Estado { get; set; } = ""; // En reparacion | Listo | Pendiente de revision
-    }
+    
 
     public class Item
     {
@@ -56,22 +50,7 @@ namespace Taller_2_Gestor.Features.Shared
         };
         }
         
-        public static List<Equipo> GetEquipos()
-        {
-            return new List<Equipo>
-        {
-            new Equipo { ID = 1,  Marca = "Lenovo",     Tipo = "Notebook",          Estado = "En reparacion" },
-            new Equipo { ID = 2,  Marca = "HP",         Tipo = "PC de escritorio",  Estado = "Pendiente de revision" },
-            new Equipo { ID = 3,  Marca = "Samsung",    Tipo = "Celular",           Estado = "Listo" },
-            new Equipo { ID = 4,  Marca = "Epson",      Tipo = "Impresora",         Estado = "En reparacion" },
-            new Equipo { ID = 5,  Marca = "Dell",       Tipo = "Notebook",          Estado = "Listo" },
-            new Equipo { ID = 6,  Marca = "Asus",       Tipo = "Notebook",          Estado = "Pendiente de revision" },
-            new Equipo { ID = 7,  Marca = "Brother",    Tipo = "Impresora",         Estado = "Listo" },
-            new Equipo { ID = 8,  Marca = "Motorola",   Tipo = "Celular",           Estado = "En reparacion" },
-            new Equipo { ID = 9,  Marca = "PlayStation",Tipo = "Consola",           Estado = "Pendiente de revision" },
-            new Equipo { ID = 10, Marca = "AOC",        Tipo = "Monitor",           Estado = "Listo" },
-        };
-        }
+        
 
         public static List<Item> GetItems()
         {

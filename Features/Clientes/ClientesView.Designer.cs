@@ -1,9 +1,6 @@
-﻿using Taller_2_Gestor.Domain.Entities;
-using Taller_2_Gestor.Features.Shared.Controls;
-
-namespace Taller_2_Gestor.Views
+﻿namespace Taller_2_Gestor.Features.Clientes
 {
-    partial class UsuariosView
+    partial class ClientesView
     {
         /// <summary> 
         /// Variable del diseñador necesaria.
@@ -33,94 +30,83 @@ namespace Taller_2_Gestor.Views
         {
             tlpViews = new TableLayoutPanel();
             label1 = new Label();
-            rpFiltro = new RoundedPanel();
+            rpFiltro = new Taller_2_Gestor.Features.Shared.Controls.RoundedPanel();
             cbFiltro = new ComboBox();
             lFiltro = new Label();
-            rpBarraBusqueda = new RoundedPanel();
-            bSearch = new Button();
-            bClearSearch = new Button();
-            tbBuscar = new TextBox();
-            roundedPanel1 = new RoundedPanel();
-            dgvUsuarios = new DataGridView();
-            flowLayoutPanel1 = new FlowLayoutPanel();
-            pNuevoUsuario = new Panel();
-            bGuardarNuevo = new RoundedButton();
-            bNuevoUsuario = new RoundedButton();
-            pEditarUsuario = new Panel();
-            bEditar = new RoundedButton();
-            bGuardarExistente = new RoundedButton();
-            panel9 = new Panel();
-            bCambiarContrasena = new RoundedButton();
-            bGuardarContrasena = new RoundedButton();
-            pEliminarUsuario = new Panel();
-            bEliminar = new RoundedButton();
-            panel10 = new Panel();
-            bCancelar = new RoundedButton();
-            flowLayoutPanel2 = new FlowLayoutPanel();
-            panel1 = new Panel();
-            lId = new Label();
-            roundedPanel2 = new RoundedPanel();
-            lIdContenido = new Label();
-            panel2 = new Panel();
-            roundedPanel3 = new RoundedPanel();
-            tbMail = new TextBox();
-            lMail = new Label();
-            panel3 = new Panel();
-            roundedPanel4 = new RoundedPanel();
-            tbNombre = new TextBox();
-            lNombre = new Label();
-            panel4 = new Panel();
-            roundedPanel5 = new RoundedPanel();
-            tbApellido = new TextBox();
-            lApellido = new Label();
-            panel5 = new Panel();
-            roundedPanel6 = new RoundedPanel();
-            cbRol = new ComboBox();
-            lRol = new Label();
-            panel6 = new Panel();
-            lActivo = new Label();
-            chbActivo = new CheckBox();
-            panel7 = new Panel();
-            pContrasena = new RoundedPanel();
-            tbContrasena = new TextBox();
-            lContrasena = new Label();
-            panel8 = new Panel();
-            pCContrasena = new RoundedPanel();
-            tbCContrasena = new TextBox();
-            lCContrasena = new Label();
+            rpBarraBusqueda = new Taller_2_Gestor.Features.Shared.Controls.RoundedPanel();
+            lBusqueda = new Label();
+            roundedPanel1 = new Taller_2_Gestor.Features.Shared.Controls.RoundedPanel();
+            dgvClientes = new DataGridView();
             colId = new DataGridViewTextBoxColumn();
             colEmail = new DataGridViewTextBoxColumn();
             colNombre = new DataGridViewTextBoxColumn();
             colApellido = new DataGridViewTextBoxColumn();
             colRol = new DataGridViewTextBoxColumn();
-            colActivo = new DataGridViewCheckBoxColumn();
+            colActivo = new DataGridViewTextBoxColumn();
+            flowLayoutPanel1 = new FlowLayoutPanel();
+            pNuevoUsuario = new Panel();
+            bNuevoCliente = new Taller_2_Gestor.Features.Shared.Controls.RoundedButton();
+            bGuardarNuevo = new Taller_2_Gestor.Features.Shared.Controls.RoundedButton();
+            pEditarUsuario = new Panel();
+            bGuardarExistente = new Taller_2_Gestor.Features.Shared.Controls.RoundedButton();
+            bEditar = new Taller_2_Gestor.Features.Shared.Controls.RoundedButton();
+            panel10 = new Panel();
+            bCancelar = new Taller_2_Gestor.Features.Shared.Controls.RoundedButton();
+            flowLayoutPanel2 = new FlowLayoutPanel();
+            panel1 = new Panel();
+            lIdContenido = new Label();
+            lId = new Label();
+            roundedPanel2 = new Taller_2_Gestor.Features.Shared.Controls.RoundedPanel();
+            panel2 = new Panel();
+            roundedPanel3 = new Taller_2_Gestor.Features.Shared.Controls.RoundedPanel();
+            tbMail = new TextBox();
+            lMail = new Label();
+            panel3 = new Panel();
+            roundedPanel4 = new Taller_2_Gestor.Features.Shared.Controls.RoundedPanel();
+            tbNombre = new TextBox();
+            lNombre = new Label();
+            panel4 = new Panel();
+            roundedPanel5 = new Taller_2_Gestor.Features.Shared.Controls.RoundedPanel();
+            tbApellido = new TextBox();
+            lApellido = new Label();
+            panel7 = new Panel();
+            pContrasena = new Taller_2_Gestor.Features.Shared.Controls.RoundedPanel();
+            tbTelefono = new TextBox();
+            lContrasena = new Label();
+            panel5 = new Panel();
+            roundedPanel6 = new Taller_2_Gestor.Features.Shared.Controls.RoundedPanel();
+            tbDni = new TextBox();
+            label2 = new Label();
+            roundedPanel7 = new Taller_2_Gestor.Features.Shared.Controls.RoundedPanel();
+            dgvEquipos = new DataGridView();
+            dataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn2 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn3 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn4 = new DataGridViewTextBoxColumn();
+            label3 = new Label();
             tlpViews.SuspendLayout();
             rpFiltro.SuspendLayout();
             rpBarraBusqueda.SuspendLayout();
             roundedPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvUsuarios).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvClientes).BeginInit();
             flowLayoutPanel1.SuspendLayout();
             pNuevoUsuario.SuspendLayout();
             pEditarUsuario.SuspendLayout();
-            panel9.SuspendLayout();
-            pEliminarUsuario.SuspendLayout();
             panel10.SuspendLayout();
             flowLayoutPanel2.SuspendLayout();
             panel1.SuspendLayout();
-            roundedPanel2.SuspendLayout();
             panel2.SuspendLayout();
             roundedPanel3.SuspendLayout();
             panel3.SuspendLayout();
             roundedPanel4.SuspendLayout();
             panel4.SuspendLayout();
             roundedPanel5.SuspendLayout();
-            panel5.SuspendLayout();
-            roundedPanel6.SuspendLayout();
-            panel6.SuspendLayout();
             panel7.SuspendLayout();
             pContrasena.SuspendLayout();
-            panel8.SuspendLayout();
-            pCContrasena.SuspendLayout();
+            panel5.SuspendLayout();
+            roundedPanel6.SuspendLayout();
+            roundedPanel7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvEquipos).BeginInit();
             SuspendLayout();
             // 
             // tlpViews
@@ -134,30 +120,34 @@ namespace Taller_2_Gestor.Views
             tlpViews.Controls.Add(roundedPanel1, 0, 3);
             tlpViews.Controls.Add(flowLayoutPanel1, 0, 4);
             tlpViews.Controls.Add(flowLayoutPanel2, 0, 5);
+            tlpViews.Controls.Add(roundedPanel7, 0, 7);
+            tlpViews.Controls.Add(label3, 0, 6);
             tlpViews.Dock = DockStyle.Fill;
             tlpViews.Location = new Point(0, 0);
             tlpViews.Name = "tlpViews";
-            tlpViews.RowCount = 6;
+            tlpViews.RowCount = 8;
             tlpViews.RowStyles.Add(new RowStyle(SizeType.Absolute, 60F));
             tlpViews.RowStyles.Add(new RowStyle(SizeType.Absolute, 40F));
             tlpViews.RowStyles.Add(new RowStyle(SizeType.Absolute, 40F));
             tlpViews.RowStyles.Add(new RowStyle(SizeType.Absolute, 300F));
             tlpViews.RowStyles.Add(new RowStyle(SizeType.Absolute, 45F));
+            tlpViews.RowStyles.Add(new RowStyle(SizeType.Absolute, 137F));
+            tlpViews.RowStyles.Add(new RowStyle(SizeType.Absolute, 45F));
             tlpViews.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tlpViews.Size = new Size(1016, 688);
-            tlpViews.TabIndex = 0;
-            tlpViews.Paint += tableLayoutPanel1_Paint;
+            tlpViews.Size = new Size(1016, 900);
+            tlpViews.TabIndex = 1;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 20F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Font = new Font("Segoe UI", 20F, FontStyle.Bold);
             label1.Location = new Point(3, 0);
             label1.Name = "label1";
-            label1.Size = new Size(185, 54);
+            label1.Size = new Size(172, 54);
             label1.TabIndex = 0;
-            label1.Text = "Usuarios";
+            label1.Text = "Clientes";
             label1.TextAlign = ContentAlignment.MiddleCenter;
+            label1.Click += label1_Click;
             // 
             // rpFiltro
             // 
@@ -190,101 +180,110 @@ namespace Taller_2_Gestor.Views
             lFiltro.Size = new Size(93, 25);
             lFiltro.TabIndex = 0;
             lFiltro.Text = "Filtrar por:";
-            lFiltro.Click += label2_Click;
             // 
             // rpBarraBusqueda
             // 
             rpBarraBusqueda.BackColor = Color.DarkGray;
             rpBarraBusqueda.BorderColor = Color.DarkGray;
-            rpBarraBusqueda.Controls.Add(bSearch);
-            rpBarraBusqueda.Controls.Add(bClearSearch);
-            rpBarraBusqueda.Controls.Add(tbBuscar);
+            rpBarraBusqueda.Controls.Add(lBusqueda);
             rpBarraBusqueda.Location = new Point(25, 103);
             rpBarraBusqueda.Margin = new Padding(25, 3, 3, 3);
             rpBarraBusqueda.Name = "rpBarraBusqueda";
             rpBarraBusqueda.Size = new Size(950, 34);
             rpBarraBusqueda.TabIndex = 3;
             // 
-            // bSearch
+            // lBusqueda
             // 
-            bSearch.AllowDrop = true;
-            bSearch.BackColor = Color.DarkGray;
-            bSearch.FlatAppearance.BorderSize = 0;
-            bSearch.FlatStyle = FlatStyle.Flat;
-            bSearch.Location = new Point(877, 0);
-            bSearch.Name = "bSearch";
-            bSearch.Size = new Size(36, 38);
-            bSearch.TabIndex = 2;
-            bSearch.Text = "🔍";
-            bSearch.UseVisualStyleBackColor = false;
-            bSearch.Visible = false;
-            bSearch.Click += bSearch_Click;
-            // 
-            // bClearSearch
-            // 
-            bClearSearch.AllowDrop = true;
-            bClearSearch.BackColor = Color.DarkGray;
-            bClearSearch.FlatAppearance.BorderSize = 0;
-            bClearSearch.FlatStyle = FlatStyle.Flat;
-            bClearSearch.Location = new Point(919, 0);
-            bClearSearch.Name = "bClearSearch";
-            bClearSearch.Size = new Size(23, 28);
-            bClearSearch.TabIndex = 1;
-            bClearSearch.Text = "✕";
-            bClearSearch.UseVisualStyleBackColor = false;
-            bClearSearch.Visible = false;
-            bClearSearch.Click += bClearSearch_Click;
-            // 
-            // tbBuscar
-            // 
-            tbBuscar.BackColor = Color.DarkGray;
-            tbBuscar.BorderStyle = BorderStyle.None;
-            tbBuscar.ForeColor = SystemColors.InactiveBorder;
-            tbBuscar.Location = new Point(22, 3);
-            tbBuscar.Name = "tbBuscar";
-            tbBuscar.Size = new Size(854, 24);
-            tbBuscar.TabIndex = 0;
-            tbBuscar.Text = "Ingrese un dato del usuario para buscar";
-            tbBuscar.TextChanged += TbBuscar_TextChanged;
-            tbBuscar.Enter += TbBuscar_Enter;
-            tbBuscar.KeyPress += tbBuscarSoloEnteros_KeyPress;
-            tbBuscar.Leave += TbBuscar_Leave;
+            lBusqueda.AutoSize = true;
+            lBusqueda.ForeColor = SystemColors.ControlDarkDark;
+            lBusqueda.Location = new Point(24, 5);
+            lBusqueda.Name = "lBusqueda";
+            lBusqueda.Size = new Size(318, 25);
+            lBusqueda.TabIndex = 0;
+            lBusqueda.Text = "Ingrese un dato del cliente para buscar";
             // 
             // roundedPanel1
             // 
             roundedPanel1.BackColor = Color.White;
             roundedPanel1.BorderSize = 3F;
-            roundedPanel1.Controls.Add(dgvUsuarios);
+            roundedPanel1.Controls.Add(dgvClientes);
             roundedPanel1.Location = new Point(25, 147);
             roundedPanel1.Margin = new Padding(25, 7, 3, 3);
             roundedPanel1.Name = "roundedPanel1";
             roundedPanel1.Size = new Size(950, 290);
             roundedPanel1.TabIndex = 4;
             // 
-            // dgvUsuarios
+            // dgvClientes
             // 
-            dgvUsuarios.AllowUserToAddRows = false;
-            dgvUsuarios.AllowUserToDeleteRows = false;
-            dgvUsuarios.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvUsuarios.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvUsuarios.Columns.AddRange(new DataGridViewColumn[] { colId, colEmail, colNombre, colApellido, colRol, colActivo });
-            dgvUsuarios.Dock = DockStyle.Fill;
-            dgvUsuarios.Location = new Point(0, 0);
-            dgvUsuarios.MultiSelect = false;
-            dgvUsuarios.Name = "dgvUsuarios";
-            dgvUsuarios.ReadOnly = true;
-            dgvUsuarios.RowHeadersWidth = 62;
-            dgvUsuarios.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvUsuarios.Size = new Size(950, 290);
-            dgvUsuarios.TabIndex = 0;
-            dgvUsuarios.CellContentClick += dataGridView1_CellContentClick_1;
+            dgvClientes.AllowUserToAddRows = false;
+            dgvClientes.AllowUserToDeleteRows = false;
+            dgvClientes.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvClientes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvClientes.Columns.AddRange(new DataGridViewColumn[] { colId, colEmail, colNombre, colApellido, colRol, colActivo });
+            dgvClientes.Dock = DockStyle.Fill;
+            dgvClientes.Location = new Point(0, 0);
+            dgvClientes.MultiSelect = false;
+            dgvClientes.Name = "dgvClientes";
+            dgvClientes.ReadOnly = true;
+            dgvClientes.RowHeadersWidth = 62;
+            dgvClientes.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvClientes.Size = new Size(950, 290);
+            dgvClientes.TabIndex = 0;
+            dgvClientes.SelectionChanged += dgvClientes_SelectionChanged;
+            // 
+            // colId
+            // 
+            colId.DataPropertyName = "IdCliente";
+            colId.HeaderText = "ID";
+            colId.MinimumWidth = 8;
+            colId.Name = "colId";
+            colId.ReadOnly = true;
+            // 
+            // colEmail
+            // 
+            colEmail.DataPropertyName = "Mail";
+            colEmail.HeaderText = "Correo";
+            colEmail.MinimumWidth = 8;
+            colEmail.Name = "colEmail";
+            colEmail.ReadOnly = true;
+            // 
+            // colNombre
+            // 
+            colNombre.DataPropertyName = "Nombre";
+            colNombre.HeaderText = "Nombre";
+            colNombre.MinimumWidth = 8;
+            colNombre.Name = "colNombre";
+            colNombre.ReadOnly = true;
+            // 
+            // colApellido
+            // 
+            colApellido.DataPropertyName = "Apellido";
+            colApellido.HeaderText = "Apellido";
+            colApellido.MinimumWidth = 8;
+            colApellido.Name = "colApellido";
+            colApellido.ReadOnly = true;
+            // 
+            // colRol
+            // 
+            colRol.DataPropertyName = "Telefono";
+            colRol.HeaderText = "Telefono";
+            colRol.MinimumWidth = 8;
+            colRol.Name = "colRol";
+            colRol.ReadOnly = true;
+            // 
+            // colActivo
+            // 
+            colActivo.DataPropertyName = "Dni";
+            colActivo.HeaderText = "DNI";
+            colActivo.MinimumWidth = 8;
+            colActivo.Name = "colActivo";
+            colActivo.ReadOnly = true;
+            colActivo.Resizable = DataGridViewTriState.True;
             // 
             // flowLayoutPanel1
             // 
             flowLayoutPanel1.Controls.Add(pNuevoUsuario);
             flowLayoutPanel1.Controls.Add(pEditarUsuario);
-            flowLayoutPanel1.Controls.Add(panel9);
-            flowLayoutPanel1.Controls.Add(pEliminarUsuario);
             flowLayoutPanel1.Controls.Add(panel10);
             flowLayoutPanel1.Dock = DockStyle.Fill;
             flowLayoutPanel1.Location = new Point(3, 443);
@@ -294,71 +293,54 @@ namespace Taller_2_Gestor.Views
             // 
             // pNuevoUsuario
             // 
+            pNuevoUsuario.Controls.Add(bNuevoCliente);
             pNuevoUsuario.Controls.Add(bGuardarNuevo);
-            pNuevoUsuario.Controls.Add(bNuevoUsuario);
             pNuevoUsuario.Location = new Point(35, 3);
             pNuevoUsuario.Margin = new Padding(35, 3, 3, 3);
             pNuevoUsuario.Name = "pNuevoUsuario";
             pNuevoUsuario.Size = new Size(182, 32);
             pNuevoUsuario.TabIndex = 0;
             // 
+            // bNuevoCliente
+            // 
+            bNuevoCliente.BackColor = Color.FromArgb(40, 40, 40);
+            bNuevoCliente.Dock = DockStyle.Fill;
+            bNuevoCliente.FlatAppearance.BorderSize = 0;
+            bNuevoCliente.FlatStyle = FlatStyle.Flat;
+            bNuevoCliente.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            bNuevoCliente.ForeColor = Color.Gainsboro;
+            bNuevoCliente.Location = new Point(0, 0);
+            bNuevoCliente.Name = "bNuevoCliente";
+            bNuevoCliente.Size = new Size(182, 32);
+            bNuevoCliente.TabIndex = 0;
+            bNuevoCliente.Text = "Nuevo Cliente";
+            bNuevoCliente.UseVisualStyleBackColor = false;
+            bNuevoCliente.Click += bNuevoCliente_Click;
+            // 
             // bGuardarNuevo
             // 
             bGuardarNuevo.BackColor = Color.FromArgb(40, 40, 40);
-            bGuardarNuevo.Dock = DockStyle.Fill;
             bGuardarNuevo.FlatAppearance.BorderSize = 0;
             bGuardarNuevo.FlatStyle = FlatStyle.Flat;
             bGuardarNuevo.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             bGuardarNuevo.ForeColor = Color.Gainsboro;
-            bGuardarNuevo.Location = new Point(0, 0);
+            bGuardarNuevo.Location = new Point(0, -3);
             bGuardarNuevo.Name = "bGuardarNuevo";
             bGuardarNuevo.Size = new Size(182, 32);
-            bGuardarNuevo.TabIndex = 1;
+            bGuardarNuevo.TabIndex = 3;
             bGuardarNuevo.Text = "Guardar";
             bGuardarNuevo.UseVisualStyleBackColor = false;
             bGuardarNuevo.Visible = false;
-            bGuardarNuevo.Click += bGuardarNuevo_Click;
-            // 
-            // bNuevoUsuario
-            // 
-            bNuevoUsuario.BackColor = Color.FromArgb(40, 40, 40);
-            bNuevoUsuario.Dock = DockStyle.Fill;
-            bNuevoUsuario.FlatAppearance.BorderSize = 0;
-            bNuevoUsuario.FlatStyle = FlatStyle.Flat;
-            bNuevoUsuario.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            bNuevoUsuario.ForeColor = Color.Gainsboro;
-            bNuevoUsuario.Location = new Point(0, 0);
-            bNuevoUsuario.Name = "bNuevoUsuario";
-            bNuevoUsuario.Size = new Size(182, 32);
-            bNuevoUsuario.TabIndex = 0;
-            bNuevoUsuario.Text = "Nuevo Usuario";
-            bNuevoUsuario.UseVisualStyleBackColor = false;
-            bNuevoUsuario.Click += bNuevoUsuario_Click;
+            bGuardarNuevo.Click += bGuardarNuevo_Click_1;
             // 
             // pEditarUsuario
             // 
-            pEditarUsuario.Controls.Add(bEditar);
             pEditarUsuario.Controls.Add(bGuardarExistente);
+            pEditarUsuario.Controls.Add(bEditar);
             pEditarUsuario.Location = new Point(223, 3);
             pEditarUsuario.Name = "pEditarUsuario";
             pEditarUsuario.Size = new Size(182, 32);
             pEditarUsuario.TabIndex = 1;
-            // 
-            // bEditar
-            // 
-            bEditar.BackColor = Color.FromArgb(40, 40, 40);
-            bEditar.Dock = DockStyle.Fill;
-            bEditar.FlatAppearance.BorderSize = 0;
-            bEditar.FlatStyle = FlatStyle.Flat;
-            bEditar.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            bEditar.ForeColor = Color.Gainsboro;
-            bEditar.Location = new Point(0, 0);
-            bEditar.Name = "bEditar";
-            bEditar.Size = new Size(182, 32);
-            bEditar.TabIndex = 3;
-            bEditar.Text = "Editar Usuario";
-            bEditar.UseVisualStyleBackColor = false;
-            bEditar.Click += bEditar_Click;
             // 
             // bGuardarExistente
             // 
@@ -375,77 +357,28 @@ namespace Taller_2_Gestor.Views
             bGuardarExistente.Text = "Guardar";
             bGuardarExistente.UseVisualStyleBackColor = false;
             bGuardarExistente.Visible = false;
-            bGuardarExistente.Click += bGuardarExistente_Click;
+            bGuardarExistente.Click += bGuardarExistente_Click_1;
             // 
-            // panel9
+            // bEditar
             // 
-            panel9.Controls.Add(bCambiarContrasena);
-            panel9.Controls.Add(bGuardarContrasena);
-            panel9.Location = new Point(411, 3);
-            panel9.Name = "panel9";
-            panel9.Size = new Size(189, 31);
-            panel9.TabIndex = 3;
-            // 
-            // bCambiarContrasena
-            // 
-            bCambiarContrasena.BackColor = Color.FromArgb(40, 40, 40);
-            bCambiarContrasena.Dock = DockStyle.Fill;
-            bCambiarContrasena.FlatAppearance.BorderSize = 0;
-            bCambiarContrasena.FlatStyle = FlatStyle.Flat;
-            bCambiarContrasena.ForeColor = Color.Gainsboro;
-            bCambiarContrasena.Location = new Point(0, 0);
-            bCambiarContrasena.Name = "bCambiarContrasena";
-            bCambiarContrasena.Size = new Size(189, 31);
-            bCambiarContrasena.TabIndex = 0;
-            bCambiarContrasena.Text = "Cambiar Contraseña";
-            bCambiarContrasena.UseVisualStyleBackColor = false;
-            bCambiarContrasena.Click += bCambiarContrasena_Click;
-            // 
-            // bGuardarContrasena
-            // 
-            bGuardarContrasena.BackColor = Color.FromArgb(40, 40, 40);
-            bGuardarContrasena.Dock = DockStyle.Fill;
-            bGuardarContrasena.FlatAppearance.BorderSize = 0;
-            bGuardarContrasena.FlatStyle = FlatStyle.Flat;
-            bGuardarContrasena.ForeColor = Color.Gainsboro;
-            bGuardarContrasena.Location = new Point(0, 0);
-            bGuardarContrasena.Name = "bGuardarContrasena";
-            bGuardarContrasena.Size = new Size(189, 31);
-            bGuardarContrasena.TabIndex = 4;
-            bGuardarContrasena.Text = "Guardar";
-            bGuardarContrasena.UseVisualStyleBackColor = false;
-            bGuardarContrasena.Visible = false;
-            bGuardarContrasena.Click += bGuardarContrasena_Click;
-            // 
-            // pEliminarUsuario
-            // 
-            pEliminarUsuario.Controls.Add(bEliminar);
-            pEliminarUsuario.Location = new Point(606, 3);
-            pEliminarUsuario.Name = "pEliminarUsuario";
-            pEliminarUsuario.Size = new Size(182, 32);
-            pEliminarUsuario.TabIndex = 2;
-            // 
-            // bEliminar
-            // 
-            bEliminar.BackColor = Color.White;
-            bEliminar.BackNormal = Color.FromArgb(162, 46, 46);
-            bEliminar.Dock = DockStyle.Fill;
-            bEliminar.FlatAppearance.BorderSize = 0;
-            bEliminar.FlatStyle = FlatStyle.Flat;
-            bEliminar.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            bEliminar.ForeColor = Color.Gainsboro;
-            bEliminar.Location = new Point(0, 0);
-            bEliminar.Name = "bEliminar";
-            bEliminar.Size = new Size(182, 32);
-            bEliminar.TabIndex = 4;
-            bEliminar.Text = "Eliminar Usuario";
-            bEliminar.UseVisualStyleBackColor = false;
-            bEliminar.Click += bEliminar_Click;
+            bEditar.BackColor = Color.FromArgb(40, 40, 40);
+            bEditar.Dock = DockStyle.Fill;
+            bEditar.FlatAppearance.BorderSize = 0;
+            bEditar.FlatStyle = FlatStyle.Flat;
+            bEditar.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            bEditar.ForeColor = Color.Gainsboro;
+            bEditar.Location = new Point(0, 0);
+            bEditar.Name = "bEditar";
+            bEditar.Size = new Size(182, 32);
+            bEditar.TabIndex = 3;
+            bEditar.Text = "Editar Cliente";
+            bEditar.UseVisualStyleBackColor = false;
+            bEditar.Click += bEditar_Click_1;
             // 
             // panel10
             // 
             panel10.Controls.Add(bCancelar);
-            panel10.Location = new Point(794, 3);
+            panel10.Location = new Point(411, 3);
             panel10.Name = "panel10";
             panel10.Size = new Size(159, 32);
             panel10.TabIndex = 4;
@@ -472,25 +405,32 @@ namespace Taller_2_Gestor.Views
             flowLayoutPanel2.Controls.Add(panel2);
             flowLayoutPanel2.Controls.Add(panel3);
             flowLayoutPanel2.Controls.Add(panel4);
-            flowLayoutPanel2.Controls.Add(panel5);
-            flowLayoutPanel2.Controls.Add(panel6);
             flowLayoutPanel2.Controls.Add(panel7);
-            flowLayoutPanel2.Controls.Add(panel8);
+            flowLayoutPanel2.Controls.Add(panel5);
             flowLayoutPanel2.Dock = DockStyle.Top;
             flowLayoutPanel2.Location = new Point(35, 500);
             flowLayoutPanel2.Margin = new Padding(35, 15, 3, 3);
             flowLayoutPanel2.Name = "flowLayoutPanel2";
-            flowLayoutPanel2.Size = new Size(978, 181);
+            flowLayoutPanel2.Size = new Size(978, 119);
             flowLayoutPanel2.TabIndex = 6;
             // 
             // panel1
             // 
+            panel1.Controls.Add(lIdContenido);
             panel1.Controls.Add(lId);
             panel1.Controls.Add(roundedPanel2);
             panel1.Location = new Point(3, 3);
             panel1.Name = "panel1";
             panel1.Size = new Size(104, 67);
             panel1.TabIndex = 0;
+            // 
+            // lIdContenido
+            // 
+            lIdContenido.AutoSize = true;
+            lIdContenido.Location = new Point(20, 25);
+            lIdContenido.Name = "lIdContenido";
+            lIdContenido.Size = new Size(0, 25);
+            lIdContenido.TabIndex = 0;
             // 
             // lId
             // 
@@ -501,25 +441,15 @@ namespace Taller_2_Gestor.Views
             lId.Size = new Size(30, 25);
             lId.TabIndex = 0;
             lId.Text = "Id";
-            lId.Click += label2_Click_2;
             // 
             // roundedPanel2
             // 
             roundedPanel2.BackColor = Color.FromArgb(51, 77, 53);
             roundedPanel2.BorderSize = 4F;
-            roundedPanel2.Controls.Add(lIdContenido);
             roundedPanel2.Location = new Point(3, 25);
             roundedPanel2.Name = "roundedPanel2";
             roundedPanel2.Size = new Size(74, 39);
             roundedPanel2.TabIndex = 1;
-            // 
-            // lIdContenido
-            // 
-            lIdContenido.AutoSize = true;
-            lIdContenido.Location = new Point(8, 7);
-            lIdContenido.Name = "lIdContenido";
-            lIdContenido.Size = new Size(0, 25);
-            lIdContenido.TabIndex = 0;
             // 
             // panel2
             // 
@@ -638,81 +568,11 @@ namespace Taller_2_Gestor.Views
             lApellido.TabIndex = 0;
             lApellido.Text = "Apellido";
             // 
-            // panel5
-            // 
-            panel5.Controls.Add(roundedPanel6);
-            panel5.Controls.Add(lRol);
-            panel5.Location = new Point(3, 76);
-            panel5.Name = "panel5";
-            panel5.Size = new Size(201, 67);
-            panel5.TabIndex = 5;
-            // 
-            // roundedPanel6
-            // 
-            roundedPanel6.BackColor = Color.FromArgb(51, 77, 53);
-            roundedPanel6.BorderSize = 4F;
-            roundedPanel6.Controls.Add(cbRol);
-            roundedPanel6.Location = new Point(3, 25);
-            roundedPanel6.Name = "roundedPanel6";
-            roundedPanel6.Size = new Size(191, 39);
-            roundedPanel6.TabIndex = 1;
-            // 
-            // cbRol
-            // 
-            cbRol.BackColor = Color.FromArgb(51, 77, 53);
-            cbRol.Enabled = false;
-            cbRol.FlatStyle = FlatStyle.Flat;
-            cbRol.FormattingEnabled = true;
-            cbRol.Location = new Point(6, 3);
-            cbRol.Name = "cbRol";
-            cbRol.Size = new Size(182, 33);
-            cbRol.TabIndex = 0;
-            // 
-            // lRol
-            // 
-            lRol.AutoSize = true;
-            lRol.Font = new Font("Segoe UI Black", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lRol.Location = new Point(3, 0);
-            lRol.Name = "lRol";
-            lRol.Size = new Size(41, 25);
-            lRol.TabIndex = 0;
-            lRol.Text = "Rol";
-            // 
-            // panel6
-            // 
-            panel6.Controls.Add(lActivo);
-            panel6.Controls.Add(chbActivo);
-            panel6.Location = new Point(210, 76);
-            panel6.Name = "panel6";
-            panel6.Size = new Size(77, 67);
-            panel6.TabIndex = 6;
-            // 
-            // lActivo
-            // 
-            lActivo.AutoSize = true;
-            lActivo.Font = new Font("Segoe UI Black", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lActivo.Location = new Point(3, 0);
-            lActivo.Name = "lActivo";
-            lActivo.Size = new Size(71, 25);
-            lActivo.TabIndex = 0;
-            lActivo.Text = "Activo";
-            // 
-            // chbActivo
-            // 
-            chbActivo.AutoSize = true;
-            chbActivo.Enabled = false;
-            chbActivo.Location = new Point(23, 28);
-            chbActivo.Name = "chbActivo";
-            chbActivo.Size = new Size(22, 21);
-            chbActivo.TabIndex = 6;
-            chbActivo.UseVisualStyleBackColor = true;
-            chbActivo.CheckedChanged += checkBox1_CheckedChanged;
-            // 
             // panel7
             // 
             panel7.Controls.Add(pContrasena);
             panel7.Controls.Add(lContrasena);
-            panel7.Location = new Point(293, 76);
+            panel7.Location = new Point(3, 76);
             panel7.Name = "panel7";
             panel7.Size = new Size(243, 67);
             panel7.TabIndex = 3;
@@ -721,22 +581,21 @@ namespace Taller_2_Gestor.Views
             // 
             pContrasena.BackColor = Color.FromArgb(51, 77, 53);
             pContrasena.BorderSize = 4F;
-            pContrasena.Controls.Add(tbContrasena);
+            pContrasena.Controls.Add(tbTelefono);
             pContrasena.Location = new Point(3, 25);
             pContrasena.Name = "pContrasena";
             pContrasena.Size = new Size(234, 39);
             pContrasena.TabIndex = 1;
-            pContrasena.Visible = false;
             // 
-            // tbContrasena
+            // tbTelefono
             // 
-            tbContrasena.BackColor = Color.FromArgb(51, 77, 53);
-            tbContrasena.BorderStyle = BorderStyle.None;
-            tbContrasena.Location = new Point(5, 7);
-            tbContrasena.Name = "tbContrasena";
-            tbContrasena.Size = new Size(189, 24);
-            tbContrasena.TabIndex = 0;
-            tbContrasena.Visible = false;
+            tbTelefono.BackColor = Color.FromArgb(51, 77, 53);
+            tbTelefono.BorderStyle = BorderStyle.None;
+            tbTelefono.Location = new Point(5, 7);
+            tbTelefono.Name = "tbTelefono";
+            tbTelefono.Size = new Size(189, 24);
+            tbTelefono.TabIndex = 0;
+            tbTelefono.KeyPress += txtSoloNumeros_KeyPress;
             // 
             // lContrasena
             // 
@@ -744,112 +603,131 @@ namespace Taller_2_Gestor.Views
             lContrasena.Font = new Font("Segoe UI Black", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lContrasena.Location = new Point(3, 0);
             lContrasena.Name = "lContrasena";
-            lContrasena.Size = new Size(111, 25);
+            lContrasena.Size = new Size(90, 25);
             lContrasena.TabIndex = 0;
-            lContrasena.Text = "Contraseña";
-            lContrasena.Visible = false;
-            lContrasena.Click += label2_Click_3;
+            lContrasena.Text = "Telefono";
+            lContrasena.Click += lContrasena_Click;
             // 
-            // panel8
+            // panel5
             // 
-            panel8.Controls.Add(pCContrasena);
-            panel8.Controls.Add(lCContrasena);
-            panel8.Location = new Point(542, 76);
-            panel8.Name = "panel8";
-            panel8.Size = new Size(243, 67);
-            panel8.TabIndex = 3;
+            panel5.Controls.Add(roundedPanel6);
+            panel5.Controls.Add(label2);
+            panel5.Location = new Point(252, 76);
+            panel5.Name = "panel5";
+            panel5.Size = new Size(243, 67);
+            panel5.TabIndex = 4;
             // 
-            // pCContrasena
+            // roundedPanel6
             // 
-            pCContrasena.BackColor = Color.FromArgb(51, 77, 53);
-            pCContrasena.BorderSize = 4F;
-            pCContrasena.Controls.Add(tbCContrasena);
-            pCContrasena.Location = new Point(3, 25);
-            pCContrasena.Name = "pCContrasena";
-            pCContrasena.Size = new Size(234, 39);
-            pCContrasena.TabIndex = 1;
-            pCContrasena.Visible = false;
+            roundedPanel6.BackColor = Color.FromArgb(51, 77, 53);
+            roundedPanel6.BorderSize = 4F;
+            roundedPanel6.Controls.Add(tbDni);
+            roundedPanel6.Location = new Point(3, 25);
+            roundedPanel6.Name = "roundedPanel6";
+            roundedPanel6.Size = new Size(234, 39);
+            roundedPanel6.TabIndex = 1;
             // 
-            // tbCContrasena
+            // tbDni
             // 
-            tbCContrasena.BackColor = Color.FromArgb(51, 77, 53);
-            tbCContrasena.BorderStyle = BorderStyle.None;
-            tbCContrasena.Location = new Point(5, 7);
-            tbCContrasena.Name = "tbCContrasena";
-            tbCContrasena.Size = new Size(189, 24);
-            tbCContrasena.TabIndex = 0;
-            tbCContrasena.Visible = false;
+            tbDni.BackColor = Color.FromArgb(51, 77, 53);
+            tbDni.BorderStyle = BorderStyle.None;
+            tbDni.Location = new Point(5, 7);
+            tbDni.Name = "tbDni";
+            tbDni.Size = new Size(189, 24);
+            tbDni.TabIndex = 0;
+            tbDni.KeyPress += txtSoloNumeros_KeyPress;
             // 
-            // lCContrasena
+            // label2
             // 
-            lCContrasena.AutoSize = true;
-            lCContrasena.Font = new Font("Segoe UI Black", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lCContrasena.Location = new Point(3, 0);
-            lCContrasena.Name = "lCContrasena";
-            lCContrasena.Size = new Size(206, 25);
-            lCContrasena.TabIndex = 0;
-            lCContrasena.Text = "Confirmar Contraseña";
-            lCContrasena.Visible = false;
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI Black", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.Location = new Point(3, 0);
+            label2.Name = "label2";
+            label2.Size = new Size(42, 30);
+            label2.TabIndex = 0;
+            label2.Text = "DNI";
+            label2.UseCompatibleTextRendering = true;
             // 
-            // colId
+            // roundedPanel7
             // 
-            colId.DataPropertyName = "idUsuario";
-            colId.HeaderText = "ID";
-            colId.MinimumWidth = 8;
-            colId.Name = "colId";
-            colId.ReadOnly = true;
+            roundedPanel7.BackColor = Color.White;
+            roundedPanel7.BorderSize = 3F;
+            roundedPanel7.Controls.Add(dgvEquipos);
+            roundedPanel7.Location = new Point(25, 674);
+            roundedPanel7.Margin = new Padding(25, 7, 3, 3);
+            roundedPanel7.Name = "roundedPanel7";
+            roundedPanel7.Size = new Size(950, 223);
+            roundedPanel7.TabIndex = 7;
             // 
-            // colEmail
+            // dgvEquipos
             // 
-            colEmail.DataPropertyName = "Mail";
-            colEmail.HeaderText = "Correo";
-            colEmail.MinimumWidth = 8;
-            colEmail.Name = "colEmail";
-            colEmail.ReadOnly = true;
+            dgvEquipos.AllowUserToAddRows = false;
+            dgvEquipos.AllowUserToDeleteRows = false;
+            dgvEquipos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvEquipos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvEquipos.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn1, dataGridViewTextBoxColumn2, dataGridViewTextBoxColumn3, dataGridViewTextBoxColumn4 });
+            dgvEquipos.Dock = DockStyle.Fill;
+            dgvEquipos.Location = new Point(0, 0);
+            dgvEquipos.MultiSelect = false;
+            dgvEquipos.Name = "dgvEquipos";
+            dgvEquipos.ReadOnly = true;
+            dgvEquipos.RowHeadersWidth = 62;
+            dgvEquipos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvEquipos.Size = new Size(950, 223);
+            dgvEquipos.TabIndex = 0;
+            dgvEquipos.CellContentClick += dataGridView1_CellContentClick;
             // 
-            // colNombre
+            // dataGridViewTextBoxColumn1
             // 
-            colNombre.DataPropertyName = "Nombre";
-            colNombre.HeaderText = "Nombre";
-            colNombre.MinimumWidth = 8;
-            colNombre.Name = "colNombre";
-            colNombre.ReadOnly = true;
+            dataGridViewTextBoxColumn1.DataPropertyName = "IdEquipo";
+            dataGridViewTextBoxColumn1.HeaderText = "ID";
+            dataGridViewTextBoxColumn1.MinimumWidth = 8;
+            dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            dataGridViewTextBoxColumn1.ReadOnly = true;
             // 
-            // colApellido
+            // dataGridViewTextBoxColumn2
             // 
-            colApellido.DataPropertyName = "Apellido";
-            colApellido.HeaderText = "Apellido";
-            colApellido.MinimumWidth = 8;
-            colApellido.Name = "colApellido";
-            colApellido.ReadOnly = true;
+            dataGridViewTextBoxColumn2.DataPropertyName = "NombreMarca";
+            dataGridViewTextBoxColumn2.HeaderText = "Marca";
+            dataGridViewTextBoxColumn2.MinimumWidth = 8;
+            dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            dataGridViewTextBoxColumn2.ReadOnly = true;
             // 
-            // colRol
+            // dataGridViewTextBoxColumn3
             // 
-            colRol.DataPropertyName = "IdRolNavigation.NombreRol";
-            colRol.HeaderText = "Rol";
-            colRol.MinimumWidth = 8;
-            colRol.Name = "colRol";
-            colRol.ReadOnly = true;
+            dataGridViewTextBoxColumn3.DataPropertyName = "NombreTipo";
+            dataGridViewTextBoxColumn3.HeaderText = "Tipo";
+            dataGridViewTextBoxColumn3.MinimumWidth = 8;
+            dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            dataGridViewTextBoxColumn3.ReadOnly = true;
             // 
-            // colActivo
+            // dataGridViewTextBoxColumn4
             // 
-            colActivo.DataPropertyName = "Active";
-            colActivo.HeaderText = "Activo";
-            colActivo.MinimumWidth = 8;
-            colActivo.Name = "colActivo";
-            colActivo.ReadOnly = true;
-            colActivo.Resizable = DataGridViewTriState.True;
-            colActivo.SortMode = DataGridViewColumnSortMode.Automatic;
+            dataGridViewTextBoxColumn4.DataPropertyName = "NombreEstado";
+            dataGridViewTextBoxColumn4.HeaderText = "Estado";
+            dataGridViewTextBoxColumn4.MinimumWidth = 8;
+            dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            dataGridViewTextBoxColumn4.ReadOnly = true;
             // 
-            // UsuariosView
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 16F, FontStyle.Bold);
+            label3.Location = new Point(25, 622);
+            label3.Margin = new Padding(25, 0, 3, 0);
+            label3.Name = "label3";
+            label3.Size = new Size(310, 45);
+            label3.TabIndex = 8;
+            label3.Text = "Equipos del cliente:";
+            // 
+            // ClientesView
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(51, 77, 53);
             Controls.Add(tlpViews);
-            Name = "UsuariosView";
-            Size = new Size(1016, 688);
-            Load += UsuariosView_Load;
+            Name = "ClientesView";
+            Size = new Size(1016, 900);
             tlpViews.ResumeLayout(false);
             tlpViews.PerformLayout();
             rpFiltro.ResumeLayout(false);
@@ -857,18 +735,14 @@ namespace Taller_2_Gestor.Views
             rpBarraBusqueda.ResumeLayout(false);
             rpBarraBusqueda.PerformLayout();
             roundedPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dgvUsuarios).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvClientes).EndInit();
             flowLayoutPanel1.ResumeLayout(false);
             pNuevoUsuario.ResumeLayout(false);
             pEditarUsuario.ResumeLayout(false);
-            panel9.ResumeLayout(false);
-            pEliminarUsuario.ResumeLayout(false);
             panel10.ResumeLayout(false);
             flowLayoutPanel2.ResumeLayout(false);
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
-            roundedPanel2.ResumeLayout(false);
-            roundedPanel2.PerformLayout();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             roundedPanel3.ResumeLayout(false);
@@ -881,8 +755,78 @@ namespace Taller_2_Gestor.Views
             panel4.PerformLayout();
             roundedPanel5.ResumeLayout(false);
             roundedPanel5.PerformLayout();
+            panel7.ResumeLayout(false);
+            panel7.PerformLayout();
+            pContrasena.ResumeLayout(false);
+            pContrasena.PerformLayout();
             panel5.ResumeLayout(false);
             panel5.PerformLayout();
             roundedPanel6.ResumeLayout(false);
-            panel6.ResumeLayout(false);
-            panel6.PerformLayou
+            roundedPanel6.PerformLayout();
+            roundedPanel7.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dgvEquipos).EndInit();
+            ResumeLayout(false);
+        }
+
+        #endregion
+
+        private TableLayoutPanel tlpViews;
+        private Label label1;
+        private Shared.Controls.RoundedPanel rpFiltro;
+        private ComboBox cbFiltro;
+        private Label lFiltro;
+        private Shared.Controls.RoundedPanel rpBarraBusqueda;
+        private Label lBusqueda;
+        private Shared.Controls.RoundedPanel roundedPanel1;
+        private DataGridView dgvClientes;
+        private FlowLayoutPanel flowLayoutPanel1;
+        private Panel pNuevoUsuario;
+        private Shared.Controls.RoundedButton bNuevoCliente;
+        private Panel pEditarUsuario;
+        private Shared.Controls.RoundedButton bEditar;
+        private Shared.Controls.RoundedButton bGuardarExistente;
+        private Panel pEliminarUsuario;
+        private Shared.Controls.RoundedButton bEliminar;
+        private Panel panel10;
+        private Shared.Controls.RoundedButton bCancelar;
+        private FlowLayoutPanel flowLayoutPanel2;
+        private Panel panel1;
+        private Label lId;
+        private Shared.Controls.RoundedPanel roundedPanel2;
+        private Label lIdContenido;
+        private Panel panel2;
+        private Shared.Controls.RoundedPanel roundedPanel3;
+        private TextBox tbMail;
+        private Label lMail;
+        private Panel panel3;
+        private Shared.Controls.RoundedPanel roundedPanel4;
+        private TextBox tbNombre;
+        private Label lNombre;
+        private Panel panel4;
+        private Shared.Controls.RoundedPanel roundedPanel5;
+        private TextBox tbApellido;
+        private Label lApellido;
+        private Panel panel7;
+        private Shared.Controls.RoundedPanel pContrasena;
+        private TextBox tbTelefono;
+        private Label lContrasena;
+        private Panel panel5;
+        private Shared.Controls.RoundedPanel roundedPanel6;
+        private TextBox tbDni;
+        private Label label2;
+        private Shared.Controls.RoundedPanel roundedPanel7;
+        private DataGridView dgvEquipos;
+        private Shared.Controls.RoundedButton bGuardarNuevo;
+        private DataGridViewTextBoxColumn colId;
+        private DataGridViewTextBoxColumn colEmail;
+        private DataGridViewTextBoxColumn colNombre;
+        private DataGridViewTextBoxColumn colApellido;
+        private DataGridViewTextBoxColumn colRol;
+        private DataGridViewTextBoxColumn colActivo;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private Label label3;
+    }
+}
