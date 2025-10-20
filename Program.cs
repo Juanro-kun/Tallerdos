@@ -2,6 +2,8 @@ using System;
 using System.Windows.Forms;
 using Taller_2_Gestor.Domain;
 using Taller_2_Gestor.Forms;
+using Taller_2_Gestor.Infra; // Donde está tu DbContext
+using Microsoft.EntityFrameworkCore;
 
 namespace Taller_2_Gestor
 {
@@ -11,6 +13,29 @@ namespace Taller_2_Gestor
         static void Main()
         {
             ApplicationConfiguration.Initialize();
+
+            // =========================================================
+            // Lógica para CREAR/ACTUALIZAR la Base de Datos
+            // =========================================================
+            try
+            {
+                // Reemplaza TallerDosBaseContext por el nombre real de tu DbContext.
+                // Asegúrate de que este constructor sepa cómo cargar la cadena de conexión.
+                using (var context = new AppDbContext())
+                {
+                    // ¡La línea CLAVE! Aplica todas las migraciones pendientes.
+                    context.Database.Migrate();
+                }
+            }
+            catch (Exception ex)
+            {
+                // Si la conexión o la migración fallan (p. ej., SQL EXPRESS no está corriendo),
+                // notifica al usuario y detén la aplicación.
+                MessageBox.Show($"Error al inicializar la base de datos: {ex.Message}",
+                                "Error de Configuración", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return; // Salir de la aplicación si falla la BD
+            }
+            // =========================================================
 
             using (var login = new LoginForm())
             {

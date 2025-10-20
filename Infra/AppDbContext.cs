@@ -144,15 +144,7 @@ public partial class AppDbContext : DbContext
                 .IsUnicode(false)
                 .HasColumnName("nombre");
 
-            entity.HasData(
-                new EstadoEquipo { IdEstado = 1, Nombre = "Pendiente de revision" },
-                new EstadoEquipo { IdEstado = 2, Nombre = "Pendiente de aprobacion" },
-                new EstadoEquipo { IdEstado = 3, Nombre = "Pendiente de contacto" },
-                new EstadoEquipo { IdEstado = 4, Nombre = "Pendiente de reparacion" },
-                new EstadoEquipo { IdEstado = 5, Nombre = "Cliente contactado" },
-                new EstadoEquipo { IdEstado = 6, Nombre = "Pospuesto" },
-                new EstadoEquipo { IdEstado = 7, Nombre = "Retirado" }
-                );
+            
         });
         modelBuilder.Entity<EstadoItem>(entity =>
         {
@@ -166,13 +158,7 @@ public partial class AppDbContext : DbContext
                 .IsUnicode(false)
                 .HasColumnName("nombre");
 
-            entity.HasData(
-                new EstadoItem { IdEstado = 1, Nombre = "Pendiente" },
-                new EstadoItem { IdEstado = 2, Nombre = "Aprobado" },
-                new EstadoItem { IdEstado = 3, Nombre = "Rechazado" },
-                new EstadoItem { IdEstado = 4, Nombre = "Pospuesto" },
-                new EstadoItem { IdEstado = 5, Nombre = "Realizado" }
-                );
+            
         });
 
         modelBuilder.Entity<EstadoPresupuesto>(entity =>
@@ -187,13 +173,7 @@ public partial class AppDbContext : DbContext
                 .IsUnicode(false)
                 .HasColumnName("nombre");
 
-            entity.HasData(
-                new EstadoPresupuesto { IdEstado = 1, Nombre = "Pendiente de aprobacion" },
-                new EstadoPresupuesto { IdEstado = 2, Nombre = "Aprobado" },
-                new EstadoPresupuesto { IdEstado = 3, Nombre = "Rechazado" },
-                new EstadoPresupuesto { IdEstado = 4, Nombre = "Realizado" },
-                new EstadoPresupuesto { IdEstado = 3, Nombre = "Pospuesto" }
-                );
+            
         });
 
         modelBuilder.Entity<ItemPresupuesto>(entity =>
@@ -311,11 +291,7 @@ public partial class AppDbContext : DbContext
                 .HasMaxLength(50)
                 .IsUnicode(false)
                 .HasColumnName("nombre_rol");
-            entity.HasData(
-                new Rol { IdRol = 1, NombreRol = "Administrador" },
-                new Rol { IdRol = 3, NombreRol = "Administrador" },
-                new Rol { IdRol = 2, NombreRol = "Tecnico" }
-                );
+            
         });
 
         modelBuilder.Entity<Servicio>(entity =>
@@ -377,11 +353,7 @@ public partial class AppDbContext : DbContext
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_usuario_rol");
 
-            entity.HasData(
-                new Usuario { IdUsuario = 1, Nombre = "m", Apellido = "m", Mail = "m@m.com" , Contrasena = "m", Active = true, IdRol = 1 },
-                new Usuario { IdUsuario = 2, Nombre = "t", Apellido = "t", Mail = "t@t.com", Contrasena = "t", Active = true, IdRol = 2 },
-                new Usuario { IdUsuario = 3, Nombre = "a", Apellido = "a", Mail = "a@a.com", Contrasena = "a", Active = true, IdRol = 3 }
-                );
+            
         });
 
         OnModelCreatingPartial(modelBuilder);
