@@ -13,9 +13,15 @@ public partial class Presupuesto
 
     public int IdEquipo { get; set; }
 
+    public int IdEstado { get; set; }
+
+    public virtual ICollection<Comentario> Comentarios { get; set; } = new List<Comentario>();
+
     public virtual Usuario IdAdministradorNavigation { get; set; } = null!;
 
     public virtual Equipo IdEquipoNavigation { get; set; } = null!;
+
+    public virtual EstadoPresupuesto IdEstadoNavigation { get; set; } = null!;
 
     public virtual Usuario IdTecnicoNavigation { get; set; } = null!;
 

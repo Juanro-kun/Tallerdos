@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Taller_2_Gestor.Domain.Entities;
 
@@ -11,7 +12,7 @@ public partial class Usuario
 
     public string Apellido { get; set; } = null!;
 
-    public string Mail { get; set; } = null!;
+    public string? Mail { get; set; }
 
     public string Contrasena { get; set; } = null!;
 

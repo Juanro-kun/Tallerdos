@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Taller_2_Gestor.Domain.Entities;
 
@@ -18,6 +19,9 @@ public partial class ItemPresupuesto
     public string NombreServicio => IdServicioNavigation.NombreServicio;
 
     public int IdEstado { get; set; }
+
+    public bool? Necesario { get; set; }
+
     public int IdEquipo => IdPresupuestoNavigation.IdEquipo;
 
     public virtual EstadoItem IdEstadoNavigation { get; set; } = null!;

@@ -18,11 +18,15 @@ public partial class AppDbContext : DbContext
 
     public virtual DbSet<Cliente> Clientes { get; set; }
 
+    public virtual DbSet<Comentario> Comentarios { get; set; }
+
     public virtual DbSet<Equipo> Equipos { get; set; }
 
     public virtual DbSet<EstadoEquipo> EstadoEquipos { get; set; }
 
     public virtual DbSet<EstadoItem> EstadoItems { get; set; }
+
+    public virtual DbSet<EstadoPresupuesto> EstadoPresupuestos { get; set; }
 
     public virtual DbSet<ItemPresupuesto> ItemPresupuestos { get; set; }
 
@@ -67,6 +71,28 @@ public partial class AppDbContext : DbContext
                 .IsUnicode(false)
                 .HasColumnName("nombre");
             entity.Property(e => e.Telefono).HasColumnName("telefono");
+        });
+
+        modelBuilder.Entity<Comentario>(entity =>
+        {
+            entity.HasKey(e => new { e.IdComentario, e.IdPresupuesto });
+
+            entity.ToTable("comentario");
+
+            entity.Property(e => e.IdComentario).HasColumnName("id_comentario");
+            entity.Property(e => e.IdPresupuesto).HasColumnName("id_presupuesto");
+            entity.Property(e => e.Detalle)
+                .HasMaxLength(200)
+                .IsUnicode(false)
+                .HasColumnName("detalle");
+            entity.Property(e => e.Fecha)
+                .HasDefaultValueSql("(getdate())")
+                .HasColumnName("fecha");
+
+            entity.HasOne(d => d.IdPresupuestoNavigation).WithMany(p => p.Comentarios)
+                .HasForeignKey(d => d.IdPresupuesto)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_comentario_presupuesto");
         });
 
         modelBuilder.Entity<Equipo>(entity =>
@@ -117,8 +143,17 @@ public partial class AppDbContext : DbContext
                 .HasMaxLength(50)
                 .IsUnicode(false)
                 .HasColumnName("nombre");
-        });
 
+            entity.HasData(
+                new EstadoEquipo { IdEstado = 1, Nombre = "Pendiente de revision" },
+                new EstadoEquipo { IdEstado = 2, Nombre = "Pendiente de aprobacion" },
+                new EstadoEquipo { IdEstado = 3, Nombre = "Pendiente de contacto" },
+                new EstadoEquipo { IdEstado = 4, Nombre = "Pendiente de reparacion" },
+                new EstadoEquipo { IdEstado = 5, Nombre = "Cliente contactado" },
+                new EstadoEquipo { IdEstado = 6, Nombre = "Pospuesto" },
+                new EstadoEquipo { IdEstado = 7, Nombre = "Retirado" }
+                );
+        });
         modelBuilder.Entity<EstadoItem>(entity =>
         {
             entity.HasKey(e => e.IdEstado);
@@ -130,6 +165,35 @@ public partial class AppDbContext : DbContext
                 .HasMaxLength(30)
                 .IsUnicode(false)
                 .HasColumnName("nombre");
+
+            entity.HasData(
+                new EstadoItem { IdEstado = 1, Nombre = "Pendiente" },
+                new EstadoItem { IdEstado = 2, Nombre = "Aprobado" },
+                new EstadoItem { IdEstado = 3, Nombre = "Rechazado" },
+                new EstadoItem { IdEstado = 4, Nombre = "Pospuesto" },
+                new EstadoItem { IdEstado = 5, Nombre = "Realizado" }
+                );
+        });
+
+        modelBuilder.Entity<EstadoPresupuesto>(entity =>
+        {
+            entity.HasKey(e => e.IdEstado);
+
+            entity.ToTable("estado_presupuesto");
+
+            entity.Property(e => e.IdEstado).HasColumnName("id_estado");
+            entity.Property(e => e.Nombre)
+                .HasMaxLength(50)
+                .IsUnicode(false)
+                .HasColumnName("nombre");
+
+            entity.HasData(
+                new EstadoPresupuesto { IdEstado = 1, Nombre = "Pendiente de aprobacion" },
+                new EstadoPresupuesto { IdEstado = 2, Nombre = "Aprobado" },
+                new EstadoPresupuesto { IdEstado = 3, Nombre = "Rechazado" },
+                new EstadoPresupuesto { IdEstado = 4, Nombre = "Realizado" },
+                new EstadoPresupuesto { IdEstado = 3, Nombre = "Pospuesto" }
+                );
         });
 
         modelBuilder.Entity<ItemPresupuesto>(entity =>
@@ -143,6 +207,10 @@ public partial class AppDbContext : DbContext
             entity.Property(e => e.IdEstado).HasColumnName("id_estado");
             entity.Property(e => e.IdOrden).HasColumnName("id_orden");
             entity.Property(e => e.IdServicio).HasColumnName("id_servicio");
+            entity.Property(e => e.Necesario)
+                .IsRequired()
+                .HasDefaultValueSql("('0')")
+                .HasColumnName("necesario");
             entity.Property(e => e.Precio).HasColumnName("precio");
 
             entity.HasOne(d => d.IdEstadoNavigation).WithMany(p => p.ItemPresupuestos)
@@ -204,6 +272,9 @@ public partial class AppDbContext : DbContext
             entity.Property(e => e.IdPresupuesto).HasColumnName("id_presupuesto");
             entity.Property(e => e.IdAdministrador).HasColumnName("id_administrador");
             entity.Property(e => e.IdEquipo).HasColumnName("id_equipo");
+            entity.Property(e => e.IdEstado)
+                .HasDefaultValueSql("('1')")
+                .HasColumnName("id_estado");
             entity.Property(e => e.IdTecnico).HasColumnName("id_tecnico");
 
             entity.HasOne(d => d.IdAdministradorNavigation).WithMany(p => p.PresupuestoIdAdministradorNavigations)
@@ -215,6 +286,11 @@ public partial class AppDbContext : DbContext
                 .HasForeignKey(d => d.IdEquipo)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_presupuesto_equipo");
+
+            entity.HasOne(d => d.IdEstadoNavigation).WithMany(p => p.Presupuestos)
+                .HasForeignKey(d => d.IdEstado)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_presupuesto_estado");
 
             entity.HasOne(d => d.IdTecnicoNavigation).WithMany(p => p.PresupuestoIdTecnicoNavigations)
                 .HasForeignKey(d => d.IdTecnico)
@@ -235,6 +311,11 @@ public partial class AppDbContext : DbContext
                 .HasMaxLength(50)
                 .IsUnicode(false)
                 .HasColumnName("nombre_rol");
+            entity.HasData(
+                new Rol { IdRol = 1, NombreRol = "Administrador" },
+                new Rol { IdRol = 3, NombreRol = "Administrador" },
+                new Rol { IdRol = 2, NombreRol = "Tecnico" }
+                );
         });
 
         modelBuilder.Entity<Servicio>(entity =>
@@ -295,6 +376,12 @@ public partial class AppDbContext : DbContext
                 .HasForeignKey(d => d.IdRol)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_usuario_rol");
+
+            entity.HasData(
+                new Usuario { IdUsuario = 1, Nombre = "m", Apellido = "m", Mail = "m@m.com" , Contrasena = "m", Active = true, IdRol = 1 },
+                new Usuario { IdUsuario = 2, Nombre = "t", Apellido = "t", Mail = "t@t.com", Contrasena = "t", Active = true, IdRol = 2 },
+                new Usuario { IdUsuario = 3, Nombre = "a", Apellido = "a", Mail = "a@a.com", Contrasena = "a", Active = true, IdRol = 3 }
+                );
         });
 
         OnModelCreatingPartial(modelBuilder);
