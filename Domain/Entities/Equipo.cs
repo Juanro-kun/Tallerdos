@@ -21,6 +21,8 @@ public partial class Equipo
 
     public string NombreEstado => IdEstadoNavigation.Nombre;
     public int IdCliente { get; set; }
+
+    public string NombreCompletoCliente => $"{IdClienteNavigation.Nombre} {IdClienteNavigation.Apellido}";
     public string NombreCliente => IdClienteNavigation.Nombre;
     public virtual Cliente IdClienteNavigation { get; set; } = null!;
     public virtual EstadoEquipo IdEstadoNavigation { get; set; } = null!;

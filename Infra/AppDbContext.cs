@@ -42,7 +42,7 @@ public partial class AppDbContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Server=.\\SQLEXPRESS;Database=Tallerdosbase;Trusted_Connection=True;TrustServerCertificate=True");
+        => optionsBuilder.UseSqlServer("Server=localhost\\SQLEXPRESS;Database=Tallerdosbase;Trusted_Connection=True;TrustServerCertificate=True");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -127,7 +127,7 @@ public partial class AppDbContext : DbContext
 
             entity.Property(e => e.IdEstado).HasColumnName("id_estado");
             entity.Property(e => e.Nombre)
-                .HasMaxLength(1)
+                .HasMaxLength(30)
                 .IsUnicode(false)
                 .HasColumnName("nombre");
         });
@@ -141,6 +141,7 @@ public partial class AppDbContext : DbContext
             entity.Property(e => e.NFila).HasColumnName("n_fila");
             entity.Property(e => e.IdPresupuesto).HasColumnName("id_presupuesto");
             entity.Property(e => e.IdEstado).HasColumnName("id_estado");
+            entity.Property(e => e.IdOrden).HasColumnName("id_orden");
             entity.Property(e => e.IdServicio).HasColumnName("id_servicio");
             entity.Property(e => e.Precio).HasColumnName("precio");
 
@@ -149,12 +150,11 @@ public partial class AppDbContext : DbContext
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_item_estado");
 
-            entity.HasOne(d => d.IdPresupuestoNavigation).WithMany(p => p.ItemPresupuestos)
-                .HasForeignKey(d => d.IdPresupuesto)
-                .OnDelete(DeleteBehavior.ClientSetNull)
+            entity.HasOne(d => d.IdOrdenNavigation).WithMany(p => p.ItemPresupuestos)
+                .HasForeignKey(d => d.IdOrden)
                 .HasConstraintName("FK_item_orden");
 
-            entity.HasOne(d => d.IdPresupuesto1).WithMany(p => p.ItemPresupuestos)
+            entity.HasOne(d => d.IdPresupuestoNavigation).WithMany(p => p.ItemPresupuestos)
                 .HasForeignKey(d => d.IdPresupuesto)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_item_presupuesto_presupuesto");
@@ -192,7 +192,7 @@ public partial class AppDbContext : DbContext
             entity.HasOne(d => d.IdPresupuestoNavigation).WithOne(p => p.OrdenServicio)
                 .HasForeignKey<OrdenServicio>(d => d.IdPresupuesto)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_orden_presupuesto");
+                .HasConstraintName("FK__orden_ser__id_pr__05D8E0BE");
         });
 
         modelBuilder.Entity<Presupuesto>(entity =>
@@ -283,7 +283,7 @@ public partial class AppDbContext : DbContext
                 .HasColumnName("contrasena");
             entity.Property(e => e.IdRol).HasColumnName("id_rol");
             entity.Property(e => e.Mail)
-                .HasMaxLength(1)
+                .HasMaxLength(50)
                 .IsUnicode(false)
                 .HasColumnName("mail");
             entity.Property(e => e.Nombre)

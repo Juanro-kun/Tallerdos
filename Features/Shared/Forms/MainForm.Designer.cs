@@ -37,6 +37,7 @@
             bPresupuestos = new Button();
             bOrdenes = new Button();
             bUsuarios = new Button();
+            bTareasTecnico = new Button();
             panel1 = new Panel();
             lBrand = new Label();
             backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
@@ -90,12 +91,13 @@
             flpMenu.Controls.Add(bPresupuestos);
             flpMenu.Controls.Add(bOrdenes);
             flpMenu.Controls.Add(bUsuarios);
+            flpMenu.Controls.Add(bTareasTecnico);
             flpMenu.Dock = DockStyle.Top;
             flpMenu.FlowDirection = FlowDirection.TopDown;
             flpMenu.Location = new Point(0, 58);
             flpMenu.Name = "flpMenu";
             flpMenu.Padding = new Padding(9, 8, 9, 8);
-            flpMenu.Size = new Size(194, 246);
+            flpMenu.Size = new Size(194, 292);
             flpMenu.TabIndex = 0;
             flpMenu.WrapContents = false;
             // 
@@ -189,6 +191,24 @@
             bUsuarios.UseVisualStyleBackColor = false;
             bUsuarios.Click += bUsuarios_Click;
             // 
+            // bTareasTecnico
+            // 
+            bTareasTecnico.BackColor = Color.FromArgb(33, 33, 33);
+            bTareasTecnico.FlatAppearance.BorderSize = 0;
+            bTareasTecnico.FlatAppearance.MouseDownBackColor = Color.FromArgb(42, 42, 42);
+            bTareasTecnico.FlatAppearance.MouseOverBackColor = Color.FromArgb(42, 42, 42);
+            bTareasTecnico.FlatStyle = FlatStyle.Flat;
+            bTareasTecnico.ForeColor = Color.Gainsboro;
+            bTareasTecnico.Location = new Point(12, 241);
+            bTareasTecnico.Name = "bTareasTecnico";
+            bTareasTecnico.Padding = new Padding(11, 0, 0, 0);
+            bTareasTecnico.Size = new Size(180, 40);
+            bTareasTecnico.TabIndex = 5;
+            bTareasTecnico.Text = "Tareas Tecnico";
+            bTareasTecnico.TextAlign = ContentAlignment.MiddleLeft;
+            bTareasTecnico.UseVisualStyleBackColor = false;
+            bTareasTecnico.Click += bTareasTecnico_Click;
+            // 
             // panel1
             // 
             panel1.Controls.Add(lBrand);
@@ -244,5 +264,6 @@
         private Button bPresupuestos;
         private Panel panel1;
         private Label lBrand;
+        private Button bTareasTecnico;
     }
 }

@@ -31,31 +31,44 @@
             tableLayoutPanel1 = new TableLayoutPanel();
             roundedPanel7 = new Taller_2_Gestor.Features.Shared.Controls.RoundedPanel();
             dgvItems = new DataGridView();
+            dataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn2 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn3 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn4 = new DataGridViewTextBoxColumn();
             flowLayoutPanel2 = new FlowLayoutPanel();
             panel1 = new Panel();
             lId = new Label();
             roundedPanel2 = new Taller_2_Gestor.Features.Shared.Controls.RoundedPanel();
             lIdContenido = new Label();
             panel2 = new Panel();
-            label2 = new Label();
+            lIdCliente = new Label();
             roundedPanel3 = new Taller_2_Gestor.Features.Shared.Controls.RoundedPanel();
-            label3 = new Label();
+            tbIdCliente = new TextBox();
+            panel7 = new Panel();
+            label2 = new Label();
+            roundedPanel8 = new Taller_2_Gestor.Features.Shared.Controls.RoundedPanel();
+            label6 = new Label();
+            label7 = new Label();
+            tbDescripcion = new TextBox();
             panel5 = new Panel();
             roundedPanel6 = new Taller_2_Gestor.Features.Shared.Controls.RoundedPanel();
-            cbRol = new ComboBox();
+            cbMarca = new ComboBox();
             lRol = new Label();
             panel3 = new Panel();
             roundedPanel4 = new Taller_2_Gestor.Features.Shared.Controls.RoundedPanel();
-            comboBox2 = new ComboBox();
+            cbTipo = new ComboBox();
             label4 = new Label();
             panel4 = new Panel();
             roundedPanel5 = new Taller_2_Gestor.Features.Shared.Controls.RoundedPanel();
-            comboBox3 = new ComboBox();
+            cbEstado = new ComboBox();
             label5 = new Label();
             flowLayoutPanel1 = new FlowLayoutPanel();
             pNuevoUsuario = new Panel();
             bNuevoEquipo = new Taller_2_Gestor.Features.Shared.Controls.RoundedButton();
             bGuardarNuevo = new Taller_2_Gestor.Features.Shared.Controls.RoundedButton();
+            panel6 = new Panel();
+            bEditar = new Taller_2_Gestor.Features.Shared.Controls.RoundedButton();
+            bGuardarExistente = new Taller_2_Gestor.Features.Shared.Controls.RoundedButton();
             pEliminarEquipo = new Panel();
             bEliminar = new Taller_2_Gestor.Features.Shared.Controls.RoundedButton();
             panel10 = new Panel();
@@ -63,6 +76,8 @@
             roundedPanel1 = new Taller_2_Gestor.Features.Shared.Controls.RoundedPanel();
             dgvEquipos = new DataGridView();
             colId = new DataGridViewTextBoxColumn();
+            NombreCompletoCliente = new DataGridViewButtonColumn();
+            Descripcion = new DataGridViewTextBoxColumn();
             colEmail = new DataGridViewTextBoxColumn();
             colNombre = new DataGridViewTextBoxColumn();
             colApellido = new DataGridViewTextBoxColumn();
@@ -72,10 +87,6 @@
             comboBox1 = new ComboBox();
             lFiltro = new Label();
             label1 = new Label();
-            dataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn2 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn3 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn4 = new DataGridViewTextBoxColumn();
             tableLayoutPanel1.SuspendLayout();
             roundedPanel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvItems).BeginInit();
@@ -84,6 +95,8 @@
             roundedPanel2.SuspendLayout();
             panel2.SuspendLayout();
             roundedPanel3.SuspendLayout();
+            panel7.SuspendLayout();
+            roundedPanel8.SuspendLayout();
             panel5.SuspendLayout();
             roundedPanel6.SuspendLayout();
             panel3.SuspendLayout();
@@ -92,6 +105,7 @@
             roundedPanel5.SuspendLayout();
             flowLayoutPanel1.SuspendLayout();
             pNuevoUsuario.SuspendLayout();
+            panel6.SuspendLayout();
             pEliminarEquipo.SuspendLayout();
             panel10.SuspendLayout();
             roundedPanel1.SuspendLayout();
@@ -115,7 +129,7 @@
             tableLayoutPanel1.Location = new Point(0, 0);
             tableLayoutPanel1.Margin = new Padding(4, 5, 4, 5);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
-            tableLayoutPanel1.RowCount = 7;
+            tableLayoutPanel1.RowCount = 8;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 60F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 40F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 40F));
@@ -123,7 +137,8 @@
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 45F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 100F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 99.99999F));
-            tableLayoutPanel1.Size = new Size(1010, 1030);
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 30F));
+            tableLayoutPanel1.Size = new Size(1149, 1030);
             tableLayoutPanel1.TabIndex = 0;
             // 
             // roundedPanel7
@@ -134,7 +149,7 @@
             roundedPanel7.Location = new Point(26, 592);
             roundedPanel7.Margin = new Padding(26, 7, 3, 3);
             roundedPanel7.Name = "roundedPanel7";
-            roundedPanel7.Size = new Size(950, 237);
+            roundedPanel7.Size = new Size(1085, 237);
             roundedPanel7.TabIndex = 8;
             // 
             // dgvItems
@@ -151,13 +166,46 @@
             dgvItems.ReadOnly = true;
             dgvItems.RowHeadersWidth = 62;
             dgvItems.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvItems.Size = new Size(950, 237);
+            dgvItems.Size = new Size(1085, 237);
             dgvItems.TabIndex = 0;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            dataGridViewTextBoxColumn1.DataPropertyName = "IDpresupuesto";
+            dataGridViewTextBoxColumn1.HeaderText = "IDPresupuesto";
+            dataGridViewTextBoxColumn1.MinimumWidth = 8;
+            dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            dataGridViewTextBoxColumn2.DataPropertyName = "Precio";
+            dataGridViewTextBoxColumn2.HeaderText = "Precio";
+            dataGridViewTextBoxColumn2.MinimumWidth = 8;
+            dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            dataGridViewTextBoxColumn3.DataPropertyName = "NombreServicio";
+            dataGridViewTextBoxColumn3.HeaderText = "Servicio";
+            dataGridViewTextBoxColumn3.MinimumWidth = 8;
+            dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            dataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            dataGridViewTextBoxColumn4.DataPropertyName = "IDorden";
+            dataGridViewTextBoxColumn4.HeaderText = "IDOrden";
+            dataGridViewTextBoxColumn4.MinimumWidth = 8;
+            dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            dataGridViewTextBoxColumn4.ReadOnly = true;
             // 
             // flowLayoutPanel2
             // 
             flowLayoutPanel2.Controls.Add(panel1);
             flowLayoutPanel2.Controls.Add(panel2);
+            flowLayoutPanel2.Controls.Add(panel7);
             flowLayoutPanel2.Controls.Add(panel5);
             flowLayoutPanel2.Controls.Add(panel3);
             flowLayoutPanel2.Controls.Add(panel4);
@@ -165,7 +213,7 @@
             flowLayoutPanel2.Location = new Point(34, 500);
             flowLayoutPanel2.Margin = new Padding(34, 15, 3, 3);
             flowLayoutPanel2.Name = "flowLayoutPanel2";
-            flowLayoutPanel2.Size = new Size(973, 82);
+            flowLayoutPanel2.Size = new Size(1112, 82);
             flowLayoutPanel2.TabIndex = 7;
             // 
             // panel1
@@ -207,12 +255,53 @@
             // 
             // panel2
             // 
-            panel2.Controls.Add(label2);
+            panel2.Controls.Add(lIdCliente);
             panel2.Controls.Add(roundedPanel3);
             panel2.Location = new Point(113, 3);
             panel2.Name = "panel2";
             panel2.Size = new Size(104, 67);
             panel2.TabIndex = 1;
+            // 
+            // lIdCliente
+            // 
+            lIdCliente.AutoSize = true;
+            lIdCliente.Font = new Font("Segoe UI Black", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lIdCliente.Location = new Point(3, 0);
+            lIdCliente.Name = "lIdCliente";
+            lIdCliente.Size = new Size(92, 25);
+            lIdCliente.TabIndex = 0;
+            lIdCliente.Text = "IdCliente";
+            lIdCliente.Click += label2_Click;
+            // 
+            // roundedPanel3
+            // 
+            roundedPanel3.BackColor = Color.FromArgb(51, 77, 53);
+            roundedPanel3.BorderSize = 4F;
+            roundedPanel3.Controls.Add(tbIdCliente);
+            roundedPanel3.Location = new Point(3, 25);
+            roundedPanel3.Name = "roundedPanel3";
+            roundedPanel3.Size = new Size(74, 38);
+            roundedPanel3.TabIndex = 1;
+            roundedPanel3.Paint += roundedPanel3_Paint;
+            // 
+            // tbIdCliente
+            // 
+            tbIdCliente.BackColor = Color.FromArgb(51, 77, 53);
+            tbIdCliente.BorderStyle = BorderStyle.None;
+            tbIdCliente.Location = new Point(9, 5);
+            tbIdCliente.Name = "tbIdCliente";
+            tbIdCliente.Size = new Size(59, 24);
+            tbIdCliente.TabIndex = 0;
+            tbIdCliente.TextChanged += textBox1_TextChanged;
+            // 
+            // panel7
+            // 
+            panel7.Controls.Add(label2);
+            panel7.Controls.Add(roundedPanel8);
+            panel7.Location = new Point(223, 3);
+            panel7.Name = "panel7";
+            panel7.Size = new Size(220, 67);
+            panel7.TabIndex = 9;
             // 
             // label2
             // 
@@ -220,34 +309,52 @@
             label2.Font = new Font("Segoe UI Black", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.Location = new Point(3, 0);
             label2.Name = "label2";
-            label2.Size = new Size(98, 25);
+            label2.Size = new Size(117, 25);
             label2.TabIndex = 0;
-            label2.Text = "IdUsuario";
+            label2.Text = "Descripcion";
             // 
-            // roundedPanel3
+            // roundedPanel8
             // 
-            roundedPanel3.BackColor = Color.FromArgb(51, 77, 53);
-            roundedPanel3.BorderSize = 4F;
-            roundedPanel3.Controls.Add(label3);
-            roundedPanel3.Location = new Point(3, 25);
-            roundedPanel3.Name = "roundedPanel3";
-            roundedPanel3.Size = new Size(74, 38);
-            roundedPanel3.TabIndex = 1;
-            roundedPanel3.Paint += roundedPanel3_Paint;
+            roundedPanel8.BackColor = Color.FromArgb(51, 77, 53);
+            roundedPanel8.BorderSize = 4F;
+            roundedPanel8.Controls.Add(label6);
+            roundedPanel8.Controls.Add(label7);
+            roundedPanel8.Controls.Add(tbDescripcion);
+            roundedPanel8.Location = new Point(3, 28);
+            roundedPanel8.Name = "roundedPanel8";
+            roundedPanel8.Size = new Size(214, 38);
+            roundedPanel8.TabIndex = 1;
             // 
-            // label3
+            // label6
             // 
-            label3.AutoSize = true;
-            label3.Location = new Point(9, 7);
-            label3.Name = "label3";
-            label3.Size = new Size(0, 25);
-            label3.TabIndex = 0;
+            label6.AutoSize = true;
+            label6.Location = new Point(9, 6);
+            label6.Name = "label6";
+            label6.Size = new Size(0, 25);
+            label6.TabIndex = 1;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(9, 7);
+            label7.Name = "label7";
+            label7.Size = new Size(0, 25);
+            label7.TabIndex = 0;
+            // 
+            // tbDescripcion
+            // 
+            tbDescripcion.BackColor = Color.FromArgb(51, 77, 53);
+            tbDescripcion.BorderStyle = BorderStyle.None;
+            tbDescripcion.Location = new Point(9, 3);
+            tbDescripcion.Name = "tbDescripcion";
+            tbDescripcion.Size = new Size(202, 24);
+            tbDescripcion.TabIndex = 9;
             // 
             // panel5
             // 
             panel5.Controls.Add(roundedPanel6);
             panel5.Controls.Add(lRol);
-            panel5.Location = new Point(223, 3);
+            panel5.Location = new Point(449, 3);
             panel5.Name = "panel5";
             panel5.Size = new Size(201, 67);
             panel5.TabIndex = 6;
@@ -256,22 +363,22 @@
             // 
             roundedPanel6.BackColor = Color.FromArgb(51, 77, 53);
             roundedPanel6.BorderSize = 4F;
-            roundedPanel6.Controls.Add(cbRol);
+            roundedPanel6.Controls.Add(cbMarca);
             roundedPanel6.Location = new Point(3, 25);
             roundedPanel6.Name = "roundedPanel6";
             roundedPanel6.Size = new Size(191, 38);
             roundedPanel6.TabIndex = 1;
             // 
-            // cbRol
+            // cbMarca
             // 
-            cbRol.BackColor = Color.FromArgb(51, 77, 53);
-            cbRol.Enabled = false;
-            cbRol.FlatStyle = FlatStyle.Flat;
-            cbRol.FormattingEnabled = true;
-            cbRol.Location = new Point(6, 3);
-            cbRol.Name = "cbRol";
-            cbRol.Size = new Size(183, 33);
-            cbRol.TabIndex = 0;
+            cbMarca.BackColor = Color.FromArgb(51, 77, 53);
+            cbMarca.Enabled = false;
+            cbMarca.FlatStyle = FlatStyle.Flat;
+            cbMarca.FormattingEnabled = true;
+            cbMarca.Location = new Point(4, 3);
+            cbMarca.Name = "cbMarca";
+            cbMarca.Size = new Size(182, 33);
+            cbMarca.TabIndex = 1;
             // 
             // lRol
             // 
@@ -287,7 +394,7 @@
             // 
             panel3.Controls.Add(roundedPanel4);
             panel3.Controls.Add(label4);
-            panel3.Location = new Point(430, 3);
+            panel3.Location = new Point(656, 3);
             panel3.Name = "panel3";
             panel3.Size = new Size(201, 67);
             panel3.TabIndex = 7;
@@ -296,22 +403,22 @@
             // 
             roundedPanel4.BackColor = Color.FromArgb(51, 77, 53);
             roundedPanel4.BorderSize = 4F;
-            roundedPanel4.Controls.Add(comboBox2);
+            roundedPanel4.Controls.Add(cbTipo);
             roundedPanel4.Location = new Point(3, 25);
             roundedPanel4.Name = "roundedPanel4";
             roundedPanel4.Size = new Size(191, 38);
             roundedPanel4.TabIndex = 1;
             // 
-            // comboBox2
+            // cbTipo
             // 
-            comboBox2.BackColor = Color.FromArgb(51, 77, 53);
-            comboBox2.Enabled = false;
-            comboBox2.FlatStyle = FlatStyle.Flat;
-            comboBox2.FormattingEnabled = true;
-            comboBox2.Location = new Point(6, 3);
-            comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(183, 33);
-            comboBox2.TabIndex = 0;
+            cbTipo.BackColor = Color.FromArgb(51, 77, 53);
+            cbTipo.Enabled = false;
+            cbTipo.FlatStyle = FlatStyle.Flat;
+            cbTipo.FormattingEnabled = true;
+            cbTipo.Location = new Point(4, 3);
+            cbTipo.Name = "cbTipo";
+            cbTipo.Size = new Size(182, 33);
+            cbTipo.TabIndex = 1;
             // 
             // label4
             // 
@@ -327,7 +434,7 @@
             // 
             panel4.Controls.Add(roundedPanel5);
             panel4.Controls.Add(label5);
-            panel4.Location = new Point(637, 3);
+            panel4.Location = new Point(863, 3);
             panel4.Name = "panel4";
             panel4.Size = new Size(201, 67);
             panel4.TabIndex = 8;
@@ -336,22 +443,22 @@
             // 
             roundedPanel5.BackColor = Color.FromArgb(51, 77, 53);
             roundedPanel5.BorderSize = 4F;
-            roundedPanel5.Controls.Add(comboBox3);
+            roundedPanel5.Controls.Add(cbEstado);
             roundedPanel5.Location = new Point(3, 25);
             roundedPanel5.Name = "roundedPanel5";
             roundedPanel5.Size = new Size(191, 38);
             roundedPanel5.TabIndex = 1;
             // 
-            // comboBox3
+            // cbEstado
             // 
-            comboBox3.BackColor = Color.FromArgb(51, 77, 53);
-            comboBox3.Enabled = false;
-            comboBox3.FlatStyle = FlatStyle.Flat;
-            comboBox3.FormattingEnabled = true;
-            comboBox3.Location = new Point(6, 3);
-            comboBox3.Name = "comboBox3";
-            comboBox3.Size = new Size(183, 33);
-            comboBox3.TabIndex = 0;
+            cbEstado.BackColor = Color.FromArgb(51, 77, 53);
+            cbEstado.Enabled = false;
+            cbEstado.FlatStyle = FlatStyle.Flat;
+            cbEstado.FormattingEnabled = true;
+            cbEstado.Location = new Point(4, 3);
+            cbEstado.Name = "cbEstado";
+            cbEstado.Size = new Size(182, 33);
+            cbEstado.TabIndex = 1;
             // 
             // label5
             // 
@@ -366,12 +473,13 @@
             // flowLayoutPanel1
             // 
             flowLayoutPanel1.Controls.Add(pNuevoUsuario);
+            flowLayoutPanel1.Controls.Add(panel6);
             flowLayoutPanel1.Controls.Add(pEliminarEquipo);
             flowLayoutPanel1.Controls.Add(panel10);
             flowLayoutPanel1.Dock = DockStyle.Fill;
             flowLayoutPanel1.Location = new Point(3, 443);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(1004, 39);
+            flowLayoutPanel1.Size = new Size(1143, 39);
             flowLayoutPanel1.TabIndex = 6;
             // 
             // pNuevoUsuario
@@ -417,10 +525,52 @@
             bGuardarNuevo.Visible = false;
             bGuardarNuevo.Click += bGuardarNuevo_Click;
             // 
+            // panel6
+            // 
+            panel6.Controls.Add(bEditar);
+            panel6.Controls.Add(bGuardarExistente);
+            panel6.Location = new Point(221, 3);
+            panel6.Name = "panel6";
+            panel6.Size = new Size(181, 32);
+            panel6.TabIndex = 5;
+            // 
+            // bEditar
+            // 
+            bEditar.BackColor = Color.FromArgb(40, 40, 40);
+            bEditar.Dock = DockStyle.Fill;
+            bEditar.FlatAppearance.BorderSize = 0;
+            bEditar.FlatStyle = FlatStyle.Flat;
+            bEditar.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            bEditar.ForeColor = Color.Gainsboro;
+            bEditar.Location = new Point(0, 0);
+            bEditar.Name = "bEditar";
+            bEditar.Size = new Size(181, 32);
+            bEditar.TabIndex = 0;
+            bEditar.Text = "Editar";
+            bEditar.UseVisualStyleBackColor = false;
+            bEditar.Click += bEditar_Click;
+            // 
+            // bGuardarExistente
+            // 
+            bGuardarExistente.BackColor = Color.FromArgb(40, 40, 40);
+            bGuardarExistente.Dock = DockStyle.Fill;
+            bGuardarExistente.FlatAppearance.BorderSize = 0;
+            bGuardarExistente.FlatStyle = FlatStyle.Flat;
+            bGuardarExistente.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            bGuardarExistente.ForeColor = Color.Gainsboro;
+            bGuardarExistente.Location = new Point(0, 0);
+            bGuardarExistente.Name = "bGuardarExistente";
+            bGuardarExistente.Size = new Size(181, 32);
+            bGuardarExistente.TabIndex = 1;
+            bGuardarExistente.Text = "Guardar";
+            bGuardarExistente.UseVisualStyleBackColor = false;
+            bGuardarExistente.Visible = false;
+            bGuardarExistente.Click += bGuardarExistente_Click;
+            // 
             // pEliminarEquipo
             // 
             pEliminarEquipo.Controls.Add(bEliminar);
-            pEliminarEquipo.Location = new Point(221, 3);
+            pEliminarEquipo.Location = new Point(408, 3);
             pEliminarEquipo.Name = "pEliminarEquipo";
             pEliminarEquipo.Size = new Size(181, 32);
             pEliminarEquipo.TabIndex = 2;
@@ -444,7 +594,7 @@
             // panel10
             // 
             panel10.Controls.Add(bCancelar);
-            panel10.Location = new Point(408, 3);
+            panel10.Location = new Point(595, 3);
             panel10.Name = "panel10";
             panel10.Size = new Size(159, 32);
             panel10.TabIndex = 4;
@@ -473,7 +623,7 @@
             roundedPanel1.Location = new Point(26, 147);
             roundedPanel1.Margin = new Padding(26, 7, 3, 3);
             roundedPanel1.Name = "roundedPanel1";
-            roundedPanel1.Size = new Size(949, 279);
+            roundedPanel1.Size = new Size(1085, 279);
             roundedPanel1.TabIndex = 5;
             // 
             // dgvEquipos
@@ -482,7 +632,7 @@
             dgvEquipos.AllowUserToDeleteRows = false;
             dgvEquipos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvEquipos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvEquipos.Columns.AddRange(new DataGridViewColumn[] { colId, colEmail, colNombre, colApellido });
+            dgvEquipos.Columns.AddRange(new DataGridViewColumn[] { colId, NombreCompletoCliente, Descripcion, colEmail, colNombre, colApellido });
             dgvEquipos.Dock = DockStyle.Fill;
             dgvEquipos.Location = new Point(0, 0);
             dgvEquipos.MultiSelect = false;
@@ -490,21 +640,39 @@
             dgvEquipos.ReadOnly = true;
             dgvEquipos.RowHeadersWidth = 62;
             dgvEquipos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvEquipos.Size = new Size(949, 279);
+            dgvEquipos.Size = new Size(1085, 279);
             dgvEquipos.TabIndex = 0;
             dgvEquipos.CellContentClick += dgvEquipos_CellContentClick;
+            dgvEquipos.DataBindingComplete += dgvEquipos_DataBindingComplete;
+            dgvEquipos.SelectionChanged += dgvEquipos_SelectionChanged;
             // 
             // colId
             // 
-            colId.DataPropertyName = "ID";
+            colId.DataPropertyName = "IdEquipo";
             colId.HeaderText = "ID";
             colId.MinimumWidth = 8;
             colId.Name = "colId";
             colId.ReadOnly = true;
             // 
+            // NombreCompletoCliente
+            // 
+            NombreCompletoCliente.DataPropertyName = "NombreCompletoCliente";
+            NombreCompletoCliente.HeaderText = "Nombre del Cliente";
+            NombreCompletoCliente.MinimumWidth = 8;
+            NombreCompletoCliente.Name = "NombreCompletoCliente";
+            NombreCompletoCliente.ReadOnly = true;
+            // 
+            // Descripcion
+            // 
+            Descripcion.DataPropertyName = "Nombre";
+            Descripcion.HeaderText = "Descripcion";
+            Descripcion.MinimumWidth = 8;
+            Descripcion.Name = "Descripcion";
+            Descripcion.ReadOnly = true;
+            // 
             // colEmail
             // 
-            colEmail.DataPropertyName = "Marca";
+            colEmail.DataPropertyName = "NombreMarca";
             colEmail.HeaderText = "Marca";
             colEmail.MinimumWidth = 8;
             colEmail.Name = "colEmail";
@@ -512,7 +680,7 @@
             // 
             // colNombre
             // 
-            colNombre.DataPropertyName = "Tipo";
+            colNombre.DataPropertyName = "NombreTipo";
             colNombre.HeaderText = "Tipo";
             colNombre.MinimumWidth = 8;
             colNombre.Name = "colNombre";
@@ -520,7 +688,7 @@
             // 
             // colApellido
             // 
-            colApellido.DataPropertyName = "Estado";
+            colApellido.DataPropertyName = "NombreEstado";
             colApellido.HeaderText = "Estado";
             colApellido.MinimumWidth = 8;
             colApellido.Name = "colApellido";
@@ -534,7 +702,7 @@
             rpBarraBusqueda.Location = new Point(26, 103);
             rpBarraBusqueda.Margin = new Padding(26, 3, 3, 3);
             rpBarraBusqueda.Name = "rpBarraBusqueda";
-            rpBarraBusqueda.Size = new Size(949, 33);
+            rpBarraBusqueda.Size = new Size(1085, 33);
             rpBarraBusqueda.TabIndex = 4;
             // 
             // lBusqueda
@@ -589,38 +757,6 @@
             label1.Text = "Equipos";
             label1.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // dataGridViewTextBoxColumn1
-            // 
-            dataGridViewTextBoxColumn1.DataPropertyName = "IDpresupuesto";
-            dataGridViewTextBoxColumn1.HeaderText = "IDPresupuesto";
-            dataGridViewTextBoxColumn1.MinimumWidth = 8;
-            dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            dataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            dataGridViewTextBoxColumn2.DataPropertyName = "Precio";
-            dataGridViewTextBoxColumn2.HeaderText = "Precio";
-            dataGridViewTextBoxColumn2.MinimumWidth = 8;
-            dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            dataGridViewTextBoxColumn2.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            dataGridViewTextBoxColumn3.DataPropertyName = "Servicio";
-            dataGridViewTextBoxColumn3.HeaderText = "Servicio";
-            dataGridViewTextBoxColumn3.MinimumWidth = 8;
-            dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            dataGridViewTextBoxColumn3.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            dataGridViewTextBoxColumn4.DataPropertyName = "IDorden";
-            dataGridViewTextBoxColumn4.HeaderText = "IDOrden";
-            dataGridViewTextBoxColumn4.MinimumWidth = 8;
-            dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            dataGridViewTextBoxColumn4.ReadOnly = true;
-            // 
             // EquiposView
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
@@ -629,7 +765,8 @@
             Controls.Add(tableLayoutPanel1);
             Margin = new Padding(4, 5, 4, 5);
             Name = "EquiposView";
-            Size = new Size(1010, 1030);
+            Size = new Size(1149, 1030);
+            Load += EquiposView_Load;
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();
             roundedPanel7.ResumeLayout(false);
@@ -643,6 +780,10 @@
             panel2.PerformLayout();
             roundedPanel3.ResumeLayout(false);
             roundedPanel3.PerformLayout();
+            panel7.ResumeLayout(false);
+            panel7.PerformLayout();
+            roundedPanel8.ResumeLayout(false);
+            roundedPanel8.PerformLayout();
             panel5.ResumeLayout(false);
             panel5.PerformLayout();
             roundedPanel6.ResumeLayout(false);
@@ -654,6 +795,7 @@
             roundedPanel5.ResumeLayout(false);
             flowLayoutPanel1.ResumeLayout(false);
             pNuevoUsuario.ResumeLayout(false);
+            panel6.ResumeLayout(false);
             pEliminarEquipo.ResumeLayout(false);
             panel10.ResumeLayout(false);
             roundedPanel1.ResumeLayout(false);
@@ -663,6 +805,11 @@
             rpFiltro.ResumeLayout(false);
             rpFiltro.PerformLayout();
             ResumeLayout(false);
+        }
+
+        private void dgvEquipos_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            
         }
 
         #endregion
@@ -692,25 +839,38 @@
         private Shared.Controls.RoundedPanel roundedPanel2;
         private Label lIdContenido;
         private Panel panel2;
-        private Label label2;
+        private Label lIdCliente;
         private Shared.Controls.RoundedPanel roundedPanel3;
-        private Label label3;
         private Panel panel5;
         private Shared.Controls.RoundedPanel roundedPanel6;
-        private ComboBox cbRol;
         private Label lRol;
         private Panel panel3;
         private Shared.Controls.RoundedPanel roundedPanel4;
-        private ComboBox comboBox2;
         private Label label4;
         private Panel panel4;
         private Shared.Controls.RoundedPanel roundedPanel5;
-        private ComboBox comboBox3;
         private Label label5;
         private DataGridViewTextBoxColumn colId;
+        private DataGridViewButtonColumn NombreCompletoCliente;
         private DataGridViewTextBoxColumn colEmail;
         private DataGridViewTextBoxColumn colNombre;
         private DataGridViewTextBoxColumn colApellido;
+        private ComboBox cbMarca;
+        private ComboBox cbTipo;
+        private ComboBox cbEstado;
+        private Panel panel7;
+        private Label label2;
+        private Shared.Controls.RoundedPanel roundedPanel8;
+        private Label label6;
+        private Label label7;
+        private Panel panel6;
+        private Shared.Controls.RoundedButton roundedButton1;
+        private Shared.Controls.RoundedButton roundedButton2;
+        private DataGridViewTextBoxColumn Descripcion;
+        private TextBox tbDescripcion;
+        private Shared.Controls.RoundedButton bGuardarExistente;
+        private Shared.Controls.RoundedButton bEditar;
+        private TextBox tbIdCliente;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;

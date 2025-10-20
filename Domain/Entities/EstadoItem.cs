@@ -7,7 +7,7 @@ public partial class EstadoItem
 {
     public int IdEstado { get; set; }
 
-    public string Nombre { get; set; } = null!;
+    public string? Nombre { get; set; }
 
     public virtual ICollection<ItemPresupuesto> ItemPresupuestos { get; set; } = new List<ItemPresupuesto>();
 }

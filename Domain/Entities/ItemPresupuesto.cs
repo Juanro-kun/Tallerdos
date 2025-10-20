@@ -11,15 +11,20 @@ public partial class ItemPresupuesto
 
     public int IdPresupuesto { get; set; }
 
+    public int? IdOrden { get; set; }
+
     public int IdServicio { get; set; }
 
+    public string NombreServicio => IdServicioNavigation.NombreServicio;
+
     public int IdEstado { get; set; }
+    public int IdEquipo => IdPresupuestoNavigation.IdEquipo;
 
     public virtual EstadoItem IdEstadoNavigation { get; set; } = null!;
 
-    public virtual Presupuesto IdPresupuesto1 { get; set; } = null!;
+    public virtual OrdenServicio? IdOrdenNavigation { get; set; }
 
-    public virtual OrdenServicio IdPresupuestoNavigation { get; set; } = null!;
+    public virtual Presupuesto IdPresupuestoNavigation { get; set; } = null!;
 
     public virtual Servicio IdServicioNavigation { get; set; } = null!;
 }

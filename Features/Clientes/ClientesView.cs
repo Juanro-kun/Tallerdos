@@ -17,7 +17,8 @@ namespace Taller_2_Gestor.Features.Clientes
 {
     public partial class ClientesView : UserControl
     {
-
+        public event Action<int> NuevoEquipoSolicitado;
+        public event Action<int> DetalleEquipoSolicitado;
         private readonly ClientesService _Csvc;
         private readonly EquiposService _Esvc;
         public ClientesView()
@@ -28,25 +29,16 @@ namespace Taller_2_Gestor.Features.Clientes
             _Esvc = new EquiposService(db);
 
 
-            dgvClientes.AutoGenerateColumns = false;         // o false si querés definirlas a mano
+            dgvClientes.AutoGenerateColumns = false;
             dgvClientes.DataSource = _Csvc.ListarClientes();
             dgvClientes.ClearSelection();
 
             dgvEquipos.AutoGenerateColumns = false;
             dgvEquipos.ClearSelection();
-
+            ConfigurarBotonesDeColumnas();
         }
 
-        private void dgvClientes_SelectionChanged(object? sender, EventArgs e)//cuando se selecciona una fila del datagridview guarda los datos es una variable temporal u
-        {
-            if (dgvClientes.CurrentRow == null) return;
-
-            var c = dgvClientes.CurrentRow.DataBoundItem as Cliente;
-            if (c == null) return;
-
-            CargarDetalles(c);
-            dgvEquipos.DataSource = _Esvc.ListarEquiposPorCliente(c.IdCliente);
-        }
+        #region Metodos Auxiliares
 
         private void CargarDetalles(Cliente c)
         {
@@ -58,16 +50,6 @@ namespace Taller_2_Gestor.Features.Clientes
             tbDni.Text = c.Dni.ToString();
         }
 
-        private void lContrasena_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void txtSoloNumeros_KeyPress(object sender, KeyPressEventArgs e)
         {
             // permite solo números y la tecla backspace
@@ -77,14 +59,27 @@ namespace Taller_2_Gestor.Features.Clientes
             }
         }
 
-
-
-        private void dgvUsuarios_SelectionChanged(object? sender, EventArgs e)//cuando se selecciona una fila del datagridview guarda los datos es una variable temporal u
+        private void ToggleCampos(bool readOnly)
         {
-            if (dgvClientes.CurrentRow == null) return;
-
+            tbMail.ReadOnly = !readOnly;
+            tbNombre.ReadOnly = !readOnly;
+            tbApellido.ReadOnly = !readOnly;
+            tbTelefono.ReadOnly = !readOnly;
+            tbDni.ReadOnly = !readOnly;
         }
 
+        private void LimpiarCampos()
+        {
+            lIdContenido.Text = "-";
+            tbMail.Text = "";
+            tbNombre.Text = "";
+            tbApellido.Text = "";
+            tbTelefono.Text = "";
+            tbDni.Text = "";
+        }
+        #endregion
+
+        #region Metodos asociados a botones
         private void bGuardarNuevo_Click_1(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(tbNombre.Text))
@@ -116,27 +111,12 @@ namespace Taller_2_Gestor.Features.Clientes
             bCancelar.Visible = false;
             LimpiarCampos();
             ToggleCampos(false);
-            dgvClientes.DataSource = _Csvc.ListarClientes();    
+            dgvClientes.DataSource = _Csvc.ListarClientes();
         }
 
-        private void ToggleCampos(bool readOnly)
-        {
-            tbMail.ReadOnly = !readOnly;
-            tbNombre.ReadOnly = !readOnly;
-            tbApellido.ReadOnly = !readOnly;
-            tbTelefono.ReadOnly = !readOnly;
-            tbDni.ReadOnly = !readOnly;
-        }
 
-        private void LimpiarCampos()
-        {
-            lIdContenido.Text = "-";
-            tbMail.Text = "";
-            tbNombre.Text = "";
-            tbApellido.Text = "";
-            tbTelefono.Text = "";
-            tbDni.Text = "";
-        }
+
+
 
         private void bNuevoCliente_Click(object sender, EventArgs e)
         {
@@ -192,11 +172,6 @@ namespace Taller_2_Gestor.Features.Clientes
             dgvClientes.DataSource = _Csvc.ListarClientes();
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void bCancelar_Click(object sender, EventArgs e)
         {
             bNuevoCliente.Visible = true;
@@ -211,5 +186,87 @@ namespace Taller_2_Gestor.Features.Clientes
 
             CargarDetalles(c);
         }
+
+        private void bAgregarEquipo_Click(object sender, EventArgs e)
+        {
+            var idCliente = int.Parse(lIdContenido.Text);
+            NuevoEquipoSolicitado?.Invoke(idCliente);
+        }
+        #endregion
+
+        #region Metodos asociados a dgvs
+
+        private void ConfigurarBotonesDeColumnas()
+        {
+            dgvEquiposCId.Tag = new ButtonAction
+            {
+                GetId = r => (r.DataBoundItem as Equipo)?.IdEquipo ?? 0,
+                OnClick = id => IrAEquipo(id)
+            };
+        }
+
+        private void IrAEquipo(int idEquipo)
+        {
+            DetalleEquipoSolicitado?.Invoke(idEquipo);
+        }
+
+        private void dgvClientes_SelectionChanged(object? sender, EventArgs e)//cuando se selecciona una fila del datagridview guarda los datos es una variable temporal c
+        {
+            if (dgvClientes.CurrentRow == null) return;
+
+            var c = dgvClientes.CurrentRow.DataBoundItem as Cliente;
+            if (c == null) return;
+
+            CargarDetalles(c);
+            dgvEquipos.DataSource = _Esvc.ListarEquiposPorCliente(c.IdCliente);
+        }
+
+        private void dgvEquipos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
+            if (e.RowIndex < 0 || e.ColumnIndex < 0) return;
+
+            var g = (DataGridView)sender;
+            var col = g.Columns[e.ColumnIndex];
+
+
+
+            if (col is DataGridViewButtonColumn && col.Tag is ButtonAction meta)
+            {
+                var row = g.Rows[e.RowIndex];
+
+                // Evitá nulls o celdas vacías
+                int id;
+                try { id = meta.GetId(row); }
+                catch { return; }
+
+                meta.OnClick(id);
+            }
+        }
+        #endregion
+
+        #region Metodos sin codigo
+        private void lContrasena_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tlpViews_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+        #endregion
+
+
     }
 }

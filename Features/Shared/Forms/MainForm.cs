@@ -14,6 +14,7 @@ using Taller_2_Gestor.Features.Presupuestos;
 using Taller_2_Gestor.Features.Ordenes;
 using static System.Collections.Specialized.BitVector32;
 using Taller_2_Gestor.Features.Clientes;
+using Taller_2_Gestor.Features.Centro_de_Tareas;
 
 namespace Taller_2_Gestor.Forms
 {
@@ -32,22 +33,25 @@ namespace Taller_2_Gestor.Forms
             }
         }
 
-        private void CargarUsuariosView()
+        private void CargarView(UserControl view)
         {
             ContentHost.Controls.Clear();              // limpiás lo que había
-            var view = new UsuariosView();              // creás la vista
             view.Dock = DockStyle.Fill;                 // que llene el panel
             ContentHost.Controls.Add(view);            // la metés al panel
             view.BringToFront();
         }
 
-        private void CargarEquiposView()
+        private void CargarUsuariosView()
         {
-            ContentHost.Controls.Clear();              // limpiás lo que había
+            var view = new UsuariosView();
+            CargarView(view);
+        }
+
+        private EquiposView CargarEquiposView()
+        {
             var view = new EquiposView();              // creás la vista
-            view.Dock = DockStyle.Fill;                 // que llene el panel
-            ContentHost.Controls.Add(view);            // la metés al panel
-            view.BringToFront();
+
+            return view;
         }
 
         private void CargarPresupuestosView()
@@ -68,13 +72,31 @@ namespace Taller_2_Gestor.Forms
             view.BringToFront();
         }
 
-        private void CargarClientesView()
+        private ClientesView CargarClientesView()
         {
-            ContentHost.Controls.Clear();              // limpiás lo que había
             var view = new ClientesView();              // creás la vista
-            view.Dock = DockStyle.Fill;                 // que llene el panel
-            ContentHost.Controls.Add(view);            // la metés al panel
-            view.BringToFront();
+            view.NuevoEquipoSolicitado += OnNuevoEquipoSolicitado;
+            view.DetalleEquipoSolicitado += OnDetalleEquipoSolicitado;
+
+            return view;
+        }
+
+        private void OnNuevoEquipoSolicitado(int idCliente)
+        {
+            var view = CargarEquiposView();
+            CargarView(view);
+            view.PrepararParaCliente(idCliente);
+            //VincularEventosEquiposView(view);
+
+        }
+
+        private void OnDetalleEquipoSolicitado(int idEquipo)
+        {
+            var view = CargarEquiposView();
+            CargarView(view);
+            view.PrepararParaVerEquipo(idEquipo);
+            //VincularEventosEquiposView(view);
+
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -84,7 +106,8 @@ namespace Taller_2_Gestor.Forms
 
         private void button1_Click(object sender, EventArgs e)
         {
-            CargarClientesView();
+            var view = CargarClientesView();
+            CargarView(view);
         }
 
         private void ContentHost_Paint(object sender, PaintEventArgs e)
@@ -94,7 +117,8 @@ namespace Taller_2_Gestor.Forms
 
         private void bEquipos_Click(object sender, EventArgs e)
         {
-            CargarEquiposView();
+            var view = CargarEquiposView();
+            CargarView(view);
         }
 
         private void bPresupuestos_Click(object sender, EventArgs e)
@@ -110,6 +134,12 @@ namespace Taller_2_Gestor.Forms
         private void bUsuarios_Click(object sender, EventArgs e)
         {
             CargarUsuariosView();
+        }
+
+        private void bTareasTecnico_Click(object sender, EventArgs e)
+        {
+            var view = new TareasTecnicoView();
+            CargarView(view);
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace Taller_2_Gestor.Features.Clientes
 {
-    partial class ClientesView
+    partial class ClientesView : UserControl
     {
         /// <summary> 
         /// Variable del diseñador necesaria.
@@ -77,13 +77,16 @@
             roundedPanel6 = new Taller_2_Gestor.Features.Shared.Controls.RoundedPanel();
             tbDni = new TextBox();
             label2 = new Label();
+            label3 = new Label();
+            flowLayoutPanel3 = new FlowLayoutPanel();
             roundedPanel7 = new Taller_2_Gestor.Features.Shared.Controls.RoundedPanel();
             dgvEquipos = new DataGridView();
-            dataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
+            bAgregarEquipo = new Taller_2_Gestor.Features.Shared.Controls.RoundedButton();
+            dgvEquiposCId = new DataGridViewButtonColumn();
+            Nombre = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn2 = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn3 = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn4 = new DataGridViewTextBoxColumn();
-            label3 = new Label();
             tlpViews.SuspendLayout();
             rpFiltro.SuspendLayout();
             rpBarraBusqueda.SuspendLayout();
@@ -105,6 +108,7 @@
             pContrasena.SuspendLayout();
             panel5.SuspendLayout();
             roundedPanel6.SuspendLayout();
+            flowLayoutPanel3.SuspendLayout();
             roundedPanel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvEquipos).BeginInit();
             SuspendLayout();
@@ -120,8 +124,8 @@
             tlpViews.Controls.Add(roundedPanel1, 0, 3);
             tlpViews.Controls.Add(flowLayoutPanel1, 0, 4);
             tlpViews.Controls.Add(flowLayoutPanel2, 0, 5);
-            tlpViews.Controls.Add(roundedPanel7, 0, 7);
             tlpViews.Controls.Add(label3, 0, 6);
+            tlpViews.Controls.Add(flowLayoutPanel3, 0, 7);
             tlpViews.Dock = DockStyle.Fill;
             tlpViews.Location = new Point(0, 0);
             tlpViews.Name = "tlpViews";
@@ -134,8 +138,9 @@
             tlpViews.RowStyles.Add(new RowStyle(SizeType.Absolute, 137F));
             tlpViews.RowStyles.Add(new RowStyle(SizeType.Absolute, 45F));
             tlpViews.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tlpViews.Size = new Size(1016, 900);
+            tlpViews.Size = new Size(1235, 900);
             tlpViews.TabIndex = 1;
+            tlpViews.Paint += tlpViews_Paint;
             // 
             // label1
             // 
@@ -288,7 +293,7 @@
             flowLayoutPanel1.Dock = DockStyle.Fill;
             flowLayoutPanel1.Location = new Point(3, 443);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(1010, 39);
+            flowLayoutPanel1.Size = new Size(1229, 39);
             flowLayoutPanel1.TabIndex = 5;
             // 
             // pNuevoUsuario
@@ -411,7 +416,7 @@
             flowLayoutPanel2.Location = new Point(35, 500);
             flowLayoutPanel2.Margin = new Padding(35, 15, 3, 3);
             flowLayoutPanel2.Name = "flowLayoutPanel2";
-            flowLayoutPanel2.Size = new Size(978, 119);
+            flowLayoutPanel2.Size = new Size(1197, 119);
             flowLayoutPanel2.TabIndex = 6;
             // 
             // panel1
@@ -572,7 +577,7 @@
             // 
             panel7.Controls.Add(pContrasena);
             panel7.Controls.Add(lContrasena);
-            panel7.Location = new Point(3, 76);
+            panel7.Location = new Point(800, 3);
             panel7.Name = "panel7";
             panel7.Size = new Size(243, 67);
             panel7.TabIndex = 3;
@@ -612,7 +617,7 @@
             // 
             panel5.Controls.Add(roundedPanel6);
             panel5.Controls.Add(label2);
-            panel5.Location = new Point(252, 76);
+            panel5.Location = new Point(3, 76);
             panel5.Name = "panel5";
             panel5.Size = new Size(243, 67);
             panel5.TabIndex = 4;
@@ -648,12 +653,33 @@
             label2.Text = "DNI";
             label2.UseCompatibleTextRendering = true;
             // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 16F, FontStyle.Bold);
+            label3.Location = new Point(25, 622);
+            label3.Margin = new Padding(25, 0, 3, 0);
+            label3.Name = "label3";
+            label3.Size = new Size(310, 45);
+            label3.TabIndex = 8;
+            label3.Text = "Equipos del cliente:";
+            // 
+            // flowLayoutPanel3
+            // 
+            flowLayoutPanel3.Controls.Add(roundedPanel7);
+            flowLayoutPanel3.Controls.Add(bAgregarEquipo);
+            flowLayoutPanel3.Dock = DockStyle.Fill;
+            flowLayoutPanel3.Location = new Point(3, 670);
+            flowLayoutPanel3.Name = "flowLayoutPanel3";
+            flowLayoutPanel3.Size = new Size(1229, 227);
+            flowLayoutPanel3.TabIndex = 9;
+            // 
             // roundedPanel7
             // 
             roundedPanel7.BackColor = Color.White;
             roundedPanel7.BorderSize = 3F;
             roundedPanel7.Controls.Add(dgvEquipos);
-            roundedPanel7.Location = new Point(25, 674);
+            roundedPanel7.Location = new Point(25, 7);
             roundedPanel7.Margin = new Padding(25, 7, 3, 3);
             roundedPanel7.Name = "roundedPanel7";
             roundedPanel7.Size = new Size(950, 223);
@@ -665,7 +691,7 @@
             dgvEquipos.AllowUserToDeleteRows = false;
             dgvEquipos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvEquipos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvEquipos.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn1, dataGridViewTextBoxColumn2, dataGridViewTextBoxColumn3, dataGridViewTextBoxColumn4 });
+            dgvEquipos.Columns.AddRange(new DataGridViewColumn[] { dgvEquiposCId, Nombre, dataGridViewTextBoxColumn2, dataGridViewTextBoxColumn3, dataGridViewTextBoxColumn4 });
             dgvEquipos.Dock = DockStyle.Fill;
             dgvEquipos.Location = new Point(0, 0);
             dgvEquipos.MultiSelect = false;
@@ -675,15 +701,41 @@
             dgvEquipos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvEquipos.Size = new Size(950, 223);
             dgvEquipos.TabIndex = 0;
-            dgvEquipos.CellContentClick += dataGridView1_CellContentClick;
+            dgvEquipos.CellContentClick += dgvEquipos_CellContentClick;
             // 
-            // dataGridViewTextBoxColumn1
+            // bAgregarEquipo
             // 
-            dataGridViewTextBoxColumn1.DataPropertyName = "IdEquipo";
-            dataGridViewTextBoxColumn1.HeaderText = "ID";
-            dataGridViewTextBoxColumn1.MinimumWidth = 8;
-            dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            dataGridViewTextBoxColumn1.ReadOnly = true;
+            bAgregarEquipo.BackColor = Color.FromArgb(40, 40, 40);
+            bAgregarEquipo.FlatAppearance.BorderSize = 0;
+            bAgregarEquipo.FlatStyle = FlatStyle.Flat;
+            bAgregarEquipo.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            bAgregarEquipo.ForeColor = Color.Gainsboro;
+            bAgregarEquipo.Location = new Point(981, 8);
+            bAgregarEquipo.Margin = new Padding(3, 8, 3, 3);
+            bAgregarEquipo.Name = "bAgregarEquipo";
+            bAgregarEquipo.Size = new Size(230, 45);
+            bAgregarEquipo.TabIndex = 8;
+            bAgregarEquipo.Text = "Agregar equipo";
+            bAgregarEquipo.UseVisualStyleBackColor = false;
+            bAgregarEquipo.Click += bAgregarEquipo_Click;
+            // 
+            // dgvEquiposCId
+            // 
+            dgvEquiposCId.DataPropertyName = "IdEquipo";
+            dgvEquiposCId.HeaderText = "ID";
+            dgvEquiposCId.MinimumWidth = 8;
+            dgvEquiposCId.Name = "dgvEquiposCId";
+            dgvEquiposCId.ReadOnly = true;
+            dgvEquiposCId.Resizable = DataGridViewTriState.True;
+            dgvEquiposCId.SortMode = DataGridViewColumnSortMode.Automatic;
+            // 
+            // Nombre
+            // 
+            Nombre.DataPropertyName = "Nombre";
+            Nombre.HeaderText = "Descripcion";
+            Nombre.MinimumWidth = 8;
+            Nombre.Name = "Nombre";
+            Nombre.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn2
             // 
@@ -709,17 +761,6 @@
             dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             dataGridViewTextBoxColumn4.ReadOnly = true;
             // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 16F, FontStyle.Bold);
-            label3.Location = new Point(25, 622);
-            label3.Margin = new Padding(25, 0, 3, 0);
-            label3.Name = "label3";
-            label3.Size = new Size(310, 45);
-            label3.TabIndex = 8;
-            label3.Text = "Equipos del cliente:";
-            // 
             // ClientesView
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
@@ -727,7 +768,7 @@
             BackColor = Color.FromArgb(51, 77, 53);
             Controls.Add(tlpViews);
             Name = "ClientesView";
-            Size = new Size(1016, 900);
+            Size = new Size(1235, 900);
             tlpViews.ResumeLayout(false);
             tlpViews.PerformLayout();
             rpFiltro.ResumeLayout(false);
@@ -763,6 +804,7 @@
             panel5.PerformLayout();
             roundedPanel6.ResumeLayout(false);
             roundedPanel6.PerformLayout();
+            flowLayoutPanel3.ResumeLayout(false);
             roundedPanel7.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dgvEquipos).EndInit();
             ResumeLayout(false);
@@ -823,10 +865,13 @@
         private DataGridViewTextBoxColumn colApellido;
         private DataGridViewTextBoxColumn colRol;
         private DataGridViewTextBoxColumn colActivo;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private Label label3;
+        private FlowLayoutPanel flowLayoutPanel3;
+        private Shared.Controls.RoundedButton bAgregarEquipo;
+        private DataGridViewButtonColumn dgvEquiposCId;
+        private DataGridViewTextBoxColumn Nombre;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private Label label3;
     }
 }
