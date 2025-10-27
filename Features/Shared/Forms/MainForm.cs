@@ -15,6 +15,7 @@ using Taller_2_Gestor.Features.Ordenes;
 using static System.Collections.Specialized.BitVector32;
 using Taller_2_Gestor.Features.Clientes;
 using Taller_2_Gestor.Features.Centro_de_Tareas;
+using Taller_2_Gestor.Features.Centro_de_Tareas_Administrador;
 
 namespace Taller_2_Gestor.Forms
 {
@@ -30,6 +31,60 @@ namespace Taller_2_Gestor.Forms
             if (UserSession.Current?.Rol != 1)
             {
                 bUsuarios.Visible = false;
+            }
+            ConfigurarSegunRol();
+        }
+
+        private void ConfigurarSegunRol()
+        {
+            var rol = UserSession.Current?.Rol;
+            // Ejemplo de configuración según el rol
+            switch (rol)
+            {
+                case 1: // Maestro
+                    // Habilitar todas las funcionalidades
+                    lBrand.Text = "Vista Maestro";
+                    bClientes.Visible = true;
+                    bEquipos.Visible = true;
+                    bPresupuestos.Visible = true;
+                    bOrdenes.Visible = true;
+                    bUsuarios.Visible = true;
+                    bTareasTecnico.Visible = false;
+                    bTareasAdmin.Visible = false;
+                    break;
+                case 2: // Técnico
+                    // Habilitar solo funcionalidades técnicas
+                    lBrand.Text = $"Vista Tecnico {UserSession.Current.Id}";
+                    bClientes.Visible = false;
+                    bEquipos.Visible = false;
+                    bPresupuestos.Visible = false;
+                    bOrdenes.Visible = false;
+                    bUsuarios.Visible = false;
+                    bTareasTecnico.Visible = true;
+                    bTareasAdmin.Visible = false;
+                    break;
+                case 3: // Administrador
+                    // Habilitar solo funcionalidades de cliente
+                    lBrand.Text = "Vista Administrador";
+                    bClientes.Visible = true;
+                    bEquipos.Visible = true;
+                    bPresupuestos.Visible = false;
+                    bOrdenes.Visible = false;
+                    bUsuarios.Visible = false;
+                    bTareasTecnico.Visible = false;
+                    bTareasAdmin.Visible = true;
+                    break;
+                default:
+                    // Rol desconocido, deshabilitar todo por seguridad
+                    lBrand.Text = "Rol desconocido";
+                    bClientes.Visible = false;
+                    bEquipos.Visible = false;
+                    bPresupuestos.Visible = false;
+                    bOrdenes.Visible = false;
+                    bUsuarios.Visible = false;
+                    bTareasTecnico.Visible = false;
+                    bTareasAdmin.Visible = false;
+                    break;
             }
         }
 
@@ -139,6 +194,17 @@ namespace Taller_2_Gestor.Forms
         private void bTareasTecnico_Click(object sender, EventArgs e)
         {
             var view = new TareasTecnicoView();
+            CargarView(view);
+        }
+
+        private void lBrand_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bTareasAdmin_Click(object sender, EventArgs e)
+        {
+            var view = new TareasAdminView();
             CargarView(view);
         }
     }

@@ -28,27 +28,6 @@ namespace Taller_2_Gestor.Forms
         {
         }
 
-        private void bDueno_Click(object sender, EventArgs e)
-        {
-            _selectedRole = Role.Dueno;
-            this.DialogResult = DialogResult.OK;
-            this.Close();
-        }
-
-        private void bAdmin_Click(object sender, EventArgs e)
-        {
-            _selectedRole = Role.Administrador;
-            this.DialogResult = DialogResult.OK;
-            this.Close();
-        }
-
-        private void bTecnico_Click(object sender, EventArgs e)
-        {
-            _selectedRole = Role.Tecnico;
-            this.DialogResult = DialogResult.OK;
-            this.Close();
-        }
-
         private void label2_Click(object sender, EventArgs e)
         {
 

@@ -284,6 +284,9 @@ public partial class AppDbContext : DbContext
                 .HasDefaultValueSql("('1')")
                 .HasColumnName("id_estado");
             entity.Property(e => e.IdTecnico).HasColumnName("id_tecnico");
+            entity.Property(e => e.FechaActualizacion)
+                .HasDefaultValueSql("(getdate())")
+                .HasColumnName("fecha_actualizacion");
 
             entity.HasOne(d => d.IdAdministradorNavigation).WithMany(p => p.PresupuestoIdAdministradorNavigations)
                 .HasForeignKey(d => d.IdAdministrador)
@@ -338,12 +341,13 @@ public partial class AppDbContext : DbContext
                 .HasMaxLength(30)
                 .IsUnicode(false)
                 .HasColumnName("nombre_servicio");
+            entity.Property(e => e.Precio).HasColumnName("precio");
 
             entity.HasData(
-                new Servicio { IdServicio = 1, NombreServicio = "Reparacion" },
-                new Servicio { IdServicio = 2, NombreServicio = "Mantenimiento" },
-                new Servicio { IdServicio = 3, NombreServicio = "Actualizacion Software" },
-                new Servicio { IdServicio = 4, NombreServicio = "Diagnostico" }
+                new Servicio { IdServicio = 1, NombreServicio = "Reparacion" , Precio = 1000},
+                new Servicio { IdServicio = 2, NombreServicio = "Mantenimiento", Precio = 1000 },
+                new Servicio { IdServicio = 3, NombreServicio = "Actualizacion Software", Precio = 1000 },
+                new Servicio { IdServicio = 4, NombreServicio = "Diagnostico", Precio = 1000 }
             );
         });
 

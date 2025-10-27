@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Taller_2_Gestor.Infra;
 
@@ -11,9 +12,11 @@ using Taller_2_Gestor.Infra;
 namespace Taller_2_Gestor.Infra.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20251025232825_AddFechaToPresupuesto")]
+    partial class AddFechaToPresupuesto
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -416,7 +419,7 @@ namespace Taller_2_Gestor.Infra.Migrations
                         .HasColumnName("fecha_actualizacion")
                         .HasDefaultValueSql("(getdate())");
 
-                    b.Property<int?>("IdAdministrador")
+                    b.Property<int>("IdAdministrador")
                         .HasColumnType("int")
                         .HasColumnName("id_administrador");
 
@@ -762,6 +765,7 @@ namespace Taller_2_Gestor.Infra.Migrations
                     b.HasOne("Taller_2_Gestor.Domain.Entities.Usuario", "IdAdministradorNavigation")
                         .WithMany("PresupuestoIdAdministradorNavigations")
                         .HasForeignKey("IdAdministrador")
+                        .IsRequired()
                         .HasConstraintName("FK_presupuesto_administrador");
 
                     b.HasOne("Taller_2_Gestor.Domain.Entities.Equipo", "IdEquipoNavigation")

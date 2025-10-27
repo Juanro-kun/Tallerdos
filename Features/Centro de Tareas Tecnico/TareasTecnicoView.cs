@@ -39,7 +39,8 @@ namespace Taller_2_Gestor.Features.Centro_de_Tareas
             int idEquipo = (int)dgvEquiposRevision.SelectedRows[0].Cells["colId"].Value;
             //llamar al formulario de presupuesto pasando el idEquipo
             var form = new GenerarPresupuestoForm();
-            form.CargarDatosEquipo(idEquipo);
+            var equipo = _Tsvc.ObtenerEquipo(idEquipo);
+            form.CargarDatosEquipo(equipo);
             form.ShowDialog();
         }
 

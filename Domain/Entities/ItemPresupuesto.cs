@@ -8,9 +8,9 @@ public partial class ItemPresupuesto
 {
     public int NFila { get; set; }
 
-    public double Precio { get; set; }
-
     public int IdPresupuesto { get; set; }
+
+    public double Precio { get; set; }
 
     public int? IdOrden { get; set; }
 

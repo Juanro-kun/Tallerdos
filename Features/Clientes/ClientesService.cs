@@ -25,7 +25,7 @@ namespace Taller_2_Gestor.Features.Clientes
         }
 
         public (bool ok, string? error, Cliente? cliente) Crear(
-        string nombre, string apellido, string mail, int telefono, int dni)
+        string nombre, string apellido, string mail, long telefono, int dni)
         {
             try
             {

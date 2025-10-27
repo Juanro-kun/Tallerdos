@@ -51,5 +51,49 @@ namespace Taller_2_Gestor.Features.Centro_de_Tareas_Tecnico
                 .Where(e => e.IdEstado == idEstadoPendienteReparacion)
                 .ToList();
         }
+
+        public List<Servicio> ListarServicios()
+        {
+            return _db.Servicios.ToList();
+        }
+
+        public int CrearPresupuesto(int idEquipo, int idTecnico)
+        {
+            var nuevoPresupuesto = new Presupuesto
+            {
+                IdEquipo = idEquipo,
+                IdTecnico = idTecnico,
+                IdEstado = 1,
+                FechaActualizacion = DateTime.Now
+            };
+            _db.Presupuestos.Add(nuevoPresupuesto);
+            _db.SaveChanges();
+            return nuevoPresupuesto.IdPresupuesto;
+        }
+
+        public void CrearItemPresupuesto(int nfila, int idPresupuesto, double precio, int idServicio, bool necesario)
+        {
+            var nuevoItem = new ItemPresupuesto
+            {
+                NFila = nfila,
+                IdPresupuesto = idPresupuesto,
+                Precio = precio,
+                IdServicio = idServicio,
+                IdEstado = 1,
+                Necesario = necesario
+            };
+            _db.ItemPresupuestos.Add(nuevoItem);
+            _db.SaveChanges();
+        }
+
+        public void ActualizarEstadoEquipo(int idEquipo, int nuevoEstado)
+        {
+            var equipo = _db.Equipos.FirstOrDefault(e => e.IdEquipo == idEquipo);
+            if (equipo != null)
+            {
+                equipo.IdEstado = nuevoEstado;
+                _db.SaveChanges();
+            }
+        }
     }
 }

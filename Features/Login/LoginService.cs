@@ -22,6 +22,7 @@ namespace Taller_2_Gestor.Features.Login
 
             var u = db.Usuarios
                       .AsNoTracking()
+                      .Include(x => x.IdRolNavigation)
                       .SingleOrDefault(x => x.Mail == mail);
 
             if (u is null)
@@ -32,7 +33,7 @@ namespace Taller_2_Gestor.Features.Login
                 return (false, ERROR);
 
             // Éxito: guardar sesión
-            UserSession.Start(u.IdUsuario, u.Nombre, u.Apellido, u.Mail, u.IdRol);
+            UserSession.Start(u.IdUsuario, u.Nombre, u.Apellido, u.Mail, u.IdRol, u.RolNombre);
 
             return (true, null);
         }

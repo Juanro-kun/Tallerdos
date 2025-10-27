@@ -38,6 +38,7 @@
             bOrdenes = new Button();
             bUsuarios = new Button();
             bTareasTecnico = new Button();
+            bTareasAdmin = new Button();
             panel1 = new Panel();
             lBrand = new Label();
             backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
@@ -92,12 +93,13 @@
             flpMenu.Controls.Add(bOrdenes);
             flpMenu.Controls.Add(bUsuarios);
             flpMenu.Controls.Add(bTareasTecnico);
+            flpMenu.Controls.Add(bTareasAdmin);
             flpMenu.Dock = DockStyle.Top;
             flpMenu.FlowDirection = FlowDirection.TopDown;
             flpMenu.Location = new Point(0, 58);
             flpMenu.Name = "flpMenu";
             flpMenu.Padding = new Padding(9, 8, 9, 8);
-            flpMenu.Size = new Size(194, 292);
+            flpMenu.Size = new Size(194, 338);
             flpMenu.TabIndex = 0;
             flpMenu.WrapContents = false;
             // 
@@ -209,6 +211,24 @@
             bTareasTecnico.UseVisualStyleBackColor = false;
             bTareasTecnico.Click += bTareasTecnico_Click;
             // 
+            // bTareasAdmin
+            // 
+            bTareasAdmin.BackColor = Color.FromArgb(33, 33, 33);
+            bTareasAdmin.FlatAppearance.BorderSize = 0;
+            bTareasAdmin.FlatAppearance.MouseDownBackColor = Color.FromArgb(42, 42, 42);
+            bTareasAdmin.FlatAppearance.MouseOverBackColor = Color.FromArgb(42, 42, 42);
+            bTareasAdmin.FlatStyle = FlatStyle.Flat;
+            bTareasAdmin.ForeColor = Color.Gainsboro;
+            bTareasAdmin.Location = new Point(12, 287);
+            bTareasAdmin.Name = "bTareasAdmin";
+            bTareasAdmin.Padding = new Padding(11, 0, 0, 0);
+            bTareasAdmin.Size = new Size(180, 40);
+            bTareasAdmin.TabIndex = 6;
+            bTareasAdmin.Text = "Tareas Admin";
+            bTareasAdmin.TextAlign = ContentAlignment.MiddleLeft;
+            bTareasAdmin.UseVisualStyleBackColor = false;
+            bTareasAdmin.Click += bTareasAdmin_Click;
+            // 
             // panel1
             // 
             panel1.Controls.Add(lBrand);
@@ -230,6 +250,7 @@
             lBrand.Size = new Size(196, 56);
             lBrand.TabIndex = 0;
             lBrand.Text = "Gestor de Taller de Reparaciones";
+            lBrand.Click += lBrand_Click;
             // 
             // MainForm
             // 
@@ -265,5 +286,6 @@
         private Panel panel1;
         private Label lBrand;
         private Button bTareasTecnico;
+        private Button bTareasAdmin;
     }
 }

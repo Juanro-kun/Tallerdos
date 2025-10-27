@@ -9,5 +9,7 @@ public partial class Servicio
 
     public string NombreServicio { get; set; } = null!;
 
+    public float Precio { get; set; }
+
     public virtual ICollection<ItemPresupuesto> ItemPresupuestos { get; set; } = new List<ItemPresupuesto>();
 }

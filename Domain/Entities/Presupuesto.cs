@@ -9,11 +9,21 @@ public partial class Presupuesto
 
     public int IdTecnico { get; set; }
 
-    public int IdAdministrador { get; set; }
+    public int? IdAdministrador { get; set; }
 
     public int IdEquipo { get; set; }
 
     public int IdEstado { get; set; }
+
+    public DateTime FechaActualizacion { get; set; }
+
+    public string DescripcionEquipo => IdEquipoNavigation.Nombre;
+
+    public string NombreCliente => IdEquipoNavigation.NombreCompletoCliente;
+
+    public string MailCliente => IdEquipoNavigation.MailCliente;
+
+    public long TelefonoCliente => IdEquipoNavigation.TelefonoCliente;
 
     public virtual ICollection<Comentario> Comentarios { get; set; } = new List<Comentario>();
 

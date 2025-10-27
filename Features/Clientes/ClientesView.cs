@@ -97,7 +97,7 @@ namespace Taller_2_Gestor.Features.Clientes
             if (string.IsNullOrWhiteSpace(tbDni.Text))
             { MessageBox.Show("El DNI es obligatorio."); tbDni.Focus(); return; }
 
-            var (ok, error, cliente) = _Csvc.Crear(tbNombre.Text, tbApellido.Text, tbMail.Text, int.Parse(tbTelefono.Text), int.Parse(tbDni.Text));
+            var (ok, error, cliente) = _Csvc.Crear(tbNombre.Text, tbApellido.Text, tbMail.Text, long.Parse(tbTelefono.Text), int.Parse(tbDni.Text));
 
             if (!ok)
             {
@@ -184,6 +184,7 @@ namespace Taller_2_Gestor.Features.Clientes
             var c = dgvClientes.CurrentRow.DataBoundItem as Cliente;
             if (c == null) return;
 
+            ToggleCampos(false);
             CargarDetalles(c);
         }
 

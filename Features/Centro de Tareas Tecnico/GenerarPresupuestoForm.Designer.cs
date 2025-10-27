@@ -29,7 +29,17 @@
         private void InitializeComponent()
         {
             tableLayoutPanel1 = new TableLayoutPanel();
+            flowLayoutPanel1 = new FlowLayoutPanel();
+            panel6 = new Panel();
+            roundedPanel1 = new Taller_2_Gestor.Features.Shared.Controls.RoundedPanel();
+            cbServicio = new ComboBox();
+            label3 = new Label();
+            panel8 = new Panel();
+            chbNecesario = new CheckBox();
+            label8 = new Label();
+            bAgregarItem = new Taller_2_Gestor.Features.Shared.Controls.RoundedButton();
             label1 = new Label();
+            label9 = new Label();
             flowLayoutPanel2 = new FlowLayoutPanel();
             panel1 = new Panel();
             lId = new Label();
@@ -47,32 +57,31 @@
             tbDescripcion = new TextBox();
             panel5 = new Panel();
             roundedPanel6 = new Taller_2_Gestor.Features.Shared.Controls.RoundedPanel();
-            cbMarca = new ComboBox();
+            tbMarca = new TextBox();
             lRol = new Label();
             panel3 = new Panel();
             roundedPanel4 = new Taller_2_Gestor.Features.Shared.Controls.RoundedPanel();
-            cbTipo = new ComboBox();
+            tbTipo = new TextBox();
             label4 = new Label();
             panel4 = new Panel();
             roundedPanel5 = new Taller_2_Gestor.Features.Shared.Controls.RoundedPanel();
-            cbEstado = new ComboBox();
+            tbEstado = new TextBox();
             label5 = new Label();
-            flowLayoutPanel1 = new FlowLayoutPanel();
-            panel6 = new Panel();
-            roundedPanel1 = new Taller_2_Gestor.Features.Shared.Controls.RoundedPanel();
-            cbServicio = new ComboBox();
-            label3 = new Label();
-            panel8 = new Panel();
-            label8 = new Label();
-            chbNecesario = new CheckBox();
-            bAgregarItem = new Taller_2_Gestor.Features.Shared.Controls.RoundedButton();
-            label9 = new Label();
             label10 = new Label();
             flowLayoutPanel3 = new FlowLayoutPanel();
             roundedPanel7 = new Taller_2_Gestor.Features.Shared.Controls.RoundedPanel();
-            dataGridView1 = new DataGridView();
+            dgvServicios = new DataGridView();
+            colServicio = new DataGridViewTextBoxColumn();
+            colIdServicio = new DataGridViewTextBoxColumn();
+            colPrecio = new DataGridViewTextBoxColumn();
+            colNecesario = new DataGridViewCheckBoxColumn();
+            colEliminar = new DataGridViewButtonColumn();
             bGenerarPresupuesto = new Taller_2_Gestor.Features.Shared.Controls.RoundedButton();
             tableLayoutPanel1.SuspendLayout();
+            flowLayoutPanel1.SuspendLayout();
+            panel6.SuspendLayout();
+            roundedPanel1.SuspendLayout();
+            panel8.SuspendLayout();
             flowLayoutPanel2.SuspendLayout();
             panel1.SuspendLayout();
             roundedPanel2.SuspendLayout();
@@ -86,13 +95,9 @@
             roundedPanel4.SuspendLayout();
             panel4.SuspendLayout();
             roundedPanel5.SuspendLayout();
-            flowLayoutPanel1.SuspendLayout();
-            panel6.SuspendLayout();
-            roundedPanel1.SuspendLayout();
-            panel8.SuspendLayout();
             flowLayoutPanel3.SuspendLayout();
             roundedPanel7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvServicios).BeginInit();
             SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -118,7 +123,99 @@
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 58F));
             tableLayoutPanel1.Size = new Size(1076, 563);
             tableLayoutPanel1.TabIndex = 0;
-            
+            // 
+            // flowLayoutPanel1
+            // 
+            flowLayoutPanel1.Controls.Add(panel6);
+            flowLayoutPanel1.Controls.Add(panel8);
+            flowLayoutPanel1.Controls.Add(bAgregarItem);
+            flowLayoutPanel1.Dock = DockStyle.Fill;
+            flowLayoutPanel1.Location = new Point(3, 214);
+            flowLayoutPanel1.Name = "flowLayoutPanel1";
+            flowLayoutPanel1.Size = new Size(1070, 73);
+            flowLayoutPanel1.TabIndex = 9;
+            // 
+            // panel6
+            // 
+            panel6.Controls.Add(roundedPanel1);
+            panel6.Controls.Add(label3);
+            panel6.Location = new Point(3, 3);
+            panel6.Name = "panel6";
+            panel6.Size = new Size(201, 67);
+            panel6.TabIndex = 7;
+            // 
+            // roundedPanel1
+            // 
+            roundedPanel1.BackColor = Color.FromArgb(51, 77, 53);
+            roundedPanel1.BorderSize = 4F;
+            roundedPanel1.Controls.Add(cbServicio);
+            roundedPanel1.Location = new Point(3, 25);
+            roundedPanel1.Name = "roundedPanel1";
+            roundedPanel1.Size = new Size(191, 38);
+            roundedPanel1.TabIndex = 1;
+            // 
+            // cbServicio
+            // 
+            cbServicio.BackColor = Color.FromArgb(51, 77, 53);
+            cbServicio.FlatStyle = FlatStyle.Flat;
+            cbServicio.FormattingEnabled = true;
+            cbServicio.Location = new Point(4, 3);
+            cbServicio.Name = "cbServicio";
+            cbServicio.Size = new Size(182, 40);
+            cbServicio.TabIndex = 1;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI Black", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.Location = new Point(3, 0);
+            label3.Name = "label3";
+            label3.Size = new Size(83, 25);
+            label3.TabIndex = 0;
+            label3.Text = "Servicio";
+            // 
+            // panel8
+            // 
+            panel8.Controls.Add(chbNecesario);
+            panel8.Controls.Add(label8);
+            panel8.Location = new Point(210, 3);
+            panel8.Name = "panel8";
+            panel8.Size = new Size(105, 67);
+            panel8.TabIndex = 8;
+            // 
+            // chbNecesario
+            // 
+            chbNecesario.AutoSize = true;
+            chbNecesario.Location = new Point(40, 28);
+            chbNecesario.Name = "chbNecesario";
+            chbNecesario.Size = new Size(22, 21);
+            chbNecesario.TabIndex = 1;
+            chbNecesario.UseVisualStyleBackColor = true;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("Segoe UI Black", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label8.Location = new Point(3, 0);
+            label8.Name = "label8";
+            label8.Size = new Size(100, 25);
+            label8.TabIndex = 0;
+            label8.Text = "Necesario";
+            // 
+            // bAgregarItem
+            // 
+            bAgregarItem.BackColor = Color.FromArgb(40, 40, 40);
+            bAgregarItem.FlatAppearance.BorderSize = 0;
+            bAgregarItem.FlatStyle = FlatStyle.Flat;
+            bAgregarItem.ForeColor = Color.Gainsboro;
+            bAgregarItem.Location = new Point(331, 15);
+            bAgregarItem.Margin = new Padding(13, 15, 3, 3);
+            bAgregarItem.Name = "bAgregarItem";
+            bAgregarItem.Size = new Size(164, 34);
+            bAgregarItem.TabIndex = 9;
+            bAgregarItem.Text = "Agregar Item";
+            bAgregarItem.UseVisualStyleBackColor = false;
+            bAgregarItem.Click += bAgregarItem_Click;
             // 
             // label1
             // 
@@ -129,6 +226,16 @@
             label1.Size = new Size(418, 54);
             label1.TabIndex = 0;
             label1.Text = "Generar Presupuesto";
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label9.Location = new Point(3, 60);
+            label9.Name = "label9";
+            label9.Size = new Size(205, 32);
+            label9.TabIndex = 11;
+            label9.Text = "Datos del equipo:";
             // 
             // flowLayoutPanel2
             // 
@@ -216,6 +323,7 @@
             tbIdCliente.BorderStyle = BorderStyle.None;
             tbIdCliente.Location = new Point(9, 5);
             tbIdCliente.Name = "tbIdCliente";
+            tbIdCliente.ReadOnly = true;
             tbIdCliente.Size = new Size(59, 32);
             tbIdCliente.TabIndex = 0;
             // 
@@ -272,6 +380,7 @@
             tbDescripcion.BorderStyle = BorderStyle.None;
             tbDescripcion.Location = new Point(9, 3);
             tbDescripcion.Name = "tbDescripcion";
+            tbDescripcion.ReadOnly = true;
             tbDescripcion.Size = new Size(202, 32);
             tbDescripcion.TabIndex = 9;
             // 
@@ -288,22 +397,21 @@
             // 
             roundedPanel6.BackColor = Color.FromArgb(51, 77, 53);
             roundedPanel6.BorderSize = 4F;
-            roundedPanel6.Controls.Add(cbMarca);
+            roundedPanel6.Controls.Add(tbMarca);
             roundedPanel6.Location = new Point(3, 25);
             roundedPanel6.Name = "roundedPanel6";
             roundedPanel6.Size = new Size(191, 38);
             roundedPanel6.TabIndex = 1;
             // 
-            // cbMarca
+            // tbMarca
             // 
-            cbMarca.BackColor = Color.FromArgb(51, 77, 53);
-            cbMarca.Enabled = false;
-            cbMarca.FlatStyle = FlatStyle.Flat;
-            cbMarca.FormattingEnabled = true;
-            cbMarca.Location = new Point(4, 3);
-            cbMarca.Name = "cbMarca";
-            cbMarca.Size = new Size(182, 40);
-            cbMarca.TabIndex = 1;
+            tbMarca.BackColor = Color.FromArgb(51, 77, 53);
+            tbMarca.BorderStyle = BorderStyle.None;
+            tbMarca.Location = new Point(3, 3);
+            tbMarca.Name = "tbMarca";
+            tbMarca.ReadOnly = true;
+            tbMarca.Size = new Size(202, 32);
+            tbMarca.TabIndex = 10;
             // 
             // lRol
             // 
@@ -328,22 +436,21 @@
             // 
             roundedPanel4.BackColor = Color.FromArgb(51, 77, 53);
             roundedPanel4.BorderSize = 4F;
-            roundedPanel4.Controls.Add(cbTipo);
+            roundedPanel4.Controls.Add(tbTipo);
             roundedPanel4.Location = new Point(3, 25);
             roundedPanel4.Name = "roundedPanel4";
             roundedPanel4.Size = new Size(191, 38);
             roundedPanel4.TabIndex = 1;
             // 
-            // cbTipo
+            // tbTipo
             // 
-            cbTipo.BackColor = Color.FromArgb(51, 77, 53);
-            cbTipo.Enabled = false;
-            cbTipo.FlatStyle = FlatStyle.Flat;
-            cbTipo.FormattingEnabled = true;
-            cbTipo.Location = new Point(4, 3);
-            cbTipo.Name = "cbTipo";
-            cbTipo.Size = new Size(182, 40);
-            cbTipo.TabIndex = 1;
+            tbTipo.BackColor = Color.FromArgb(51, 77, 53);
+            tbTipo.BorderStyle = BorderStyle.None;
+            tbTipo.Location = new Point(4, 6);
+            tbTipo.Name = "tbTipo";
+            tbTipo.ReadOnly = true;
+            tbTipo.Size = new Size(202, 32);
+            tbTipo.TabIndex = 11;
             // 
             // label4
             // 
@@ -368,22 +475,21 @@
             // 
             roundedPanel5.BackColor = Color.FromArgb(51, 77, 53);
             roundedPanel5.BorderSize = 4F;
-            roundedPanel5.Controls.Add(cbEstado);
+            roundedPanel5.Controls.Add(tbEstado);
             roundedPanel5.Location = new Point(3, 25);
             roundedPanel5.Name = "roundedPanel5";
             roundedPanel5.Size = new Size(191, 38);
             roundedPanel5.TabIndex = 1;
             // 
-            // cbEstado
+            // tbEstado
             // 
-            cbEstado.BackColor = Color.FromArgb(51, 77, 53);
-            cbEstado.Enabled = false;
-            cbEstado.FlatStyle = FlatStyle.Flat;
-            cbEstado.FormattingEnabled = true;
-            cbEstado.Location = new Point(4, 3);
-            cbEstado.Name = "cbEstado";
-            cbEstado.Size = new Size(182, 40);
-            cbEstado.TabIndex = 1;
+            tbEstado.BackColor = Color.FromArgb(51, 77, 53);
+            tbEstado.BorderStyle = BorderStyle.None;
+            tbEstado.Location = new Point(5, 5);
+            tbEstado.Name = "tbEstado";
+            tbEstado.ReadOnly = true;
+            tbEstado.Size = new Size(202, 32);
+            tbEstado.TabIndex = 12;
             // 
             // label5
             // 
@@ -394,109 +500,6 @@
             label5.Size = new Size(72, 25);
             label5.TabIndex = 0;
             label5.Text = "Estado";
-            // 
-            // flowLayoutPanel1
-            // 
-            flowLayoutPanel1.Controls.Add(panel6);
-            flowLayoutPanel1.Controls.Add(panel8);
-            flowLayoutPanel1.Controls.Add(bAgregarItem);
-            flowLayoutPanel1.Dock = DockStyle.Fill;
-            flowLayoutPanel1.Location = new Point(3, 214);
-            flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(1070, 73);
-            flowLayoutPanel1.TabIndex = 9;
-            // 
-            // panel6
-            // 
-            panel6.Controls.Add(roundedPanel1);
-            panel6.Controls.Add(label3);
-            panel6.Location = new Point(3, 3);
-            panel6.Name = "panel6";
-            panel6.Size = new Size(201, 67);
-            panel6.TabIndex = 7;
-            // 
-            // roundedPanel1
-            // 
-            roundedPanel1.BackColor = Color.FromArgb(51, 77, 53);
-            roundedPanel1.BorderSize = 4F;
-            roundedPanel1.Controls.Add(cbServicio);
-            roundedPanel1.Location = new Point(3, 25);
-            roundedPanel1.Name = "roundedPanel1";
-            roundedPanel1.Size = new Size(191, 38);
-            roundedPanel1.TabIndex = 1;
-            // 
-            // cbServicio
-            // 
-            cbServicio.BackColor = Color.FromArgb(51, 77, 53);
-            cbServicio.Enabled = false;
-            cbServicio.FlatStyle = FlatStyle.Flat;
-            cbServicio.FormattingEnabled = true;
-            cbServicio.Location = new Point(4, 3);
-            cbServicio.Name = "cbServicio";
-            cbServicio.Size = new Size(182, 40);
-            cbServicio.TabIndex = 1;
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI Black", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(3, 0);
-            label3.Name = "label3";
-            label3.Size = new Size(83, 25);
-            label3.TabIndex = 0;
-            label3.Text = "Servicio";
-            // 
-            // panel8
-            // 
-            panel8.Controls.Add(chbNecesario);
-            panel8.Controls.Add(label8);
-            panel8.Location = new Point(210, 3);
-            panel8.Name = "panel8";
-            panel8.Size = new Size(105, 67);
-            panel8.TabIndex = 8;
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Font = new Font("Segoe UI Black", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label8.Location = new Point(3, 0);
-            label8.Name = "label8";
-            label8.Size = new Size(100, 25);
-            label8.TabIndex = 0;
-            label8.Text = "Necesario";
-            // 
-            // chbNecesario
-            // 
-            chbNecesario.AutoSize = true;
-            chbNecesario.Location = new Point(40, 28);
-            chbNecesario.Name = "chbNecesario";
-            chbNecesario.Size = new Size(22, 21);
-            chbNecesario.TabIndex = 1;
-            chbNecesario.UseVisualStyleBackColor = true;
-            // 
-            // bAgregarItem
-            // 
-            bAgregarItem.BackColor = Color.FromArgb(40, 40, 40);
-            bAgregarItem.FlatAppearance.BorderSize = 0;
-            bAgregarItem.FlatStyle = FlatStyle.Flat;
-            bAgregarItem.ForeColor = Color.Gainsboro;
-            bAgregarItem.Location = new Point(331, 15);
-            bAgregarItem.Margin = new Padding(13, 15, 3, 3);
-            bAgregarItem.Name = "bAgregarItem";
-            bAgregarItem.Size = new Size(164, 34);
-            bAgregarItem.TabIndex = 9;
-            bAgregarItem.Text = "Agregar Item";
-            bAgregarItem.UseVisualStyleBackColor = false;
-            // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label9.Location = new Point(3, 60);
-            label9.Name = "label9";
-            label9.Size = new Size(205, 32);
-            label9.TabIndex = 11;
-            label9.Text = "Datos del equipo:";
             // 
             // label10
             // 
@@ -521,22 +524,68 @@
             // roundedPanel7
             // 
             roundedPanel7.BackColor = Color.White;
-            roundedPanel7.Controls.Add(dataGridView1);
+            roundedPanel7.Controls.Add(dgvServicios);
             roundedPanel7.Location = new Point(15, 3);
             roundedPanel7.Margin = new Padding(15, 3, 3, 3);
             roundedPanel7.Name = "roundedPanel7";
-            roundedPanel7.Size = new Size(492, 241);
+            roundedPanel7.Size = new Size(787, 241);
             roundedPanel7.TabIndex = 0;
             // 
-            // dataGridView1
+            // dgvServicios
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Dock = DockStyle.Fill;
-            dataGridView1.Location = new Point(0, 0);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 62;
-            dataGridView1.Size = new Size(492, 241);
-            dataGridView1.TabIndex = 0;
+            dgvServicios.AllowUserToAddRows = false;
+            dgvServicios.AllowUserToDeleteRows = false;
+            dgvServicios.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvServicios.Columns.AddRange(new DataGridViewColumn[] { colServicio, colIdServicio, colPrecio, colNecesario, colEliminar });
+            dgvServicios.Dock = DockStyle.Fill;
+            dgvServicios.Location = new Point(0, 0);
+            dgvServicios.MultiSelect = false;
+            dgvServicios.Name = "dgvServicios";
+            dgvServicios.ReadOnly = true;
+            dgvServicios.RowHeadersWidth = 62;
+            dgvServicios.Size = new Size(787, 241);
+            dgvServicios.TabIndex = 0;
+            dgvServicios.CellContentClick += dataGridView1_CellContentClick;
+            // 
+            // colServicio
+            // 
+            colServicio.HeaderText = "Servicio";
+            colServicio.MinimumWidth = 8;
+            colServicio.Name = "colServicio";
+            colServicio.ReadOnly = true;
+            colServicio.Width = 150;
+            // 
+            // colIdServicio
+            // 
+            colIdServicio.HeaderText = "IdServicio";
+            colIdServicio.MinimumWidth = 8;
+            colIdServicio.Name = "colIdServicio";
+            colIdServicio.ReadOnly = true;
+            colIdServicio.Width = 150;
+            // 
+            // colPrecio
+            // 
+            colPrecio.HeaderText = "Precio";
+            colPrecio.MinimumWidth = 8;
+            colPrecio.Name = "colPrecio";
+            colPrecio.ReadOnly = true;
+            colPrecio.Width = 150;
+            // 
+            // colNecesario
+            // 
+            colNecesario.HeaderText = "Necesario";
+            colNecesario.MinimumWidth = 8;
+            colNecesario.Name = "colNecesario";
+            colNecesario.ReadOnly = true;
+            colNecesario.Width = 150;
+            // 
+            // colEliminar
+            // 
+            colEliminar.HeaderText = "";
+            colEliminar.MinimumWidth = 8;
+            colEliminar.Name = "colEliminar";
+            colEliminar.ReadOnly = true;
+            colEliminar.Width = 150;
             // 
             // bGenerarPresupuesto
             // 
@@ -544,12 +593,13 @@
             bGenerarPresupuesto.FlatAppearance.BorderSize = 0;
             bGenerarPresupuesto.FlatStyle = FlatStyle.Flat;
             bGenerarPresupuesto.ForeColor = Color.Gainsboro;
-            bGenerarPresupuesto.Location = new Point(513, 3);
+            bGenerarPresupuesto.Location = new Point(808, 3);
             bGenerarPresupuesto.Name = "bGenerarPresupuesto";
             bGenerarPresupuesto.Size = new Size(239, 40);
             bGenerarPresupuesto.TabIndex = 1;
             bGenerarPresupuesto.Text = "Generar Presupuesto";
             bGenerarPresupuesto.UseVisualStyleBackColor = false;
+            bGenerarPresupuesto.Click += bGenerarPresupuesto_Click;
             // 
             // GenerarPresupuestoForm
             // 
@@ -562,6 +612,12 @@
             Text = "GenerarPresupuestoForm";
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();
+            flowLayoutPanel1.ResumeLayout(false);
+            panel6.ResumeLayout(false);
+            panel6.PerformLayout();
+            roundedPanel1.ResumeLayout(false);
+            panel8.ResumeLayout(false);
+            panel8.PerformLayout();
             flowLayoutPanel2.ResumeLayout(false);
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
@@ -578,21 +634,18 @@
             panel5.ResumeLayout(false);
             panel5.PerformLayout();
             roundedPanel6.ResumeLayout(false);
+            roundedPanel6.PerformLayout();
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
             roundedPanel4.ResumeLayout(false);
+            roundedPanel4.PerformLayout();
             panel4.ResumeLayout(false);
             panel4.PerformLayout();
             roundedPanel5.ResumeLayout(false);
-            flowLayoutPanel1.ResumeLayout(false);
-            panel6.ResumeLayout(false);
-            panel6.PerformLayout();
-            roundedPanel1.ResumeLayout(false);
-            panel8.ResumeLayout(false);
-            panel8.PerformLayout();
+            roundedPanel5.PerformLayout();
             flowLayoutPanel3.ResumeLayout(false);
             roundedPanel7.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvServicios).EndInit();
             ResumeLayout(false);
         }
 
@@ -617,15 +670,12 @@
         private TextBox tbDescripcion;
         private Panel panel5;
         private Shared.Controls.RoundedPanel roundedPanel6;
-        private ComboBox cbMarca;
         private Label lRol;
         private Panel panel3;
         private Shared.Controls.RoundedPanel roundedPanel4;
-        private ComboBox cbTipo;
         private Label label4;
         private Panel panel4;
         private Shared.Controls.RoundedPanel roundedPanel5;
-        private ComboBox cbEstado;
         private Label label5;
         private FlowLayoutPanel flowLayoutPanel1;
         private Panel panel6;
@@ -640,7 +690,15 @@
         private Label label10;
         private FlowLayoutPanel flowLayoutPanel3;
         private Shared.Controls.RoundedPanel roundedPanel7;
-        private DataGridView dataGridView1;
+        private DataGridView dgvServicios;
         private Shared.Controls.RoundedButton bGenerarPresupuesto;
+        private TextBox tbMarca;
+        private TextBox tbTipo;
+        private TextBox tbEstado;
+        private DataGridViewTextBoxColumn colServicio;
+        private DataGridViewTextBoxColumn colIdServicio;
+        private DataGridViewTextBoxColumn colPrecio;
+        private DataGridViewCheckBoxColumn colNecesario;
+        private DataGridViewButtonColumn colEliminar;
     }
 }
