@@ -154,6 +154,15 @@ namespace Taller_2_Gestor.Forms
 
         }
 
+        private void CargarReportesView()
+        {
+            ContentHost.Controls.Clear();              // limpiás lo que había
+            var view = new ReportesView();              // creás la vista
+            view.Dock = DockStyle.Fill;                 // que llene el panel
+            ContentHost.Controls.Add(view);            // la metés al panel
+            view.BringToFront();
+        }
+
         private void MainForm_Load(object sender, EventArgs e)
         {
 
@@ -206,6 +215,19 @@ namespace Taller_2_Gestor.Forms
         {
             var view = new TareasAdminView();
             CargarView(view);
+        }
+
+        private void panelMenu_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void bReportes_Click(object sender, EventArgs e)
+        {
+            panelContenedor.Controls.Clear();
+            var rv = new ReportesView();
+            rv.Dock = DockStyle.Fill;
+            panelContenedor.Controls.Add(rv);
         }
     }
 }
