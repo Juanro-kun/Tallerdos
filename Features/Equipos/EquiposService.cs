@@ -87,7 +87,7 @@ namespace Taller_2_Gestor.Features.Equipos
                 if (e == null) return (false, "Equipo no encontrado.", null!);
                 e.Nombre = nombre.Trim();
                 e.IdCliente = idCliente;
-                e.IdMarca = idMarca; 
+                e.IdMarca = idMarca;
                 e.IdTipo = idTipo;
                 e.IdEstado = idEstado;
 
@@ -97,6 +97,22 @@ namespace Taller_2_Gestor.Features.Equipos
             catch (Exception ex)
             {
                 return (false, "Error al guardar: " + ex.Message, null!);
+            }
+        }
+
+        public bool EliminarEquipo(int idEquipo)
+        {
+            try
+            {
+                var e = _db.Equipos.FirstOrDefault(x => x.IdEquipo == idEquipo);
+                if (e == null) return false;
+                _db.Equipos.Remove(e);
+                _db.SaveChanges();
+                return true;
+            }
+            catch
+            {
+                return false;
             }
         }
 

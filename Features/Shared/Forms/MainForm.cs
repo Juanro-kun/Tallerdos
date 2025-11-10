@@ -16,13 +16,16 @@ using static System.Collections.Specialized.BitVector32;
 using Taller_2_Gestor.Features.Clientes;
 using Taller_2_Gestor.Features.Centro_de_Tareas;
 using Taller_2_Gestor.Features.Centro_de_Tareas_Administrador;
+using Taller_2_Gestor.Features.Login;
+using Taller_2_Gestor.Features.BackupFeature;
+using Taller_2_Gestor.Features.Informes;
 
 namespace Taller_2_Gestor.Forms
 {
     public partial class MainForm : BaseForm
     {
         private readonly UserSession _session;//variable de solo lectura que guarda la sesion del usuario
-
+        private readonly LoginService _Lsvc;
         public MainForm()
         {
             InitializeComponent();
@@ -51,28 +54,37 @@ namespace Taller_2_Gestor.Forms
                     bUsuarios.Visible = true;
                     bTareasTecnico.Visible = false;
                     bTareasAdmin.Visible = false;
+                    bInformes.Visible = true;
+                    bBackup.Visible = true;
                     break;
                 case 2: // Técnico
                     // Habilitar solo funcionalidades técnicas
-                    lBrand.Text = $"Vista Tecnico {UserSession.Current.Id}";
+                    lBrand.Text = "Vista Tecnico";
                     bClientes.Visible = false;
                     bEquipos.Visible = false;
-                    bPresupuestos.Visible = false;
-                    bOrdenes.Visible = false;
+                    bPresupuestos.Visible = true;
+                    bPresupuestos.Text = "Mis Presupuestos";
+                    bOrdenes.Visible = true;
+                    bOrdenes.Text = "Mis Órdenes";
                     bUsuarios.Visible = false;
                     bTareasTecnico.Visible = true;
                     bTareasAdmin.Visible = false;
+                    bInformes.Visible = false;
+                    bBackup.Visible = false;
                     break;
                 case 3: // Administrador
                     // Habilitar solo funcionalidades de cliente
                     lBrand.Text = "Vista Administrador";
                     bClientes.Visible = true;
                     bEquipos.Visible = true;
-                    bPresupuestos.Visible = false;
+                    bPresupuestos.Visible = true;
+                    bPresupuestos.Text = "Mis Presupuestos";
                     bOrdenes.Visible = false;
                     bUsuarios.Visible = false;
                     bTareasTecnico.Visible = false;
                     bTareasAdmin.Visible = true;
+                    bInformes.Visible = false;
+                    bBackup.Visible = false;
                     break;
                 default:
                     // Rol desconocido, deshabilitar todo por seguridad
@@ -84,6 +96,8 @@ namespace Taller_2_Gestor.Forms
                     bUsuarios.Visible = false;
                     bTareasTecnico.Visible = false;
                     bTareasAdmin.Visible = false;
+                    bInformes.Visible = false;
+                    bBackup.Visible = false;
                     break;
             }
         }
@@ -91,7 +105,8 @@ namespace Taller_2_Gestor.Forms
         private void CargarView(UserControl view)
         {
             ContentHost.Controls.Clear();              // limpiás lo que había
-            view.Dock = DockStyle.Fill;                 // que llene el panel
+            view.Dock = DockStyle.None;                 // que llene el panel
+            view.Anchor = AnchorStyles.Top | AnchorStyles.Left;
             ContentHost.Controls.Add(view);            // la metés al panel
             view.BringToFront();
         }
@@ -207,5 +222,46 @@ namespace Taller_2_Gestor.Forms
             var view = new TareasAdminView();
             CargarView(view);
         }
+
+        private void bCerrarSesion_Click(object sender, EventArgs e)
+        {
+            Taller_2_Gestor.Domain.UserSession.End();
+            this.Hide();
+
+            using (var loginForm = new LoginForm())
+            {
+                // Mostrar el Login de forma modal (ShowDialog)
+                if (loginForm.ShowDialog() == DialogResult.OK)
+                {
+                    // Si el login fue exitoso, volvemos a mostrar el formulario principal
+                    this.Show();
+
+                    // Opcional: Recargar o actualizar la vista principal
+                    // para que los permisos/datos del nuevo usuario se apliquen.
+                    this.ConfigurarSegunRol();
+                    ContentHost.Controls.Clear();
+
+                }
+                else
+                {
+                    // Si el usuario cerró el formulario de Login sin éxito, 
+                    // generalmente se cierra toda la aplicación.
+                    Application.Exit();
+                }
+            }
+        }
+
+        private void bBackup_Click(object sender, EventArgs e)
+        {
+            var view = new BackupView();
+            CargarView(view);
+        }
+
+        private void bInformes_Click(object sender, EventArgs e)
+        {
+            var view = new InformesView();
+            CargarView(view);
+        }
     }
 }
+

@@ -26,5 +26,43 @@ namespace Taller_2_Gestor.Features.Presupuestos
                 .Where(i => i.IdPresupuestoNavigation.IdEquipo == idEquipo)
                 .ToList();
         }
+
+        public List<Presupuesto> ListarPresupuestos()
+        {
+            return _db.Presupuestos
+                .Include(p => p.IdEquipoNavigation)
+                .Include(p => p.IdEstadoNavigation)
+                .Include(p => p.IdTecnicoNavigation)
+                .ToList();
+        }
+
+        public List<ItemPresupuesto> ItemsPorPresupuesto(int id)
+        {
+            return _db.ItemPresupuestos
+                .Include(i => i.IdServicioNavigation)
+                .Include(i => i.IdEstadoNavigation)
+                .Where(i => i.IdPresupuesto == id)
+                .ToList();
+        }
+
+        public List<Presupuesto> ListarPresupuestosPorTecnico(int idTecnico)
+        {
+            return _db.Presupuestos
+                .Include(p => p.IdEquipoNavigation)
+                .Include(p => p.IdEstadoNavigation)
+                .Include(p => p.IdTecnicoNavigation)
+                .Where(p => p.IdTecnico == idTecnico)
+                .ToList();
+        }
+
+        public List<Presupuesto> ListarPresupuestosPorAdmin(int idAdmin)
+        {
+            return _db.Presupuestos
+                .Include(p => p.IdEquipoNavigation)
+                .Include(p => p.IdEstadoNavigation)
+                .Include(p => p.IdTecnicoNavigation)
+                .Where(p => p.IdAdministrador == idAdmin)
+                .ToList();
+        }
     }
 }

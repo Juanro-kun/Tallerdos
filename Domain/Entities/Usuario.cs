@@ -27,4 +27,8 @@ public partial class Usuario
     public virtual ICollection<Presupuesto> PresupuestoIdAdministradorNavigations { get; set; } = new List<Presupuesto>();
 
     public virtual ICollection<Presupuesto> PresupuestoIdTecnicoNavigations { get; set; } = new List<Presupuesto>();
+
+    public virtual ICollection<Comentario> ComentarioIdTecnicoNavigations { get; set; } = new List<Comentario>();
+
+    public virtual ICollection<OrdenServicio> OrdenServicioIdTecnicoNavigations { get; set; } = new List<OrdenServicio>();
 }

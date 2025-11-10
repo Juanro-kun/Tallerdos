@@ -25,6 +25,16 @@ public partial class Presupuesto
 
     public long TelefonoCliente => IdEquipoNavigation.TelefonoCliente;
 
+    public string NombreMarcaEquipo => IdEquipoNavigation.IdMarcaNavigation.Nombre;
+
+    public string NombreTipoEquipo => IdEquipoNavigation.IdTipoNavigation.Nombre;
+
+    public string NombreAdministrador => IdAdministradorNavigation != null ? $"{IdAdministradorNavigation.Nombre} {IdAdministradorNavigation.Apellido}" : "Sin asignar";
+
+    public string NombreTecnico => $"{IdTecnicoNavigation.Nombre} {IdTecnicoNavigation.Apellido}";
+
+    public string NombreEstado => IdEstadoNavigation.Nombre;
+
     public virtual ICollection<Comentario> Comentarios { get; set; } = new List<Comentario>();
 
     public virtual Usuario IdAdministradorNavigation { get; set; } = null!;

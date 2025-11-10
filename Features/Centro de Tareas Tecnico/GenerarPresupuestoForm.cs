@@ -89,7 +89,7 @@ namespace Taller_2_Gestor.Features.Equipos
             int idTecnico = UserSession.Current.Id;
 
             // Obtener el ID del equipo. Convertimos a entero.
-            if (!int.TryParse(tbIdCliente.Text, out int idEquipo))
+            if (!int.TryParse(lIdContenido.Text, out int idEquipo))
             {
                 MessageBox.Show("El ID del Equipo no es válido.", "Error de Datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -152,6 +152,7 @@ namespace Taller_2_Gestor.Features.Equipos
             //Finalizar la operación
             MessageBox.Show($"Presupuesto N° {idPresupuesto} generado con éxito. El equipo se marcó como 'Pendiente de aprobacion'.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+            this.DialogResult = DialogResult.OK;
             this.Close();
         }
     }

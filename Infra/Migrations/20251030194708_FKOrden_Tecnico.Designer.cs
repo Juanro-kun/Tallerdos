@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Taller_2_Gestor.Infra;
 
@@ -11,9 +12,11 @@ using Taller_2_Gestor.Infra;
 namespace Taller_2_Gestor.Infra.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20251030194708_FKOrden_Tecnico")]
+    partial class FKOrden_Tecnico
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -82,9 +85,9 @@ namespace Taller_2_Gestor.Infra.Migrations
                         .HasColumnType("varchar(200)")
                         .HasColumnName("detalle");
 
-                    b.Property<DateTime>("Fecha")
+                    b.Property<DateOnly>("Fecha")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("datetime2")
+                        .HasColumnType("date")
                         .HasColumnName("fecha")
                         .HasDefaultValueSql("(getdate())");
 
@@ -295,11 +298,6 @@ namespace Taller_2_Gestor.Infra.Migrations
                         {
                             IdEstado = 5,
                             Nombre = "Pospuesto"
-                        },
-                        new
-                        {
-                            IdEstado = 6,
-                            Nombre = "Consultar Cliente"
                         });
                 });
 

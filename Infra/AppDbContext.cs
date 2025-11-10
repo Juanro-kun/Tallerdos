@@ -93,6 +93,11 @@ public partial class AppDbContext : DbContext
                 .HasForeignKey(d => d.IdPresupuesto)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_comentario_presupuesto");
+
+            entity.HasOne(d => d.IdTecnicoNavigation).WithMany(p => p.ComentarioIdTecnicoNavigations)
+                .HasForeignKey(d => d.TecnicoId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_comentario_tecnico");
         });
 
         modelBuilder.Entity<Equipo>(entity =>
@@ -192,7 +197,8 @@ public partial class AppDbContext : DbContext
                 new EstadoPresupuesto { IdEstado = 2, Nombre = "Aprobado" },
                 new EstadoPresupuesto { IdEstado = 3, Nombre = "Rechazado" },
                 new EstadoPresupuesto { IdEstado = 4, Nombre = "Realizado" },
-                new EstadoPresupuesto { IdEstado = 5, Nombre = "Pospuesto" }
+                new EstadoPresupuesto { IdEstado = 5, Nombre = "Pospuesto" },
+                new EstadoPresupuesto { IdEstado = 6, Nombre = "Consultar Cliente" }
             );
         });
 
@@ -269,6 +275,11 @@ public partial class AppDbContext : DbContext
                 .HasForeignKey<OrdenServicio>(d => d.IdPresupuesto)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK__orden_ser__id_pr__05D8E0BE");
+
+            entity.HasOne(d => d.IdTecnicoNavigation).WithMany(p => p.OrdenServicioIdTecnicoNavigations)
+                .HasForeignKey(d => d.IdTecnico)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_orden_servicio_tecnico");
         });
 
         modelBuilder.Entity<Presupuesto>(entity =>

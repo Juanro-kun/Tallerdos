@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.IdentityModel.Tokens;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -109,7 +110,7 @@ namespace Taller_2_Gestor.Features.Equipos
 
         private void EquiposView_Load(object sender, EventArgs e)
         {
-            
+
         }
         #endregion      //TERMINA LA SECCION DE METODOS AUXILIARES
 
@@ -162,7 +163,27 @@ namespace Taller_2_Gestor.Features.Equipos
 
         private void bGuardarNuevo_Click(object sender, EventArgs e)
         {
-            // Cambiar visibilidad botones
+            if (string.IsNullOrWhiteSpace(tbIdCliente.Text))
+            {
+                { MessageBox.Show("El id de cliente es obligatorio."); tbIdCliente.Focus(); return; }
+            }
+            if (string.IsNullOrWhiteSpace(tbDescripcion.Text))
+            {
+                { MessageBox.Show("La descripcion es obligatoria."); tbDescripcion.Focus(); return; }
+            }
+            if (cbMarca.SelectedItem == null && cbMarca.SelectedValue == null)
+            {
+                { MessageBox.Show("Selecciona una marca."); cbMarca.Focus(); return; }
+            }
+            if (cbTipo.SelectedItem == null && cbTipo.SelectedValue == null)
+            {
+                { MessageBox.Show("Selecciona un tipo."); cbTipo.Focus(); return; }
+            }
+            if (cbEstado.SelectedItem == null && cbEstado.SelectedValue == null)
+            {
+                cbEstado.SelectedValue = 1;
+            }
+
 
             var (ok, error, equipo) = _Esvc.Crear(
                 tbDescripcion.Text,
@@ -197,9 +218,9 @@ namespace Taller_2_Gestor.Features.Equipos
             bGuardarExistente.Visible = false;
             bCancelar.Visible = false;
             Equipo? eq;
-            if (dgvEquipos.SelectedRows == null) 
+            if (dgvEquipos.SelectedRows == null)
             { eq = null; }
-            else { eq = dgvEquipos.CurrentRow?.DataBoundItem as Equipo;}
+            else { eq = dgvEquipos.CurrentRow?.DataBoundItem as Equipo; }
             CargarDetalles(eq);
             ToggleCampos(false);
             dgvEquipos.Enabled = true;
@@ -281,5 +302,29 @@ namespace Taller_2_Gestor.Features.Equipos
 
         }
         #endregion
+
+        private void bEliminar_Click(object sender, EventArgs e)
+        {
+            DialogResult resultado = MessageBox.Show(
+            "¿Está seguro de que desea eliminar este equipo? Esta acción no se puede deshacer.", // Mensaje
+            "Confirmar Eliminación de Equipo", // Título de la ventana
+            MessageBoxButtons.YesNo, // Botones Sí y No
+            MessageBoxIcon.Warning // Ícono de advertencia
+            );
+            if ( resultado == DialogResult.Yes)
+            {
+                bool eliminado = _Esvc.EliminarEquipo(int.Parse(lIdContenido.Text));
+                if (eliminado)
+                {
+                    MessageBox.Show("El equipo ha sido eliminado exitosamente.", "Eliminación Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    dgvEquipos.DataSource = _Esvc.ListarEquipos();
+                    LimpiarCampos();
+                }
+                else
+                {
+                    MessageBox.Show("No se pudo eliminar el equipo. Por favor, intente nuevamente.", "Error al Eliminar", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
     }
 }

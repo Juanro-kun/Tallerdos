@@ -41,6 +41,7 @@ namespace Taller_2_Gestor.Features.Centro_de_Tareas_Administrador
             tbDescripcion.Text = p.DescripcionEquipo;
             tbMail.Text = p.MailCliente;
             tbTel.Text = p.TelefonoCliente.ToString();
+            tbIdEquipo.Text = p.IdEquipo.ToString();
 
             dgvItemsNecesarios.DataSource = _Tsvc.ItemsNecesariosPorPresupuesto(p.IdPresupuesto);
             dgvItemsOpcionales.DataSource = _Tsvc.ItemsOpcionalesPorPresupuesto(p.IdPresupuesto);
@@ -70,11 +71,48 @@ namespace Taller_2_Gestor.Features.Centro_de_Tareas_Administrador
                 MessageBoxIcon.Question
             );
 
+
             // Comprobar la respuesta del usuario
             if (resultado == DialogResult.Yes)
             {
+                int cantidadRechazados = 0;
+                _Tsvc.CargarAdminAPresupuesto(int.Parse(tbId.Text));
+
+                foreach (DataGridViewRow row in dgvItemsOpcionales.Rows)
+                {
+                    bool aceptado = Convert.ToBoolean(row.Cells["colAceptado"].Value);
+                    if (!aceptado)
+                    {
+                        cantidadRechazados++;
+                    }
+                }
+
+                if (cantidadRechazados == _Tsvc.CantidadTotalDeItemsPorPresupuesto(int.Parse(tbId.Text)))
+                {
+                    MessageBox.Show(
+                        "Todos los items han sido marcados como rechazados, por favor apruebe al menos un item o rechaze el presupuesto",
+                        "Advertencia",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning);
+                    return;
+                }
+
+                foreach (DataGridViewRow row in dgvItemsNecesarios.Rows)
+                {
+                    int nFila = ((ItemPresupuesto)row.DataBoundItem).NFila;
+                    _Tsvc.ModificarEstadoItemPresupuesto(Convert.ToInt32(tbId.Text), nFila, 2);
+                }
+
+                foreach (DataGridViewRow row in dgvItemsOpcionales.Rows)
+                {
+                    int nFila = ((ItemPresupuesto)row.DataBoundItem).NFila;
+                    bool aceptado = Convert.ToBoolean(row.Cells["colAceptado"].Value);
+                    int nuevoEstado = aceptado ? 2 : 3; // 2 = Aceptado, 3 = Rechazado
+                    _Tsvc.ModificarEstadoItemPresupuesto(Convert.ToInt32(tbId.Text), nFila, nuevoEstado);
+                }
+
                 // El usuario presionó 'Sí'
-                _Tsvc.ModificarEstadoEquipo(int.Parse(tbId.Text), 4); // 4 = Pendiente de reparación
+                _Tsvc.ModificarEstadoEquipo(int.Parse(tbIdEquipo.Text), 4); // 4 = Pendiente de reparación
                 _Tsvc.ModificarEstadoPresupuesto(int.Parse(tbId.Text), 2); // 2 = Aprobado
 
                 foreach (DataGridViewRow row in dgvItemsNecesarios.Rows)
@@ -90,6 +128,7 @@ namespace Taller_2_Gestor.Features.Centro_de_Tareas_Administrador
                     int nuevoEstado = aceptado ? 2 : 3; // 2 = Aceptado, 3 = Rechazado
                     _Tsvc.ModificarEstadoItemPresupuesto(Convert.ToInt32(tbId.Text), nFila, nuevoEstado);
                 }
+                
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }
@@ -109,6 +148,8 @@ namespace Taller_2_Gestor.Features.Centro_de_Tareas_Administrador
             {
                 _Tsvc.ModificarEstadoEquipo(int.Parse(tbId.Text), 5); // 5 = Cliente contactado ya que si se rechazó es porque el cliente está notificado
                 _Tsvc.ModificarEstadoPresupuesto(int.Parse(tbId.Text), 3); // 2 = Aprobado
+                _Tsvc.CargarAdminAPresupuesto(int.Parse(tbId.Text));
+                _Tsvc.RechazarTodosLosItemsDePresupuesto(int.Parse(tbId.Text));
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Taller_2_Gestor.Infra;
 using Taller_2_Gestor.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
+using Taller_2_Gestor.Domain;
 
 namespace Taller_2_Gestor.Features.Centro_de_Tareas_Administrador
 {
@@ -80,6 +81,86 @@ namespace Taller_2_Gestor.Features.Centro_de_Tareas_Administrador
                 equipo.IdEstado = nuevoEstado;
                 _db.SaveChanges();
             }
+        }
+
+        public List<Equipo> ListarEquiposPendientesDeContacto()
+        {
+            return _db.Equipos
+                .Where(e => e.IdEstado == 3)
+                .Include(e => e.IdClienteNavigation)
+                .Include(e => e.IdMarcaNavigation)
+                .Include(e => e.IdTipoNavigation)
+                .ToList();
+        }
+
+        public List<Presupuesto> ListarPresupuestosPospuestosParaConsultar()
+        {
+            return _db.Presupuestos
+                .Where(p => p.IdEstado == 6)
+                .Include(p => p.IdEquipoNavigation)
+                    .ThenInclude(e => e.IdClienteNavigation)
+                .Include(p => p.IdEquipoNavigation)
+                    .ThenInclude(e => e.IdMarcaNavigation)
+                .Include(p => p.IdEquipoNavigation)
+                    .ThenInclude(e => e.IdTipoNavigation)
+                .ToList();
+        }
+
+        public List<Equipo> ListarEquiposListosParaRetiro()
+        {
+            return _db.Equipos
+                .Where(e => e.IdEstado == 5)
+                .Include(e => e.IdClienteNavigation)
+                .Include(e => e.IdMarcaNavigation)
+                .Include(e => e.IdTipoNavigation)
+                .ToList();
+        }
+
+        public List<ItemPresupuesto> ItemsPospuestosNoNecesarios(int idPresupuesto)
+        {
+            return _db.ItemPresupuestos
+                .Where(ip => ip.IdPresupuesto == idPresupuesto && ip.Necesario == false && ip.IdEstado == 4)
+                .Include(ip => ip.IdServicioNavigation)
+                .ToList();
+        }
+
+        public int CantidadDeItemsAprobadosOPospuestosPorPresupuesto(int idPresupuesto)
+        {
+            return _db.ItemPresupuestos
+                .Count(ip => ip.IdPresupuesto == idPresupuesto && (ip.IdEstado == 2 || ip.IdEstado == 4));
+        }
+
+        public void CargarAdminAPresupuesto(int idPresupuesto)
+        {
+            _db.Presupuestos
+                .Where(p => p.IdPresupuesto == idPresupuesto)
+                .ToList()
+                .ForEach(p => p.IdAdministrador = UserSession.Current.Id); // Asumiendo que el ID del admin es 1
+            _db.SaveChanges();
+        }
+
+        public int CantidadTotalDeItemsPorPresupuesto(int idPresupuesto)
+        {
+            return _db.ItemPresupuestos
+                .Count(ip => ip.IdPresupuesto == idPresupuesto);
+        }
+
+        public void RechazarTodosLosItemsDePresupuesto(int idPresupuesto)
+        {
+            // 1. Obtener todos los ItemPresupuestos que pertenecen al ID dado.
+            var itemsAActualizar = _db.ItemPresupuestos
+                .Where(ip => ip.IdPresupuesto == idPresupuesto)
+                .ToList(); // Carga la lista en memoria para poder modificarla
+
+            // 2. Iterar y actualizar la propiedad IdEstado.
+            foreach (var item in itemsAActualizar)
+            {
+                item.IdEstado = 3;
+            }
+
+            // 3. Guardar los cambios en la base de datos.
+            // EF Core rastrea automáticamente los cambios realizados en las entidades cargadas.
+            _db.SaveChanges();
         }
     }
 }

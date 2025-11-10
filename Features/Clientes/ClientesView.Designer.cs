@@ -81,12 +81,12 @@
             flowLayoutPanel3 = new FlowLayoutPanel();
             roundedPanel7 = new Taller_2_Gestor.Features.Shared.Controls.RoundedPanel();
             dgvEquipos = new DataGridView();
-            bAgregarEquipo = new Taller_2_Gestor.Features.Shared.Controls.RoundedButton();
             dgvEquiposCId = new DataGridViewButtonColumn();
             Nombre = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn2 = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn3 = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn4 = new DataGridViewTextBoxColumn();
+            bAgregarEquipo = new Taller_2_Gestor.Features.Shared.Controls.RoundedButton();
             tlpViews.SuspendLayout();
             rpFiltro.SuspendLayout();
             rpBarraBusqueda.SuspendLayout();
@@ -138,7 +138,7 @@
             tlpViews.RowStyles.Add(new RowStyle(SizeType.Absolute, 137F));
             tlpViews.RowStyles.Add(new RowStyle(SizeType.Absolute, 45F));
             tlpViews.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tlpViews.Size = new Size(1235, 900);
+            tlpViews.Size = new Size(1394, 900);
             tlpViews.TabIndex = 1;
             tlpViews.Paint += tlpViews_Paint;
             // 
@@ -293,7 +293,7 @@
             flowLayoutPanel1.Dock = DockStyle.Fill;
             flowLayoutPanel1.Location = new Point(3, 443);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(1229, 39);
+            flowLayoutPanel1.Size = new Size(1388, 39);
             flowLayoutPanel1.TabIndex = 5;
             // 
             // pNuevoUsuario
@@ -416,7 +416,7 @@
             flowLayoutPanel2.Location = new Point(35, 500);
             flowLayoutPanel2.Margin = new Padding(35, 15, 3, 3);
             flowLayoutPanel2.Name = "flowLayoutPanel2";
-            flowLayoutPanel2.Size = new Size(1197, 119);
+            flowLayoutPanel2.Size = new Size(1356, 119);
             flowLayoutPanel2.TabIndex = 6;
             // 
             // panel1
@@ -617,7 +617,7 @@
             // 
             panel5.Controls.Add(roundedPanel6);
             panel5.Controls.Add(label2);
-            panel5.Location = new Point(3, 76);
+            panel5.Location = new Point(1049, 3);
             panel5.Name = "panel5";
             panel5.Size = new Size(243, 67);
             panel5.TabIndex = 4;
@@ -671,7 +671,7 @@
             flowLayoutPanel3.Dock = DockStyle.Fill;
             flowLayoutPanel3.Location = new Point(3, 670);
             flowLayoutPanel3.Name = "flowLayoutPanel3";
-            flowLayoutPanel3.Size = new Size(1229, 227);
+            flowLayoutPanel3.Size = new Size(1388, 227);
             flowLayoutPanel3.TabIndex = 9;
             // 
             // roundedPanel7
@@ -702,22 +702,6 @@
             dgvEquipos.Size = new Size(950, 223);
             dgvEquipos.TabIndex = 0;
             dgvEquipos.CellContentClick += dgvEquipos_CellContentClick;
-            // 
-            // bAgregarEquipo
-            // 
-            bAgregarEquipo.BackColor = Color.FromArgb(40, 40, 40);
-            bAgregarEquipo.FlatAppearance.BorderSize = 0;
-            bAgregarEquipo.FlatStyle = FlatStyle.Flat;
-            bAgregarEquipo.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            bAgregarEquipo.ForeColor = Color.Gainsboro;
-            bAgregarEquipo.Location = new Point(981, 8);
-            bAgregarEquipo.Margin = new Padding(3, 8, 3, 3);
-            bAgregarEquipo.Name = "bAgregarEquipo";
-            bAgregarEquipo.Size = new Size(230, 45);
-            bAgregarEquipo.TabIndex = 8;
-            bAgregarEquipo.Text = "Agregar equipo";
-            bAgregarEquipo.UseVisualStyleBackColor = false;
-            bAgregarEquipo.Click += bAgregarEquipo_Click;
             // 
             // dgvEquiposCId
             // 
@@ -761,6 +745,22 @@
             dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             dataGridViewTextBoxColumn4.ReadOnly = true;
             // 
+            // bAgregarEquipo
+            // 
+            bAgregarEquipo.BackColor = Color.FromArgb(40, 40, 40);
+            bAgregarEquipo.FlatAppearance.BorderSize = 0;
+            bAgregarEquipo.FlatStyle = FlatStyle.Flat;
+            bAgregarEquipo.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            bAgregarEquipo.ForeColor = Color.Gainsboro;
+            bAgregarEquipo.Location = new Point(981, 8);
+            bAgregarEquipo.Margin = new Padding(3, 8, 3, 3);
+            bAgregarEquipo.Name = "bAgregarEquipo";
+            bAgregarEquipo.Size = new Size(230, 45);
+            bAgregarEquipo.TabIndex = 8;
+            bAgregarEquipo.Text = "Agregar equipo";
+            bAgregarEquipo.UseVisualStyleBackColor = false;
+            bAgregarEquipo.Click += bAgregarEquipo_Click;
+            // 
             // ClientesView
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
@@ -768,7 +768,7 @@
             BackColor = Color.FromArgb(51, 77, 53);
             Controls.Add(tlpViews);
             Name = "ClientesView";
-            Size = new Size(1235, 900);
+            Size = new Size(1394, 900);
             tlpViews.ResumeLayout(false);
             tlpViews.PerformLayout();
             rpFiltro.ResumeLayout(false);

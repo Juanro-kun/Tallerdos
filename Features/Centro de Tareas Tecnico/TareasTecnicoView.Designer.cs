@@ -44,12 +44,13 @@
             flowLayoutPanel2 = new FlowLayoutPanel();
             roundedPanel2 = new Taller_2_Gestor.Features.Shared.Controls.RoundedPanel();
             dgvEquiposReparacion = new DataGridView();
-            dataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
+            bGenerarOrden = new Taller_2_Gestor.Features.Shared.Controls.RoundedButton();
+            colIdReparacion = new DataGridViewTextBoxColumn();
+            colIdPresupuesto = new DataGridViewTextBoxColumn();
             dataGridViewButtonColumn1 = new DataGridViewButtonColumn();
             dataGridViewTextBoxColumn2 = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn3 = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn4 = new DataGridViewTextBoxColumn();
-            bGenerarOrden = new Taller_2_Gestor.Features.Shared.Controls.RoundedButton();
             roundedPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvEquiposRevision).BeginInit();
             tableLayoutPanel1.SuspendLayout();
@@ -227,7 +228,7 @@
             dgvEquiposReparacion.AllowUserToDeleteRows = false;
             dgvEquiposReparacion.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvEquiposReparacion.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvEquiposReparacion.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn1, dataGridViewButtonColumn1, dataGridViewTextBoxColumn2, dataGridViewTextBoxColumn3, dataGridViewTextBoxColumn4 });
+            dgvEquiposReparacion.Columns.AddRange(new DataGridViewColumn[] { colIdReparacion, colIdPresupuesto, dataGridViewButtonColumn1, dataGridViewTextBoxColumn2, dataGridViewTextBoxColumn3, dataGridViewTextBoxColumn4 });
             dgvEquiposReparacion.Dock = DockStyle.Fill;
             dgvEquiposReparacion.Location = new Point(0, 0);
             dgvEquiposReparacion.MultiSelect = false;
@@ -237,46 +238,6 @@
             dgvEquiposReparacion.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvEquiposReparacion.Size = new Size(956, 290);
             dgvEquiposReparacion.TabIndex = 2;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            dataGridViewTextBoxColumn1.DataPropertyName = "IdEquipo";
-            dataGridViewTextBoxColumn1.HeaderText = "ID";
-            dataGridViewTextBoxColumn1.MinimumWidth = 8;
-            dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            dataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // dataGridViewButtonColumn1
-            // 
-            dataGridViewButtonColumn1.DataPropertyName = "NombreCompletoCliente";
-            dataGridViewButtonColumn1.HeaderText = "Nombre del Cliente";
-            dataGridViewButtonColumn1.MinimumWidth = 8;
-            dataGridViewButtonColumn1.Name = "dataGridViewButtonColumn1";
-            dataGridViewButtonColumn1.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            dataGridViewTextBoxColumn2.DataPropertyName = "Nombre";
-            dataGridViewTextBoxColumn2.HeaderText = "Descripcion";
-            dataGridViewTextBoxColumn2.MinimumWidth = 8;
-            dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            dataGridViewTextBoxColumn2.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            dataGridViewTextBoxColumn3.DataPropertyName = "NombreMarca";
-            dataGridViewTextBoxColumn3.HeaderText = "Marca";
-            dataGridViewTextBoxColumn3.MinimumWidth = 8;
-            dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            dataGridViewTextBoxColumn3.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            dataGridViewTextBoxColumn4.DataPropertyName = "NombreTipo";
-            dataGridViewTextBoxColumn4.HeaderText = "Tipo";
-            dataGridViewTextBoxColumn4.MinimumWidth = 8;
-            dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            dataGridViewTextBoxColumn4.ReadOnly = true;
             // 
             // bGenerarOrden
             // 
@@ -290,7 +251,56 @@
             bGenerarOrden.TabIndex = 7;
             bGenerarOrden.Text = "Generar Orden de Servicio";
             bGenerarOrden.UseVisualStyleBackColor = false;
-            bGenerarOrden.Click += this.bGenerarOrden_Click;
+            bGenerarOrden.Click += bGenerarOrden_Click;
+            // 
+            // colIdReparacion
+            // 
+            colIdReparacion.DataPropertyName = "IdEquipo";
+            colIdReparacion.HeaderText = "ID";
+            colIdReparacion.MinimumWidth = 8;
+            colIdReparacion.Name = "colIdReparacion";
+            colIdReparacion.ReadOnly = true;
+            // 
+            // colIdPresupuesto
+            // 
+            colIdPresupuesto.DataPropertyName = "idPresupuesto";
+            colIdPresupuesto.HeaderText = "Presupuesto";
+            colIdPresupuesto.MinimumWidth = 8;
+            colIdPresupuesto.Name = "colIdPresupuesto";
+            colIdPresupuesto.ReadOnly = true;
+            colIdPresupuesto.Visible = false;
+            // 
+            // dataGridViewButtonColumn1
+            // 
+            dataGridViewButtonColumn1.DataPropertyName = "NombreCliente";
+            dataGridViewButtonColumn1.HeaderText = "Nombre del Cliente";
+            dataGridViewButtonColumn1.MinimumWidth = 8;
+            dataGridViewButtonColumn1.Name = "dataGridViewButtonColumn1";
+            dataGridViewButtonColumn1.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            dataGridViewTextBoxColumn2.DataPropertyName = "DescripcionEquipo";
+            dataGridViewTextBoxColumn2.HeaderText = "Descripcion";
+            dataGridViewTextBoxColumn2.MinimumWidth = 8;
+            dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            dataGridViewTextBoxColumn3.DataPropertyName = "NombreMarcaEquipo";
+            dataGridViewTextBoxColumn3.HeaderText = "Marca";
+            dataGridViewTextBoxColumn3.MinimumWidth = 8;
+            dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            dataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            dataGridViewTextBoxColumn4.DataPropertyName = "NombreTipoEquipo";
+            dataGridViewTextBoxColumn4.HeaderText = "Tipo";
+            dataGridViewTextBoxColumn4.MinimumWidth = 8;
+            dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            dataGridViewTextBoxColumn4.ReadOnly = true;
             // 
             // TareasTecnicoView
             // 
@@ -329,10 +339,12 @@
         private Shared.Controls.RoundedPanel roundedPanel2;
         private DataGridView dgvEquiposReparacion;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private Shared.Controls.RoundedButton bGenerarOrden;
+        private DataGridViewTextBoxColumn colIdReparacion;
+        private DataGridViewTextBoxColumn colIdPresupuesto;
         private DataGridViewButtonColumn dataGridViewButtonColumn1;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private Shared.Controls.RoundedButton bGenerarOrden;
     }
 }

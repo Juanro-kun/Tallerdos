@@ -9,9 +9,13 @@ public partial class Comentario
 
     public int IdPresupuesto { get; set; }
 
+    public int TecnicoId { get; set; }
+
     public string Detalle { get; set; } = null!;
 
-    public DateOnly Fecha { get; set; }
+    public DateTime Fecha { get; set; }
 
     public virtual Presupuesto IdPresupuestoNavigation { get; set; } = null!;
+
+    public virtual Usuario IdTecnicoNavigation { get; set; } = null!;
 }

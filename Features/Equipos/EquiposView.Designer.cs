@@ -69,8 +69,6 @@
             panel6 = new Panel();
             bEditar = new Taller_2_Gestor.Features.Shared.Controls.RoundedButton();
             bGuardarExistente = new Taller_2_Gestor.Features.Shared.Controls.RoundedButton();
-            pEliminarEquipo = new Panel();
-            bEliminar = new Taller_2_Gestor.Features.Shared.Controls.RoundedButton();
             panel10 = new Panel();
             bCancelar = new Taller_2_Gestor.Features.Shared.Controls.RoundedButton();
             roundedPanel1 = new Taller_2_Gestor.Features.Shared.Controls.RoundedPanel();
@@ -106,7 +104,6 @@
             flowLayoutPanel1.SuspendLayout();
             pNuevoUsuario.SuspendLayout();
             panel6.SuspendLayout();
-            pEliminarEquipo.SuspendLayout();
             panel10.SuspendLayout();
             roundedPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvEquipos).BeginInit();
@@ -474,7 +471,6 @@
             // 
             flowLayoutPanel1.Controls.Add(pNuevoUsuario);
             flowLayoutPanel1.Controls.Add(panel6);
-            flowLayoutPanel1.Controls.Add(pEliminarEquipo);
             flowLayoutPanel1.Controls.Add(panel10);
             flowLayoutPanel1.Dock = DockStyle.Fill;
             flowLayoutPanel1.Location = new Point(3, 443);
@@ -567,34 +563,10 @@
             bGuardarExistente.Visible = false;
             bGuardarExistente.Click += bGuardarExistente_Click;
             // 
-            // pEliminarEquipo
-            // 
-            pEliminarEquipo.Controls.Add(bEliminar);
-            pEliminarEquipo.Location = new Point(408, 3);
-            pEliminarEquipo.Name = "pEliminarEquipo";
-            pEliminarEquipo.Size = new Size(181, 32);
-            pEliminarEquipo.TabIndex = 2;
-            // 
-            // bEliminar
-            // 
-            bEliminar.BackColor = Color.White;
-            bEliminar.BackNormal = Color.FromArgb(162, 46, 46);
-            bEliminar.Dock = DockStyle.Fill;
-            bEliminar.FlatAppearance.BorderSize = 0;
-            bEliminar.FlatStyle = FlatStyle.Flat;
-            bEliminar.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            bEliminar.ForeColor = Color.Gainsboro;
-            bEliminar.Location = new Point(0, 0);
-            bEliminar.Name = "bEliminar";
-            bEliminar.Size = new Size(181, 32);
-            bEliminar.TabIndex = 4;
-            bEliminar.Text = "Eliminar Equipo";
-            bEliminar.UseVisualStyleBackColor = false;
-            // 
             // panel10
             // 
             panel10.Controls.Add(bCancelar);
-            panel10.Location = new Point(595, 3);
+            panel10.Location = new Point(408, 3);
             panel10.Name = "panel10";
             panel10.Size = new Size(159, 32);
             panel10.TabIndex = 4;
@@ -796,7 +768,6 @@
             flowLayoutPanel1.ResumeLayout(false);
             pNuevoUsuario.ResumeLayout(false);
             panel6.ResumeLayout(false);
-            pEliminarEquipo.ResumeLayout(false);
             panel10.ResumeLayout(false);
             roundedPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dgvEquipos).EndInit();

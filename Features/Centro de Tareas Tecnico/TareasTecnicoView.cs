@@ -26,7 +26,7 @@ namespace Taller_2_Gestor.Features.Centro_de_Tareas
             dgvEquiposRevision.AutoGenerateColumns = false;
 
             dgvEquiposRevision.DataSource = _Tsvc.ListarEquiposPendientesDeRevision();
-            dgvEquiposReparacion.DataSource = _Tsvc.ListarEquiposPendientesDeReparacion();
+            dgvEquiposReparacion.DataSource = _Tsvc.ListarPresupuestosAprobadosOPospuestosARevisar();
         }
 
         private void bGenerarPresupuesto_Click(object sender, EventArgs e)
@@ -41,7 +41,13 @@ namespace Taller_2_Gestor.Features.Centro_de_Tareas
             var form = new GenerarPresupuestoForm();
             var equipo = _Tsvc.ObtenerEquipo(idEquipo);
             form.CargarDatosEquipo(equipo);
-            form.ShowDialog();
+            DialogResult resultado = form.ShowDialog();
+
+            if (resultado == DialogResult.OK)
+            {
+                //refrescar la grilla
+                dgvEquiposRevision.DataSource = _Tsvc.ListarEquiposPendientesDeRevision;
+            }
         }
 
         private void bGenerarOrden_Click(object sender, EventArgs e)
@@ -51,9 +57,15 @@ namespace Taller_2_Gestor.Features.Centro_de_Tareas
                 MessageBox.Show("Seleccione un equipo para generar la orden de reparación.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            int idEquipo = (int)dgvEquiposReparacion.SelectedRows[0].Cells["IdEquipo"].Value;
-            //llamar al formulario de orden de reparación pasando el idEquipo
-            
+            int idPresupuesto = (int)dgvEquiposReparacion.SelectedRows[0].Cells["colIdPresupuesto"].Value;
+            var form = new GenerarOrdenForm();
+            form.CargarDatosPresupuesto(idPresupuesto);
+            DialogResult resultado = form.ShowDialog();
+
+            if (resultado == DialogResult.OK)
+            {
+                dgvEquiposReparacion.DataSource = _Tsvc.ListarPresupuestosAprobados();
+            }
         }
     }
 }

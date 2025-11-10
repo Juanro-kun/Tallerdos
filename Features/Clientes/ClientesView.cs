@@ -109,6 +109,7 @@ namespace Taller_2_Gestor.Features.Clientes
             bGuardarNuevo.Visible = false;
             bEditar.Enabled = true;
             bCancelar.Visible = false;
+            bAgregarEquipo.Enabled = true;
             LimpiarCampos();
             ToggleCampos(false);
             dgvClientes.DataSource = _Csvc.ListarClientes();
@@ -124,6 +125,7 @@ namespace Taller_2_Gestor.Features.Clientes
             bGuardarNuevo.Visible = true;
             bEditar.Enabled = false;
             bCancelar.Visible = true;
+            bAgregarEquipo.Enabled = false;
             LimpiarCampos();
             ToggleCampos(true);
         }
@@ -135,6 +137,7 @@ namespace Taller_2_Gestor.Features.Clientes
             bGuardarExistente.Visible = true;
             bNuevoCliente.Enabled = false;
             bCancelar.Visible = true;
+            bAgregarEquipo.Enabled = false;
             ToggleCampos(true);
         }
 
@@ -167,6 +170,7 @@ namespace Taller_2_Gestor.Features.Clientes
             bGuardarExistente.Visible = false;
             bNuevoCliente.Enabled = true;
             bCancelar.Visible = false;
+            bAgregarEquipo.Enabled = true;
             ToggleCampos(false);
 
             dgvClientes.DataSource = _Csvc.ListarClientes();
@@ -180,6 +184,7 @@ namespace Taller_2_Gestor.Features.Clientes
             bEditar.Visible = true;
             bEditar.Enabled = true;
             bGuardarExistente.Visible = false;
+            bAgregarEquipo.Enabled = true;
             bCancelar.Visible = false;
             var c = dgvClientes.CurrentRow.DataBoundItem as Cliente;
             if (c == null) return;

@@ -39,8 +39,11 @@
             bUsuarios = new Button();
             bTareasTecnico = new Button();
             bTareasAdmin = new Button();
+            bBackup = new Button();
+            bInformes = new Button();
             panel1 = new Panel();
             lBrand = new Label();
+            bCerrarSesion = new Button();
             backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             tlpRoot.SuspendLayout();
             panelMenu.SuspendLayout();
@@ -60,15 +63,16 @@
             tlpRoot.Name = "tlpRoot";
             tlpRoot.RowCount = 1;
             tlpRoot.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tlpRoot.Size = new Size(800, 450);
+            tlpRoot.Size = new Size(800, 647);
             tlpRoot.TabIndex = 0;
             // 
             // ContentHost
             // 
+            ContentHost.AutoScroll = true;
             ContentHost.Dock = DockStyle.Fill;
             ContentHost.Location = new Point(203, 3);
             ContentHost.Name = "ContentHost";
-            ContentHost.Size = new Size(594, 444);
+            ContentHost.Size = new Size(594, 641);
             ContentHost.TabIndex = 1;
             ContentHost.Paint += ContentHost_Paint;
             // 
@@ -77,10 +81,11 @@
             panelMenu.BackColor = Color.FromArgb(33, 33, 33);
             panelMenu.Controls.Add(flpMenu);
             panelMenu.Controls.Add(panel1);
+            panelMenu.Controls.Add(bCerrarSesion);
             panelMenu.Dock = DockStyle.Fill;
             panelMenu.Location = new Point(3, 3);
             panelMenu.Name = "panelMenu";
-            panelMenu.Size = new Size(194, 444);
+            panelMenu.Size = new Size(194, 641);
             panelMenu.TabIndex = 0;
             // 
             // flpMenu
@@ -94,12 +99,14 @@
             flpMenu.Controls.Add(bUsuarios);
             flpMenu.Controls.Add(bTareasTecnico);
             flpMenu.Controls.Add(bTareasAdmin);
+            flpMenu.Controls.Add(bBackup);
+            flpMenu.Controls.Add(bInformes);
             flpMenu.Dock = DockStyle.Top;
             flpMenu.FlowDirection = FlowDirection.TopDown;
             flpMenu.Location = new Point(0, 58);
             flpMenu.Name = "flpMenu";
             flpMenu.Padding = new Padding(9, 8, 9, 8);
-            flpMenu.Size = new Size(194, 338);
+            flpMenu.Size = new Size(194, 430);
             flpMenu.TabIndex = 0;
             flpMenu.WrapContents = false;
             // 
@@ -229,6 +236,42 @@
             bTareasAdmin.UseVisualStyleBackColor = false;
             bTareasAdmin.Click += bTareasAdmin_Click;
             // 
+            // bBackup
+            // 
+            bBackup.BackColor = Color.FromArgb(33, 33, 33);
+            bBackup.FlatAppearance.BorderSize = 0;
+            bBackup.FlatAppearance.MouseDownBackColor = Color.FromArgb(42, 42, 42);
+            bBackup.FlatAppearance.MouseOverBackColor = Color.FromArgb(42, 42, 42);
+            bBackup.FlatStyle = FlatStyle.Flat;
+            bBackup.ForeColor = Color.Gainsboro;
+            bBackup.Location = new Point(12, 333);
+            bBackup.Name = "bBackup";
+            bBackup.Padding = new Padding(11, 0, 0, 0);
+            bBackup.Size = new Size(180, 40);
+            bBackup.TabIndex = 7;
+            bBackup.Text = "Backup";
+            bBackup.TextAlign = ContentAlignment.MiddleLeft;
+            bBackup.UseVisualStyleBackColor = false;
+            bBackup.Click += bBackup_Click;
+            // 
+            // bInformes
+            // 
+            bInformes.BackColor = Color.FromArgb(33, 33, 33);
+            bInformes.FlatAppearance.BorderSize = 0;
+            bInformes.FlatAppearance.MouseDownBackColor = Color.FromArgb(42, 42, 42);
+            bInformes.FlatAppearance.MouseOverBackColor = Color.FromArgb(42, 42, 42);
+            bInformes.FlatStyle = FlatStyle.Flat;
+            bInformes.ForeColor = Color.Gainsboro;
+            bInformes.Location = new Point(12, 379);
+            bInformes.Name = "bInformes";
+            bInformes.Padding = new Padding(11, 0, 0, 0);
+            bInformes.Size = new Size(180, 40);
+            bInformes.TabIndex = 8;
+            bInformes.Text = "Informes";
+            bInformes.TextAlign = ContentAlignment.MiddleLeft;
+            bInformes.UseVisualStyleBackColor = false;
+            bInformes.Click += bInformes_Click;
+            // 
             // panel1
             // 
             panel1.Controls.Add(lBrand);
@@ -252,11 +295,30 @@
             lBrand.Text = "Gestor de Taller de Reparaciones";
             lBrand.Click += lBrand_Click;
             // 
+            // bCerrarSesion
+            // 
+            bCerrarSesion.Anchor = AnchorStyles.Bottom;
+            bCerrarSesion.BackColor = Color.FromArgb(33, 33, 33);
+            bCerrarSesion.FlatAppearance.BorderSize = 0;
+            bCerrarSesion.FlatAppearance.MouseDownBackColor = Color.FromArgb(42, 42, 42);
+            bCerrarSesion.FlatAppearance.MouseOverBackColor = Color.FromArgb(42, 42, 42);
+            bCerrarSesion.FlatStyle = FlatStyle.Flat;
+            bCerrarSesion.ForeColor = Color.Gainsboro;
+            bCerrarSesion.Location = new Point(3, 592);
+            bCerrarSesion.Name = "bCerrarSesion";
+            bCerrarSesion.Padding = new Padding(11, 0, 0, 0);
+            bCerrarSesion.Size = new Size(180, 40);
+            bCerrarSesion.TabIndex = 7;
+            bCerrarSesion.Text = "Cerrar Sesion";
+            bCerrarSesion.TextAlign = ContentAlignment.MiddleLeft;
+            bCerrarSesion.UseVisualStyleBackColor = false;
+            bCerrarSesion.Click += bCerrarSesion_Click;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(800, 647);
             Controls.Add(tlpRoot);
             Margin = new Padding(1, 2, 1, 2);
             Name = "MainForm";
@@ -287,5 +349,8 @@
         private Label lBrand;
         private Button bTareasTecnico;
         private Button bTareasAdmin;
+        private Button bCerrarSesion;
+        private Button bBackup;
+        private Button bInformes;
     }
 }

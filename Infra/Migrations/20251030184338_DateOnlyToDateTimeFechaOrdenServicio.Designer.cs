@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Taller_2_Gestor.Infra;
 
@@ -11,9 +12,11 @@ using Taller_2_Gestor.Infra;
 namespace Taller_2_Gestor.Infra.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20251030184338_DateOnlyToDateTimeFechaOrdenServicio")]
+    partial class DateOnlyToDateTimeFechaOrdenServicio
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -82,20 +85,15 @@ namespace Taller_2_Gestor.Infra.Migrations
                         .HasColumnType("varchar(200)")
                         .HasColumnName("detalle");
 
-                    b.Property<DateTime>("Fecha")
+                    b.Property<DateOnly>("Fecha")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("datetime2")
+                        .HasColumnType("date")
                         .HasColumnName("fecha")
                         .HasDefaultValueSql("(getdate())");
-
-                    b.Property<int>("TecnicoId")
-                        .HasColumnType("int");
 
                     b.HasKey("IdComentario", "IdPresupuesto");
 
                     b.HasIndex("IdPresupuesto");
-
-                    b.HasIndex("TecnicoId");
 
                     b.ToTable("comentario", (string)null);
                 });
@@ -295,11 +293,6 @@ namespace Taller_2_Gestor.Infra.Migrations
                         {
                             IdEstado = 5,
                             Nombre = "Pospuesto"
-                        },
-                        new
-                        {
-                            IdEstado = 6,
-                            Nombre = "Consultar Cliente"
                         });
                 });
 
@@ -406,12 +399,7 @@ namespace Taller_2_Gestor.Infra.Migrations
                         .HasColumnType("datetime2")
                         .HasColumnName("fecha");
 
-                    b.Property<int>("IdTecnico")
-                        .HasColumnType("int");
-
                     b.HasKey("IdPresupuesto");
-
-                    b.HasIndex("IdTecnico");
 
                     b.ToTable("orden_servicio", (string)null);
                 });
@@ -689,15 +677,7 @@ namespace Taller_2_Gestor.Infra.Migrations
                         .IsRequired()
                         .HasConstraintName("FK_comentario_presupuesto");
 
-                    b.HasOne("Taller_2_Gestor.Domain.Entities.Usuario", "IdTecnicoNavigation")
-                        .WithMany("ComentarioIdTecnicoNavigations")
-                        .HasForeignKey("TecnicoId")
-                        .IsRequired()
-                        .HasConstraintName("FK_comentario_tecnico");
-
                     b.Navigation("IdPresupuestoNavigation");
-
-                    b.Navigation("IdTecnicoNavigation");
                 });
 
             modelBuilder.Entity("Taller_2_Gestor.Domain.Entities.Equipo", b =>
@@ -777,15 +757,7 @@ namespace Taller_2_Gestor.Infra.Migrations
                         .IsRequired()
                         .HasConstraintName("FK__orden_ser__id_pr__05D8E0BE");
 
-                    b.HasOne("Taller_2_Gestor.Domain.Entities.Usuario", "IdTecnicoNavigation")
-                        .WithMany("OrdenServicioIdTecnicoNavigations")
-                        .HasForeignKey("IdTecnico")
-                        .IsRequired()
-                        .HasConstraintName("FK_orden_servicio_tecnico");
-
                     b.Navigation("IdPresupuestoNavigation");
-
-                    b.Navigation("IdTecnicoNavigation");
                 });
 
             modelBuilder.Entity("Taller_2_Gestor.Domain.Entities.Presupuesto", b =>
@@ -894,10 +866,6 @@ namespace Taller_2_Gestor.Infra.Migrations
 
             modelBuilder.Entity("Taller_2_Gestor.Domain.Entities.Usuario", b =>
                 {
-                    b.Navigation("ComentarioIdTecnicoNavigations");
-
-                    b.Navigation("OrdenServicioIdTecnicoNavigations");
-
                     b.Navigation("PresupuestoIdAdministradorNavigations");
 
                     b.Navigation("PresupuestoIdTecnicoNavigations");

@@ -70,6 +70,10 @@
             tableLayoutPanel3 = new TableLayoutPanel();
             bRechazar = new Taller_2_Gestor.Features.Shared.Controls.RoundedButton();
             bAceptar = new Taller_2_Gestor.Features.Shared.Controls.RoundedButton();
+            label10 = new Label();
+            roundedPanel8 = new Taller_2_Gestor.Features.Shared.Controls.RoundedPanel();
+            tbIdEquipo = new TextBox();
+            panel6 = new Panel();
             tableLayoutPanel1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
             roundedPanel2.SuspendLayout();
@@ -88,6 +92,8 @@
             panel5.SuspendLayout();
             roundedPanel7.SuspendLayout();
             tableLayoutPanel3.SuspendLayout();
+            roundedPanel8.SuspendLayout();
+            panel6.SuspendLayout();
             SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -110,7 +116,7 @@
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 414F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 69F));
-            tableLayoutPanel1.Size = new Size(1159, 708);
+            tableLayoutPanel1.Size = new Size(1264, 708);
             tableLayoutPanel1.TabIndex = 0;
             tableLayoutPanel1.Paint += tableLayoutPanel1_Paint;
             // 
@@ -164,14 +170,14 @@
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 9.324009F));
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 75.5244751F));
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 14.9184151F));
-            tableLayoutPanel2.Size = new Size(1153, 408);
+            tableLayoutPanel2.Size = new Size(1258, 408);
             tableLayoutPanel2.TabIndex = 13;
             // 
             // lSubtotalOpcionales
             // 
             lSubtotalOpcionales.AutoSize = true;
             lSubtotalOpcionales.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lSubtotalOpcionales.Location = new Point(591, 361);
+            lSubtotalOpcionales.Location = new Point(644, 361);
             lSubtotalOpcionales.Margin = new Padding(15, 15, 3, 0);
             lSubtotalOpcionales.Name = "lSubtotalOpcionales";
             lSubtotalOpcionales.Size = new Size(117, 32);
@@ -182,7 +188,7 @@
             // 
             roundedPanel2.BackColor = Color.White;
             roundedPanel2.Controls.Add(dgvItemsOpcionales);
-            roundedPanel2.Location = new Point(591, 41);
+            roundedPanel2.Location = new Point(644, 41);
             roundedPanel2.Margin = new Padding(15, 3, 3, 3);
             roundedPanel2.Name = "roundedPanel2";
             roundedPanel2.Size = new Size(550, 302);
@@ -235,7 +241,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(591, 3);
+            label3.Location = new Point(644, 3);
             label3.Margin = new Padding(15, 3, 3, 3);
             label3.Name = "label3";
             label3.Size = new Size(206, 32);
@@ -314,11 +320,12 @@
             flowLayoutPanel1.Controls.Add(panel2);
             flowLayoutPanel1.Controls.Add(panel4);
             flowLayoutPanel1.Controls.Add(panel5);
+            flowLayoutPanel1.Controls.Add(panel6);
             flowLayoutPanel1.Dock = DockStyle.Fill;
             flowLayoutPanel1.Location = new Point(0, 97);
             flowLayoutPanel1.Margin = new Padding(0);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(1159, 80);
+            flowLayoutPanel1.Size = new Size(1264, 80);
             flowLayoutPanel1.TabIndex = 15;
             // 
             // panel1
@@ -524,7 +531,7 @@
             tableLayoutPanel3.RowCount = 1;
             tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel3.Size = new Size(1153, 63);
+            tableLayoutPanel3.Size = new Size(1258, 63);
             tableLayoutPanel3.TabIndex = 14;
             // 
             // bRechazar
@@ -535,7 +542,7 @@
             bRechazar.FlatAppearance.BorderSize = 0;
             bRechazar.FlatStyle = FlatStyle.Flat;
             bRechazar.ForeColor = Color.WhiteSmoke;
-            bRechazar.Location = new Point(626, 6);
+            bRechazar.Location = new Point(679, 6);
             bRechazar.Margin = new Padding(50, 3, 50, 3);
             bRechazar.Name = "bRechazar";
             bRechazar.Size = new Size(207, 50);
@@ -551,7 +558,7 @@
             bAceptar.FlatAppearance.BorderSize = 0;
             bAceptar.FlatStyle = FlatStyle.Flat;
             bAceptar.ForeColor = Color.Gainsboro;
-            bAceptar.Location = new Point(319, 6);
+            bAceptar.Location = new Point(372, 6);
             bAceptar.Margin = new Padding(3, 3, 50, 3);
             bAceptar.Name = "bAceptar";
             bAceptar.Size = new Size(207, 50);
@@ -560,12 +567,51 @@
             bAceptar.UseVisualStyleBackColor = false;
             bAceptar.Click += roundedButton1_Click;
             // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Location = new Point(9, 0);
+            label10.Name = "label10";
+            label10.Size = new Size(28, 25);
+            label10.TabIndex = 0;
+            label10.Text = "Id";
+            // 
+            // roundedPanel8
+            // 
+            roundedPanel8.BackColor = Color.Transparent;
+            roundedPanel8.BorderSize = 3F;
+            roundedPanel8.Controls.Add(tbIdEquipo);
+            roundedPanel8.Location = new Point(9, 28);
+            roundedPanel8.Name = "roundedPanel8";
+            roundedPanel8.Size = new Size(71, 43);
+            roundedPanel8.TabIndex = 1;
+            // 
+            // tbIdEquipo
+            // 
+            tbIdEquipo.BackColor = Color.FromArgb(51, 77, 53);
+            tbIdEquipo.BorderStyle = BorderStyle.None;
+            tbIdEquipo.Location = new Point(3, 9);
+            tbIdEquipo.Name = "tbIdEquipo";
+            tbIdEquipo.ReadOnly = true;
+            tbIdEquipo.Size = new Size(65, 24);
+            tbIdEquipo.TabIndex = 0;
+            // 
+            // panel6
+            // 
+            panel6.Controls.Add(roundedPanel8);
+            panel6.Controls.Add(label10);
+            panel6.Location = new Point(1159, 3);
+            panel6.Name = "panel6";
+            panel6.Size = new Size(94, 74);
+            panel6.TabIndex = 2;
+            panel6.Visible = false;
+            // 
             // AprobacionPresupuestoForm
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(51, 77, 53);
-            ClientSize = new Size(1159, 708);
+            ClientSize = new Size(1264, 708);
             Controls.Add(tableLayoutPanel1);
             Name = "AprobacionPresupuestoForm";
             Text = "AprobacionPresupuestoForm";
@@ -600,6 +646,10 @@
             roundedPanel7.ResumeLayout(false);
             roundedPanel7.PerformLayout();
             tableLayoutPanel3.ResumeLayout(false);
+            roundedPanel8.ResumeLayout(false);
+            roundedPanel8.PerformLayout();
+            panel6.ResumeLayout(false);
+            panel6.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -647,5 +697,9 @@
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private DataGridViewTextBoxColumn colMontoOpcionales;
         private DataGridViewCheckBoxColumn colAceptado;
+        private Panel panel6;
+        private Shared.Controls.RoundedPanel roundedPanel8;
+        private TextBox tbIdEquipo;
+        private Label label10;
     }
 }
