@@ -30,7 +30,7 @@ namespace Taller_2_Gestor.Forms
         {
             InitializeComponent();
             this.WindowState = FormWindowState.Maximized;
-            Text = "Taller 2 Gestor — Menú";
+            Text = "Gestor Taller de Reparaciones";
             if (UserSession.Current?.Rol != 1)
             {
                 bUsuarios.Visible = false;
@@ -46,7 +46,7 @@ namespace Taller_2_Gestor.Forms
             {
                 case 1: // Maestro
                     // Habilitar todas las funcionalidades
-                    lBrand.Text = "Vista Maestro";
+                    lBrand.Text = "Menú";
                     bClientes.Visible = true;
                     bEquipos.Visible = true;
                     bPresupuestos.Visible = true;
@@ -59,7 +59,7 @@ namespace Taller_2_Gestor.Forms
                     break;
                 case 2: // Técnico
                     // Habilitar solo funcionalidades técnicas
-                    lBrand.Text = "Vista Tecnico";
+                    lBrand.Text = "Menú";
                     bClientes.Visible = false;
                     bEquipos.Visible = false;
                     bPresupuestos.Visible = true;
@@ -74,7 +74,7 @@ namespace Taller_2_Gestor.Forms
                     break;
                 case 3: // Administrador
                     // Habilitar solo funcionalidades de cliente
-                    lBrand.Text = "Vista Administrador";
+                    lBrand.Text = "Menú";
                     bClientes.Visible = true;
                     bEquipos.Visible = true;
                     bPresupuestos.Visible = true;

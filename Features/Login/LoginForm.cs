@@ -18,10 +18,12 @@ namespace Taller_2_Gestor.Forms
         public Role SelectedRole => _selectedRole!.Value;
 
         private readonly LoginService _login = new LoginService();
+        
 
         public LoginForm()
         {
             InitializeComponent();
+            this.Text = "Iniciar Sesión";  
         }
 
         private void LoginForm_Load(object sender, EventArgs e)

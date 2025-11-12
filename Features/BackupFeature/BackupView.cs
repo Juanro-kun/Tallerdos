@@ -40,7 +40,6 @@ namespace Taller_2_Gestor.Features.BackupFeature
             saveFileDialog1.Filter = "Archivos de Backup (*.bak)|*.bak";
             saveFileDialog1.DefaultExt = "bak";
 
-            // *** ESTE ES EL PASO CLAVE ***
             saveFileDialog1.FileName = nombreSugerido;
 
             // 3. Mostrar el diálogo
@@ -76,7 +75,7 @@ namespace Taller_2_Gestor.Features.BackupFeature
             // 2. CONFIGURAR PARÁMETROS DE SQL
 
             SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder(connectionString);
-            string serverName = "DESKTOP-OPG1BQV\\SQLEXPRESS";
+            string serverName = ".\\SQLEXPRESS";
             string databaseName = "Tallerdosbase";
 
             try
@@ -95,7 +94,6 @@ namespace Taller_2_Gestor.Features.BackupFeature
                     Action = BackupActionType.Database,
                     Database = databaseName,
                     Initialize = true, // Sobrescribe si el archivo existe
-                    //CompressionOption = BackupCompressionOptions.On, // Activar compresión
                     BackupSetName = Path.GetFileNameWithoutExtension(nombreArchivo),
                     BackupSetDescription = $"Copia creada el {DateTime.Now:yyyy-MM-dd HH:mm:ss}"
                 };
@@ -107,7 +105,6 @@ namespace Taller_2_Gestor.Features.BackupFeature
                 backup.SqlBackup(sqlServer);
 
                 // 6. FINALIZACIÓN EXITOSA
-                // lblEstado.Text = "✅ Copia de seguridad completada.";
                 MessageBox.Show($"Copia de seguridad finalizada con éxito en:\n{rutaBackupCompleta}",
                                 "Backup Completo",
                                 MessageBoxButtons.OK,

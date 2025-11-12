@@ -30,11 +30,6 @@
         {
             tlpViews = new TableLayoutPanel();
             label1 = new Label();
-            rpFiltro = new Taller_2_Gestor.Features.Shared.Controls.RoundedPanel();
-            cbFiltro = new ComboBox();
-            lFiltro = new Label();
-            rpBarraBusqueda = new Taller_2_Gestor.Features.Shared.Controls.RoundedPanel();
-            lBusqueda = new Label();
             roundedPanel1 = new Taller_2_Gestor.Features.Shared.Controls.RoundedPanel();
             dgvClientes = new DataGridView();
             colId = new DataGridViewTextBoxColumn();
@@ -88,8 +83,6 @@
             dataGridViewTextBoxColumn4 = new DataGridViewTextBoxColumn();
             bAgregarEquipo = new Taller_2_Gestor.Features.Shared.Controls.RoundedButton();
             tlpViews.SuspendLayout();
-            rpFiltro.SuspendLayout();
-            rpBarraBusqueda.SuspendLayout();
             roundedPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvClientes).BeginInit();
             flowLayoutPanel1.SuspendLayout();
@@ -119,26 +112,25 @@
             tlpViews.ColumnCount = 1;
             tlpViews.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             tlpViews.Controls.Add(label1, 0, 0);
-            tlpViews.Controls.Add(rpFiltro, 0, 1);
-            tlpViews.Controls.Add(rpBarraBusqueda, 0, 2);
-            tlpViews.Controls.Add(roundedPanel1, 0, 3);
-            tlpViews.Controls.Add(flowLayoutPanel1, 0, 4);
-            tlpViews.Controls.Add(flowLayoutPanel2, 0, 5);
-            tlpViews.Controls.Add(label3, 0, 6);
-            tlpViews.Controls.Add(flowLayoutPanel3, 0, 7);
+            tlpViews.Controls.Add(roundedPanel1, 0, 1);
+            tlpViews.Controls.Add(flowLayoutPanel1, 0, 2);
+            tlpViews.Controls.Add(flowLayoutPanel2, 0, 3);
+            tlpViews.Controls.Add(label3, 0, 4);
+            tlpViews.Controls.Add(flowLayoutPanel3, 0, 5);
             tlpViews.Dock = DockStyle.Fill;
             tlpViews.Location = new Point(0, 0);
+            tlpViews.Margin = new Padding(2, 2, 2, 2);
             tlpViews.Name = "tlpViews";
-            tlpViews.RowCount = 8;
-            tlpViews.RowStyles.Add(new RowStyle(SizeType.Absolute, 60F));
-            tlpViews.RowStyles.Add(new RowStyle(SizeType.Absolute, 40F));
-            tlpViews.RowStyles.Add(new RowStyle(SizeType.Absolute, 40F));
-            tlpViews.RowStyles.Add(new RowStyle(SizeType.Absolute, 300F));
-            tlpViews.RowStyles.Add(new RowStyle(SizeType.Absolute, 45F));
-            tlpViews.RowStyles.Add(new RowStyle(SizeType.Absolute, 137F));
-            tlpViews.RowStyles.Add(new RowStyle(SizeType.Absolute, 45F));
+            tlpViews.RowCount = 6;
+            tlpViews.RowStyles.Add(new RowStyle(SizeType.Absolute, 36F));
+            tlpViews.RowStyles.Add(new RowStyle(SizeType.Absolute, 180F));
+            tlpViews.RowStyles.Add(new RowStyle(SizeType.Absolute, 27F));
+            tlpViews.RowStyles.Add(new RowStyle(SizeType.Absolute, 82F));
+            tlpViews.RowStyles.Add(new RowStyle(SizeType.Absolute, 27F));
             tlpViews.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tlpViews.Size = new Size(1394, 900);
+            tlpViews.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            tlpViews.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            tlpViews.Size = new Size(976, 540);
             tlpViews.TabIndex = 1;
             tlpViews.Paint += tlpViews_Paint;
             // 
@@ -146,76 +138,24 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 20F, FontStyle.Bold);
-            label1.Location = new Point(3, 0);
+            label1.Location = new Point(2, 0);
+            label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
-            label1.Size = new Size(172, 54);
+            label1.Size = new Size(119, 36);
             label1.TabIndex = 0;
             label1.Text = "Clientes";
             label1.TextAlign = ContentAlignment.MiddleCenter;
             label1.Click += label1_Click;
-            // 
-            // rpFiltro
-            // 
-            rpFiltro.BackColor = Color.FromArgb(33, 33, 33);
-            rpFiltro.Controls.Add(cbFiltro);
-            rpFiltro.Controls.Add(lFiltro);
-            rpFiltro.Location = new Point(30, 63);
-            rpFiltro.Margin = new Padding(30, 3, 3, 3);
-            rpFiltro.Name = "rpFiltro";
-            rpFiltro.Size = new Size(258, 34);
-            rpFiltro.TabIndex = 2;
-            // 
-            // cbFiltro
-            // 
-            cbFiltro.BackColor = Color.FromArgb(33, 33, 33);
-            cbFiltro.FlatStyle = FlatStyle.Flat;
-            cbFiltro.ForeColor = SystemColors.InactiveCaption;
-            cbFiltro.FormattingEnabled = true;
-            cbFiltro.Location = new Point(118, 0);
-            cbFiltro.Name = "cbFiltro";
-            cbFiltro.Size = new Size(137, 33);
-            cbFiltro.TabIndex = 1;
-            // 
-            // lFiltro
-            // 
-            lFiltro.AutoSize = true;
-            lFiltro.ForeColor = SystemColors.ButtonHighlight;
-            lFiltro.Location = new Point(19, 3);
-            lFiltro.Name = "lFiltro";
-            lFiltro.Size = new Size(93, 25);
-            lFiltro.TabIndex = 0;
-            lFiltro.Text = "Filtrar por:";
-            // 
-            // rpBarraBusqueda
-            // 
-            rpBarraBusqueda.BackColor = Color.DarkGray;
-            rpBarraBusqueda.BorderColor = Color.DarkGray;
-            rpBarraBusqueda.Controls.Add(lBusqueda);
-            rpBarraBusqueda.Location = new Point(25, 103);
-            rpBarraBusqueda.Margin = new Padding(25, 3, 3, 3);
-            rpBarraBusqueda.Name = "rpBarraBusqueda";
-            rpBarraBusqueda.Size = new Size(950, 34);
-            rpBarraBusqueda.TabIndex = 3;
-            // 
-            // lBusqueda
-            // 
-            lBusqueda.AutoSize = true;
-            lBusqueda.ForeColor = SystemColors.ControlDarkDark;
-            lBusqueda.Location = new Point(24, 5);
-            lBusqueda.Name = "lBusqueda";
-            lBusqueda.Size = new Size(318, 25);
-            lBusqueda.TabIndex = 0;
-            lBusqueda.Text = "Ingrese un dato del cliente para buscar";
             // 
             // roundedPanel1
             // 
             roundedPanel1.BackColor = Color.White;
             roundedPanel1.BorderSize = 3F;
             roundedPanel1.Controls.Add(dgvClientes);
-            roundedPanel1.Location = new Point(25, 147);
-            roundedPanel1.Margin = new Padding(25, 7, 3, 3);
+            roundedPanel1.Location = new Point(18, 40);
+            roundedPanel1.Margin = new Padding(18, 4, 2, 2);
             roundedPanel1.Name = "roundedPanel1";
-            roundedPanel1.Size = new Size(950, 290);
+            roundedPanel1.Size = new Size(665, 174);
             roundedPanel1.TabIndex = 4;
             // 
             // dgvClientes
@@ -227,12 +167,13 @@
             dgvClientes.Columns.AddRange(new DataGridViewColumn[] { colId, colEmail, colNombre, colApellido, colRol, colActivo });
             dgvClientes.Dock = DockStyle.Fill;
             dgvClientes.Location = new Point(0, 0);
+            dgvClientes.Margin = new Padding(2, 2, 2, 2);
             dgvClientes.MultiSelect = false;
             dgvClientes.Name = "dgvClientes";
             dgvClientes.ReadOnly = true;
             dgvClientes.RowHeadersWidth = 62;
             dgvClientes.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvClientes.Size = new Size(950, 290);
+            dgvClientes.Size = new Size(665, 174);
             dgvClientes.TabIndex = 0;
             dgvClientes.SelectionChanged += dgvClientes_SelectionChanged;
             // 
@@ -291,19 +232,20 @@
             flowLayoutPanel1.Controls.Add(pEditarUsuario);
             flowLayoutPanel1.Controls.Add(panel10);
             flowLayoutPanel1.Dock = DockStyle.Fill;
-            flowLayoutPanel1.Location = new Point(3, 443);
+            flowLayoutPanel1.Location = new Point(2, 218);
+            flowLayoutPanel1.Margin = new Padding(2, 2, 2, 2);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(1388, 39);
+            flowLayoutPanel1.Size = new Size(972, 23);
             flowLayoutPanel1.TabIndex = 5;
             // 
             // pNuevoUsuario
             // 
             pNuevoUsuario.Controls.Add(bNuevoCliente);
             pNuevoUsuario.Controls.Add(bGuardarNuevo);
-            pNuevoUsuario.Location = new Point(35, 3);
-            pNuevoUsuario.Margin = new Padding(35, 3, 3, 3);
+            pNuevoUsuario.Location = new Point(24, 2);
+            pNuevoUsuario.Margin = new Padding(24, 2, 2, 2);
             pNuevoUsuario.Name = "pNuevoUsuario";
-            pNuevoUsuario.Size = new Size(182, 32);
+            pNuevoUsuario.Size = new Size(127, 19);
             pNuevoUsuario.TabIndex = 0;
             // 
             // bNuevoCliente
@@ -315,8 +257,9 @@
             bNuevoCliente.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             bNuevoCliente.ForeColor = Color.Gainsboro;
             bNuevoCliente.Location = new Point(0, 0);
+            bNuevoCliente.Margin = new Padding(2, 2, 2, 2);
             bNuevoCliente.Name = "bNuevoCliente";
-            bNuevoCliente.Size = new Size(182, 32);
+            bNuevoCliente.Size = new Size(127, 19);
             bNuevoCliente.TabIndex = 0;
             bNuevoCliente.Text = "Nuevo Cliente";
             bNuevoCliente.UseVisualStyleBackColor = false;
@@ -329,9 +272,10 @@
             bGuardarNuevo.FlatStyle = FlatStyle.Flat;
             bGuardarNuevo.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             bGuardarNuevo.ForeColor = Color.Gainsboro;
-            bGuardarNuevo.Location = new Point(0, -3);
+            bGuardarNuevo.Location = new Point(0, -2);
+            bGuardarNuevo.Margin = new Padding(2, 2, 2, 2);
             bGuardarNuevo.Name = "bGuardarNuevo";
-            bGuardarNuevo.Size = new Size(182, 32);
+            bGuardarNuevo.Size = new Size(127, 19);
             bGuardarNuevo.TabIndex = 3;
             bGuardarNuevo.Text = "Guardar";
             bGuardarNuevo.UseVisualStyleBackColor = false;
@@ -342,9 +286,10 @@
             // 
             pEditarUsuario.Controls.Add(bGuardarExistente);
             pEditarUsuario.Controls.Add(bEditar);
-            pEditarUsuario.Location = new Point(223, 3);
+            pEditarUsuario.Location = new Point(155, 2);
+            pEditarUsuario.Margin = new Padding(2, 2, 2, 2);
             pEditarUsuario.Name = "pEditarUsuario";
-            pEditarUsuario.Size = new Size(182, 32);
+            pEditarUsuario.Size = new Size(127, 19);
             pEditarUsuario.TabIndex = 1;
             // 
             // bGuardarExistente
@@ -356,8 +301,9 @@
             bGuardarExistente.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             bGuardarExistente.ForeColor = Color.Gainsboro;
             bGuardarExistente.Location = new Point(0, 0);
+            bGuardarExistente.Margin = new Padding(2, 2, 2, 2);
             bGuardarExistente.Name = "bGuardarExistente";
-            bGuardarExistente.Size = new Size(182, 32);
+            bGuardarExistente.Size = new Size(127, 19);
             bGuardarExistente.TabIndex = 2;
             bGuardarExistente.Text = "Guardar";
             bGuardarExistente.UseVisualStyleBackColor = false;
@@ -373,8 +319,9 @@
             bEditar.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             bEditar.ForeColor = Color.Gainsboro;
             bEditar.Location = new Point(0, 0);
+            bEditar.Margin = new Padding(2, 2, 2, 2);
             bEditar.Name = "bEditar";
-            bEditar.Size = new Size(182, 32);
+            bEditar.Size = new Size(127, 19);
             bEditar.TabIndex = 3;
             bEditar.Text = "Editar Cliente";
             bEditar.UseVisualStyleBackColor = false;
@@ -383,9 +330,10 @@
             // panel10
             // 
             panel10.Controls.Add(bCancelar);
-            panel10.Location = new Point(411, 3);
+            panel10.Location = new Point(286, 2);
+            panel10.Margin = new Padding(2, 2, 2, 2);
             panel10.Name = "panel10";
-            panel10.Size = new Size(159, 32);
+            panel10.Size = new Size(111, 19);
             panel10.TabIndex = 4;
             // 
             // bCancelar
@@ -396,8 +344,9 @@
             bCancelar.FlatStyle = FlatStyle.Flat;
             bCancelar.ForeColor = Color.Gainsboro;
             bCancelar.Location = new Point(0, 0);
+            bCancelar.Margin = new Padding(2, 2, 2, 2);
             bCancelar.Name = "bCancelar";
-            bCancelar.Size = new Size(159, 32);
+            bCancelar.Size = new Size(111, 19);
             bCancelar.TabIndex = 0;
             bCancelar.Text = "Cancelar";
             bCancelar.UseVisualStyleBackColor = false;
@@ -413,10 +362,10 @@
             flowLayoutPanel2.Controls.Add(panel7);
             flowLayoutPanel2.Controls.Add(panel5);
             flowLayoutPanel2.Dock = DockStyle.Top;
-            flowLayoutPanel2.Location = new Point(35, 500);
-            flowLayoutPanel2.Margin = new Padding(35, 15, 3, 3);
+            flowLayoutPanel2.Location = new Point(24, 252);
+            flowLayoutPanel2.Margin = new Padding(24, 9, 2, 2);
             flowLayoutPanel2.Name = "flowLayoutPanel2";
-            flowLayoutPanel2.Size = new Size(1356, 119);
+            flowLayoutPanel2.Size = new Size(950, 71);
             flowLayoutPanel2.TabIndex = 6;
             // 
             // panel1
@@ -424,26 +373,29 @@
             panel1.Controls.Add(lIdContenido);
             panel1.Controls.Add(lId);
             panel1.Controls.Add(roundedPanel2);
-            panel1.Location = new Point(3, 3);
+            panel1.Location = new Point(2, 2);
+            panel1.Margin = new Padding(2, 2, 2, 2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(104, 67);
+            panel1.Size = new Size(73, 40);
             panel1.TabIndex = 0;
             // 
             // lIdContenido
             // 
             lIdContenido.AutoSize = true;
-            lIdContenido.Location = new Point(20, 25);
+            lIdContenido.Location = new Point(14, 15);
+            lIdContenido.Margin = new Padding(2, 0, 2, 0);
             lIdContenido.Name = "lIdContenido";
-            lIdContenido.Size = new Size(0, 25);
+            lIdContenido.Size = new Size(0, 15);
             lIdContenido.TabIndex = 0;
             // 
             // lId
             // 
             lId.AutoSize = true;
             lId.Font = new Font("Segoe UI Black", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lId.Location = new Point(3, 0);
+            lId.Location = new Point(2, 0);
+            lId.Margin = new Padding(2, 0, 2, 0);
             lId.Name = "lId";
-            lId.Size = new Size(30, 25);
+            lId.Size = new Size(19, 15);
             lId.TabIndex = 0;
             lId.Text = "Id";
             // 
@@ -451,18 +403,20 @@
             // 
             roundedPanel2.BackColor = Color.FromArgb(51, 77, 53);
             roundedPanel2.BorderSize = 4F;
-            roundedPanel2.Location = new Point(3, 25);
+            roundedPanel2.Location = new Point(2, 15);
+            roundedPanel2.Margin = new Padding(2, 2, 2, 2);
             roundedPanel2.Name = "roundedPanel2";
-            roundedPanel2.Size = new Size(74, 39);
+            roundedPanel2.Size = new Size(52, 23);
             roundedPanel2.TabIndex = 1;
             // 
             // panel2
             // 
             panel2.Controls.Add(roundedPanel3);
             panel2.Controls.Add(lMail);
-            panel2.Location = new Point(113, 3);
+            panel2.Location = new Point(79, 2);
+            panel2.Margin = new Padding(2, 2, 2, 2);
             panel2.Name = "panel2";
-            panel2.Size = new Size(297, 67);
+            panel2.Size = new Size(208, 40);
             panel2.TabIndex = 2;
             // 
             // roundedPanel3
@@ -470,28 +424,31 @@
             roundedPanel3.BackColor = Color.FromArgb(51, 77, 53);
             roundedPanel3.BorderSize = 4F;
             roundedPanel3.Controls.Add(tbMail);
-            roundedPanel3.Location = new Point(3, 25);
+            roundedPanel3.Location = new Point(2, 15);
+            roundedPanel3.Margin = new Padding(2, 2, 2, 2);
             roundedPanel3.Name = "roundedPanel3";
-            roundedPanel3.Size = new Size(291, 39);
+            roundedPanel3.Size = new Size(204, 23);
             roundedPanel3.TabIndex = 1;
             // 
             // tbMail
             // 
             tbMail.BackColor = Color.FromArgb(51, 77, 53);
             tbMail.BorderStyle = BorderStyle.None;
-            tbMail.Location = new Point(5, 7);
+            tbMail.Location = new Point(4, 4);
+            tbMail.Margin = new Padding(2, 2, 2, 2);
             tbMail.Name = "tbMail";
             tbMail.ReadOnly = true;
-            tbMail.Size = new Size(283, 24);
+            tbMail.Size = new Size(198, 16);
             tbMail.TabIndex = 0;
             // 
             // lMail
             // 
             lMail.AutoSize = true;
             lMail.Font = new Font("Segoe UI Black", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lMail.Location = new Point(3, 0);
+            lMail.Location = new Point(2, 0);
+            lMail.Margin = new Padding(2, 0, 2, 0);
             lMail.Name = "lMail";
-            lMail.Size = new Size(52, 25);
+            lMail.Size = new Size(34, 15);
             lMail.TabIndex = 0;
             lMail.Text = "Mail";
             // 
@@ -499,9 +456,10 @@
             // 
             panel3.Controls.Add(roundedPanel4);
             panel3.Controls.Add(lNombre);
-            panel3.Location = new Point(416, 3);
+            panel3.Location = new Point(291, 2);
+            panel3.Margin = new Padding(2, 2, 2, 2);
             panel3.Name = "panel3";
-            panel3.Size = new Size(171, 67);
+            panel3.Size = new Size(120, 40);
             panel3.TabIndex = 3;
             // 
             // roundedPanel4
@@ -509,28 +467,31 @@
             roundedPanel4.BackColor = Color.FromArgb(51, 77, 53);
             roundedPanel4.BorderSize = 4F;
             roundedPanel4.Controls.Add(tbNombre);
-            roundedPanel4.Location = new Point(3, 25);
+            roundedPanel4.Location = new Point(2, 15);
+            roundedPanel4.Margin = new Padding(2, 2, 2, 2);
             roundedPanel4.Name = "roundedPanel4";
-            roundedPanel4.Size = new Size(151, 39);
+            roundedPanel4.Size = new Size(106, 23);
             roundedPanel4.TabIndex = 1;
             // 
             // tbNombre
             // 
             tbNombre.BackColor = Color.FromArgb(51, 77, 53);
             tbNombre.BorderStyle = BorderStyle.None;
-            tbNombre.Location = new Point(5, 7);
+            tbNombre.Location = new Point(4, 4);
+            tbNombre.Margin = new Padding(2, 2, 2, 2);
             tbNombre.Name = "tbNombre";
             tbNombre.ReadOnly = true;
-            tbNombre.Size = new Size(132, 24);
+            tbNombre.Size = new Size(92, 16);
             tbNombre.TabIndex = 0;
             // 
             // lNombre
             // 
             lNombre.AutoSize = true;
             lNombre.Font = new Font("Segoe UI Black", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lNombre.Location = new Point(3, 0);
+            lNombre.Location = new Point(2, 0);
+            lNombre.Margin = new Padding(2, 0, 2, 0);
             lNombre.Name = "lNombre";
-            lNombre.Size = new Size(85, 25);
+            lNombre.Size = new Size(56, 15);
             lNombre.TabIndex = 0;
             lNombre.Text = "Nombre";
             // 
@@ -538,9 +499,10 @@
             // 
             panel4.Controls.Add(roundedPanel5);
             panel4.Controls.Add(lApellido);
-            panel4.Location = new Point(593, 3);
+            panel4.Location = new Point(415, 2);
+            panel4.Margin = new Padding(2, 2, 2, 2);
             panel4.Name = "panel4";
-            panel4.Size = new Size(201, 67);
+            panel4.Size = new Size(141, 40);
             panel4.TabIndex = 4;
             // 
             // roundedPanel5
@@ -548,28 +510,31 @@
             roundedPanel5.BackColor = Color.FromArgb(51, 77, 53);
             roundedPanel5.BorderSize = 4F;
             roundedPanel5.Controls.Add(tbApellido);
-            roundedPanel5.Location = new Point(3, 25);
+            roundedPanel5.Location = new Point(2, 15);
+            roundedPanel5.Margin = new Padding(2, 2, 2, 2);
             roundedPanel5.Name = "roundedPanel5";
-            roundedPanel5.Size = new Size(188, 39);
+            roundedPanel5.Size = new Size(132, 23);
             roundedPanel5.TabIndex = 1;
             // 
             // tbApellido
             // 
             tbApellido.BackColor = Color.FromArgb(51, 77, 53);
             tbApellido.BorderStyle = BorderStyle.None;
-            tbApellido.Location = new Point(5, 7);
+            tbApellido.Location = new Point(4, 4);
+            tbApellido.Margin = new Padding(2, 2, 2, 2);
             tbApellido.Name = "tbApellido";
             tbApellido.ReadOnly = true;
-            tbApellido.Size = new Size(180, 24);
+            tbApellido.Size = new Size(126, 16);
             tbApellido.TabIndex = 0;
             // 
             // lApellido
             // 
             lApellido.AutoSize = true;
             lApellido.Font = new Font("Segoe UI Black", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lApellido.Location = new Point(3, 0);
+            lApellido.Location = new Point(2, 0);
+            lApellido.Margin = new Padding(2, 0, 2, 0);
             lApellido.Name = "lApellido";
-            lApellido.Size = new Size(89, 25);
+            lApellido.Size = new Size(59, 15);
             lApellido.TabIndex = 0;
             lApellido.Text = "Apellido";
             // 
@@ -577,9 +542,10 @@
             // 
             panel7.Controls.Add(pContrasena);
             panel7.Controls.Add(lContrasena);
-            panel7.Location = new Point(800, 3);
+            panel7.Location = new Point(560, 2);
+            panel7.Margin = new Padding(2, 2, 2, 2);
             panel7.Name = "panel7";
-            panel7.Size = new Size(243, 67);
+            panel7.Size = new Size(170, 40);
             panel7.TabIndex = 3;
             // 
             // pContrasena
@@ -587,18 +553,20 @@
             pContrasena.BackColor = Color.FromArgb(51, 77, 53);
             pContrasena.BorderSize = 4F;
             pContrasena.Controls.Add(tbTelefono);
-            pContrasena.Location = new Point(3, 25);
+            pContrasena.Location = new Point(2, 15);
+            pContrasena.Margin = new Padding(2, 2, 2, 2);
             pContrasena.Name = "pContrasena";
-            pContrasena.Size = new Size(234, 39);
+            pContrasena.Size = new Size(164, 23);
             pContrasena.TabIndex = 1;
             // 
             // tbTelefono
             // 
             tbTelefono.BackColor = Color.FromArgb(51, 77, 53);
             tbTelefono.BorderStyle = BorderStyle.None;
-            tbTelefono.Location = new Point(5, 7);
+            tbTelefono.Location = new Point(4, 4);
+            tbTelefono.Margin = new Padding(2, 2, 2, 2);
             tbTelefono.Name = "tbTelefono";
-            tbTelefono.Size = new Size(189, 24);
+            tbTelefono.Size = new Size(132, 16);
             tbTelefono.TabIndex = 0;
             tbTelefono.KeyPress += txtSoloNumeros_KeyPress;
             // 
@@ -606,9 +574,10 @@
             // 
             lContrasena.AutoSize = true;
             lContrasena.Font = new Font("Segoe UI Black", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lContrasena.Location = new Point(3, 0);
+            lContrasena.Location = new Point(2, 0);
+            lContrasena.Margin = new Padding(2, 0, 2, 0);
             lContrasena.Name = "lContrasena";
-            lContrasena.Size = new Size(90, 25);
+            lContrasena.Size = new Size(62, 15);
             lContrasena.TabIndex = 0;
             lContrasena.Text = "Telefono";
             lContrasena.Click += lContrasena_Click;
@@ -617,9 +586,10 @@
             // 
             panel5.Controls.Add(roundedPanel6);
             panel5.Controls.Add(label2);
-            panel5.Location = new Point(1049, 3);
+            panel5.Location = new Point(734, 2);
+            panel5.Margin = new Padding(2, 2, 2, 2);
             panel5.Name = "panel5";
-            panel5.Size = new Size(243, 67);
+            panel5.Size = new Size(170, 40);
             panel5.TabIndex = 4;
             // 
             // roundedPanel6
@@ -627,18 +597,20 @@
             roundedPanel6.BackColor = Color.FromArgb(51, 77, 53);
             roundedPanel6.BorderSize = 4F;
             roundedPanel6.Controls.Add(tbDni);
-            roundedPanel6.Location = new Point(3, 25);
+            roundedPanel6.Location = new Point(2, 15);
+            roundedPanel6.Margin = new Padding(2, 2, 2, 2);
             roundedPanel6.Name = "roundedPanel6";
-            roundedPanel6.Size = new Size(234, 39);
+            roundedPanel6.Size = new Size(164, 23);
             roundedPanel6.TabIndex = 1;
             // 
             // tbDni
             // 
             tbDni.BackColor = Color.FromArgb(51, 77, 53);
             tbDni.BorderStyle = BorderStyle.None;
-            tbDni.Location = new Point(5, 7);
+            tbDni.Location = new Point(4, 4);
+            tbDni.Margin = new Padding(2, 2, 2, 2);
             tbDni.Name = "tbDni";
-            tbDni.Size = new Size(189, 24);
+            tbDni.Size = new Size(132, 16);
             tbDni.TabIndex = 0;
             tbDni.KeyPress += txtSoloNumeros_KeyPress;
             // 
@@ -646,9 +618,10 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI Black", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(3, 0);
+            label2.Location = new Point(2, 0);
+            label2.Margin = new Padding(2, 0, 2, 0);
             label2.Name = "label2";
-            label2.Size = new Size(42, 30);
+            label2.Size = new Size(28, 21);
             label2.TabIndex = 0;
             label2.Text = "DNI";
             label2.UseCompatibleTextRendering = true;
@@ -657,10 +630,10 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 16F, FontStyle.Bold);
-            label3.Location = new Point(25, 622);
-            label3.Margin = new Padding(25, 0, 3, 0);
+            label3.Location = new Point(18, 325);
+            label3.Margin = new Padding(18, 0, 2, 0);
             label3.Name = "label3";
-            label3.Size = new Size(310, 45);
+            label3.Size = new Size(214, 27);
             label3.TabIndex = 8;
             label3.Text = "Equipos del cliente:";
             // 
@@ -669,9 +642,10 @@
             flowLayoutPanel3.Controls.Add(roundedPanel7);
             flowLayoutPanel3.Controls.Add(bAgregarEquipo);
             flowLayoutPanel3.Dock = DockStyle.Fill;
-            flowLayoutPanel3.Location = new Point(3, 670);
+            flowLayoutPanel3.Location = new Point(2, 354);
+            flowLayoutPanel3.Margin = new Padding(2, 2, 2, 2);
             flowLayoutPanel3.Name = "flowLayoutPanel3";
-            flowLayoutPanel3.Size = new Size(1388, 227);
+            flowLayoutPanel3.Size = new Size(972, 184);
             flowLayoutPanel3.TabIndex = 9;
             // 
             // roundedPanel7
@@ -679,10 +653,10 @@
             roundedPanel7.BackColor = Color.White;
             roundedPanel7.BorderSize = 3F;
             roundedPanel7.Controls.Add(dgvEquipos);
-            roundedPanel7.Location = new Point(25, 7);
-            roundedPanel7.Margin = new Padding(25, 7, 3, 3);
+            roundedPanel7.Location = new Point(18, 4);
+            roundedPanel7.Margin = new Padding(18, 4, 2, 2);
             roundedPanel7.Name = "roundedPanel7";
-            roundedPanel7.Size = new Size(950, 223);
+            roundedPanel7.Size = new Size(665, 134);
             roundedPanel7.TabIndex = 7;
             // 
             // dgvEquipos
@@ -694,12 +668,13 @@
             dgvEquipos.Columns.AddRange(new DataGridViewColumn[] { dgvEquiposCId, Nombre, dataGridViewTextBoxColumn2, dataGridViewTextBoxColumn3, dataGridViewTextBoxColumn4 });
             dgvEquipos.Dock = DockStyle.Fill;
             dgvEquipos.Location = new Point(0, 0);
+            dgvEquipos.Margin = new Padding(2, 2, 2, 2);
             dgvEquipos.MultiSelect = false;
             dgvEquipos.Name = "dgvEquipos";
             dgvEquipos.ReadOnly = true;
             dgvEquipos.RowHeadersWidth = 62;
             dgvEquipos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvEquipos.Size = new Size(950, 223);
+            dgvEquipos.Size = new Size(665, 134);
             dgvEquipos.TabIndex = 0;
             dgvEquipos.CellContentClick += dgvEquipos_CellContentClick;
             // 
@@ -752,10 +727,10 @@
             bAgregarEquipo.FlatStyle = FlatStyle.Flat;
             bAgregarEquipo.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             bAgregarEquipo.ForeColor = Color.Gainsboro;
-            bAgregarEquipo.Location = new Point(981, 8);
-            bAgregarEquipo.Margin = new Padding(3, 8, 3, 3);
+            bAgregarEquipo.Location = new Point(687, 5);
+            bAgregarEquipo.Margin = new Padding(2, 5, 2, 2);
             bAgregarEquipo.Name = "bAgregarEquipo";
-            bAgregarEquipo.Size = new Size(230, 45);
+            bAgregarEquipo.Size = new Size(161, 27);
             bAgregarEquipo.TabIndex = 8;
             bAgregarEquipo.Text = "Agregar equipo";
             bAgregarEquipo.UseVisualStyleBackColor = false;
@@ -763,18 +738,15 @@
             // 
             // ClientesView
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(51, 77, 53);
             Controls.Add(tlpViews);
+            Margin = new Padding(2, 2, 2, 2);
             Name = "ClientesView";
-            Size = new Size(1394, 900);
+            Size = new Size(976, 540);
             tlpViews.ResumeLayout(false);
             tlpViews.PerformLayout();
-            rpFiltro.ResumeLayout(false);
-            rpFiltro.PerformLayout();
-            rpBarraBusqueda.ResumeLayout(false);
-            rpBarraBusqueda.PerformLayout();
             roundedPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dgvClientes).EndInit();
             flowLayoutPanel1.ResumeLayout(false);
@@ -814,11 +786,6 @@
 
         private TableLayoutPanel tlpViews;
         private Label label1;
-        private Shared.Controls.RoundedPanel rpFiltro;
-        private ComboBox cbFiltro;
-        private Label lFiltro;
-        private Shared.Controls.RoundedPanel rpBarraBusqueda;
-        private Label lBusqueda;
         private Shared.Controls.RoundedPanel roundedPanel1;
         private DataGridView dgvClientes;
         private FlowLayoutPanel flowLayoutPanel1;

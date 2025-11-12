@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,7 +25,11 @@ namespace Taller_2_Gestor.Features.Ordenes
 
         public List<ItemPresupuesto> ItemsPorOrden(int idOrden)
         {
-            return _db.ItemPresupuestos.Where(i => i.IdOrden == idOrden).ToList();
+            return _db.ItemPresupuestos
+                .Include(ip => ip.IdServicioNavigation)
+                .Include(ip => ip.IdServicioNavigation)
+                .Where(i => i.IdOrden == idOrden)
+                .ToList();
         }
 
         public List<OrdenServicio> ListarOrdenesPorTecnico(int idTecnico)
