@@ -20,6 +20,8 @@ public partial class ItemPresupuesto
 
     public int IdEstado { get; set; }
 
+    public string NombreEstado => IdEstadoNavigation.Nombre;
+
     public bool? Necesario { get; set; }
 
     public int IdEquipo => IdPresupuestoNavigation.IdEquipo;

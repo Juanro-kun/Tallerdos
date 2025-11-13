@@ -100,5 +100,88 @@ namespace Taller_2_Gestor.Features.Informes
             // Devuelve el nombre o un mensaje si no se encuentra.
             return nombreTipoEquipo ?? "No Data";
         }
+
+        public List<object> ObtenerServiciosMasRepetidos(DateTime desde, DateTime hasta)
+        {
+            var serviciosRepetidos = _db.ItemPresupuestos
+                .Where(ip => ip.IdEstado == 5)
+                .Where(ip => ip.IdOrdenNavigation.Fecha >= desde && ip.IdOrdenNavigation.Fecha <= hasta)
+                .GroupBy(ip => ip.IdServicio)
+                .Select(g => new
+                {
+                    NombreServicio = g.First().IdServicioNavigation.NombreServicio,
+                    VecesContratado = g.Count(),
+                    PrecioPromedio = g.Average(ip => ip.Precio)
+                })
+                .OrderByDescending(r => r.VecesContratado)
+                .ToList();
+
+            return serviciosRepetidos.Cast<object>().ToList();
+        }
+
+        public List<object> ObtenerTecnicosMasProductivos(DateTime desde, DateTime hasta)
+        {
+            var productividadPorTecnico = _db.ItemPresupuestos
+                // 1. Filtrar por estado 5 y rango de fechas.
+                .Where(ip => ip.IdEstado == 5)
+                .Where(ip => ip.IdOrdenNavigation.Fecha >= desde && ip.IdOrdenNavigation.Fecha <= hasta)
+
+                // 2. Agrupar por las propiedades únicas del Técnico (Id, Nombre, Apellido)
+                // La navegación se realiza a través de OrdenServicio -> Usuario
+                .GroupBy(ip => new
+                {
+                    // Agrupamos por Id, pero incluimos Nombre y Apellido para la proyección final
+                    IdTecnico = ip.IdOrdenNavigation.IdTecnico,
+                    Nombre = ip.IdOrdenNavigation.IdTecnicoNavigation.Nombre,
+                    Apellido = ip.IdOrdenNavigation.IdTecnicoNavigation.Apellido
+                })
+
+                // 3. Proyectar a un tipo anónimo para el reporte (Columnas del DGV)
+                .Select(g => new
+                {
+                    Tecnico = g.Key.Nombre + " " + g.Key.Apellido, // Columna con Nombre y Apellido
+                    ItemsCompletados = g.Count(), // Métrica: Cantidad de ítems en el grupo
+                    TotalRecaudado = g.Sum(ip => ip.Precio) // Métrica Opcional: Suma de los precios
+                })
+
+                // 4. Ordenar por la cantidad de ítems completados (productividad) de forma descendente.
+                .OrderByDescending(r => r.ItemsCompletados)
+
+                // 5. Devolver como lista de objetos.
+                .ToList();
+
+            return productividadPorTecnico.Cast<object>().ToList();
+        }
+
+        public List<object> ObtenerTiposEquipoMasReparados(DateTime desde, DateTime hasta)
+        {
+            var equiposReparados = _db.Presupuestos
+                // 1. Filtrar por estado de reparación finalizada (IdEstado == 4).
+                .Where(p => p.IdEstado == 4)
+                // 2. Filtrar por el rango de fechas de actualización (FechaActualizacion).
+                .Where(p => p.FechaActualizacion >= desde && p.FechaActualizacion <= hasta)
+
+                // 3. Agrupar por el Nombre del Tipo de Equipo.
+                // Navegación: Presupuesto -> Equipo -> TipoEquipo -> Nombre.
+                .GroupBy(p => p.IdEquipoNavigation.IdTipoNavigation.Nombre)
+
+                // 4. Proyectar a un tipo anónimo para el reporte (Columnas del DGV).
+                .Select(g => new
+                {
+                    // Columna principal: El nombre del tipo de equipo
+                    TipoEquipo = g.Key,
+
+                    // Métrica clave: La cantidad de presupuestos en estado 4 (reparado)
+                    VecesReparado = g.Count()
+                })
+
+                // 5. Ordenar por la métrica clave de forma descendente.
+                .OrderByDescending(r => r.VecesReparado)
+
+                // 6. Ejecutar la consulta y convertir a lista de objetos.
+                .ToList();
+
+            return equiposReparados.Cast<object>().ToList();
+        }
     }
 }

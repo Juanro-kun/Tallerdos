@@ -41,6 +41,7 @@
             lTecnicoMasProductivo = new Label();
             label6 = new Label();
             roundedPanel7 = new Taller_2_Gestor.Features.Shared.Controls.RoundedPanel();
+            lTipoEquipoMasReparado = new Label();
             label8 = new Label();
             flowLayoutPanel2 = new FlowLayoutPanel();
             roundedPanel2 = new Taller_2_Gestor.Features.Shared.Controls.RoundedPanel();
@@ -49,7 +50,12 @@
             roundedPanel3 = new Taller_2_Gestor.Features.Shared.Controls.RoundedPanel();
             label4 = new Label();
             dtpHasta = new DateTimePicker();
-            lTipoEquipoMasReparado = new Label();
+            flowLayoutPanel3 = new FlowLayoutPanel();
+            bServicioMasContratado = new Taller_2_Gestor.Features.Shared.Controls.RoundedButton();
+            bTecnicoMasProductivo = new Taller_2_Gestor.Features.Shared.Controls.RoundedButton();
+            bTipoEquipoMasReparado = new Taller_2_Gestor.Features.Shared.Controls.RoundedButton();
+            roundedPanel6 = new Taller_2_Gestor.Features.Shared.Controls.RoundedPanel();
+            dgvInformes = new DataGridView();
             tableLayoutPanel1.SuspendLayout();
             flowLayoutPanel1.SuspendLayout();
             roundedPanel1.SuspendLayout();
@@ -59,6 +65,9 @@
             flowLayoutPanel2.SuspendLayout();
             roundedPanel2.SuspendLayout();
             roundedPanel3.SuspendLayout();
+            flowLayoutPanel3.SuspendLayout();
+            roundedPanel6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvInformes).BeginInit();
             SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -68,13 +77,15 @@
             tableLayoutPanel1.Controls.Add(label1, 0, 0);
             tableLayoutPanel1.Controls.Add(flowLayoutPanel1, 0, 2);
             tableLayoutPanel1.Controls.Add(flowLayoutPanel2, 0, 1);
+            tableLayoutPanel1.Controls.Add(flowLayoutPanel3, 0, 3);
             tableLayoutPanel1.Dock = DockStyle.Fill;
             tableLayoutPanel1.Location = new Point(0, 0);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
-            tableLayoutPanel1.RowCount = 3;
+            tableLayoutPanel1.RowCount = 4;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 56F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 613F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 150F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 453F));
             tableLayoutPanel1.Size = new Size(1154, 716);
             tableLayoutPanel1.TabIndex = 0;
             // 
@@ -95,10 +106,10 @@
             flowLayoutPanel1.Controls.Add(roundedPanel5);
             flowLayoutPanel1.Controls.Add(roundedPanel7);
             flowLayoutPanel1.Dock = DockStyle.Fill;
-            flowLayoutPanel1.Location = new Point(3, 106);
+            flowLayoutPanel1.Location = new Point(3, 116);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
             flowLayoutPanel1.RightToLeft = RightToLeft.No;
-            flowLayoutPanel1.Size = new Size(1148, 607);
+            flowLayoutPanel1.Size = new Size(1148, 144);
             flowLayoutPanel1.TabIndex = 2;
             // 
             // roundedPanel1
@@ -200,6 +211,15 @@
             roundedPanel7.Size = new Size(273, 116);
             roundedPanel7.TabIndex = 5;
             // 
+            // lTipoEquipoMasReparado
+            // 
+            lTipoEquipoMasReparado.AutoSize = true;
+            lTipoEquipoMasReparado.Location = new Point(7, 53);
+            lTipoEquipoMasReparado.Name = "lTipoEquipoMasReparado";
+            lTipoEquipoMasReparado.Size = new Size(59, 25);
+            lTipoEquipoMasReparado.TabIndex = 5;
+            lTipoEquipoMasReparado.Text = "label9";
+            // 
             // label8
             // 
             label8.AutoSize = true;
@@ -216,7 +236,7 @@
             flowLayoutPanel2.Dock = DockStyle.Fill;
             flowLayoutPanel2.Location = new Point(3, 59);
             flowLayoutPanel2.Name = "flowLayoutPanel2";
-            flowLayoutPanel2.Size = new Size(1148, 41);
+            flowLayoutPanel2.Size = new Size(1148, 51);
             flowLayoutPanel2.TabIndex = 3;
             // 
             // roundedPanel2
@@ -246,6 +266,7 @@
             dtpDesde.Name = "dtpDesde";
             dtpDesde.Size = new Size(169, 31);
             dtpDesde.TabIndex = 3;
+            dtpDesde.ValueChanged += dtpDesde_ValueChanged;
             // 
             // roundedPanel3
             // 
@@ -274,15 +295,85 @@
             dtpHasta.Name = "dtpHasta";
             dtpHasta.Size = new Size(166, 31);
             dtpHasta.TabIndex = 3;
+            dtpHasta.ValueChanged += dtpHasta_ValueChanged;
             // 
-            // lTipoEquipoMasReparado
+            // flowLayoutPanel3
             // 
-            lTipoEquipoMasReparado.AutoSize = true;
-            lTipoEquipoMasReparado.Location = new Point(7, 53);
-            lTipoEquipoMasReparado.Name = "lTipoEquipoMasReparado";
-            lTipoEquipoMasReparado.Size = new Size(59, 25);
-            lTipoEquipoMasReparado.TabIndex = 5;
-            lTipoEquipoMasReparado.Text = "label9";
+            flowLayoutPanel3.Controls.Add(bServicioMasContratado);
+            flowLayoutPanel3.Controls.Add(bTecnicoMasProductivo);
+            flowLayoutPanel3.Controls.Add(bTipoEquipoMasReparado);
+            flowLayoutPanel3.Controls.Add(roundedPanel6);
+            flowLayoutPanel3.Dock = DockStyle.Fill;
+            flowLayoutPanel3.Location = new Point(3, 266);
+            flowLayoutPanel3.Name = "flowLayoutPanel3";
+            flowLayoutPanel3.Size = new Size(1148, 447);
+            flowLayoutPanel3.TabIndex = 4;
+            // 
+            // bServicioMasContratado
+            // 
+            bServicioMasContratado.BackColor = Color.FromArgb(40, 40, 40);
+            bServicioMasContratado.FlatAppearance.BorderSize = 0;
+            bServicioMasContratado.FlatStyle = FlatStyle.Flat;
+            bServicioMasContratado.ForeColor = Color.Gainsboro;
+            bServicioMasContratado.Location = new Point(15, 3);
+            bServicioMasContratado.Margin = new Padding(15, 3, 3, 3);
+            bServicioMasContratado.Name = "bServicioMasContratado";
+            bServicioMasContratado.Size = new Size(208, 34);
+            bServicioMasContratado.TabIndex = 0;
+            bServicioMasContratado.Text = "Servicio mas contratado";
+            bServicioMasContratado.UseVisualStyleBackColor = false;
+            bServicioMasContratado.Click += bServicioMasContratado_Click;
+            // 
+            // bTecnicoMasProductivo
+            // 
+            bTecnicoMasProductivo.BackColor = Color.FromArgb(40, 40, 40);
+            bTecnicoMasProductivo.FlatAppearance.BorderSize = 0;
+            bTecnicoMasProductivo.FlatStyle = FlatStyle.Flat;
+            bTecnicoMasProductivo.ForeColor = Color.Gainsboro;
+            bTecnicoMasProductivo.Location = new Point(229, 3);
+            bTecnicoMasProductivo.Name = "bTecnicoMasProductivo";
+            bTecnicoMasProductivo.Size = new Size(226, 34);
+            bTecnicoMasProductivo.TabIndex = 1;
+            bTecnicoMasProductivo.Text = "Tecnico mas productivo";
+            bTecnicoMasProductivo.UseVisualStyleBackColor = false;
+            bTecnicoMasProductivo.Click += bTecnicoMasProductivo_Click;
+            // 
+            // bTipoEquipoMasReparado
+            // 
+            bTipoEquipoMasReparado.BackColor = Color.FromArgb(40, 40, 40);
+            bTipoEquipoMasReparado.FlatAppearance.BorderSize = 0;
+            bTipoEquipoMasReparado.FlatStyle = FlatStyle.Flat;
+            bTipoEquipoMasReparado.ForeColor = Color.Gainsboro;
+            bTipoEquipoMasReparado.Location = new Point(461, 3);
+            bTipoEquipoMasReparado.Name = "bTipoEquipoMasReparado";
+            bTipoEquipoMasReparado.Size = new Size(262, 34);
+            bTipoEquipoMasReparado.TabIndex = 2;
+            bTipoEquipoMasReparado.Text = "Tipo de equipo mas reparado";
+            bTipoEquipoMasReparado.UseVisualStyleBackColor = false;
+            bTipoEquipoMasReparado.Click += bTipoEquipoMasReparado_Click;
+            // 
+            // roundedPanel6
+            // 
+            roundedPanel6.BackColor = Color.White;
+            roundedPanel6.Controls.Add(dgvInformes);
+            roundedPanel6.Location = new Point(15, 43);
+            roundedPanel6.Margin = new Padding(15, 3, 3, 3);
+            roundedPanel6.Name = "roundedPanel6";
+            roundedPanel6.Size = new Size(1103, 386);
+            roundedPanel6.TabIndex = 3;
+            // 
+            // dgvInformes
+            // 
+            dgvInformes.AllowUserToAddRows = false;
+            dgvInformes.AllowUserToDeleteRows = false;
+            dgvInformes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvInformes.Dock = DockStyle.Fill;
+            dgvInformes.Location = new Point(0, 0);
+            dgvInformes.Name = "dgvInformes";
+            dgvInformes.ReadOnly = true;
+            dgvInformes.RowHeadersWidth = 62;
+            dgvInformes.Size = new Size(1103, 386);
+            dgvInformes.TabIndex = 0;
             // 
             // InformesView
             // 
@@ -308,6 +399,9 @@
             roundedPanel2.PerformLayout();
             roundedPanel3.ResumeLayout(false);
             roundedPanel3.PerformLayout();
+            flowLayoutPanel3.ResumeLayout(false);
+            roundedPanel6.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dgvInformes).EndInit();
             ResumeLayout(false);
         }
 
@@ -335,5 +429,11 @@
         private Label lServicioMasContratado;
         private Label lTecnicoMasProductivo;
         private Label lTipoEquipoMasReparado;
+        private FlowLayoutPanel flowLayoutPanel3;
+        private Shared.Controls.RoundedButton bServicioMasContratado;
+        private Shared.Controls.RoundedButton bTecnicoMasProductivo;
+        private Shared.Controls.RoundedButton bTipoEquipoMasReparado;
+        private Shared.Controls.RoundedPanel roundedPanel6;
+        private DataGridView dgvInformes;
     }
 }
