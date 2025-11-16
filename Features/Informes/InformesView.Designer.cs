@@ -1,4 +1,5 @@
-﻿namespace Taller_2_Gestor.Features.Informes
+﻿using System.Windows.Forms.DataVisualization.Charting;
+namespace Taller_2_Gestor.Features.Informes
 {
     partial class InformesView
     {
@@ -54,8 +55,17 @@
             bServicioMasContratado = new Taller_2_Gestor.Features.Shared.Controls.RoundedButton();
             bTecnicoMasProductivo = new Taller_2_Gestor.Features.Shared.Controls.RoundedButton();
             bTipoEquipoMasReparado = new Taller_2_Gestor.Features.Shared.Controls.RoundedButton();
+            bAlternarVista = new Taller_2_Gestor.Features.Shared.Controls.RoundedButton();
             roundedPanel6 = new Taller_2_Gestor.Features.Shared.Controls.RoundedPanel();
+            tlpTotales = new TableLayoutPanel();
+            tableLayoutPanel3 = new TableLayoutPanel();
+            lTotalesID = new Label();
+            lTotalesII = new Label();
+            tableLayoutPanel2 = new TableLayoutPanel();
+            lTotalesMD = new Label();
+            lTotalesMI = new Label();
             dgvInformes = new DataGridView();
+            chartReportes = new ScottPlot.WinForms.FormsPlot();
             tableLayoutPanel1.SuspendLayout();
             flowLayoutPanel1.SuspendLayout();
             roundedPanel1.SuspendLayout();
@@ -67,6 +77,9 @@
             roundedPanel3.SuspendLayout();
             flowLayoutPanel3.SuspendLayout();
             roundedPanel6.SuspendLayout();
+            tlpTotales.SuspendLayout();
+            tableLayoutPanel3.SuspendLayout();
+            tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvInformes).BeginInit();
             SuspendLayout();
             // 
@@ -302,6 +315,7 @@
             flowLayoutPanel3.Controls.Add(bServicioMasContratado);
             flowLayoutPanel3.Controls.Add(bTecnicoMasProductivo);
             flowLayoutPanel3.Controls.Add(bTipoEquipoMasReparado);
+            flowLayoutPanel3.Controls.Add(bAlternarVista);
             flowLayoutPanel3.Controls.Add(roundedPanel6);
             flowLayoutPanel3.Dock = DockStyle.Fill;
             flowLayoutPanel3.Location = new Point(3, 266);
@@ -352,15 +366,120 @@
             bTipoEquipoMasReparado.UseVisualStyleBackColor = false;
             bTipoEquipoMasReparado.Click += bTipoEquipoMasReparado_Click;
             // 
+            // bAlternarVista
+            // 
+            bAlternarVista.BackColor = Color.FromArgb(40, 40, 40);
+            bAlternarVista.FlatAppearance.BorderSize = 0;
+            bAlternarVista.FlatStyle = FlatStyle.Flat;
+            bAlternarVista.ForeColor = Color.Gainsboro;
+            bAlternarVista.Location = new Point(741, 3);
+            bAlternarVista.Margin = new Padding(15, 3, 3, 3);
+            bAlternarVista.Name = "bAlternarVista";
+            bAlternarVista.Size = new Size(208, 34);
+            bAlternarVista.TabIndex = 4;
+            bAlternarVista.Text = "Mostrar grafico";
+            bAlternarVista.UseVisualStyleBackColor = false;
+            bAlternarVista.Click += bAlternarVista_Click;
+            // 
             // roundedPanel6
             // 
             roundedPanel6.BackColor = Color.White;
+            roundedPanel6.Controls.Add(tlpTotales);
             roundedPanel6.Controls.Add(dgvInformes);
+            roundedPanel6.Controls.Add(chartReportes);
             roundedPanel6.Location = new Point(15, 43);
             roundedPanel6.Margin = new Padding(15, 3, 3, 3);
             roundedPanel6.Name = "roundedPanel6";
             roundedPanel6.Size = new Size(1103, 386);
             roundedPanel6.TabIndex = 3;
+            // 
+            // tlpTotales
+            // 
+            tlpTotales.ColumnCount = 3;
+            tlpTotales.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50.8310242F));
+            tlpTotales.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 49.1689758F));
+            tlpTotales.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 380F));
+            tlpTotales.Controls.Add(tableLayoutPanel3, 2, 0);
+            tlpTotales.Controls.Add(tableLayoutPanel2, 1, 0);
+            tlpTotales.Dock = DockStyle.Bottom;
+            tlpTotales.Location = new Point(0, 345);
+            tlpTotales.Name = "tlpTotales";
+            tlpTotales.RowCount = 1;
+            tlpTotales.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tlpTotales.Size = new Size(1103, 41);
+            tlpTotales.TabIndex = 1;
+            // 
+            // tableLayoutPanel3
+            // 
+            tableLayoutPanel3.ColumnCount = 2;
+            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel3.Controls.Add(lTotalesID, 1, 0);
+            tableLayoutPanel3.Controls.Add(lTotalesII, 0, 0);
+            tableLayoutPanel3.Dock = DockStyle.Fill;
+            tableLayoutPanel3.Location = new Point(725, 3);
+            tableLayoutPanel3.Name = "tableLayoutPanel3";
+            tableLayoutPanel3.RowCount = 1;
+            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tableLayoutPanel3.Size = new Size(375, 35);
+            tableLayoutPanel3.TabIndex = 5;
+            // 
+            // lTotalesID
+            // 
+            lTotalesID.Anchor = AnchorStyles.Right;
+            lTotalesID.AutoSize = true;
+            lTotalesID.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            lTotalesID.Location = new Point(372, 5);
+            lTotalesID.Name = "lTotalesID";
+            lTotalesID.Size = new Size(0, 25);
+            lTotalesID.TabIndex = 1;
+            // 
+            // lTotalesII
+            // 
+            lTotalesII.Anchor = AnchorStyles.Left;
+            lTotalesII.AutoSize = true;
+            lTotalesII.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            lTotalesII.Location = new Point(3, 5);
+            lTotalesII.Name = "lTotalesII";
+            lTotalesII.Size = new Size(0, 25);
+            lTotalesII.TabIndex = 0;
+            lTotalesII.Click += lTotalesII_Click;
+            // 
+            // tableLayoutPanel2
+            // 
+            tableLayoutPanel2.ColumnCount = 2;
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 66.47565F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.5243568F));
+            tableLayoutPanel2.Controls.Add(lTotalesMD, 1, 0);
+            tableLayoutPanel2.Controls.Add(lTotalesMI, 0, 0);
+            tableLayoutPanel2.Dock = DockStyle.Fill;
+            tableLayoutPanel2.Location = new Point(370, 3);
+            tableLayoutPanel2.Name = "tableLayoutPanel2";
+            tableLayoutPanel2.RowCount = 1;
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tableLayoutPanel2.Size = new Size(349, 35);
+            tableLayoutPanel2.TabIndex = 4;
+            // 
+            // lTotalesMD
+            // 
+            lTotalesMD.Anchor = AnchorStyles.Right;
+            lTotalesMD.AutoSize = true;
+            lTotalesMD.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            lTotalesMD.Location = new Point(346, 5);
+            lTotalesMD.Name = "lTotalesMD";
+            lTotalesMD.Size = new Size(0, 25);
+            lTotalesMD.TabIndex = 1;
+            // 
+            // lTotalesMI
+            // 
+            lTotalesMI.Anchor = AnchorStyles.Left;
+            lTotalesMI.AutoSize = true;
+            lTotalesMI.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lTotalesMI.Location = new Point(3, 5);
+            lTotalesMI.Name = "lTotalesMI";
+            lTotalesMI.Size = new Size(0, 25);
+            lTotalesMI.TabIndex = 0;
+            lTotalesMI.Click += label7_Click;
             // 
             // dgvInformes
             // 
@@ -374,6 +493,16 @@
             dgvInformes.RowHeadersWidth = 62;
             dgvInformes.Size = new Size(1103, 386);
             dgvInformes.TabIndex = 0;
+            // 
+            // chartReportes
+            // 
+            chartReportes.DisplayScale = 1.5F;
+            chartReportes.Dock = DockStyle.Fill;
+            chartReportes.Enabled = false;
+            chartReportes.Location = new Point(0, 0);
+            chartReportes.Name = "chartReportes";
+            chartReportes.Size = new Size(1103, 386);
+            chartReportes.TabIndex = 5;
             // 
             // InformesView
             // 
@@ -401,6 +530,11 @@
             roundedPanel3.PerformLayout();
             flowLayoutPanel3.ResumeLayout(false);
             roundedPanel6.ResumeLayout(false);
+            tlpTotales.ResumeLayout(false);
+            tableLayoutPanel3.ResumeLayout(false);
+            tableLayoutPanel3.PerformLayout();
+            tableLayoutPanel2.ResumeLayout(false);
+            tableLayoutPanel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgvInformes).EndInit();
             ResumeLayout(false);
         }
@@ -435,5 +569,15 @@
         private Shared.Controls.RoundedButton bTipoEquipoMasReparado;
         private Shared.Controls.RoundedPanel roundedPanel6;
         private DataGridView dgvInformes;
+        private TableLayoutPanel tlpTotales;
+        private Label lTotalesMI;
+        private TableLayoutPanel tableLayoutPanel2;
+        private TableLayoutPanel tableLayoutPanel3;
+        private Label lTotalesID;
+        private Label lTotalesII;
+        private Label lTotalesMD;
+
+        private Shared.Controls.RoundedButton bAlternarVista;
+        private ScottPlot.WinForms.FormsPlot chartReportes;
     }
 }

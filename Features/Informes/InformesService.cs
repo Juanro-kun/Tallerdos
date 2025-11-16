@@ -5,6 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Taller_2_Gestor.Infra;
+using LiveChartsCore.SkiaSharpView;
+using LiveChartsCore.SkiaSharpView.Painting;
+using LiveChartsCore.Defaults;
+using SkiaSharp;
 
 namespace Taller_2_Gestor.Features.Informes
 {
